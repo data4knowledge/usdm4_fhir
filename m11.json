@@ -1,0 +1,125 @@
+{
+  "resourceType": "Group",
+  "meta": {
+    "versionId": "3",
+    "lastUpdated": "2024-02-12T12:47:45.026Z",
+    "profile": [
+      "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-eligibility-criteria"
+    ]
+  },
+  "title": "M11 sample",
+  "status": "active",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-author",
+      "valueContactDetail": {
+        "name": "Brian S. Alper"
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-relatedArtifact",
+      "valueRelatedArtifact": {
+        "type": "cite-as",
+        "citation": "M11 sample [Database Entry: FHIR Group Resource]. Contributors: Brian S. Alper [Authors/Creators]. In: Fast Evidence Interoperability Resources (FEvIR) Platform, FOI 202051. Revised 2024-02-12. Available at: https://fevir.net/resources/Group/202051. Computable resource at: https://fevir.net/resources/Group/202051."
+      }
+    }
+  ],
+  "url": "https://fevir.net/resources/Group/202051",
+  "id": "202051",
+  "identifier": [
+    {
+      "type": {
+        "text": "FEvIR Object Identifier"
+      },
+      "system": "https://fevir.net",
+      "value": "202051",
+      "assigner": {
+        "display": "Computable Publishing LLC"
+      }
+    }
+  ],
+  "publisher": "Computable Publishing LLC",
+  "copyright": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "email",
+          "value": "support@computablepublishing.com"
+        }
+      ]
+    }
+  ],
+  "description": "adult participants ≥18 to ≤80 years old at time of screening with acute lung injury ",
+  "type": "person",
+  "membership": "definitional",
+  "combinationMethod": "all-of",
+  "characteristic": [
+    {
+      "description": "adult participants ≥18 to ≤80 years old at time of screening with ",
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "397669002",
+            "display": "Age"
+          }
+        ]
+      },
+      "valueRange": {
+        "low": {
+          "value": 18,
+          "unit": "years",
+          "system": "http://unitsofmeasure.org",
+          "code": "a"
+        },
+        "high": {
+          "value": 80,
+          "unit": "years",
+          "system": "http://unitsofmeasure.org",
+          "code": "a"
+        }
+      },
+      "exclude": false,
+      "timing": [
+        {
+          "contextCode": {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "450332002",
+                "display": "Assessment of eligibility for clinical trial (procedure)"
+              }
+            ],
+            "text": "screening"
+          },
+          "offsetDuration": {
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "description": "acute lung injury",
+      "code": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "64572001",
+            "display": "Disease (disorder)"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "315345002",
+            "display": "Acute lung injury (disorder)"
+          }
+        ]
+      },
+      "exclude": false
+    }
+  ]
+}

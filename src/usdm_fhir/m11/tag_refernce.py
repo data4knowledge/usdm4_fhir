@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from usdm3.data_store.data_store import DataStore
 from src.usdm_fhir.errors.errors import Errors, Location
 
-class ReferenceResolver:
+class TagReference:
     MODULE = "src.usdm_fhir.m11.reference_resoolver.ReferenceResolver"
 
     def __init__(self, data_store: DataStore):
@@ -73,98 +73,6 @@ class ReferenceResolver:
 
     def _replace_and_highlight(self, ref, text):
         ref.replace_with(text)
-
-    # # USDM4
-    # def _get_dictionary(self, instance):
-    #     try:
-    #         return self._cross_ref.get(
-    #             "SyntaxTemplateDictionary", instance.dictionaryId
-    #         )
-    #     except:
-    #         return None
-
-    # # def _add_section_heading(self, content: NarrativeContent, div) -> str:
-    # #     DIV_OPEN_NS = '<div xmlns="http://www.w3.org/1999/xhtml">'
-    # #     text = str(div)
-    # #     text = text.replace(
-    # #         DIV_OPEN_NS,
-    # #         f"{DIV_OPEN_NS}<p>{content.sectionNumber} {content.sectionTitle}</p>",
-    # #     )
-    # #     return text
-
-    # def _remove_line_feeds(self, div: str) -> str:
-    #     text = div.replace("\n", "")
-    #     return text
-
-    # # USDM4
-    # def _get_official_title(self) -> USDMStudyTitle:
-    #     title = self._get_title("Official Study Title")
-    #     return title.text if title else ""
-
-    # # USDM4
-    # def _get_title(self, title_type) -> USDMStudyTitle:
-    #     for title in self.study_version.titles:
-    #         if title.type.decode == title_type:
-    #             return title
-    #     return None
-
-
-    # def _composition_section_no_text(self, section):
-    #     return section.text is None
-
-    # # Factory
-    # def _composition_section(self, title, code, narrative):
-    #     # print(f"NARRATIVE: {narrative.div[0:50]}")
-    #     narrative.div = self._clean_tags(narrative.div)
-    #     if narrative.div == self.EMPTY_DIV:
-    #         # print("EMPTY")
-    #         return CompositionSection(title=f"{title}", code=code, section=[])
-    #     else:
-    #         return CompositionSection(
-    #             title=f"{title}", code=code, text=narrative, section=[]
-    #         )
-
-    # def _clean_tags(self, content):
-    #     # print(f"Cleaning")
-    #     before = content
-    #     soup = get_soup(content, self._errors_and_logging)
-    #     # 'ol' tag with 'type' attribute
-    #     for ref in soup("ol"):
-    #         try:
-    #             attributes = ref.attrs
-    #             if "type" in attributes:
-    #                 ref.attrs = {}
-    #         except Exception as e:
-    #             self._errors_and_logging.exception(
-    #                 "Exception raised cleaning 'ol' tags", e
-    #             )
-    #     # Styles
-    #     for ref in soup("style"):
-    #         try:
-    #             ref.extract()
-    #         except Exception as e:
-    #             self._errors_and_logging.exception(
-    #                 "Exception raised cleaning 'script' tags", e
-    #             )
-    #     # Images
-    #     # for ref in soup('img'):
-    #     #   try:
-    #     #     ref.extract()
-    #     #   except Exception as e:
-    #     #     self._errors_and_logging.exception(f"Exception raised cleaning 'img' tags", e)
-    #     # Empty 'p' tags
-    #     for ref in soup("p"):
-    #         try:
-    #             if len(ref.get_text(strip=True)) == 0:
-    #                 ref.extract()
-    #         except Exception as e:
-    #             self._errors_and_logging.exception(
-    #                 "Exception raised cleaning empty 'p' tags", e
-    #             )
-    #     after = str(soup)
-    #     # if before != after:
-    #     #   print(f"Cleaning modified")
-    #     return after
 
 
     def _get_soup(self, text: str):

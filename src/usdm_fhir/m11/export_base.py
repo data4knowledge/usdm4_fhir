@@ -3,7 +3,9 @@ from usdm4.api.study import Study
 from usdm4.api.narrative_content import NarrativeContent
 from usdm4.api.study_title import StudyTitle as USDMStudyTitle
 from usdm3.data_store.data_store import DataStore
+from usdm4.api.study_version import StudyVersion
 
+from src.usdm_fhir.m11.tag_refernce import TagReference
 
 from fhir.resources.composition import CompositionSection
 from fhir.resources.narrative import Narrative
@@ -23,15 +25,16 @@ class ExportBase:
         self._title_page = extra["title_page"]
         self._miscellaneous = extra["miscellaneous"]
         self._amendment = extra["amendment"]
-        self._errors_and_logging = ErrorsAndLogging()
-        self._cross_ref = CrossReference(study, self._errors_and_logging)
-        self.study_version = study.versions[0]
-        # print(f"KLASS: {type(self.study_version)}")
+        #self._errors_and_logging = ErrorsAndLogging()
+        #self._cross_ref = CrossReference(study, self._errors_and_logging)
+        self.study_version: StudyVersion = study.first_version()
+        self._nci_map = self.study_version.narrative_content_item_map()
         self.study_design = self.study_version.studyDesigns[0]
-        # print(f"KLASS: {type(self.study_design)}")
         self.protocol_document_version = self.study.documentedBy[0].versions[0]
         self.doc_title = self._get_official_title()
-
+        data_store = DataStore()
+        self.tag_ref = TagReference(data_store)
+        
     def _content_to_section(self, content: NarrativeContent) -> CompositionSection:
         content_text = self._section_item(content)
         div = self._translate_references(content_text)
@@ -61,14 +64,8 @@ class ExportBase:
 
     # USDM4
     def _section_item(self, content: NarrativeContent) -> str:
-        return next(
-            (
-                x.text
-                for x in self.study_version.narrativeContentItems
-                if x.id == content.contentItemId
-            ),
-            "",
-        )
+        nci = self._nci_map[content.contentItemId]
+        return nci.text if nci else ""
 
     def _format_section_title(self, title: str) -> str:
         return title.lower().strip().replace(" ", "-")
@@ -76,70 +73,70 @@ class ExportBase:
     def _clean_section_number(self, section_number: str) -> str:
         return section_number[:-1] if section_number.endswith(".") else section_number
 
-    def _translate_references(self, content_text: str):
-        soup = get_soup(content_text, self._errors_and_logging)
-        for ref in soup(["usdm:ref"]):
-            try:
-                attributes = ref.attrs
-                instance = self._cross_ref.get(attributes["klass"], attributes["id"])
-                value = self._resolve_instance(instance, attributes["attribute"])
-                translated_text = self._translate_references(value)
-                self._replace_and_highlight(ref, translated_text)
-            except Exception as e:
-                self._errors_and_logging.exception(
-                    f"Exception raised while attempting to translate reference '{attributes}' while generating the FHIR message, see the logs for more info",
-                    e,
-                )
-                self._replace_and_highlight(ref, "Missing content: exception")
-        self._errors_and_logging.debug(
-            f"Translate references from {content_text} => {get_soup(str(soup), self._errors_and_logging)}"
-        )
-        return get_soup(str(soup), self._errors_and_logging)
+    # def _translate_references(self, content_text: str):
+    #     soup = get_soup(content_text, self._errors_and_logging)
+    #     for ref in soup(["usdm:ref"]):
+    #         try:
+    #             attributes = ref.attrs
+    #             instance = self._cross_ref.get(attributes["klass"], attributes["id"])
+    #             value = self._resolve_instance(instance, attributes["attribute"])
+    #             translated_text = self._translate_references(value)
+    #             self._replace_and_highlight(ref, translated_text)
+    #         except Exception as e:
+    #             self._errors_and_logging.exception(
+    #                 f"Exception raised while attempting to translate reference '{attributes}' while generating the FHIR message, see the logs for more info",
+    #                 e,
+    #             )
+    #             self._replace_and_highlight(ref, "Missing content: exception")
+    #     self._errors_and_logging.debug(
+    #         f"Translate references from {content_text} => {get_soup(str(soup), self._errors_and_logging)}"
+    #     )
+    #     return get_soup(str(soup), self._errors_and_logging)
 
-    def _resolve_instance(self, instance, attribute):
-        dictionary = self._get_dictionary(instance)
-        value = str(getattr(instance, attribute))
-        soup = get_soup(value, self._errors_and_logging)
-        for ref in soup(["usdm:tag"]):
-            try:
-                attributes = ref.attrs
-                if dictionary:
-                    entry = next(
-                        (
-                            item
-                            for item in dictionary.parameterMaps
-                            if item.tag == attributes["name"]
-                        ),
-                        None,
-                    )
-                    if entry:
-                        self._replace_and_highlight(
-                            ref, get_soup(entry.reference, self._errors_and_logging)
-                        )
-                    else:
-                        self._errors_and_logging.error(
-                            f"Missing dictionary entry while attempting to resolve reference '{attributes}' while generating the FHIR message"
-                        )
-                        self._replace_and_highlight(
-                            ref, "Missing content: missing dictionary entry"
-                        )
-                else:
-                    self._errors_and_logging.error(
-                        f"Missing dictionary while attempting to resolve reference '{attributes}' while generating the FHIR message"
-                    )
-                    self._replace_and_highlight(
-                        ref, "Missing content: missing dictionary"
-                    )
-            except Exception as e:
-                self._errors_and_logging.exception(
-                    f"Failed to resolve reference '{attributes} while generating the FHIR message",
-                    e,
-                )
-                self._replace_and_highlight(ref, "Missing content: exception")
-        return str(soup)
+    # def _resolve_instance(self, instance, attribute):
+    #     dictionary = self._get_dictionary(instance)
+    #     value = str(getattr(instance, attribute))
+    #     soup = get_soup(value, self._errors_and_logging)
+    #     for ref in soup(["usdm:tag"]):
+    #         try:
+    #             attributes = ref.attrs
+    #             if dictionary:
+    #                 entry = next(
+    #                     (
+    #                         item
+    #                         for item in dictionary.parameterMaps
+    #                         if item.tag == attributes["name"]
+    #                     ),
+    #                     None,
+    #                 )
+    #                 if entry:
+    #                     self._replace_and_highlight(
+    #                         ref, get_soup(entry.reference, self._errors_and_logging)
+    #                     )
+    #                 else:
+    #                     self._errors_and_logging.error(
+    #                         f"Missing dictionary entry while attempting to resolve reference '{attributes}' while generating the FHIR message"
+    #                     )
+    #                     self._replace_and_highlight(
+    #                         ref, "Missing content: missing dictionary entry"
+    #                     )
+    #             else:
+    #                 self._errors_and_logging.error(
+    #                     f"Missing dictionary while attempting to resolve reference '{attributes}' while generating the FHIR message"
+    #                 )
+    #                 self._replace_and_highlight(
+    #                     ref, "Missing content: missing dictionary"
+    #                 )
+    #         except Exception as e:
+    #             self._errors_and_logging.exception(
+    #                 f"Failed to resolve reference '{attributes} while generating the FHIR message",
+    #                 e,
+    #             )
+    #             self._replace_and_highlight(ref, "Missing content: exception")
+    #     return str(soup)
 
-    def _replace_and_highlight(self, ref, text):
-        ref.replace_with(text)
+    # def _replace_and_highlight(self, ref, text):
+    #     ref.replace_with(text)
 
     # USDM4
     def _get_dictionary(self, instance):
@@ -234,16 +231,16 @@ class ExportBase:
         return after
 
 
-def get_soup(text: str, errors_and_logging: ErrorsAndLogging):
-    try:
-        with warnings.catch_warnings(record=True) as warning_list:
-            result = BeautifulSoup(text, "html.parser")
-        if warning_list:
-            for item in warning_list:
-                errors_and_logging.debug(
-                    f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'"
-                )
-        return result
-    except Exception as e:
-        errors_and_logging.exception(f"Parsing '{text}' with soup", e)
-        return ""
+# def get_soup(text: str, errors_and_logging: ErrorsAndLogging):
+#     try:
+#         with warnings.catch_warnings(record=True) as warning_list:
+#             result = BeautifulSoup(text, "html.parser")
+#         if warning_list:
+#             for item in warning_list:
+#                 errors_and_logging.debug(
+#                     f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'"
+#                 )
+#         return result
+#     except Exception as e:
+#         errors_and_logging.exception(f"Parsing '{text}' with soup", e)
+#         return ""

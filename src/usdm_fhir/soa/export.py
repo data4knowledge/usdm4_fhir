@@ -3,7 +3,6 @@ from usdm4.api.study import Study
 from usdm4.api.study_version import StudyVersion
 from usdm4.api.study_design import StudyDesign
 from usdm4.api.schedule_timeline import ScheduleTimeline
-
 from src.usdm_fhir.factory.identifier_factory import IdentifierFactory
 from src.usdm_fhir.factory.research_study_factory import ResearchStudyFactory
 from src.usdm_fhir.factory.bundle_factory import BundleFactory
@@ -15,17 +14,18 @@ from src.usdm_fhir.factory.timepoint_plan_definition_factory import (
     TimepointPlanDefinitionFactory,
 )
 from src.usdm_fhir.factory.activity_definition_factory import ActivityDefinitionFactory
-from usdm4.api.study import *
-from usdm4.api.study_design import *
+from usdm4.api.study import Study
+from usdm4.api.study_design import StudyDesign
 from src.usdm_fhir.factory.urn_uuid import URNUUID
 from src.usdm_fhir.factory.study_url import StudyUrl
-
+from src.usdm_fhir.errors.errors import Errors, Location
 
 class Export:
     def __init__(self, study: Study, timeline_id: str, uuid: str, extra: dict = {}):
         """
         Initialize the ToFHIRSoA class
         """
+        self._errors = Errors()
         self._study: Study = study
         self._extra: dict = extra
         self._study_version: StudyVersion = study.first_version()
@@ -120,7 +120,6 @@ class Export:
             )
             return bundle.item.json()
         except Exception as e:
-            application_logger.exception(
-                "Error building FHIR SoA message. See logs for further information", e
-            )
+            location = Location("src.usdm_fhir.soa.export.Export", "to_message")
+            self._errors.exception("Exception raised building FHIR SoA message", location, e)
             return ""

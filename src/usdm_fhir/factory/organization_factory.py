@@ -1,6 +1,6 @@
-from app.usdm.fhir.factory.base_factory import BaseFactory
+from src.usdm_fhir.factory.base_factory import BaseFactory
 from fhir.resources.organization import Organization as FHIROrganization
-from usdm_model.organization import Organization as USDMOrganization
+from usdm4.api.organization import Organization as USDMOrganization
 from .address_factory import AddressFactory
 from uuid import uuid4
 

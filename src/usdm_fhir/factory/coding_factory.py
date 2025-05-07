@@ -1,4 +1,4 @@
-from app.usdm.fhir.factory.base_factory import BaseFactory
+from src.usdm_fhir.factory.base_factory import BaseFactory
 from fhir.resources.coding import Coding
 
 

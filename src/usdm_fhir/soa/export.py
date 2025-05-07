@@ -1,28 +1,27 @@
 import datetime
-from d4k_ms_base.logger import application_logger
-from usdm_model.study import Study
-from usdm_model.study_version import StudyVersion
-from usdm_model.study_design import StudyDesign
-from usdm_model.schedule_timeline import ScheduleTimeline
+from usdm4.api.study import Study
+from usdm4.api.study_version import StudyVersion
+from usdm4.api.study_design import StudyDesign
+from usdm4.api.schedule_timeline import ScheduleTimeline
 
-from app.usdm.fhir.factory.identifier_factory import IdentifierFactory
-from app.usdm.fhir.factory.research_study_factory import ResearchStudyFactory
-from app.usdm.fhir.factory.bundle_factory import BundleFactory
-from app.usdm.fhir.factory.bundle_entry_factory import BundleEntryFactory
-from app.usdm.fhir.factory.timeline_plan_definition_factory import (
+from src.usdm_fhir.factory.identifier_factory import IdentifierFactory
+from src.usdm_fhir.factory.research_study_factory import ResearchStudyFactory
+from src.usdm_fhir.factory.bundle_factory import BundleFactory
+from src.usdm_fhir.factory.bundle_entry_factory import BundleEntryFactory
+from src.usdm_fhir.factory.timeline_plan_definition_factory import (
     TimelinePlanDefinitionFactory,
 )
-from app.usdm.fhir.factory.timepoint_plan_definition_factory import (
+from src.usdm_fhir.factory.timepoint_plan_definition_factory import (
     TimepointPlanDefinitionFactory,
 )
-from app.usdm.fhir.factory.activity_definition_factory import ActivityDefinitionFactory
+from src.usdm_fhir.factory.activity_definition_factory import ActivityDefinitionFactory
 from usdm4.api.study import *
 from usdm4.api.study_design import *
-from app.usdm.fhir.factory.urn_uuid import URNUUID
-from app.usdm.fhir.factory.study_url import StudyUrl
+from src.usdm_fhir.factory.urn_uuid import URNUUID
+from src.usdm_fhir.factory.study_url import StudyUrl
 
 
-class ToFHIRSoA:
+class Export:
     def __init__(self, study: Study, timeline_id: str, uuid: str, extra: dict = {}):
         """
         Initialize the ToFHIRSoA class

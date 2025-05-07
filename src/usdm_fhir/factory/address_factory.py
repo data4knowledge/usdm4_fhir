@@ -1,5 +1,5 @@
-from app.usdm.fhir.factory.base_factory import BaseFactory
-from usdm_model.address import Address as USDMAddress
+from src.usdm_fhir.factory.base_factory import BaseFactory
+from usdm4.api.address import Address as USDMAddress
 from fhir.resources.fhirtypes import AddressType
 
 

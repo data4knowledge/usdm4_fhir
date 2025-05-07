@@ -1,4 +1,4 @@
-from usdm_model.code import Code
+from usdm4.api.code import Code
 from d4k_ms_base.logger import application_logger
 
 

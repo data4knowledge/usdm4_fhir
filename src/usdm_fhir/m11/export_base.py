@@ -2,15 +2,15 @@ from uuid import uuid4
 from usdm4.api.study import Study
 from usdm4.api.narrative_content import NarrativeContent
 from usdm4.api.study_title import StudyTitle as USDMStudyTitle
-from usdm_db.cross_reference import CrossReference
-from usdm_db.errors_and_logging.errors_and_logging import ErrorsAndLogging
-from usdm_db.document.utility import get_soup
+from usdm3.data_store.data_store import DataStore
+
+
 from fhir.resources.composition import CompositionSection
 from fhir.resources.narrative import Narrative
 from fhir.resources.codeableconcept import CodeableConcept
 
 
-class ToFHIR:
+class ExportBase:
     EMPTY_DIV = '<div xmlns="http://www.w3.org/1999/xhtml"></div>'
 
     class LogicError(Exception):
@@ -59,6 +59,7 @@ class ToFHIR:
                     section.section.append(child)
             return section
 
+    # USDM4
     def _section_item(self, content: NarrativeContent) -> str:
         return next(
             (
@@ -140,6 +141,7 @@ class ToFHIR:
     def _replace_and_highlight(self, ref, text):
         ref.replace_with(text)
 
+    # USDM4
     def _get_dictionary(self, instance):
         try:
             return self._cross_ref.get(
@@ -161,19 +163,23 @@ class ToFHIR:
         text = div.replace("\n", "")
         return text
 
+    # USDM4
     def _get_official_title(self) -> USDMStudyTitle:
         title = self._get_title("Official Study Title")
         return title.text if title else ""
 
+    # USDM4
     def _get_title(self, title_type) -> USDMStudyTitle:
         for title in self.study_version.titles:
             if title.type.decode == title_type:
                 return title
         return None
 
+
     def _composition_section_no_text(self, section):
         return section.text is None
 
+    # Factory
     def _composition_section(self, title, code, narrative):
         # print(f"NARRATIVE: {narrative.div[0:50]}")
         narrative.div = self._clean_tags(narrative.div)
@@ -226,3 +232,18 @@ class ToFHIR:
         # if before != after:
         #   print(f"Cleaning modified")
         return after
+
+
+def get_soup(text: str, errors_and_logging: ErrorsAndLogging):
+    try:
+        with warnings.catch_warnings(record=True) as warning_list:
+            result = BeautifulSoup(text, "html.parser")
+        if warning_list:
+            for item in warning_list:
+                errors_and_logging.debug(
+                    f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'"
+                )
+        return result
+    except Exception as e:
+        errors_and_logging.exception(f"Parsing '{text}' with soup", e)
+        return ""

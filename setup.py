@@ -4,11 +4,11 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 package_info = {}
-with open("src/usdm4_excel/__version__.py") as fp:
+with open("src/usdm_fhir/__version__.py") as fp:
     exec(fp.read(), package_info)
 
 setuptools.setup(
-    name="usdm4_excel",
+    name="usdm_fhir",
     version=package_info["__package_version__"],
     author="D Iberson-Hurst",
     author_email="",

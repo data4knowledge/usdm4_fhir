@@ -81,7 +81,7 @@ class Export(ExportBase):
         sections = []
         contents = self.protocol_document_version.narrative_content_in_order()
         for content in contents:
-            print(f"CONTENT: {content.id}")
+            #print(f"CONTENT: {content.id}")
             section = self._content_to_section(content)
             if section:
                 sections.append(section)

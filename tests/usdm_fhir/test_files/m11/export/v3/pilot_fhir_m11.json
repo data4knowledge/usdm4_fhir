@@ -5,7 +5,7 @@
     "value": "urn:uuid:11111111-2222-3333-4444-555555555555"
   },
   "type": "document",
-  "timestamp": "2025-05-08T15:42:40.700415+00:00",
+  "timestamp": "2025-05-08T15:46:34.394172+00:00",
   "entry": [
     {
       "fullUrl": "https://www.example.com/Composition/1234B",
@@ -15,7 +15,7 @@
         "type": {
           "text": "EvidenceReport"
         },
-        "date": "2025-05-08T15:42:40.700415+00:00",
+        "date": "2025-05-08T15:46:34.394172+00:00",
         "author": [
           {
             "display": "USDM"
@@ -832,7 +832,7 @@
               ]
             },
             "party": {
-              "reference": "Organization/d13d8792-2003-4bc6-973d-dfeb754b2a5f"
+              "reference": "Organization/cb68a617-ba6b-4956-a199-e0a3a771910f"
             }
           }
         ],
@@ -858,7 +858,7 @@
       "fullUrl": "https://www.example.com/Composition/1234X1",
       "resource": {
         "resourceType": "Group",
-        "id": "9e594e1d-4dac-4930-92f0-f846af35ff6d",
+        "id": "e7c2dc70-78a6-4555-bc55-a9ae6465413f",
         "extension": [
           {
             "url": "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.combinationMethod",

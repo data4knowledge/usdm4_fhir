@@ -10,10 +10,13 @@ class DataStore:
         self._process_node(self._study)
 
     def get(self, klass, id):
-        key = self._key(klass, id)
-        if key in self._references:
-            return self._references[key]
-        else:
+        try:
+            key = self._key(klass, id)
+            if key in self._references:
+                return self._references[key]
+            else:
+                return None
+        except:
             return None
 
     def _process_node(self, node):

@@ -1,7 +1,7 @@
 from usdm4.api.study import Study
 from usdm4.api.narrative_content import NarrativeContent
 from usdm4.api.study_version import StudyVersion
-from usdm3.data_store.data_store import DataStore
+from usdm_fhir.utility.data_store import DataStore
 from usdm_fhir.m11.utility.tag_reference import TagReference
 
 from fhir.resources.composition import CompositionSection
@@ -17,9 +17,9 @@ class ExportBase:
     class LogicError(Exception):
         pass
 
-    def __init__(self, study: Study, data_store: DataStore, extra: dict = {}):
+    def __init__(self, study: Study, extra: dict):
         self.study = study
-        self._data_store = data_store
+        self._data_store = DataStore(study)
         # self._uuid = uuid
         self._extra = extra
         self._title_page = extra["title_page"]
@@ -28,13 +28,13 @@ class ExportBase:
         self.errors = Errors()
         self.study_version: StudyVersion = study.first_version()
         self._nci_map = self.study_version.narrative_content_item_map()
-        print(f"NCI MAP: {self._nci_map}")
+        #print(f"NCI MAP: {self._nci_map}")
         self.study_design = self.study_version.studyDesigns[0]
         self.protocol_document_version = self.study.documentedBy[0].versions[0]
         self.tag_ref = TagReference(self._data_store, self.errors)
 
     def _content_to_section(self, content: NarrativeContent) -> CompositionSection:
-        print(f"CONTENT CONTENT: {content}")
+        #print(f"CONTENT CONTENT: {content}")
         content_text = self._section_item(content)
         div = self.tag_ref.translate(content_text)
         text = str(div)

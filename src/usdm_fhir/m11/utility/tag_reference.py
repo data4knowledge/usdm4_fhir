@@ -15,7 +15,7 @@ class TagReference:
         for ref in soup(["usdm:ref"]):
             try:
                 attributes = ref.attrs
-                instance = self._data_store.instance_by_id(attributes["id"])
+                instance = self._data_store.get(attributes["klass"], attributes["id"])
                 value = self._resolve_instance(instance, attributes["attribute"])
                 translated_text = self.translate(value)
                 self._replace_and_highlight(ref, translated_text)
@@ -77,5 +77,5 @@ class TagReference:
     def _replace_and_highlight(self, ref, text: str) -> None:
         ref.replace_with(text)
 
-    def _get_dictionary(self, instance: dict) -> dict | None:
-        return self._data_store.instance_by_id(instance["dictionaryId"]) if "dictionaryId" in instance else None
+    def _get_dictionary(self, instance) -> dict | None:
+        return self._data_store.get(instance.dictionaryId)

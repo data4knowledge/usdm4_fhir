@@ -1,17 +1,14 @@
-from uuid import uuid4
 from usdm4.api.study import Study
 from usdm4.api.narrative_content import NarrativeContent
-from usdm4.api.study_title import StudyTitle as USDMStudyTitle
-from usdm3.data_store.data_store import DataStore
 from usdm4.api.study_version import StudyVersion
-
+from usdm3.data_store.data_store import DataStore
 from usdm_fhir.m11.tag_reference import TagReference
 
 from fhir.resources.composition import CompositionSection
 from fhir.resources.narrative import Narrative
 from fhir.resources.codeableconcept import CodeableConcept
 from src.usdm_fhir.m11.soup import get_soup
-
+from src.usdm_fhir.errors.errors import Errors, Location
 
 class ExportBase:
     EMPTY_DIV = '<div xmlns="http://www.w3.org/1999/xhtml"></div>'
@@ -26,13 +23,11 @@ class ExportBase:
         self._title_page = extra["title_page"]
         self._miscellaneous = extra["miscellaneous"]
         self._amendment = extra["amendment"]
-        # self._errors_and_logging = ErrorsAndLogging()
-        # self._cross_ref = CrossReference(study, self._errors_and_logging)
+        self.errors = Errors()
         self.study_version: StudyVersion = study.first_version()
         self._nci_map = self.study_version.narrative_content_item_map()
         self.study_design = self.study_version.studyDesigns[0]
         self.protocol_document_version = self.study.documentedBy[0].versions[0]
-        self.doc_title = self.study_version.official_title()
         self.tag_ref = TagReference(self._data_store)
 
     def _content_to_section(self, content: NarrativeContent) -> CompositionSection:

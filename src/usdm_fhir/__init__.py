@@ -2,8 +2,8 @@ import json
 from usdm4 import USDM4
 from usdm4.api.wrapper import Wrapper
 from usdm4.api.study import Study
-from usdm_fhir.soa.export import Export as SoAExport
-from usdm_fhir.m11.export import Export as M11Export
+from usdm_fhir.soa.export.export import Export as SoAExport
+from usdm_fhir.m11.export.export import Export as M11Export
 from usdm3.data_store.data_store import DataStore
 
 

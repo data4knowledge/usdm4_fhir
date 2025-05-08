@@ -1,8 +1,8 @@
 import datetime
 from uuid import uuid4
 from usdm4.api.eligibility_criterion import EligibilityCriterion
-from src.usdm_fhir.m11.export_base import ExportBase
-from src.usdm_fhir.m11.soup import get_soup
+from usdm_fhir.m11.export.export_base import ExportBase
+from usdm_fhir.m11.utility.soup import get_soup
 from src.usdm_fhir.errors.errors import Location
 
 from src.usdm_fhir.factory.base_factory import BaseFactory
@@ -15,7 +15,6 @@ from src.usdm_fhir.factory.bundle_factory import BundleFactory
 from src.usdm_fhir.factory.identifier_factory import IdentifierFactory
 from src.usdm_fhir.factory.extension_factory import ExtensionFactory
 from src.usdm_fhir.factory.group_factory import GroupFactory
-
 
 
 class Export(ExportBase):
@@ -31,7 +30,9 @@ class Export(ExportBase):
 
             # Composition
             composition = self._composition_entry()
-            self._add_bundle_entry(composition, "https://www.example.com/Composition/1234B")
+            self._add_bundle_entry(
+                composition, "https://www.example.com/Composition/1234B"
+            )
 
             # Research Study
             rs = ResearchStudyFactory(self.study)
@@ -43,10 +44,7 @@ class Export(ExportBase):
 
             # Final bundle
             identifier = IdentifierFactory(
-                {
-                    "system": "urn:ietf:rfc:3986", 
-                    "value": f"urn:uuid:{self._uuid}"
-                }
+                {"system": "urn:ietf:rfc:3986", "value": f"urn:uuid:{self._uuid}"}
             )
             bundle = BundleFactory(
                 {
@@ -67,27 +65,28 @@ class Export(ExportBase):
             return None
 
     def _add_bundle_entry(self, factory_item: BaseFactory, url: str):
-            bundle_entry = BundleEntryFactory(
-                {
-                    "item": factory_item.item,
-                    "url": url,
-                }
-            )
-            self._entries.append(bundle_entry.item)
+        bundle_entry = BundleEntryFactory(
+            {
+                "item": factory_item.item,
+                "url": url,
+            }
+        )
+        self._entries.append(bundle_entry.item)
 
     def _composition_entry(self, sections, date):
         sections = self._create_narrative_sections()
         type_code = CodeableConceptFactory({"text": "EvidenceReport"}).item
         author = ReferenceFactory({"display": "USDM"}).item
         return CompositionFactory(
-            { 
+            {
                 "title": self.doc_title,
                 "type": type_code,
                 "section": sections,
                 "date": date,
                 "status": "preliminary",
                 "author": [author],
-            })
+            }
+        )
 
     def _create_narrative_sections(self):
         sections = []
@@ -136,7 +135,7 @@ class Export(ExportBase):
             soup = get_soup(criterion_item.text)
             outer = self._extension_string(
                 "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.characteristic.description",
-                soup.get_text()
+                soup.get_text(),
             )
             exclude = True if criterion.category.code == "C25370" else False
             collection.append(
@@ -147,7 +146,6 @@ class Export(ExportBase):
                     "exclude": exclude,
                 }
             )
-
 
     # def _recruitment(self, research_study: ResearchStudy, group_id):
     #     research_study.recruitment = {"eligibility": {"reference": f"Group/{group_id}"}}
@@ -257,7 +255,6 @@ class Export(ExportBase):
     #     return next(
     #         (x for x in design.estimands if x.variableOfInterestId == endpoint.id), None
     #     )
-
 
     # def _organization_from_organization(self, organization: USDMOrganization):
     #     # print(f"ORG: {organization}")
@@ -385,7 +382,7 @@ class Export(ExportBase):
 
     def _extension_string(self, url: str, value: str):
         return ExtensionFactory({"url": url, "valueString": value}) if value else None
-        #return Extension(url=url, valueString=value) if value else None
+        # return Extension(url=url, valueString=value) if value else None
 
     # def _extension_boolean(self, url: str, value: str):
     #     return Extension(url=url, valueBoolean=value) if value else None
@@ -408,7 +405,7 @@ class Export(ExportBase):
     def _extension_id(self, url: str, value: str):
         value = self.fix_id(value)
         return ExtensionFactory({"url": url, "valueId": value})
-        #return Extension(url=url, valueId=value) if value else None
+        # return Extension(url=url, valueId=value) if value else None
 
     # def _fix_id(self, value: str) -> str:
     #     return value.replace("_", "-")

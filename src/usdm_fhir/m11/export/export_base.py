@@ -2,13 +2,14 @@ from usdm4.api.study import Study
 from usdm4.api.narrative_content import NarrativeContent
 from usdm4.api.study_version import StudyVersion
 from usdm3.data_store.data_store import DataStore
-from usdm_fhir.m11.tag_reference import TagReference
+from usdm_fhir.m11.utility.tag_reference import TagReference
 
 from fhir.resources.composition import CompositionSection
 from fhir.resources.narrative import Narrative
 from fhir.resources.codeableconcept import CodeableConcept
-from src.usdm_fhir.m11.soup import get_soup
+from usdm_fhir.m11.utility.soup import get_soup
 from src.usdm_fhir.errors.errors import Errors, Location
+
 
 class ExportBase:
     EMPTY_DIV = '<div xmlns="http://www.w3.org/1999/xhtml"></div>'

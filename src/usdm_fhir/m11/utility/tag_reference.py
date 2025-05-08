@@ -1,6 +1,6 @@
 from usdm3.data_store.data_store import DataStore
 from src.usdm_fhir.errors.errors import Errors, Location
-from src.usdm_fhir.m11.soup import get_soup
+from usdm_fhir.m11.utility.soup import get_soup
 
 
 class TagReference:

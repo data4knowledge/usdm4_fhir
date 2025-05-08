@@ -1,5 +1,4 @@
 from usdm4.api.code import Code
-from d4k_ms_base.logger import application_logger
 
 
 class CDISCFHIR:
@@ -8,5 +7,4 @@ class CDISCFHIR:
         """Converts a CDISC code for reletive timing to the equivalent FHIR value"""
         map = {"After": "after", "Before": "before", "Fixed Reference": "concurrent"}
         result = map.get(code.decode, "concurrent")
-        application_logger.info(f"CDISC FHIR: {code.decode} -> {result}")
         return result

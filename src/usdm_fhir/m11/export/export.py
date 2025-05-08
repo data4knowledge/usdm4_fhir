@@ -23,7 +23,7 @@ class Export(ExportBase):
     class LogicError(Exception):
         pass
 
-    def export(self) -> None:
+    def to_message(self) -> None:
         try:
             self._entries = []
             date = datetime.datetime.now(tz=datetime.timezone.utc).isoformat()

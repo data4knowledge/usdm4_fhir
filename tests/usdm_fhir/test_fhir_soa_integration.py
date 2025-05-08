@@ -1,7 +1,7 @@
 import pytest
-from tests.files.files import *
-from tests.helpers.helpers import fix_uuid, fix_iso_dates
-from app.usdm.fhir.soa.to_fhir_soa import ToFHIRSoA
+from tests.usdm_fhir.files.files import *
+from tests.usdm_fhir.helpers.helpers import fix_uuid, fix_iso_dates
+from src.usdm_fhir.soa.export.export import Export
 from usdm4 import USDM4
 from usdm4.api.study import *
 from usdm4.api.study_design import *
@@ -9,14 +9,9 @@ from usdm4.api.study_design import *
 SAVE = False
 
 
-@pytest.fixture
-def anyio_backend():
-    return "asyncio"
-
-
-async def _run_test_to(name, save=False):
-    version = "v2"
-    mode = "to"
+def _run_test_to(name, save=False):
+    version = ""
+    mode = "export"
     filename = f"{name}_usdm.json"
     contents = json.loads(read_json(_full_path(filename, version, mode)))
     usdm = USDM4()
@@ -25,7 +20,7 @@ async def _run_test_to(name, save=False):
     extra = read_yaml(_full_path(f"{name}_extra.yaml", version, mode))
     study_version = study.first_version()
     study_design = study_version.studyDesigns[0]
-    result = ToFHIRSoA(
+    result = Export(
         study, study_design.main_timeline().id, "FAKE-UUID", extra
     ).to_message()
     result = fix_iso_dates(result)
@@ -39,9 +34,8 @@ async def _run_test_to(name, save=False):
 
 
 def _full_path(filename, version, mode):
-    return f"tests/test_files/fhir_{version}/{mode}/{filename}"
+    return f"tests/usdm_fhir/test_files/soa/{mode}/{filename}"
 
 
-@pytest.mark.anyio
-async def test_from_fhir_v1_ASP8062():
-    await _run_test_to("pilot", SAVE)
+def test_from_fhir_v1_ASP8062():
+    _run_test_to("pilot", SAVE)

@@ -12,14 +12,14 @@ class USDMFHIR:
         self._usdm = USDM4()
         self._data_store = None
 
-    def to_m11(self, usdm_filepath: str):
+    def to_m11(self, usdm_filepath: str, extra: dict):
         study = self._usdm_study(usdm_filepath)
-        ex = M11Export(study, self._data_store)
+        ex = M11Export(study, self._data_store, extra)
         return ex.to_message
 
-    def to_soa(self, usdm_filepath: str):
+    def to_soa(self, usdm_filepath: str, extra: dict):
         study = self._usdm_study(usdm_filepath)
-        ex = SoAExport(study)
+        ex = SoAExport(study, extra)
         return ex.to_message
 
     def _usdm_study(self, usdm_filepath: str) -> Study:

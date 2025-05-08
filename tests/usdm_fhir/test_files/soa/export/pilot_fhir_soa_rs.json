@@ -1,0 +1,101 @@
+{
+  "resourceType": "ResearchStudy",
+  "identifier": [
+    {
+      "type": {
+        "text": "Clinical Study Sponsor"
+      },
+      "system": "https://example.org/sponsor-identifier",
+      "value": "H2Q-MC-LZZT"
+    },
+    {
+      "type": {
+        "text": "Study Registry"
+      },
+      "system": "https://example.org/sponsor-identifier",
+      "value": "NCT12345678"
+    },
+    {
+      "type": {
+        "text": "Amendment Identifier"
+      },
+      "system": "https://example.org/amendment-identifier",
+      "value": ""
+    }
+  ],
+  "version": "2",
+  "title": "Safety and Efficacy of the Xanomeline Transdermal Therapeutic System (TTS) in Patients with Mild to Moderate Alzheimer's Disease",
+  "label": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://www.cdisc.org",
+            "version": "2024-09-27",
+            "code": "C94108",
+            "display": "Study Acronym"
+          }
+        ]
+      },
+      "value": "LZZT"
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://www.cdisc.org",
+            "version": "2024-09-27",
+            "code": "C99905x1",
+            "display": "Brief Study Title"
+          }
+        ]
+      },
+      "value": "Xanomeline (LY246708)"
+    }
+  ],
+  "date": "2006-06-01",
+  "status": "active",
+  "phase": {
+    "coding": [
+      {
+        "system": "http://www.cdisc.org",
+        "version": "2024-09-27",
+        "code": "C15601",
+        "display": "Phase II Trial"
+      }
+    ],
+    "text": "Phase II Trial"
+  },
+  "associatedParty": [
+    {
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/research-study-party-role",
+            "code": "sponsor",
+            "display": "sponsor"
+          }
+        ]
+      },
+      "party": {
+        "reference": "Organization/FAKE-UUID"
+      }
+    }
+  ],
+  "progressStatus": [
+    {
+      "state": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/research-study-party-role",
+            "code": "sponsor-approved",
+            "display": "sponsor apporval date"
+          }
+        ]
+      },
+      "period": {
+        "start": "2006-06-01"
+      }
+    }
+  ]
+}

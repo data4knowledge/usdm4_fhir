@@ -1,0 +1,446 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "scheduletimeline-4",
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "PLAC"
+          }
+        ]
+      },
+      "value": "Main Timeline"
+    }
+  ],
+  "title": "Main Timeline",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "clinical-protocol"
+      }
+    ]
+  },
+  "status": "active",
+  "purpose": "This is the main timeline for the study design.",
+  "action": [
+    {
+      "id": "scheduledactivityinstance-9",
+      "title": "Screen One",
+      "relatedAction": [
+        {
+          "targetId": "scheduledactivityinstance-11",
+          "relationship": "before",
+          "offsetDuration": {
+            "value": 2,
+            "unit": "w",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/screen1"
+    },
+    {
+      "id": "scheduledactivityinstance-10",
+      "title": "Screen Two",
+      "relatedAction": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/vulcan-schedule/StructureDefinition/AcceptableOffsetRangeSoa",
+              "valueRange": {
+                "low": {
+                  "value": 4,
+                  "unit": "h",
+                  "system": "http://unitsofmeasure.org"
+                },
+                "high": {
+                  "value": 0,
+                  "unit": "h",
+                  "system": "http://unitsofmeasure.org"
+                }
+              }
+            }
+          ],
+          "targetId": "scheduledactivityinstance-11",
+          "relationship": "before",
+          "offsetDuration": {
+            "value": 2,
+            "unit": "d",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/screen2"
+    },
+    {
+      "id": "scheduledactivityinstance-11",
+      "title": "Dose",
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/dose"
+    },
+    {
+      "id": "scheduledactivityinstance-12",
+      "title": "Week 2",
+      "relatedAction": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/vulcan-schedule/StructureDefinition/AcceptableOffsetRangeSoa",
+              "valueRange": {
+                "low": {
+                  "value": 3,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                },
+                "high": {
+                  "value": 3,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                }
+              }
+            }
+          ],
+          "targetId": "scheduledactivityinstance-11",
+          "relationship": "after",
+          "offsetDuration": {
+            "value": 2,
+            "unit": "w",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/wk2"
+    },
+    {
+      "id": "scheduledactivityinstance-13",
+      "title": "Week 4",
+      "relatedAction": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/vulcan-schedule/StructureDefinition/AcceptableOffsetRangeSoa",
+              "valueRange": {
+                "low": {
+                  "value": 3,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                },
+                "high": {
+                  "value": 3,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                }
+              }
+            }
+          ],
+          "targetId": "scheduledactivityinstance-11",
+          "relationship": "after",
+          "offsetDuration": {
+            "value": 4,
+            "unit": "w",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/wk4"
+    },
+    {
+      "id": "scheduledactivityinstance-14",
+      "title": "Week 6",
+      "relatedAction": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/vulcan-schedule/StructureDefinition/AcceptableOffsetRangeSoa",
+              "valueRange": {
+                "low": {
+                  "value": 3,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                },
+                "high": {
+                  "value": 3,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                }
+              }
+            }
+          ],
+          "targetId": "scheduledactivityinstance-11",
+          "relationship": "after",
+          "offsetDuration": {
+            "value": 6,
+            "unit": "w",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/wk6"
+    },
+    {
+      "id": "scheduledactivityinstance-15",
+      "title": "Week 8",
+      "relatedAction": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/vulcan-schedule/StructureDefinition/AcceptableOffsetRangeSoa",
+              "valueRange": {
+                "low": {
+                  "value": 3,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                },
+                "high": {
+                  "value": 3,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                }
+              }
+            }
+          ],
+          "targetId": "scheduledactivityinstance-11",
+          "relationship": "after",
+          "offsetDuration": {
+            "value": 8,
+            "unit": "w",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/wk8"
+    },
+    {
+      "id": "scheduledactivityinstance-16",
+      "title": "Week NPI",
+      "relatedAction": [
+        {
+          "targetId": "scheduledactivityinstance-15",
+          "relationship": "after",
+          "offsetDuration": {
+            "value": 2,
+            "unit": "w",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/wk8n"
+    },
+    {
+      "id": "scheduledactivityinstance-17",
+      "title": "Week 12",
+      "relatedAction": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/vulcan-schedule/StructureDefinition/AcceptableOffsetRangeSoa",
+              "valueRange": {
+                "low": {
+                  "value": 4,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                },
+                "high": {
+                  "value": 4,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                }
+              }
+            }
+          ],
+          "targetId": "scheduledactivityinstance-11",
+          "relationship": "after",
+          "offsetDuration": {
+            "value": 12,
+            "unit": "w",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/wk12"
+    },
+    {
+      "id": "scheduledactivityinstance-18",
+      "title": "Week 12 NPI",
+      "relatedAction": [
+        {
+          "targetId": "scheduledactivityinstance-17",
+          "relationship": "after",
+          "offsetDuration": {
+            "value": 2,
+            "unit": "w",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/wk12n"
+    },
+    {
+      "id": "scheduledactivityinstance-19",
+      "title": "Week 16",
+      "relatedAction": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/vulcan-schedule/StructureDefinition/AcceptableOffsetRangeSoa",
+              "valueRange": {
+                "low": {
+                  "value": 4,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                },
+                "high": {
+                  "value": 4,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                }
+              }
+            }
+          ],
+          "targetId": "scheduledactivityinstance-11",
+          "relationship": "after",
+          "offsetDuration": {
+            "value": 16,
+            "unit": "w",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/wk16"
+    },
+    {
+      "id": "scheduledactivityinstance-20",
+      "title": "Week 16 NPI",
+      "relatedAction": [
+        {
+          "targetId": "scheduledactivityinstance-19",
+          "relationship": "after",
+          "offsetDuration": {
+            "value": 2,
+            "unit": "w",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/wk16n"
+    },
+    {
+      "id": "scheduledactivityinstance-21",
+      "title": "Week 20",
+      "relatedAction": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/vulcan-schedule/StructureDefinition/AcceptableOffsetRangeSoa",
+              "valueRange": {
+                "low": {
+                  "value": 4,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                },
+                "high": {
+                  "value": 4,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                }
+              }
+            }
+          ],
+          "targetId": "scheduledactivityinstance-11",
+          "relationship": "after",
+          "offsetDuration": {
+            "value": 20,
+            "unit": "w",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/wk20"
+    },
+    {
+      "id": "scheduledactivityinstance-22",
+      "title": "Week 20 NPI",
+      "relatedAction": [
+        {
+          "targetId": "scheduledactivityinstance-21",
+          "relationship": "after",
+          "offsetDuration": {
+            "value": 2,
+            "unit": "w",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/wk20n"
+    },
+    {
+      "id": "scheduledactivityinstance-23",
+      "title": "Week 24",
+      "relatedAction": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/vulcan-schedule/StructureDefinition/AcceptableOffsetRangeSoa",
+              "valueRange": {
+                "low": {
+                  "value": 4,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                },
+                "high": {
+                  "value": 4,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                }
+              }
+            }
+          ],
+          "targetId": "scheduledactivityinstance-11",
+          "relationship": "after",
+          "offsetDuration": {
+            "value": 24,
+            "unit": "w",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/wk24"
+    },
+    {
+      "id": "scheduledactivityinstance-24",
+      "title": "Week 26",
+      "relatedAction": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/vulcan-schedule/StructureDefinition/AcceptableOffsetRangeSoa",
+              "valueRange": {
+                "low": {
+                  "value": 3,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                },
+                "high": {
+                  "value": 3,
+                  "unit": "d",
+                  "system": "http://unitsofmeasure.org"
+                }
+              }
+            }
+          ],
+          "targetId": "scheduledactivityinstance-11",
+          "relationship": "after",
+          "offsetDuration": {
+            "value": 26,
+            "unit": "w",
+            "system": "http://unitsofmeasure.org"
+          }
+        }
+      ],
+      "definitionCanonical": "http://d4k.dk/fhir/vulcan-soa/cdisc-pilot-lzzt/PlanDefinition/wk26"
+    }
+  ]
+}

@@ -1,40 +1,22 @@
-import warnings
 import datetime
 from uuid import uuid4
-from fhir.resources.bundle import Bundle, BundleEntry
-from fhir.resources.identifier import Identifier as FHIRIdentifier
-from fhir.resources.composition import Composition
-from fhir.resources.codeableconcept import CodeableConcept
-from fhir.resources.coding import Coding
-from fhir.resources.reference import Reference
-from fhir.resources.researchstudy import ResearchStudy
-from fhir.resources.extension import Extension
-from fhir.resources.researchstudy import ResearchStudyAssociatedParty
-from fhir.resources.researchstudy import ResearchStudyProgressStatus
-from fhir.resources.organization import Organization as FHIROrganization
-from fhir.resources.fhirtypes import ResearchStudyLabelType, AddressType
-from fhir.resources.group import Group
-from usdm4.api.code import Code as USDMCode
-from usdm4.api.endpoint import Endpoint as USDMEndpoint
-from usdm4.api.study_intervention import StudyIntervention as USDMStudyIntervention
-from usdm4.api.governance_date import GovernanceDate as USDMGovernanceDate
-from usdm4.api.organization import Organization as USDMOrganization
-from usdm4.api.address import Address as USDMAddress
-from usdm4.api.study_version import StudyVersion as USDMStudyVersion
-from usdm4.api.study_design import StudyDesign as USDMStudyDesign
 from usdm4.api.eligibility_criterion import EligibilityCriterion
 from src.usdm_fhir.m11.export_base import ExportBase
 from src.usdm_fhir.m11.soup import get_soup
+from src.usdm_fhir.errors.errors import Location
+
 from src.usdm_fhir.factory.base_factory import BaseFactory
 from src.usdm_fhir.factory.research_study_factory import ResearchStudyFactory
-from src.usdm_fhir.factory.coding_factory import CodingFactory
 from src.usdm_fhir.factory.codeable_concept_factory import CodeableConceptFactory
 from src.usdm_fhir.factory.reference_factory import ReferenceFactory
 from src.usdm_fhir.factory.composition_factory import CompositionFactory
 from src.usdm_fhir.factory.bundle_entry_factory import BundleEntryFactory
 from src.usdm_fhir.factory.bundle_factory import BundleFactory
 from src.usdm_fhir.factory.identifier_factory import IdentifierFactory
-from src.usdm_fhir.errors.errors import Location
+from src.usdm_fhir.factory.extension_factory import ExtensionFactory
+from src.usdm_fhir.factory.group_factory import GroupFactory
+
+
 
 class Export(ExportBase):
     MODULE = "src.usdm_fhir.m11.export.Export"
@@ -75,7 +57,7 @@ class Export(ExportBase):
                     "timestamp": date,
                 }
             )
-            return bundle.json()
+            return bundle.item.json()
         except Exception as e:
             self.errors.exception(
                 "Exception raised generating FHIR content. See logs for more details",
@@ -123,58 +105,45 @@ class Export(ExportBase):
             "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.combinationMethod",
             "all-of",
         )
-        group = Group(
-            id=str(uuid4()),
-            characteristic=[],
-            type="person",
-            membership="definitional",
-            extension=[all_of],
+        group = GroupFactory(
+            {
+                "id": str(uuid4()),
+                "characteristic": [],
+                "type": "person",
+                "membership": "definitional",
+                "extension": [all_of],
+            }
         )
         for index, id in enumerate(design.population.criterionIds):
             criterion = criteria[id]
-            self._criterion(criterion, group.characteristic)
+            self._criterion(criterion, group.item.characteristic)
         return group
 
     def _criterion(self, criterion: EligibilityCriterion, collection: list):
         version = self.study_version
-        code = CodeableConcept(
-            extension=[
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                    "valueCode": "not-applicable",
-                }
-            ]
+        na = CodeableConceptFactory(
+            {
+                "extension": [
+                    {
+                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                        "valueCode": "not-applicable",
+                    }
+                ]
+            }
         )
-        value = CodeableConcept(
-            extension=[
-                {
-                    "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                    "valueCode": "not-applicable",
-                }
-            ]
-        )
-        # ext = self._extension_markdown('http://hl7.org/fhir/StructureDefinition/rendering-markdown', criterion.text)
-        # if ext:
-        #   outer = self._extension_markdown_wrapper_2('http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.characteristic.description', 'Not filled', ext)
-        #   exclude = True if criterion.category.code == 'C25370' else False
-        #   collection.append({'extension': outer, 'code': code, 'valueCodeableConcept': value, 'exclude': exclude})
-
         criterion_item = version.criterion_item(criterion.criterionItemId)
         if criterion_item:
             soup = get_soup(criterion_item.text)
-            cleaned_text = soup.get_text()
-
-            outer = self._extension_markdown_wrapper_2(
+            outer = self._extension_string(
                 "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.characteristic.description",
-                cleaned_text,
-                None,
+                soup.get_text()
             )
             exclude = True if criterion.category.code == "C25370" else False
             collection.append(
                 {
-                    "extension": outer,
-                    "code": code,
-                    "valueCodeableConcept": value,
+                    "extension": outer.item,
+                    "code": na.item,
+                    "valueCodeableConcept": na.item,
                     "exclude": exclude,
                 }
             )
@@ -411,33 +380,35 @@ class Export(ExportBase):
     #             amendment.extension.append(ext)
     #     return amendment
 
-    def _extension_wrapper(self, url):
-        return Extension(url=url, extension=[])
+    # def _extension_wrapper(self, url):
+    #     return Extension(url=url, extension=[])
 
     def _extension_string(self, url: str, value: str):
-        return Extension(url=url, valueString=value) if value else None
+        return ExtensionFactory({"url": url, "valueString": value}) if value else None
+        #return Extension(url=url, valueString=value) if value else None
 
-    def _extension_boolean(self, url: str, value: str):
-        return Extension(url=url, valueBoolean=value) if value else None
+    # def _extension_boolean(self, url: str, value: str):
+    #     return Extension(url=url, valueBoolean=value) if value else None
 
-    def _extension_codeable(self, url: str, value: CodeableConcept):
-        return Extension(url=url, valueCodeableConcept=value) if value else None
+    # def _extension_codeable(self, url: str, value: CodeableConcept):
+    #     return Extension(url=url, valueCodeableConcept=value) if value else None
 
-    def _extension_codeable_text(self, url: str, value: str):
-        return Extension(url=url, valueString=value) if value else None
+    # def _extension_codeable_text(self, url: str, value: str):
+    #     return Extension(url=url, valueString=value) if value else None
 
-    def _extension_markdown_wrapper(self, url, value, ext):
-        return Extension(url=url, extension=[ext]) if value else None
+    # def _extension_markdown_wrapper(self, url, value, ext):
+    #     return Extension(url=url, extension=[ext]) if value else None
 
-    def _extension_markdown_wrapper_2(self, url, value, ext):
-        return Extension(url=url, valueString=value)
+    # def _extension_markdown_wrapper_2(self, url, value, ext):
+    #     return Extension(url=url, valueString=value)
 
-    def _extension_markdown(self, url, value):
-        return Extension(url=url, valueMarkdown=value) if value else None
+    # def _extension_markdown(self, url, value):
+    #     return Extension(url=url, valueMarkdown=value) if value else None
 
     def _extension_id(self, url: str, value: str):
-        value = self._fix_id(value)
-        return Extension(url=url, valueId=value) if value else None
+        value = self.fix_id(value)
+        return ExtensionFactory({"url": url, "valueId": value})
+        #return Extension(url=url, valueId=value) if value else None
 
-    def _fix_id(self, value: str) -> str:
-        return value.replace("_", "-")
+    # def _fix_id(self, value: str) -> str:
+    #     return value.replace("_", "-")

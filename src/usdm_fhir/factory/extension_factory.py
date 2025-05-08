@@ -5,7 +5,7 @@ from fhir.resources.extension import Extension
 class ExtensionFactory(BaseFactory):
     def __init__(self, **kwargs):
         try:
-            kwargs["extension"] = []
+            kwargs["extension"] = [] if "extension" not in kwargs else kwargs["extension"]
             self.item = Extension(**kwargs)
         except Exception as e:
             self.item = None

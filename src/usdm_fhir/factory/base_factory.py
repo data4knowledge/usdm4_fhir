@@ -5,7 +5,7 @@ class BaseFactory:
     class FHIRError(Exception):
         pass
 
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.item = None
 
     def handle_exception(self, e: Exception):

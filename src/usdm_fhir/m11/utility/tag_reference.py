@@ -6,12 +6,12 @@ from usdm_fhir.m11.utility.soup import get_soup
 class TagReference:
     MODULE = "src.usdm_fhir.m11.reference_resolver.ReferenceResolver"
 
-    def __init__(self, data_store: DataStore):
+    def __init__(self, data_store: DataStore, errors: Errors):
         self._data_store = data_store
-        self.errors = Errors()
+        self.errors = errors
 
     def translate(self, text: str):
-        soup = get_soup(text)
+        soup = get_soup(text, self.errors)
         for ref in soup(["usdm:ref"]):
             try:
                 attributes = ref.attrs
@@ -27,11 +27,11 @@ class TagReference:
                     e,
                 )
                 self._replace_and_highlight(ref, "Missing content: exception")
-        return self._get_soup(str(soup))
+        return get_soup(str(soup), self.errors)
 
     def _resolve_instance(self, instance, attribute):
-        dictionary = self._data_store.instance_by_id(instance.dictionaryId)
-        value = str(getattr(instance, attribute))
+        dictionary = self._get_dictionary(instance)
+        value = instance[attribute] if attribute in instance else ""
         soup = get_soup(value, self.errors)
         for ref in soup(["usdm:tag"]):
             try:
@@ -40,8 +40,8 @@ class TagReference:
                     entry = next(
                         (
                             item
-                            for item in dictionary.parameterMaps
-                            if item.tag == attributes["name"]
+                            for item in dictionary["parameterMaps"]
+                            if item["tag"] == attributes["name"]
                         ),
                         None,
                     )
@@ -74,5 +74,8 @@ class TagReference:
                 self._replace_and_highlight(ref, "Missing content: exception")
         return str(soup)
 
-    def _replace_and_highlight(self, ref, text):
+    def _replace_and_highlight(self, ref, text: str) -> None:
         ref.replace_with(text)
+
+    def _get_dictionary(self, instance: dict) -> dict | None:
+        return self._data_store.instance_by_id(instance["dictionaryId"]) if "dictionaryId" in instance else None

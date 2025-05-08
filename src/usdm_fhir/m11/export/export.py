@@ -23,19 +23,19 @@ class Export(ExportBase):
     class LogicError(Exception):
         pass
 
-    def to_message(self) -> None:
+    def to_message(self) -> str | None:
         try:
             self._entries = []
             date = datetime.datetime.now(tz=datetime.timezone.utc).isoformat()
 
             # Composition
-            composition = self._composition_entry()
+            composition = self._composition_entry(date)
             self._add_bundle_entry(
                 composition, "https://www.example.com/Composition/1234B"
             )
 
             # Research Study
-            rs = ResearchStudyFactory(self.study)
+            rs = ResearchStudyFactory(self.study, self._extra)
             self._add_bundle_entry(rs, "https://www.example.com/Composition/1234A")
 
             # IE
@@ -43,55 +43,45 @@ class Export(ExportBase):
             self._add_bundle_entry(ie, "https://www.example.com/Composition/1234X1")
 
             # Final bundle
-            identifier = IdentifierFactory(
-                {"system": "urn:ietf:rfc:3986", "value": f"urn:uuid:{self._uuid}"}
-            )
+            identifier = IdentifierFactory(system="urn:ietf:rfc:3986", value=f"urn:uuid:{self.study.id}")
             bundle = BundleFactory(
-                {
-                    "id": None,
-                    "entry": self._entries,
-                    "type": "document",
-                    "identifier": identifier.item,
-                    "timestamp": date,
-                }
+                id=None,
+                entry=self._entries,
+                type="document",
+                identifier=identifier.item,
+                timestamp=date,
             )
             return bundle.item.json()
         except Exception as e:
             self.errors.exception(
-                "Exception raised generating FHIR content. See logs for more details",
+                "Exception raised generating FHIR content.",
                 Location(self.MODULE, "export"),
                 e,
             )
             return None
 
     def _add_bundle_entry(self, factory_item: BaseFactory, url: str):
-        bundle_entry = BundleEntryFactory(
-            {
-                "item": factory_item.item,
-                "url": url,
-            }
-        )
+        bundle_entry = BundleEntryFactory(resource=factory_item.item, fullUrl=url)
         self._entries.append(bundle_entry.item)
 
-    def _composition_entry(self, sections, date):
+    def _composition_entry(self, date):
         sections = self._create_narrative_sections()
-        type_code = CodeableConceptFactory({"text": "EvidenceReport"}).item
-        author = ReferenceFactory({"display": "USDM"}).item
+        type_code = CodeableConceptFactory(text="EvidenceReport").item
+        author = ReferenceFactory(display="USDM").item
         return CompositionFactory(
-            {
-                "title": self.doc_title,
-                "type": type_code,
-                "section": sections,
-                "date": date,
-                "status": "preliminary",
-                "author": [author],
-            }
+            title=self.study_version.official_title_text(),
+            type=type_code,
+            section=sections,
+            date=date,
+            status="preliminary",
+            author=[author],
         )
 
     def _create_narrative_sections(self):
         sections = []
         contents = self.protocol_document_version.narrative_content_in_order()
         for content in contents:
+            print(f"CONTENT: {content.id}")
             section = self._content_to_section(content)
             if section:
                 sections.append(section)
@@ -105,13 +95,11 @@ class Export(ExportBase):
             "all-of",
         )
         group = GroupFactory(
-            {
-                "id": str(uuid4()),
-                "characteristic": [],
-                "type": "person",
-                "membership": "definitional",
-                "extension": [all_of],
-            }
+            id=str(uuid4()),
+            characteristic=[],
+            type="person",
+            membership="definitional",
+            extension=[all_of.item],
         )
         for index, id in enumerate(design.population.criterionIds):
             criterion = criteria[id]
@@ -121,18 +109,16 @@ class Export(ExportBase):
     def _criterion(self, criterion: EligibilityCriterion, collection: list):
         version = self.study_version
         na = CodeableConceptFactory(
-            {
-                "extension": [
-                    {
-                        "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                        "valueCode": "not-applicable",
-                    }
-                ]
-            }
+            extension=[
+                {
+                    "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                    "valueCode": "not-applicable",
+                }
+            ]
         )
         criterion_item = version.criterion_item(criterion.criterionItemId)
         if criterion_item:
-            soup = get_soup(criterion_item.text)
+            soup = get_soup(criterion_item.text, self.errors)
             outer = self._extension_string(
                 "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.characteristic.description",
                 soup.get_text(),
@@ -381,7 +367,7 @@ class Export(ExportBase):
     #     return Extension(url=url, extension=[])
 
     def _extension_string(self, url: str, value: str):
-        return ExtensionFactory({"url": url, "valueString": value}) if value else None
+        return ExtensionFactory(url=url, valueString=value) if value else None
         # return Extension(url=url, valueString=value) if value else None
 
     # def _extension_boolean(self, url: str, value: str):
@@ -404,7 +390,7 @@ class Export(ExportBase):
 
     def _extension_id(self, url: str, value: str):
         value = self.fix_id(value)
-        return ExtensionFactory({"url": url, "valueId": value})
+        return ExtensionFactory(url=url, valueId=value)
         # return Extension(url=url, valueId=value) if value else None
 
     # def _fix_id(self, value: str) -> str:

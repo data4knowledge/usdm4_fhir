@@ -21,17 +21,20 @@ class ExportBase:
         self.study = study
         self._data_store = data_store
         # self._uuid = uuid
+        self._extra = extra
         self._title_page = extra["title_page"]
         self._miscellaneous = extra["miscellaneous"]
         self._amendment = extra["amendment"]
         self.errors = Errors()
         self.study_version: StudyVersion = study.first_version()
         self._nci_map = self.study_version.narrative_content_item_map()
+        print(f"NCI MAP: {self._nci_map}")
         self.study_design = self.study_version.studyDesigns[0]
         self.protocol_document_version = self.study.documentedBy[0].versions[0]
-        self.tag_ref = TagReference(self._data_store)
+        self.tag_ref = TagReference(self._data_store, self.errors)
 
     def _content_to_section(self, content: NarrativeContent) -> CompositionSection:
+        print(f"CONTENT CONTENT: {content}")
         content_text = self._section_item(content)
         div = self.tag_ref.translate(content_text)
         text = str(div)
@@ -41,15 +44,15 @@ class ExportBase:
         code = CodeableConcept(text=f"section{content.sectionNumber}-{title}")
         title = content.sectionTitle if content.sectionTitle else "&nbsp;"
         section = self._composition_section(f"{title}", code, narrative)
-        if self._composition_section_no_text(section) and not content.childIds:
-            return None
-        else:
-            for id in content.childIds:
-                content = self.protocol_document_version.find_narrative_content(id)
-                child = self._content_to_section(content)
-                if child:
-                    section.section.append(child)
-            return section
+        # if self._composition_section_no_text(section) and not content.childIds:
+        #     return None
+        # else:
+        #     for id in content.childIds:
+        #         content = self.protocol_document_version.find_narrative_content(id)
+        #         child = self._content_to_section(content)
+        #         if child:
+        #             section.section.append(child)
+        return section
 
     def _section_item(self, content: NarrativeContent) -> str:
         nci = self._nci_map[content.contentItemId]
@@ -82,7 +85,7 @@ class ExportBase:
             )
 
     def _clean_tags(self, content):
-        soup = get_soup(content, self._errors_and_logging)
+        soup = get_soup(content, self.errors)
         # 'ol' tag with 'type' attribute
         for ref in soup("ol"):
             try:

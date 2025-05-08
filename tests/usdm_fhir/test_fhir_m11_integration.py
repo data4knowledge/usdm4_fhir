@@ -20,7 +20,8 @@ def run_test_to_v3(name, save=False):
     instance = M11()
     result = instance.to_m11(study, extra)
     print(f"ERRORS: {instance.errors()}")
-    #result = fix_iso_dates(result)
+    result = fix_iso_dates(result)
+    result = fix_uuid(result)
     pretty_result = json.dumps(json.loads(result), indent=2)
     #print(f"RESULT: {pretty_result}")
     result_filename = f"{name}_fhir_m11.json"

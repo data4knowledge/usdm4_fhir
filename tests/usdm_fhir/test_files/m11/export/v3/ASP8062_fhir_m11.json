@@ -2,10 +2,10 @@
   "resourceType": "Bundle",
   "identifier": {
     "system": "urn:ietf:rfc:3986",
-    "value": "urn:uuid:11111111-2222-3333-4444-555555555555"
+    "value": "urn:uuid:FAKE-UUID"
   },
   "type": "document",
-  "timestamp": "2025-05-08T18:15:14.355383+00:00",
+  "timestamp": "2024-12-25T00:00:00.000000+00:00",
   "entry": [
     {
       "fullUrl": "https://www.example.com/Composition/1234B",
@@ -15,7 +15,7 @@
         "type": {
           "text": "EvidenceReport"
         },
-        "date": "2025-05-08T18:15:14.355383+00:00",
+        "date": "2024-12-25T00:00:00.000000+00:00",
         "author": [
           {
             "display": "USDM"
@@ -4811,7 +4811,7 @@
               ]
             },
             "party": {
-              "reference": "Organization/895edec9-bbf4-48dc-8d1b-1564752301ed"
+              "reference": "Organization/FAKE-UUID"
             }
           }
         ],
@@ -4837,7 +4837,7 @@
       "fullUrl": "https://www.example.com/Composition/1234X1",
       "resource": {
         "resourceType": "Group",
-        "id": "5077178d-7147-4f87-b436-652cb863bf96",
+        "id": "FAKE-UUID",
         "extension": [
           {
             "url": "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.combinationMethod",

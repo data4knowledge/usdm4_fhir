@@ -27,9 +27,10 @@ from usdm4.api.study_design import StudyDesign as USDMStudyDesign
 from usdm4.api.eligibility_criterion import EligibilityCriterion
 from usdm4.api.study_version import StudyVersion
 from usdm4.api.identifier import StudyIdentifier
+from src.usdm_fhir.m11.export_base import ExportBase
 
 
-class ToFHIRV2(ToFHIR):
+class Export(ExportBase):
     class LogicError(Exception):
         pass
 

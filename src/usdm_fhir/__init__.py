@@ -2,21 +2,27 @@ import json
 from usdm4 import USDM4
 from usdm4.api.wrapper import Wrapper
 from usdm4.api.study import Study
-from usdm_fhir.soa.export import Export
+from usdm_fhir.soa.export import Export as SoAExport
+from usdm_fhir.m11.export import Export as M11Export
+from usdm3.data_store.data_store import DataStore
+
 
 class USDMFHIR:
+    def __init__(self):
+        self._usdm = USDM4()
+        self._data_store = None
+
     def to_m11(self, usdm_filepath: str):
-        pass
+        study = self._usdm_study(usdm_filepath)
+        ex = M11Export(study, self._data_store)
+        return ex.to_message
 
     def to_soa(self, usdm_filepath: str):
         study = self._usdm_study(usdm_filepath)
-        ex = Export(study)
+        ex = SoAExport(study)
         return ex.to_message
 
-
-    def _usdm_study(usdm_filepath: str) -> Study:
-        with open(usdm_filepath) as f:
-            data = json.load(f)
-        usdm = USDM4()
-        wrapper: Wrapper = usdm.from_json(data)
+    def _usdm_study(self, usdm_filepath: str) -> Study:
+        self.data_store = DataStore(usdm_filepath)
+        wrapper: Wrapper = self._usdm.from_json(self.data_store.data)
         return wrapper.study

@@ -20,6 +20,7 @@ from src.usdm_fhir.factory.urn_uuid import URNUUID
 from src.usdm_fhir.factory.study_url import StudyUrl
 from src.usdm_fhir.errors.errors import Errors, Location
 
+
 class Export:
     def __init__(self, study: Study, timeline_id: str, uuid: str, extra: dict = {}):
         """
@@ -121,5 +122,7 @@ class Export:
             return bundle.item.json()
         except Exception as e:
             location = Location("src.usdm_fhir.soa.export.Export", "to_message")
-            self._errors.exception("Exception raised building FHIR SoA message", location, e)
+            self._errors.exception(
+                "Exception raised building FHIR SoA message", location, e
+            )
             return ""

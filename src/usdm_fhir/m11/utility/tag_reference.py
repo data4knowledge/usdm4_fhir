@@ -18,11 +18,12 @@ class TagReference:
                 instance = self._data_store.get(attributes["klass"], attributes["id"])
                 value = self._resolve_instance(instance, attributes["attribute"])
                 translated_text = self.translate(value)
+                print(f"TRANSLATED: {translated_text}")
                 self._replace_and_highlight(ref, translated_text)
             except Exception as e:
                 location = Location(self.MODULE, "translate")
                 self.errors.exception(
-                    f"Exception raised while attempting to translate reference '{attributes}' while generating the FHIR message, see the logs for more info",
+                    f"Exception raised while attempting to translate reference '{attributes}'",
                     location,
                     e,
                 )
@@ -31,17 +32,18 @@ class TagReference:
 
     def _resolve_instance(self, instance, attribute):
         dictionary = self._get_dictionary(instance)
-        value = instance[attribute] if attribute in instance else ""
+        value = str(getattr(instance, attribute))
         soup = get_soup(value, self.errors)
         for ref in soup(["usdm:tag"]):
             try:
                 attributes = ref.attrs
+                print(f"ATTRIBUTES: {attributes}")
                 if dictionary:
                     entry = next(
                         (
                             item
-                            for item in dictionary["parameterMaps"]
-                            if item["tag"] == attributes["name"]
+                            for item in dictionary.parameterMaps
+                            if item.tag == attributes["name"]
                         ),
                         None,
                     )
@@ -51,7 +53,7 @@ class TagReference:
                         )
                     else:
                         self.errors.error(
-                            f"Missing dictionary entry while attempting to resolve reference '{attributes}' while generating the FHIR message",
+                            f"Missing dictionary entry while attempting to resolve reference '{attributes}'",
                             Location(self.MODULE, "_resolve_instance"),
                         )
                         self._replace_and_highlight(
@@ -59,7 +61,7 @@ class TagReference:
                         )
                 else:
                     self.errors.error(
-                        f"Missing dictionary while attempting to resolve reference '{attributes}' while generating the FHIR message",
+                        f"Missing dictionary while attempting to resolve reference '{attributes}'",
                         Location(self.MODULE, "_resolve_instance"),
                     )
                     self._replace_and_highlight(
@@ -77,5 +79,10 @@ class TagReference:
     def _replace_and_highlight(self, ref, text: str) -> None:
         ref.replace_with(text)
 
-    def _get_dictionary(self, instance) -> dict | None:
-        return self._data_store.get(instance.dictionaryId)
+    def _get_dictionary(self, instance):
+        try:
+            return self._data_store.get(
+                "SyntaxTemplateDictionary", instance.dictionaryId
+            )
+        except:
+            return None

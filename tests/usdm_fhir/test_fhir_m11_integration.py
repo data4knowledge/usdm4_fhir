@@ -34,6 +34,9 @@ def run_test_to_v3(name, save=False):
 def _full_path(filename, version, mode):
     return f"tests/usdm_fhir/test_files/m11/{mode}/{version}/{filename}"
 
+def test_to_fhir_v3_test_1():
+    run_test_to_v3("test_1", SAVE)
+
 
 def test_to_fhir_v3_pilot():
     run_test_to_v3("pilot", SAVE)

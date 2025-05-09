@@ -1,3 +1,4 @@
+import datetime
 from usdm4.api.study import Study as USDMStudy
 from usdm4.api.study_version import StudyVersion as USDMStudyVersion
 from usdm4.api.identifier import StudyIdentifier
@@ -75,7 +76,11 @@ class ResearchStudyFactory(BaseFactory):
             # x = self._title_page['original_protocol']
 
             # Version Number
-            self.item.version = self._version.versionIdentifier
+            self.item.version = (
+                self._version.versionIdentifier
+                if self._version.versionIdentifier
+                else "1"
+            )
 
             # Version Date
             date_value = self._version.approval_date_value()
@@ -137,8 +142,13 @@ class ResearchStudyFactory(BaseFactory):
 
             # Sponsor Approval
             g_date: GovernanceDate = self._version.approval_date()
+            date_str = (
+                g_date.dateValue
+                if g_date
+                else datetime.datetime.now(tz=datetime.timezone.utc).isoformat()
+            )
             status = ProgressStatusFactory(
-                value=g_date.dateValue,
+                value=date_str,
                 state_code="sponsor-approved",
                 state_display="sponsor apporval date",
             )

@@ -43,7 +43,9 @@ class Export(ExportBase):
             self._add_bundle_entry(ie, "https://www.example.com/Composition/1234X1")
 
             # Final bundle
-            identifier = IdentifierFactory(system="urn:ietf:rfc:3986", value=f"urn:uuid:{self.study.id}")
+            identifier = IdentifierFactory(
+                system="urn:ietf:rfc:3986", value=f"urn:uuid:{self.study.id}"
+            )
             bundle = BundleFactory(
                 id=None,
                 entry=self._entries,
@@ -81,7 +83,7 @@ class Export(ExportBase):
         sections = []
         contents = self.protocol_document_version.narrative_content_in_order()
         for content in contents:
-            #print(f"CONTENT: {content.id}")
+            # print(f"CONTENT: {content.id}")
             section = self._content_to_section(content)
             if section:
                 sections.append(section)

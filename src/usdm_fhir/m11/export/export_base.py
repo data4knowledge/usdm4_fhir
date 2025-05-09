@@ -28,13 +28,13 @@ class ExportBase:
         self.errors = Errors()
         self.study_version: StudyVersion = study.first_version()
         self._nci_map = self.study_version.narrative_content_item_map()
-        #print(f"NCI MAP: {self._nci_map}")
+        # print(f"NCI MAP: {self._nci_map}")
         self.study_design = self.study_version.studyDesigns[0]
         self.protocol_document_version = self.study.documentedBy[0].versions[0]
         self.tag_ref = TagReference(self._data_store, self.errors)
 
     def _content_to_section(self, content: NarrativeContent) -> CompositionSection:
-        #print(f"CONTENT CONTENT: {content}")
+        # print(f"CONTENT CONTENT: {content}")
         content_text = self._section_item(content)
         div = self.tag_ref.translate(content_text)
         text = str(div)

@@ -15,7 +15,7 @@ def run_test_to_v3(name, save=False):
     usdm = USDM4()
     wrapper = usdm.from_json(contents)
     study = wrapper.study
-    #print(f"STUDY: {study}")
+    # print(f"STUDY: {study}")
     extra = read_yaml(_full_path(f"{name}_extra.yaml", version, mode))
     instance = M11()
     result = instance.to_m11(study, extra)
@@ -23,7 +23,7 @@ def run_test_to_v3(name, save=False):
     result = fix_iso_dates(result)
     result = fix_uuid(result)
     pretty_result = json.dumps(json.loads(result), indent=2)
-    #print(f"RESULT: {pretty_result}")
+    # print(f"RESULT: {pretty_result}")
     result_filename = f"{name}_fhir_m11.json"
     if save:
         write_json(_full_path(result_filename, version, mode), result)
@@ -33,6 +33,7 @@ def run_test_to_v3(name, save=False):
 
 def _full_path(filename, version, mode):
     return f"tests/usdm_fhir/test_files/m11/{mode}/{version}/{filename}"
+
 
 def test_to_fhir_v3_test_1():
     run_test_to_v3("test_1", SAVE)

@@ -1,4 +1,4 @@
-from src.usdm_fhir.factory.base_factory import BaseFactory
+from usdm_fhir.factory.base_factory import BaseFactory
 from fhir.resources.codeableconcept import CodeableConcept
 
 

@@ -3,22 +3,22 @@ from usdm4.api.study import Study
 from usdm4.api.study_version import StudyVersion
 from usdm4.api.study_design import StudyDesign
 from usdm4.api.schedule_timeline import ScheduleTimeline
-from src.usdm_fhir.factory.identifier_factory import IdentifierFactory
-from src.usdm_fhir.factory.research_study_factory import ResearchStudyFactory
-from src.usdm_fhir.factory.bundle_factory import BundleFactory
-from src.usdm_fhir.factory.bundle_entry_factory import BundleEntryFactory
-from src.usdm_fhir.factory.timeline_plan_definition_factory import (
+from usdm_fhir.factory.identifier_factory import IdentifierFactory
+from usdm_fhir.factory.research_study_factory import ResearchStudyFactory
+from usdm_fhir.factory.bundle_factory import BundleFactory
+from usdm_fhir.factory.bundle_entry_factory import BundleEntryFactory
+from usdm_fhir.factory.timeline_plan_definition_factory import (
     TimelinePlanDefinitionFactory,
 )
-from src.usdm_fhir.factory.timepoint_plan_definition_factory import (
+from usdm_fhir.factory.timepoint_plan_definition_factory import (
     TimepointPlanDefinitionFactory,
 )
-from src.usdm_fhir.factory.activity_definition_factory import ActivityDefinitionFactory
+from usdm_fhir.factory.activity_definition_factory import ActivityDefinitionFactory
 from usdm4.api.study import Study
 from usdm4.api.study_design import StudyDesign
-from src.usdm_fhir.factory.urn_uuid import URNUUID
-from src.usdm_fhir.factory.study_url import StudyUrl
-from src.usdm_fhir.errors.errors import Errors, Location
+from usdm_fhir.factory.urn_uuid import URNUUID
+from usdm_fhir.factory.study_url import StudyUrl
+from usdm_fhir.errors.errors import Errors, Location
 
 
 class Export:
@@ -121,7 +121,7 @@ class Export:
             )
             return bundle.item.json()
         except Exception as e:
-            location = Location("src.usdm_fhir.soa.export.Export", "to_message")
+            location = Location("usdm_fhir.soa.export.Export", "to_message")
             self._errors.exception(
                 "Exception raised building FHIR SoA message", location, e
             )

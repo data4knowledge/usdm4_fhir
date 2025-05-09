@@ -8,7 +8,7 @@ from fhir.resources.composition import CompositionSection
 from fhir.resources.narrative import Narrative
 from fhir.resources.codeableconcept import CodeableConcept
 from usdm_fhir.m11.utility.soup import get_soup
-from src.usdm_fhir.errors.errors import Errors, Location
+from usdm_fhir.errors.errors import Errors, Location
 
 
 class ExportBase:

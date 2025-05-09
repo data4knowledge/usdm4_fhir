@@ -3,14 +3,14 @@ from usdm4.api.study_version import StudyVersion as USDMStudyVersion
 from usdm4.api.identifier import StudyIdentifier
 from usdm4.api.governance_date import GovernanceDate
 from fhir.resources.researchstudy import ResearchStudy
-from src.usdm_fhir.factory.base_factory import BaseFactory
-from src.usdm_fhir.factory.extension_factory import ExtensionFactory
-from src.usdm_fhir.factory.codeable_concept_factory import CodeableConceptFactory
-from src.usdm_fhir.factory.coding_factory import CodingFactory
-from src.usdm_fhir.factory.organization_factory import OrganizationFactory
-from src.usdm_fhir.factory.associated_party_factory import AssociatedPartyFactory
-from src.usdm_fhir.factory.progress_status_factory import ProgressStatusFactory
-from src.usdm_fhir.factory.label_type_factory import LabelTypeFactory
+from usdm_fhir.factory.base_factory import BaseFactory
+from usdm_fhir.factory.extension_factory import ExtensionFactory
+from usdm_fhir.factory.codeable_concept_factory import CodeableConceptFactory
+from usdm_fhir.factory.coding_factory import CodingFactory
+from usdm_fhir.factory.organization_factory import OrganizationFactory
+from usdm_fhir.factory.associated_party_factory import AssociatedPartyFactory
+from usdm_fhir.factory.progress_status_factory import ProgressStatusFactory
+from usdm_fhir.factory.label_type_factory import LabelTypeFactory
 
 
 class ResearchStudyFactory(BaseFactory):

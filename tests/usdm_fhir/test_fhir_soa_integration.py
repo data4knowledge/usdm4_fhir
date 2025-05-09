@@ -1,7 +1,7 @@
 import pytest
 from tests.usdm_fhir.files.files import *
 from tests.usdm_fhir.helpers.helpers import fix_uuid, fix_iso_dates
-from src.usdm_fhir.soa.export.export import Export
+from usdm_fhir.soa.export.export import Export
 from usdm4 import USDM4
 from usdm4.api.study import *
 from usdm4.api.study_design import *

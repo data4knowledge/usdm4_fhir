@@ -1,8 +1,8 @@
-from src.usdm_fhir.factory.base_factory import BaseFactory
-from src.usdm_fhir.factory.plan_definition_factory import PlanDefinitionFactory
-from src.usdm_fhir.factory.coding_factory import CodingFactory
-from src.usdm_fhir.factory.codeable_concept_factory import CodeableConceptFactory
-from src.usdm_fhir.factory.plan_definition_action_factory import (
+from usdm_fhir.factory.base_factory import BaseFactory
+from usdm_fhir.factory.plan_definition_factory import PlanDefinitionFactory
+from usdm_fhir.factory.coding_factory import CodingFactory
+from usdm_fhir.factory.codeable_concept_factory import CodeableConceptFactory
+from usdm_fhir.factory.plan_definition_action_factory import (
     PlanDefinitionActionFactory,
 )
 from usdm4.api.study import Study
@@ -11,7 +11,7 @@ from usdm4.api.scheduled_instance import (
     ScheduledActivityInstance,
     ScheduledDecisionInstance,
 )
-from src.usdm_fhir.factory.study_url import StudyUrl
+from usdm_fhir.factory.study_url import StudyUrl
 
 
 class TimepointPlanDefinitionFactory(BaseFactory):

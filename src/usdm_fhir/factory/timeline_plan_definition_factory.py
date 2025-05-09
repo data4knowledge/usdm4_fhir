@@ -1,16 +1,16 @@
-from src.usdm_fhir.factory.base_factory import BaseFactory
-from src.usdm_fhir.factory.plan_definition_factory import PlanDefinitionFactory
-from src.usdm_fhir.factory.identifier_factory import IdentifierFactory
-from src.usdm_fhir.factory.coding_factory import CodingFactory
-from src.usdm_fhir.factory.codeable_concept_factory import CodeableConceptFactory
-from src.usdm_fhir.factory.plan_definition_action_factory import (
+from usdm_fhir.factory.base_factory import BaseFactory
+from usdm_fhir.factory.plan_definition_factory import PlanDefinitionFactory
+from usdm_fhir.factory.identifier_factory import IdentifierFactory
+from usdm_fhir.factory.coding_factory import CodingFactory
+from usdm_fhir.factory.codeable_concept_factory import CodeableConceptFactory
+from usdm_fhir.factory.plan_definition_action_factory import (
     PlanDefinitionActionFactory,
 )
-from src.usdm_fhir.factory.plan_definition_related_action_factory import (
+from usdm_fhir.factory.plan_definition_related_action_factory import (
     PlanDefinitionRelatedActionFactory,
 )
-from src.usdm_fhir.factory.extension_factory import ExtensionFactory
-from src.usdm_fhir.factory.iso8601_ucum import ISO8601ToUCUM
+from usdm_fhir.factory.extension_factory import ExtensionFactory
+from usdm_fhir.factory.iso8601_ucum import ISO8601ToUCUM
 from usdm4.api.schedule_timeline import ScheduleTimeline
 from usdm4.api.timing import Timing
 from usdm4.api.study import Study
@@ -19,8 +19,8 @@ from usdm4.api.schedule_timeline import (
     ScheduledDecisionInstance,
     ScheduleTimeline,
 )
-from src.usdm_fhir.factory.cdisc_fhir import CDISCFHIR
-from src.usdm_fhir.factory.study_url import StudyUrl
+from usdm_fhir.factory.cdisc_fhir import CDISCFHIR
+from usdm_fhir.factory.study_url import StudyUrl
 
 
 class TimelinePlanDefinitionFactory(BaseFactory):

@@ -1,10 +1,10 @@
 from usdm3.data_store.data_store import DataStore
-from src.usdm_fhir.errors.errors import Errors, Location
+from usdm_fhir.errors.errors import Errors, Location
 from usdm_fhir.m11.utility.soup import get_soup
 
 
 class TagReference:
-    MODULE = "src.usdm_fhir.m11.reference_resolver.ReferenceResolver"
+    MODULE = "usdm_fhir.m11.reference_resolver.ReferenceResolver"
 
     def __init__(self, data_store: DataStore, errors: Errors):
         self._data_store = data_store

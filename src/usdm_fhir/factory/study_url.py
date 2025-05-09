@@ -1,5 +1,5 @@
 from usdm4.api.study import Study
-from src.usdm_fhir.factory.base_factory import BaseFactory
+from usdm_fhir.factory.base_factory import BaseFactory
 
 
 class StudyUrl:

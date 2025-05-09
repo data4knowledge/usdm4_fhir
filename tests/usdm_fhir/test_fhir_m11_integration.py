@@ -1,7 +1,7 @@
 import json
 from tests.usdm_fhir.files.files import read_yaml, write_json, read_json
 from tests.usdm_fhir.helpers.helpers import fix_uuid, fix_iso_dates
-from src.usdm_fhir import M11
+from usdm_fhir import M11
 from usdm4 import USDM4
 
 SAVE = True

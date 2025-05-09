@@ -1,10 +1,10 @@
 import warnings
 from bs4 import BeautifulSoup
-from src.usdm_fhir.errors.errors import Errors, Location
+from usdm_fhir.errors.errors import Errors, Location
 
 
 def get_soup(text: str, errors: Errors):
-    LOCATION = "src.usdm_fhir.m11.soup.soup"
+    LOCATION = "usdm_fhir.m11.soup.soup"
     try:
         with warnings.catch_warnings(record=True) as warning_list:
             result = BeautifulSoup(text, "html.parser")

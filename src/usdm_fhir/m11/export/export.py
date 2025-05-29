@@ -29,10 +29,10 @@ class Export(ExportBase):
             date = datetime.datetime.now(tz=datetime.timezone.utc).isoformat()
 
             # Composition
-            composition = self._composition_entry(date)
-            self._add_bundle_entry(
-                composition, "https://www.example.com/Composition/1234B"
-            )
+            #composition = self._composition_entry(date)
+            #self._add_bundle_entry(
+            #    composition, "https://www.example.com/Composition/1234B"
+            #)
 
             # Research Study
             rs = ResearchStudyFactory(self.study, self._extra)
@@ -41,6 +41,7 @@ class Export(ExportBase):
             # IE
             ie = self._inclusion_exclusion_critieria()
             self._add_bundle_entry(ie, "https://www.example.com/Composition/1234X1")
+            rs.item.recruitment = {"eligibility": {"reference": f"Group/{ie.item.id}"}}
 
             # Final bundle
             identifier = IdentifierFactory(
@@ -49,7 +50,8 @@ class Export(ExportBase):
             bundle = BundleFactory(
                 id=None,
                 entry=self._entries,
-                type="document",
+                #type="document", # With composition
+                type="collection", # Without composition
                 identifier=identifier.item,
                 timestamp=date,
             )

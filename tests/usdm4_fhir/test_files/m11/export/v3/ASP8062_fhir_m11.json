@@ -1,0 +1,128 @@
+{
+  "resourceType": "Bundle",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:FAKE-UUID"
+  },
+  "type": "collection",
+  "timestamp": "2024-12-25T00:00:00.000000+00:00",
+  "entry": [
+    {
+      "fullUrl": "https://www.example.com/Composition/1234A",
+      "resource": {
+        "resourceType": "ResearchStudy",
+        "identifier": [
+          {
+            "type": {
+              "text": "Clinical Study Sponsor"
+            },
+            "system": "https://example.org/sponsor-identifier",
+            "value": "8062-CL-2002"
+          },
+          {
+            "type": {
+              "text": "Amendment Identifier"
+            },
+            "system": "https://example.org/amendment-identifier",
+            "value": "1.1"
+          }
+        ],
+        "version": "1.1",
+        "title": "A Phase 1 Randomized, Placebo-controlled Study to Assess the Safety, Tolerability and Pharmacokinetics of Multiple Doses of ASP8062 with a Single Dose of Morphine in Recreational Opioid Using Participants",
+        "label": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://www.cdisc.org",
+                  "version": "2024-09-27",
+                  "code": "C94108",
+                  "display": "Study Acronym"
+                }
+              ]
+            },
+            "value": ""
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://www.cdisc.org",
+                  "version": "2024-09-27",
+                  "code": "C99905x1",
+                  "display": "Brief Study Title"
+                }
+              ]
+            },
+            "value": ""
+          }
+        ],
+        "date": "2020-07-30",
+        "status": "active",
+        "phase": {
+          "coding": [
+            {
+              "system": "http://www.cdisc.org",
+              "version": "2024-09-27",
+              "code": "C15600",
+              "display": "Phase I Trial"
+            }
+          ],
+          "text": "Phase I Trial"
+        },
+        "associatedParty": [
+          {
+            "role": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/research-study-party-role",
+                  "code": "sponsor",
+                  "display": "sponsor"
+                }
+              ]
+            },
+            "party": {
+              "reference": "Organization/FAKE-UUID"
+            }
+          }
+        ],
+        "progressStatus": [
+          {
+            "state": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/research-study-party-role",
+                  "code": "sponsor-approved",
+                  "display": "sponsor apporval date"
+                }
+              ]
+            },
+            "period": {
+              "start": "2020-07-30"
+            }
+          }
+        ],
+        "recruitment": {
+          "eligibility": {
+            "reference": "Group/FAKE-UUID"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "https://www.example.com/Composition/1234X1",
+      "resource": {
+        "resourceType": "Group",
+        "id": "FAKE-UUID",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.combinationMethod",
+            "valueString": "all-of"
+          }
+        ],
+        "type": "person",
+        "membership": "definitional"
+      }
+    }
+  ]
+}

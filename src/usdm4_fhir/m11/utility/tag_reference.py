@@ -1,3 +1,4 @@
+from bs4 import BeautifulSoup
 from usdm3.data_store.data_store import DataStore
 from simple_error_log.errors import Errors
 from simple_error_log.error_location import KlassMethodLocation
@@ -28,7 +29,7 @@ class TagReference:
                     e,
                     location,
                 )
-                self._replace_and_highlight(ref, "Missing content: exception")
+                self._replace_and_highlight(ref, get_soup("Missing content: exception", self.errors))
         return get_soup(str(soup), self.errors)
 
     def _resolve_instance(self, instance, attribute):
@@ -38,7 +39,6 @@ class TagReference:
         for ref in soup(["usdm:tag"]):
             try:
                 attributes = ref.attrs
-                print(f"ATTRIBUTES: {attributes}")
                 if dictionary:
                     entry = next(
                         (
@@ -58,7 +58,7 @@ class TagReference:
                             KlassMethodLocation(self.MODULE, "_resolve_instance"),
                         )
                         self._replace_and_highlight(
-                            ref, "Missing content: missing dictionary entry"
+                            ref, get_soup("Missing content: missing dictionary entry", self.errors)
                         )
                 else:
                     self.errors.error(
@@ -66,18 +66,18 @@ class TagReference:
                         KlassMethodLocation(self.MODULE, "_resolve_instance"),
                     )
                     self._replace_and_highlight(
-                        ref, "Missing content: missing dictionary"
+                        ref, get_soup("Missing content: missing dictionary", self.errors)
                     )
             except Exception as e:
                 self.errors.exception(
                     f"Failed to resolve reference '{attributes} while generating the FHIR message",
                     e,
-                    KlassMethodLocation(self.MODULE, "_resolve_instance"),
+                    KlassMethodLocation(self.MODULE, "_resolve_instance")
                 )
-                self._replace_and_highlight(ref, "Missing content: exception")
+                self._replace_and_highlight(ref, get_soup("Missing content: exception", self.errors))
         return str(soup)
 
-    def _replace_and_highlight(self, ref, text: str) -> None:
+    def _replace_and_highlight(self, ref, text: BeautifulSoup) -> None:
         ref.replace_with(text)
 
     def _get_dictionary(self, instance):

@@ -1,2 +1,3 @@
 __package_version__ = "0.1.0"
-__model_version__ = "3.12.0"
+__model_version__ = "4.0.0"
+__system_name__ = "USDM4 FHIR Package"

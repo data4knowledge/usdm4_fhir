@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 package_info = {}
-with open("src/usdm4_fhir/__version__.py") as fp:
+with open("src/usdm4_fhir/__info__.py") as fp:
     exec(fp.read(), package_info)
 
 setuptools.setup(

@@ -1,10 +1,11 @@
 import warnings
 from bs4 import BeautifulSoup
-from usdm4_fhir.errors.errors import Errors, Location
+from simple_error_log.errors import Errors
+from simple_error_log.error_location import KlassMethodLocation
 
 
 def get_soup(text: str, errors: Errors):
-    LOCATION = "usdm4_fhir.m11.soup.soup"
+    MODULE = "usdm4_fhir.m11.soup.soup"
     try:
         with warnings.catch_warnings(record=True) as warning_list:
             result = BeautifulSoup(text, "html.parser")
@@ -12,11 +13,11 @@ def get_soup(text: str, errors: Errors):
             for item in warning_list:
                 errors.debug(
                     f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'",
-                    Location(LOCATION, "get_soup"),
+                    KlassMethodLocation(LOCATION, "get_soup"),
                 )
         return result
     except Exception as e:
         errors.exception(
-            f"Parsing '{text}' with soup", Location(LOCATION, "get_soup"), e
+            f"Parsing '{text}' with soup", e, KlassMethodLocation(MODULE, "get_soup")
         )
         return ""

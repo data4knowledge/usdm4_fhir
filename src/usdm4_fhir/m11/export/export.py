@@ -3,7 +3,8 @@ from uuid import uuid4
 from usdm4.api.eligibility_criterion import EligibilityCriterion
 from usdm4_fhir.m11.export.export_base import ExportBase
 from usdm4_fhir.m11.utility.soup import get_soup
-from usdm4_fhir.errors.errors import Location
+from simple_error_log.errors import Errors
+from simple_error_log.error_location import KlassMethodLocation
 
 from usdm4_fhir.factory.base_factory import BaseFactory
 from usdm4_fhir.factory.research_study_factory import ResearchStudyFactory
@@ -29,10 +30,10 @@ class Export(ExportBase):
             date = datetime.datetime.now(tz=datetime.timezone.utc).isoformat()
 
             # Composition
-            #composition = self._composition_entry(date)
-            #self._add_bundle_entry(
+            # composition = self._composition_entry(date)
+            # self._add_bundle_entry(
             #    composition, "https://www.example.com/Composition/1234B"
-            #)
+            # )
 
             # Research Study
             rs = ResearchStudyFactory(self.study, self._extra)
@@ -50,8 +51,8 @@ class Export(ExportBase):
             bundle = BundleFactory(
                 id=None,
                 entry=self._entries,
-                #type="document", # With composition
-                type="collection", # Without composition
+                # type="document", # With composition
+                type="collection",  # Without composition
                 identifier=identifier.item,
                 timestamp=date,
             )
@@ -59,8 +60,8 @@ class Export(ExportBase):
         except Exception as e:
             self.errors.exception(
                 "Exception raised generating FHIR content.",
-                Location(self.MODULE, "export"),
                 e,
+                KlassMethodLocation(self.MODULE, "export"),
             )
             return None
 

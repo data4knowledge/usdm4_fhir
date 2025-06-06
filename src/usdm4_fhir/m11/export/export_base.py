@@ -8,11 +8,13 @@ from fhir.resources.composition import CompositionSection
 from fhir.resources.narrative import Narrative
 from fhir.resources.codeableconcept import CodeableConcept
 from usdm4_fhir.m11.utility.soup import get_soup
-from usdm4_fhir.errors.errors import Errors, Location
+from simple_error_log.errors import Errors
+from simple_error_log.error_location import KlassMethodLocation
 
 
 class ExportBase:
     EMPTY_DIV = '<div xmlns="http://www.w3.org/1999/xhtml"></div>'
+    MODULE = "usdm4_fhir.m11.export.export_base.ExportBase"
 
     class LogicError(Exception):
         pass
@@ -93,16 +95,18 @@ class ExportBase:
                 if "type" in attributes:
                     ref.attrs = {}
             except Exception as e:
-                self._errors_and_logging.exception(
-                    "Exception raised cleaning 'ol' tags", e
+                location = KlassMethodLocation(self.MODULE, "_clean_tag")
+                self.errors.exception(
+                    "Exception raised cleaning 'ol' tags", e, location
                 )
         # Styles
         for ref in soup("style"):
             try:
                 ref.extract()
             except Exception as e:
-                self._errors_and_logging.exception(
-                    "Exception raised cleaning 'script' tags", e
+                location = KlassMethodLocation(self.MODULE, "_clean_tag")
+                self.errors.exception(
+                    "Exception raised cleaning 'script' tags", e, location
                 )
         # Images
         # for ref in soup('img'):
@@ -116,7 +120,10 @@ class ExportBase:
                 if len(ref.get_text(strip=True)) == 0:
                     ref.extract()
             except Exception as e:
-                self._errors_and_logging.exception(
-                    "Exception raised cleaning empty 'p' tags", e
+                location = KlassMethodLocation(
+                    "usdm4_fhir.m11.export.export_base.ExportBase", "_clean_tag"
+                )
+                self.errors.exception(
+                    "Exception raised cleaning empty 'p' tags", e, location
                 )
         return str(soup)

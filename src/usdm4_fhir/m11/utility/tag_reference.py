@@ -1,5 +1,6 @@
 from usdm3.data_store.data_store import DataStore
-from usdm4_fhir.errors.errors import Errors, Location
+from simple_error_log.errors import Errors
+from simple_error_log.error_location import KlassMethodLocation
 from usdm4_fhir.m11.utility.soup import get_soup
 
 
@@ -21,11 +22,11 @@ class TagReference:
                 print(f"TRANSLATED: {translated_text}")
                 self._replace_and_highlight(ref, translated_text)
             except Exception as e:
-                location = Location(self.MODULE, "translate")
+                location = KlassMethodLocation(self.MODULE, "translate")
                 self.errors.exception(
                     f"Exception raised while attempting to translate reference '{attributes}'",
-                    location,
                     e,
+                    location,
                 )
                 self._replace_and_highlight(ref, "Missing content: exception")
         return get_soup(str(soup), self.errors)
@@ -54,7 +55,7 @@ class TagReference:
                     else:
                         self.errors.error(
                             f"Missing dictionary entry while attempting to resolve reference '{attributes}'",
-                            Location(self.MODULE, "_resolve_instance"),
+                            KlassMethodLocation(self.MODULE, "_resolve_instance"),
                         )
                         self._replace_and_highlight(
                             ref, "Missing content: missing dictionary entry"
@@ -62,7 +63,7 @@ class TagReference:
                 else:
                     self.errors.error(
                         f"Missing dictionary while attempting to resolve reference '{attributes}'",
-                        Location(self.MODULE, "_resolve_instance"),
+                        KlassMethodLocation(self.MODULE, "_resolve_instance"),
                     )
                     self._replace_and_highlight(
                         ref, "Missing content: missing dictionary"
@@ -70,8 +71,8 @@ class TagReference:
             except Exception as e:
                 self.errors.exception(
                     f"Failed to resolve reference '{attributes} while generating the FHIR message",
-                    Location(self.MODULE, "_resolve_instance"),
                     e,
+                    KlassMethodLocation(self.MODULE, "_resolve_instance"),
                 )
                 self._replace_and_highlight(ref, "Missing content: exception")
         return str(soup)

@@ -18,7 +18,8 @@ from usdm4.api.study import Study
 from usdm4.api.study_design import StudyDesign
 from usdm4_fhir.factory.urn_uuid import URNUUID
 from usdm4_fhir.factory.study_url import StudyUrl
-from usdm4_fhir.errors.errors import Errors, Location
+from simple_error_log.errors import Errors
+from simple_error_log.error_location import KlassMethodLocation
 
 
 class Export:
@@ -121,8 +122,8 @@ class Export:
             )
             return bundle.item.json()
         except Exception as e:
-            location = Location("usdm4_fhir.soa.export.Export", "to_message")
+            location = KlassMethodLocation("usdm4_fhir.soa.export.Export", "to_message")
             self._errors.exception(
-                "Exception raised building FHIR SoA message", location, e
+                "Exception raised building FHIR SoA message", e, location
             )
             return ""

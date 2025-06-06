@@ -23,6 +23,8 @@ from simple_error_log.error_location import KlassMethodLocation
 
 
 class Export:
+    MODULE = "usdm4_fhir.soa.export.Export"
+    
     def __init__(self, study: Study, timeline_id: str, uuid: str, extra: dict = {}):
         """
         Initialize the ToFHIRSoA class
@@ -122,7 +124,7 @@ class Export:
             )
             return bundle.item.json()
         except Exception as e:
-            location = KlassMethodLocation("usdm4_fhir.soa.export.Export", "to_message")
+            location = KlassMethodLocation(self.MODULE, "to_message")
             self._errors.exception(
                 "Exception raised building FHIR SoA message", e, location
             )

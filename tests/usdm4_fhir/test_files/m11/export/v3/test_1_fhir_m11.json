@@ -1,0 +1,127 @@
+{
+  "resourceType": "Bundle",
+  "identifier": {
+    "system": "urn:ietf:rfc:3986",
+    "value": "urn:uuid:FAKE-UUID"
+  },
+  "type": "collection",
+  "timestamp": "2024-12-25T00:00:00.000000+00:00",
+  "entry": [
+    {
+      "fullUrl": "https://www.example.com/Composition/1234A",
+      "resource": {
+        "resourceType": "ResearchStudy",
+        "identifier": [
+          {
+            "type": {
+              "text": "Clinical Study Sponsor"
+            },
+            "system": "https://example.org/sponsor-identifier",
+            "value": "CA0731020"
+          },
+          {
+            "type": {
+              "text": "Amendment Identifier"
+            },
+            "system": "https://example.org/amendment-identifier",
+            "value": "NA"
+          }
+        ],
+        "version": "1",
+        "title": "A Phase 3, Multicenter, Randomized, Double-blind, Placebo- controlled Study Comparing the Efficacy and Safety of Golcadomide Plus R-CHOP Chemotherapy vs Placebo Plus R- CHOP Chemotherapy in Participants with Previously Untreated High-risk Large B-cell Lymphoma",
+        "label": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://www.cdisc.org",
+                  "version": "2024-09-27",
+                  "code": "C94108",
+                  "display": "Study Acronym"
+                }
+              ]
+            },
+            "value": "GOLSEEK-1"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://www.cdisc.org",
+                  "version": "2024-09-27",
+                  "code": "C99905x1",
+                  "display": "Brief Study Title"
+                }
+              ]
+            },
+            "value": "A Study to Compare the Efficacy and Safety of Golcadomide Plus R-CHOP vs Placebo Plus R-CHOP in Participants with Previously Untreated High-risk Large B-cell Lymphoma"
+          }
+        ],
+        "status": "active",
+        "phase": {
+          "coding": [
+            {
+              "system": "http://www.cdisc.org",
+              "version": "2024-09-27",
+              "code": "C15602",
+              "display": "Phase III Trial"
+            }
+          ],
+          "text": "Phase III Trial"
+        },
+        "associatedParty": [
+          {
+            "role": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/research-study-party-role",
+                  "code": "sponsor",
+                  "display": "sponsor"
+                }
+              ]
+            },
+            "party": {
+              "reference": "Organization/FAKE-UUID"
+            }
+          }
+        ],
+        "progressStatus": [
+          {
+            "state": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/research-study-party-role",
+                  "code": "sponsor-approved",
+                  "display": "sponsor apporval date"
+                }
+              ]
+            },
+            "period": {
+              "start": "2024-12-25T00:00:00.000000+00:00"
+            }
+          }
+        ],
+        "recruitment": {
+          "eligibility": {
+            "reference": "Group/FAKE-UUID"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "https://www.example.com/Composition/1234X1",
+      "resource": {
+        "resourceType": "Group",
+        "id": "FAKE-UUID",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.combinationMethod",
+            "valueString": "all-of"
+          }
+        ],
+        "type": "person",
+        "membership": "definitional"
+      }
+    }
+  ]
+}

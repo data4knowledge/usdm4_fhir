@@ -17,6 +17,7 @@
         "amendments": [
           {
             "id": "StudyAmendment_1",
+            "name": "AMEND 1",
             "extensionAttributes": [],
             "number": "1",
             "summary": "",

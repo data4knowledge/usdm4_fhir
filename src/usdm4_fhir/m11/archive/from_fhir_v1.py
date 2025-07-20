@@ -167,9 +167,9 @@ class FromFHIRV1:
 
         # Dates
         sponsor_approval_date_code = self._cdisc_ct_code(
-            "C132352", "Sponsor Approval Date"
+            "C132352", "Protocol Approval by Sponsor Date"
         )
-        protocol_date_code = self._cdisc_ct_code("C99903x1", "Protocol Effective Date")
+        protocol_date_code = self._cdisc_ct_code("C207598", "Protocol Effective Date")
         global_code = self._cdisc_ct_code("C68846", "Global")
         global_scope = self._model_instance(GeographicScope, {"type": global_code})
         dates = []
@@ -205,8 +205,8 @@ class FromFHIRV1:
             )
 
         # Titles
-        sponsor_title_code = self._cdisc_ct_code("C99905x2", "Official Study Title")
-        sponsor_short_title_code = self._cdisc_ct_code("C99905x1", "Brief Study Title")
+        sponsor_title_code = self._cdisc_ct_code("C207616", "Official Study Title")
+        sponsor_short_title_code = self._cdisc_ct_code("C207615", "Brief Study Title")
         acronym_code = self._cdisc_ct_code("C94108", "Study Acronym")
         titles = []
         try:

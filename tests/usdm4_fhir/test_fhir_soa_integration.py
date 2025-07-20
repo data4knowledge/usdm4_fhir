@@ -6,7 +6,7 @@ from usdm4 import USDM4
 from usdm4.api.study import *
 from usdm4.api.study_design import *
 
-SAVE = False
+SAVE = True
 
 
 def _run_test_to(name, save=False):

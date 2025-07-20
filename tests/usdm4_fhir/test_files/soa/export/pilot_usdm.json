@@ -27,7 +27,7 @@
               "code": "C132352",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
-              "decode": "Sponsor Approval Date",
+              "decode": "Protocol Approval by Sponsor Date",
               "instanceType": "Code"
             },
             "dateValue": "2006-06-01",
@@ -66,7 +66,7 @@
               "code": {
                 "id": "Code_88",
                 "extensionAttributes": [],
-                "code": "C99904x3",
+                "code": "C207605",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
                 "decode": "IRB/IEC Feedback",
@@ -121,7 +121,7 @@
                 "type": {
                   "id": "Code_93",
                   "extensionAttributes": [],
-                  "code": "C99912x1",
+                  "code": "C215665",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
                   "decode": "Study Subject Safety",
@@ -208,7 +208,7 @@
                 "type": {
                   "id": "Code_18",
                   "extensionAttributes": [],
-                  "code": "C99903x1",
+                  "code": "C207598",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
                   "decode": "Protocol Effective Date",
@@ -340,10 +340,10 @@
               {
                 "id": "Code_157",
                 "extensionAttributes": [],
-                "code": "C99907x1",
+                "code": "C207613",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2024-09-27",
-                "decode": "EXTENSION",
+                "decode": "Extension Study Design",
                 "instanceType": "Code"
               },
               {
@@ -4932,7 +4932,7 @@
             "type": {
               "id": "Code_9",
               "extensionAttributes": [],
-              "code": "C99905x1",
+              "code": "C207615",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
               "decode": "Brief Study Title",
@@ -4947,7 +4947,7 @@
             "type": {
               "id": "Code_10",
               "extensionAttributes": [],
-              "code": "C99905x2",
+              "code": "C207616",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
               "decode": "Official Study Title",
@@ -4962,7 +4962,7 @@
             "type": {
               "id": "Code_11",
               "extensionAttributes": [],
-              "code": "C99905x3",
+              "code": "C207617",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
               "decode": "Public Study Title",
@@ -16375,7 +16375,7 @@
                 "type": {
                   "id": "Code_15",
                   "extensionAttributes": [],
-                  "code": "C99903x1",
+                  "code": "C207598",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
                   "decode": "Protocol Effective Date",
@@ -17615,7 +17615,7 @@
                 "type": {
                   "id": "Code_673",
                   "extensionAttributes": [],
-                  "code": "C99903x1",
+                  "code": "C207598",
                   "codeSystem": "http://www.cdisc.org",
                   "codeSystemVersion": "2024-09-27",
                   "decode": "Protocol Effective Date",

@@ -405,7 +405,7 @@ class ToFHIRV2(ToFHIR):
     def _document_date(self) -> USDMGovernanceDate:
         dates = self.study_version.dateValues
         for date in dates:
-            if date.type.code == "C99903x1":
+            if date.type.code == "C207598":
                 return date
         return None
 

@@ -93,5 +93,5 @@ class TagReference:
             return self._data_store.get(
                 "SyntaxTemplateDictionary", instance.dictionaryId
             )
-        except:
+        except Exception:
             return None

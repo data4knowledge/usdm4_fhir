@@ -16,23 +16,23 @@ class DataStore:
                 return self._references[key]
             else:
                 return None
-        except:
+        except Exception:
             return None
 
     def _process_node(self, node):
-        if type(node) == list:
+        if type(node) is list:
             if node:
                 for item in node:
                     self._process_node(item)
-        elif type(node) == str:
+        elif type(node) is str:
             pass
-        elif type(node) == float:
+        elif type(node) is float:
             pass
-        elif type(node) == date:
+        elif type(node) is date:
             pass
-        elif type(node) == bool:
+        elif type(node) is bool:
             pass
-        elif type(node) == UUID:
+        elif type(node) is UUID:
             pass
         elif node is None:
             pass

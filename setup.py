@@ -16,8 +16,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=[
-        "usdm4==0.8.2",
-        "simple_error_log>=0.5.0", 
+        "usdm4==0.9.1",
         "openpyxl"
     ],
     packages=setuptools.find_packages(where="src"),

@@ -1,8 +1,7 @@
+usdm4==0.9.1
 fhir.resources==7.1.0
 pytest==8.2.2
 pytest-mock==3.14.0
 pytest-cov==4.1.0
 pytest-asyncio==0.26.0
 ruff==0.9.1
-usdm4==0.8.2
-simple_error_log>=0.5.0

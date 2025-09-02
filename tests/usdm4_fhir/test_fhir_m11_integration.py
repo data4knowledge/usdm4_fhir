@@ -4,7 +4,7 @@ from tests.usdm4_fhir.helpers.helpers import fix_uuid, fix_iso_dates
 from usdm4_fhir import M11
 from usdm4 import USDM4
 
-SAVE = True
+SAVE = False
 
 
 def run_test_to_v3(name, save=False):
@@ -35,8 +35,8 @@ def _full_path(filename, version, mode):
     return f"tests/usdm4_fhir/test_files/m11/{mode}/{version}/{filename}"
 
 
-def test_to_fhir_v3_test_1():
-    run_test_to_v3("test_1", SAVE)
+def test_to_fhir_v3_IGBJ():
+    run_test_to_v3("IGBJ", SAVE)
 
 
 def test_to_fhir_v3_pilot():

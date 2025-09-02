@@ -6,7 +6,7 @@ from usdm4 import USDM4
 from usdm4.api.study import *
 from usdm4.api.study_design import *
 
-SAVE = True
+SAVE = False
 
 
 def _run_test_to(name, save=False):
@@ -37,5 +37,5 @@ def _full_path(filename, version, mode):
     return f"tests/usdm4_fhir/test_files/soa/{mode}/{filename}"
 
 
-def test_from_fhir_v1_ASP8062():
+def test_from_fhir_v1_pilot():
     _run_test_to("pilot", SAVE)

@@ -14,21 +14,21 @@
         "identifier": [
           {
             "type": {
-              "text": "Clinical Study Sponsor"
+              "text": "Pharmaceutical Company"
             },
             "system": "https://example.org/sponsor-identifier",
-            "value": "CA0731020"
+            "value": "I8R-JE-IGBJ\n "
           },
           {
             "type": {
               "text": "Amendment Identifier"
             },
             "system": "https://example.org/amendment-identifier",
-            "value": "NA"
+            "value": ""
           }
         ],
-        "version": "1",
-        "title": "A Phase 3, Multicenter, Randomized, Double-blind, Placebo- controlled Study Comparing the Efficacy and Safety of Golcadomide Plus R-CHOP Chemotherapy vs Placebo Plus R- CHOP Chemotherapy in Participants with Previously Untreated High-risk Large B-cell Lymphoma",
+        "version": "(a)",
+        "title": "A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus ",
         "label": [
           {
             "type": {
@@ -36,12 +36,12 @@
                 {
                   "system": "http://www.cdisc.org",
                   "version": "2024-09-27",
-                  "code": "C94108",
+                  "code": "C207646",
                   "display": "Study Acronym"
                 }
               ]
             },
-            "value": "GOLSEEK-1"
+            "value": ""
           },
           {
             "type": {
@@ -54,15 +54,16 @@
                 }
               ]
             },
-            "value": "A Study to Compare the Efficacy and Safety of Golcadomide Plus R-CHOP vs Placebo Plus R-CHOP in Participants with Previously Untreated High-risk Large B-cell Lymphoma"
+            "value": "A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus\n "
           }
         ],
+        "date": "2017-10-26",
         "status": "active",
         "phase": {
           "coding": [
             {
               "system": "http://www.cdisc.org",
-              "version": "2024-09-27",
+              "version": "2025-03-28",
               "code": "C15602",
               "display": "Phase III Trial"
             }
@@ -97,7 +98,7 @@
               ]
             },
             "period": {
-              "start": "2024-12-25T00:00:00.000000+00:00"
+              "start": "2017-10-26"
             }
           }
         ],

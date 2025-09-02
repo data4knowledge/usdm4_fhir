@@ -14,8 +14,6 @@ from usdm4_fhir.factory.timepoint_plan_definition_factory import (
     TimepointPlanDefinitionFactory,
 )
 from usdm4_fhir.factory.activity_definition_factory import ActivityDefinitionFactory
-from usdm4.api.study import Study
-from usdm4.api.study_design import StudyDesign
 from usdm4_fhir.factory.urn_uuid import URNUUID
 from usdm4_fhir.factory.study_url import StudyUrl
 from simple_error_log.errors import Errors
@@ -24,7 +22,7 @@ from simple_error_log.error_location import KlassMethodLocation
 
 class Export:
     MODULE = "usdm4_fhir.soa.export.Export"
-    
+
     def __init__(self, study: Study, timeline_id: str, uuid: str, extra: dict = {}):
         """
         Initialize the ToFHIRSoA class

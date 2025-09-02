@@ -1,7 +1,6 @@
 import datetime
 from usdm4.api.study import Study as USDMStudy
 from usdm4.api.study_version import StudyVersion as USDMStudyVersion
-from usdm4.api.identifier import StudyIdentifier
 from usdm4.api.governance_date import GovernanceDate
 from fhir.resources.researchstudy import ResearchStudy
 from usdm4_fhir.factory.base_factory import BaseFactory

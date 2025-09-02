@@ -29,7 +29,9 @@ class TagReference:
                     e,
                     location,
                 )
-                self._replace_and_highlight(ref, get_soup("Missing content: exception", self.errors))
+                self._replace_and_highlight(
+                    ref, get_soup("Missing content: exception", self.errors)
+                )
         return get_soup(str(soup), self.errors)
 
     def _resolve_instance(self, instance, attribute):
@@ -58,7 +60,10 @@ class TagReference:
                             KlassMethodLocation(self.MODULE, "_resolve_instance"),
                         )
                         self._replace_and_highlight(
-                            ref, get_soup("Missing content: missing dictionary entry", self.errors)
+                            ref,
+                            get_soup(
+                                "Missing content: missing dictionary entry", self.errors
+                            ),
                         )
                 else:
                     self.errors.error(
@@ -66,15 +71,18 @@ class TagReference:
                         KlassMethodLocation(self.MODULE, "_resolve_instance"),
                     )
                     self._replace_and_highlight(
-                        ref, get_soup("Missing content: missing dictionary", self.errors)
+                        ref,
+                        get_soup("Missing content: missing dictionary", self.errors),
                     )
             except Exception as e:
                 self.errors.exception(
                     f"Failed to resolve reference '{attributes} while generating the FHIR message",
                     e,
-                    KlassMethodLocation(self.MODULE, "_resolve_instance")
+                    KlassMethodLocation(self.MODULE, "_resolve_instance"),
                 )
-                self._replace_and_highlight(ref, get_soup("Missing content: exception", self.errors))
+                self._replace_and_highlight(
+                    ref, get_soup("Missing content: exception", self.errors)
+                )
         return str(soup)
 
     def _replace_and_highlight(self, ref, text: BeautifulSoup) -> None:

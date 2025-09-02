@@ -14,7 +14,7 @@
         "identifier": [
           {
             "type": {
-              "text": "Clinical Study Sponsor"
+              "text": "Pharmaceutical Company"
             },
             "system": "https://example.org/sponsor-identifier",
             "value": "8062-CL-2002"
@@ -24,11 +24,11 @@
               "text": "Amendment Identifier"
             },
             "system": "https://example.org/amendment-identifier",
-            "value": "1.1"
+            "value": ""
           }
         ],
         "version": "1.1",
-        "title": "A Phase 1 Randomized, Placebo-controlled Study to Assess the Safety, Tolerability and Pharmacokinetics of Multiple Doses of ASP8062 with a Single Dose of Morphine in Recreational Opioid Using Participants",
+        "title": "A Phase 1 Randomized, Placebo-controlled Study to Assess the Safety, Tolerability and Pharmacokinetics of Multiple Doses of ASP8062 with a Single Dose of Morphine in Recreational Opioid Using Participants ",
         "label": [
           {
             "type": {
@@ -36,7 +36,7 @@
                 {
                   "system": "http://www.cdisc.org",
                   "version": "2024-09-27",
-                  "code": "C94108",
+                  "code": "C207646",
                   "display": "Study Acronym"
                 }
               ]
@@ -63,7 +63,7 @@
           "coding": [
             {
               "system": "http://www.cdisc.org",
-              "version": "2024-09-27",
+              "version": "2025-03-28",
               "code": "C15600",
               "display": "Phase I Trial"
             }

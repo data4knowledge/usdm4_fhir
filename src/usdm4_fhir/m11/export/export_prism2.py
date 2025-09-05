@@ -1,7 +1,6 @@
 import datetime
 from simple_error_log.error_location import KlassMethodLocation
 from usdm4_fhir.m11.export.export_base import ExportBase
-from usdm4.api.narrative_content import NarrativeContent
 from fhir.resources.bundle import Bundle, BundleEntry
 from fhir.resources.identifier import Identifier
 from fhir.resources.composition import Composition

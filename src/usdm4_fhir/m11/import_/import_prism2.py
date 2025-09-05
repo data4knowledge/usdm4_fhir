@@ -9,7 +9,6 @@ from usdm4.api.study_title import StudyTitle
 from usdm4.api.study_definition_document import StudyDefinitionDocument
 from usdm4.api.study_definition_document_version import StudyDefinitionDocumentVersion
 from usdm4.api.code import Code
-from usdm4.api.alias_code import AliasCode
 from usdm4.api.identifier import StudyIdentifier
 from usdm4.api.organization import Organization
 from usdm4.api.narrative_content import NarrativeContent, NarrativeContentItem

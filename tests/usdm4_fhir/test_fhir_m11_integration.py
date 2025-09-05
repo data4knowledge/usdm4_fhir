@@ -13,7 +13,7 @@ def anyio_backend():
     return "asyncio"
 
 
-SAVE = True
+SAVE = False
 
 
 def run_test_to_madrid(name, save=False):

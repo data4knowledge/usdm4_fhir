@@ -35,5 +35,5 @@ def _full_path(filename, version, mode):
     return f"tests/usdm4_fhir/test_files/soa/{mode}/{filename}"
 
 
-def test_from_fhir_v1_pilot():
+def test_from_fhir_pilot():
     _run_test_to("pilot", SAVE)

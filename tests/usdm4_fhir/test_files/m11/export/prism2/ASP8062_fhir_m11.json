@@ -2,10 +2,10 @@
   "resourceType": "Bundle",
   "identifier": {
     "system": "urn:ietf:rfc:3986",
-    "value": "urn:uuid:5b6717dc-4576-4d6a-8c56-8aeecc260cee"
+    "value": "urn:uuid:FAKE-UUID"
   },
   "type": "document",
-  "timestamp": "2024-11-21T09:58:55.616278+00:00",
+  "timestamp": "2024-12-25T00:00:00.000000+00:00",
   "entry": [
     {
       "fullUrl": "https://www.example.com/Composition/1234",
@@ -15,7 +15,7 @@
         "type": {
           "text": "EvidenceReport"
         },
-        "date": "2024-11-21T09:58:55.616278+00:00",
+        "date": "2024-12-25T00:00:00.000000+00:00",
         "author": [
           {
             "display": "USDM"
@@ -26,7 +26,7 @@
           {
             "title": "&nbsp;",
             "code": {
-              "text": "section-"
+              "text": "section-&nbsp;"
             },
             "text": {
               "status": "generated",

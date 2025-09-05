@@ -36,10 +36,10 @@ def run_test(name, version, mode, save=False):
     error_filename = f"{name}_errors.yaml"
     if save:
         write_json(_full_path(result_filename, version, mode), result)
-        write_yaml(_full_path(name, error_filename), errors_clean_all(instance.errors))
+        write_yaml(_full_path(error_filename, version, mode), errors_clean_all(instance.errors))
     expected = read_json(_full_path(result_filename, version, mode))
     assert pretty_result == expected
-    error_expected = read_yaml(_full_path(name, error_filename))
+    error_expected = read_yaml(_full_path(error_filename, version, mode))
     assert errors_clean_all(instance.errors) == error_expected
 
 def _full_path(filename, version, mode):

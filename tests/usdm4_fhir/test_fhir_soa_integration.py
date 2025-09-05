@@ -1,5 +1,5 @@
 import json
-from tests.usdm4_fhir.files.files import read_yaml, write_json, read_json
+from tests.usdm4_fhir.helpers.files import read_yaml, write_json, read_json
 from tests.usdm4_fhir.helpers.helpers import fix_uuid, fix_iso_dates
 from usdm4_fhir.soa.export.export_soa import ExportSoA
 from usdm4 import USDM4

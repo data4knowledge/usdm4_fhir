@@ -132,4 +132,5 @@ dmypy.json
 .vscode
 .development_env
 .production_env
+.test_env
 test.py

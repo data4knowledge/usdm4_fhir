@@ -1,9 +1,16 @@
+
 import json
+import pytest
 from tests.usdm4_fhir.helpers.files import read_yaml, write_json, read_json, write_yaml
 from tests.usdm4_fhir.helpers.helpers import fix_uuid, fix_iso_dates
 from tests.usdm4_fhir.helpers.errors_clean import errors_clean_all
 from usdm4_fhir import M11
 from usdm4 import USDM4
+from usdm4.api.wrapper import Wrapper
+
+@pytest.fixture
+def anyio_backend():
+    return "asyncio"
 
 SAVE = False
 
@@ -33,6 +40,24 @@ def run_test(name, version, mode, save=False):
     result = fix_uuid(result)
     pretty_result = json.dumps(json.loads(result), indent=2)
     result_filename = f"{name}_fhir_m11.json"
+    error_filename = f"{name}_errors.yaml"
+    if save:
+        write_json(_full_path(result_filename, version, mode), result)
+        write_yaml(_full_path(error_filename, version, mode), errors_clean_all(instance.errors))
+    expected = read_json(_full_path(result_filename, version, mode))
+    assert pretty_result == expected
+    error_expected = read_yaml(_full_path(error_filename, version, mode))
+    assert errors_clean_all(instance.errors) == error_expected
+
+async def _run_test_from_prism2(name, save=False):
+    version = "prism2"
+    mode = "from"
+    filename = f"{name}_fhir_m11.json"
+    instance = M11()
+    result: Wrapper = await instance.from_message(_full_path(filename, version, mode))
+    result.study.id = "FAKE-UUID" # UUID allocated is dynamic, make fixed
+    pretty_result = json.dumps(json.loads(result.to_json()), indent=2)
+    result_filename = f"{name}_usdm.json"
     error_filename = f"{name}_errors.yaml"
     if save:
         write_json(_full_path(result_filename, version, mode), result)
@@ -72,3 +97,19 @@ def test_to_fhir_madrid_igbj():
 
 def test_to_fhir_madrid_pilot():
     run_test_to_madrid("pilot", SAVE)
+
+@pytest.mark.anyio
+async def test_from_fhir_prism2_ASP8062():
+    await _run_test_from_prism2("ASP8062", SAVE)
+
+
+@pytest.mark.anyio
+async def test_from_fhir_prism2_DEUCRALIP():
+    await _run_test_from_prism2("DEUCRALIP", SAVE)
+
+
+@pytest.mark.anyio
+async def test_from_fhir_prism2_IGBJ():
+    await _run_test_from_prism2("IGBJ", SAVE)
+
+

@@ -12,7 +12,7 @@ from usdm4.api.wrapper import Wrapper
 def anyio_backend():
     return "asyncio"
 
-SAVE = False
+SAVE = True
 
 
 def run_test_to_madrid(name, save=False):
@@ -51,10 +51,11 @@ def run_test(name, version, mode, save=False):
 
 async def _run_test_from_prism2(name, save=False):
     version = "prism2"
-    mode = "from"
+    mode = "import"
     filename = f"{name}_fhir_m11.json"
     instance = M11()
     result: Wrapper = await instance.from_message(_full_path(filename, version, mode))
+    print(f"ERRORS:\n{instance.errors.dump(0)}")
     result.study.id = "FAKE-UUID" # UUID allocated is dynamic, make fixed
     pretty_result = json.dumps(json.loads(result.to_json()), indent=2)
     result_filename = f"{name}_usdm.json"

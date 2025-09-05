@@ -1,4 +1,3 @@
-import json
 from uuid import uuid4
 from simple_error_log.errors import Errors
 from simple_error_log.error_location import KlassMethodLocation
@@ -42,6 +41,7 @@ class ImportPRISM2:
         self._encoder = Encoder(self._builder, self._errors)
         self._ncs = []
         self._title_page = None
+        self._index = 1
 
     @property
     def errors(self) -> Errors:
@@ -59,8 +59,8 @@ class ImportPRISM2:
             )
         except Exception as e:
             self._errors.exception(
-                "Exception raised parsing FHIR content. See logs for more details", e,
-                KlassMethodLocation(self.MODULE, "from_fhir")
+                "Exception raised parsing FHIR content", e,
+                KlassMethodLocation(self.MODULE, "from_message")
             )
             return None
 
@@ -94,8 +94,8 @@ class ImportPRISM2:
             StudyDefinitionDocumentVersion,
             {"version": "1", "status": protocl_status_code},
         )
-        language = self._language_code("en", "English")
-        doc_type = self._builder.cdisc_code("C70817", "Protocol")
+        language: Code = self._builder.iso639_code_or_decode("English")
+        doc_type: Code = self._builder.cdisc_code("C70817", "Protocol")
         protocl_document = self._builder.create(
             StudyDefinitionDocument,
             {
@@ -111,8 +111,9 @@ class ImportPRISM2:
         # root = self._builder.create(NarrativeContent, {'name': 'ROOT', 'sectionNumber': '0', 'sectionTitle': 'Root', 'text': '', 'childIds': [], 'previousId': None, 'nextId': None})
         # protocl_document_version.contents.append(root)
         ncis = []
+        self._index = 1
         for item in bundle.entry[0].resource.section:
-            nc = self._section(item, protocl_document_version, ncis, 0)
+            _ = self._section(item, protocl_document_version, ncis)
         self._builder.double_link(protocl_document_version.contents, "previousId", "nextId")
         # print(f"DOC: {protocl_document}")
         return protocl_document, ncis
@@ -122,9 +123,9 @@ class ImportPRISM2:
         section: CompositionSection,
         protocol_document_version: StudyDefinitionDocumentVersion,
         ncis: list,
-        index: int,
-    ):
-        index = index + 1
+    ) -> NarrativeContent:
+        print(f"INDEX1: {self._index}")
+        self._index += 1
         # print(f"SECTION: {section.title}, {section.code.text}")
         section_number = self._get_section_number(section.code.text)
         section_title = section.title
@@ -134,13 +135,14 @@ class ImportPRISM2:
         dst = True if st else False
         # print(f"SECTION: sn='{sn}', dsn='{dsn}', st='{st}', dst='{dst}'")
         text = section.text.div if section.text else "&nbsp"
-        nci = self._builder.create(
-            NarrativeContentItem, {"name": f"NCI-{index}", "text": text}
+        print(f"INDEX2: {self._index}")
+        nci: NarrativeContentItem = self._builder.create(
+            NarrativeContentItem, {"name": f"NCI-{self._index}", "text": text}
         )
-        nc = self._builder.create(
+        nc: NarrativeContent = self._builder.create(
             NarrativeContent,
             {
-                "name": f"NC-{index}",
+                "name": f"NC-{self._index}",
                 "sectionNumber": sn,
                 "displaySectionNumber": dsn,
                 "sectionTitle": st,
@@ -155,7 +157,7 @@ class ImportPRISM2:
         ncis.append(nci)
         if section.section:
             for item in section.section:
-                child_nc = self._section(item, protocol_document_version, ncis, index)
+                child_nc: NarrativeContent = self._section(item, protocol_document_version, ncis)
                 nc.childIds.append(child_nc.id)
         return nc
 
@@ -166,7 +168,7 @@ class ImportPRISM2:
     async def _study(self, protocol_document: StudyDefinitionDocument, ncis: list):
         protocol_document_version = protocol_document.versions[0]
         sections = protocol_document_version.contents
-        self._title_page: TitlePage = TitlePage(sections, ncis)
+        self._title_page: TitlePage = TitlePage(sections, ncis, self._errors)
         await self._title_page.process()
 
         # Dates
@@ -303,7 +305,7 @@ class ImportPRISM2:
     def _read_file(self, full_path: str) -> dict:
         try:
             with open(full_path, "r") as f:
-                data = json.load(f)
+                data = f.read()
                 f.close()
                 return data
         except Exception as e:

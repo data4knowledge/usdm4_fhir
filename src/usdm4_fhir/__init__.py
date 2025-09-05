@@ -37,13 +37,12 @@ class M11(FHIRBase):
             case _:
                 raise Exception(f"Version parameter '{version}' not recognized")
         self._errors = self._import.errors
-        print(f"IMPORT: {self._import}")
         result: Wrapper = await self._import.from_message(file_path)
         return result
 
     @property
     def errors(self) -> Errors:
-        return self._export.errors
+        return self._errors
 
 
 class SoA(FHIRBase):

@@ -7,9 +7,18 @@ from usdm4 import USDM4
 SAVE = False
 
 
-def run_test_to_v3(name, save=False):
+def run_test_to_madrid(name, save=False):
     version = "madrid"
     mode = "export"
+    run_test(name, version, mode, save)
+
+
+def run_test_to_prism2(name, save=False):
+    version = "prism2"
+    mode = "export"
+    run_test(name, version, mode, save)
+
+def run_test(name, version, mode, save=False):
     filename = f"{name}_usdm.json"
     contents = json.loads(read_json(_full_path(filename, version, mode)))
     usdm = USDM4()
@@ -17,7 +26,7 @@ def run_test_to_v3(name, save=False):
     study = wrapper.study
     extra = read_yaml(_full_path(f"{name}_extra.yaml", version, mode))
     instance = M11()
-    result = instance.to_message(study, extra)
+    result = instance.to_message(study, extra, version)
     print(f"ERRORS:\n{instance.errors.dump(0)}")
     result = fix_iso_dates(result)
     result = fix_uuid(result)
@@ -28,18 +37,21 @@ def run_test_to_v3(name, save=False):
     expected = read_json(_full_path(result_filename, version, mode))
     assert pretty_result == expected
 
-
 def _full_path(filename, version, mode):
     return f"tests/usdm4_fhir/test_files/m11/{mode}/{version}/{filename}"
 
 
-def test_to_fhir_v3_IGBJ():
-    run_test_to_v3("IGBJ", SAVE)
+def test_to_fhir_prism2_asp8062():
+    run_test_to_madrid("ASP8062", SAVE)
 
 
-def test_to_fhir_v3_pilot():
-    run_test_to_v3("pilot", SAVE)
+def test_to_fhir_madrid_igbj():
+    run_test_to_madrid("IGBJ", SAVE)
 
 
-def test_to_fhir_v3_ASP8062():
-    run_test_to_v3("ASP8062", SAVE)
+def test_to_fhir_madrid_pilot():
+    run_test_to_madrid("pilot", SAVE)
+
+
+def test_to_fhir_madrid_asp8062():
+    run_test_to_madrid("ASP8062", SAVE)

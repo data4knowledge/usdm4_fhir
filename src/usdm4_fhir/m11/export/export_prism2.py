@@ -1,5 +1,7 @@
 import datetime
+from simple_error_log.error_location import KlassMethodLocation
 from usdm4_fhir.m11.export.export_base import ExportBase
+from usdm4.api.narrative_content import NarrativeContent
 from fhir.resources.bundle import Bundle, BundleEntry
 from fhir.resources.identifier import Identifier
 from fhir.resources.composition import Composition
@@ -15,28 +17,14 @@ class ExportPRISM2(ExportBase):
 
     def to_message(self):
         try:
-            sections = []
-            content = self.protocol_document_version.contents[0]
-            more = True
-            while more:
-                section = self._content_to_section(content)
-                if section:
-                    sections.append(section)
-                content = next(
-                    (
-                        x
-                        for x in self.protocol_document_version.contents
-                        if x.id == content.nextId
-                    ),
-                    None,
-                )
-                more = True if content else False
+            sections = self._process_sections()
             type_code = CodeableConcept(text="EvidenceReport")
             date_now = datetime.datetime.now(tz=datetime.timezone.utc)
             date_str = date_now.isoformat()
             author = Reference(display="USDM")
+            title = self.study_version.official_title_text()
             composition = Composition(
-                title=self.doc_title,
+                title=title,
                 type=type_code,
                 section=sections,
                 date=date_str,
@@ -58,8 +46,10 @@ class ExportPRISM2(ExportBase):
             )
             return bundle.json()
         except Exception as e:
-            self._errors_and_logging.exception(
-                "Exception raised generating FHIR content. See logs for more details",
+            self._errors.exception(
+                "Exception raised generating FHIR PRISM2 M11 message.",
                 e,
+                KlassMethodLocation(self.MODULE, "to_message")
             )
             return None
+

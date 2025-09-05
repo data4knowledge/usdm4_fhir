@@ -21,46 +21,71 @@ class ExportBase:
 
     def __init__(self, study: Study, extra: dict):
         self.study = study
+        self._uuid = study.id
         self._data_store = DataStore(study)
-        # self._uuid = uuid
         self._extra = extra
         self._title_page = extra["title_page"]
         self._miscellaneous = extra["miscellaneous"]
         self._amendment = extra["amendment"]
         self._errors = Errors()
         self.study_version: StudyVersion = study.first_version()
-        self._nci_map = self.study_version.narrative_content_item_map()
-        # print(f"NCI MAP: {self._nci_map}")
         self.study_design = self.study_version.studyDesigns[0]
         self.protocol_document_version = self.study.documentedBy[0].versions[0]
         self.tag_ref = TagReference(self._data_store, self._errors)
+        self._nc_map = self.protocol_document_version.narraitve_content_map()
+        self._nci_map = self.study_version.narrative_content_item_map()
 
     @property
     def errors(self) -> Errors:
         return self._errors
     
-    def _content_to_section(self, content: NarrativeContent) -> CompositionSection:
-        # print(f"CONTENT CONTENT: {content}")
-        content_text = self._section_item(content)
+    def _process_sections(self) -> list:
+        sections = []
+        processed_map = {}
+        content = self.protocol_document_version.contents[0]
+        more = True
+        while more:
+            section = self._content_to_section(content, processed_map)
+            if section:
+                sections.append(section)
+            content = self._next_narrative_content(content, processed_map)
+            more = True if content else False
+        return sections
+
+    def _next_narrative_content(self, content: NarrativeContent, map: dict) -> NarrativeContent | None:
+        processed = True
+        while processed:
+            if content.nextId:
+                content: NarrativeContent = self._nc_map[content.nextId]
+                if content.id not in map:
+                    return content
+            else:
+                processed = False
+        return None
+
+    def _content_to_section(self, content: NarrativeContent, processed_map: dict) -> CompositionSection:
+        # print(f"CONTENT TO SECTION: {content}")
+        processed_map[content.id] = True
+        content_text = self._narrative_content_item(content)
         div = self.tag_ref.translate(content_text)
         text = str(div)
         text = self._remove_line_feeds(text)
         narrative = Narrative(status="generated", div=text)
         title = self._format_section_title(content.sectionTitle)
         code = CodeableConcept(text=f"section{content.sectionNumber}-{title}")
-        title = content.sectionTitle if content.sectionTitle else "&nbsp;"
+        title = content.sectionTitle if content.sectionTitle else ""
         section = self._composition_section(f"{title}", code, narrative)
-        # if self._composition_section_no_text(section) and not content.childIds:
-        #     return None
-        # else:
-        #     for id in content.childIds:
-        #         content = self.protocol_document_version.find_narrative_content(id)
-        #         child = self._content_to_section(content)
-        #         if child:
-        #             section.section.append(child)
+        if self._composition_section_no_text(section) and not content.childIds:
+            return None
+        else:
+            for id in content.childIds:
+                content = self._nc_map[id]
+                child = self._content_to_section(content, processed_map)
+                if child:
+                    section.section.append(child)
         return section
 
-    def _section_item(self, content: NarrativeContent) -> str:
+    def _narrative_content_item(self, content: NarrativeContent) -> str:
         nci = self._nci_map[content.contentItemId]
         return nci.text if nci else ""
 
@@ -79,11 +104,11 @@ class ExportBase:
         return section.text is None
 
     # Factory
-    def _composition_section(self, title, code, narrative):
-        # print(f"NARRATIVE: {narrative.div[0:50]}")
+    def _composition_section(self, title, code, narrative: Narrative):
+        if narrative.div == "&amp;nbsp":
+            narrative.div = self.EMPTY_DIV
         narrative.div = self._clean_tags(narrative.div)
         if narrative.div == self.EMPTY_DIV:
-            # print("EMPTY")
             return CompositionSection(title=f"{title}", code=code, section=[])
         else:
             return CompositionSection(

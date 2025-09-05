@@ -30,14 +30,16 @@ class M11(FHIRBase):
         self._errors = self._export.errors
         return self._export.to_message()
 
-    def from_message(self, file_path: str, version: str = PRISM2) -> Wrapper | None:
+    async def from_message(self, file_path: str, version: str = PRISM2) -> Wrapper | None:
         match version:
             case self.PRISM2:
-                self._import = ImportPRISM2(file_path)
+                self._import = ImportPRISM2()
             case _:
                 raise Exception(f"Version parameter '{version}' not recognized")
         self._errors = self._import.errors
-        return self._import.from_message()
+        print(f"IMPORT: {self._import}")
+        result: Wrapper = await self._import.from_message(file_path)
+        return result
 
     @property
     def errors(self) -> Errors:

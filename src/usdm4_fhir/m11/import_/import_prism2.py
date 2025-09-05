@@ -1,4 +1,5 @@
 import json
+from uuid import uuid4
 from simple_error_log.errors import Errors
 from simple_error_log.error_location import KlassMethodLocation
 from usdm4.api.wrapper import Wrapper
@@ -34,12 +35,11 @@ class ImportPRISM2:
     class LogicError(Exception):
         pass
 
-    def __init__(self, uuid: str):
+    def __init__(self):
         self._errors: Errors = Errors()
-        self._usdm4: USDM4 = USDM4
+        self._usdm4: USDM4 = USDM4()
         self._builder: Builder = self._usdm4.builder(self._errors)
         self._encoder = Encoder(self._builder, self._errors)
-        self._uuid = uuid
         self._ncs = []
         self._title_page = None
 
@@ -47,10 +47,10 @@ class ImportPRISM2:
     def errors(self) -> Errors:
         return self._errors
     
-    def from_message(self, filepath: str) -> Wrapper | None:
+    async def from_message(self, filepath: str) -> Wrapper | None:
         try:
             data = self._read_file(filepath)
-            study = self._from_fhir(self._uuid, data)
+            study = await self._from_fhir(data)
             return Wrapper(
                 study=study,
                 usdmVersion=usdm_version,
@@ -81,10 +81,10 @@ class ImportPRISM2:
             },
         }
 
-    def _from_fhir(self, uuid: str, data: str) -> Wrapper:
+    async def _from_fhir(self, data: str) -> Wrapper:
         bundle = Bundle.parse_raw(data)
         protocol_document, ncis = self._document(bundle)
-        study = self._study(protocol_document, ncis)
+        study = await self._study(protocol_document, ncis)
         return study
 
     def _document(self, bundle):
@@ -290,7 +290,7 @@ class ImportPRISM2:
         study: Study = self._builder.create(
             Study,
             {
-                "id": self._uuid,
+                "id": uuid4(),
                 "name": self._title_page.study_name,
                 "label": self._title_page.study_name,
                 "description": f"FHIR Imported {self._title_page.study_name}",

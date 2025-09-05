@@ -111,5 +111,3 @@ async def test_from_fhir_prism2_DEUCRALIP():
 @pytest.mark.anyio
 async def test_from_fhir_prism2_IGBJ():
     await _run_test_from_prism2("IGBJ", SAVE)
-
-

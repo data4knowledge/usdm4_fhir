@@ -99,10 +99,10 @@ class ResearchStudyFactory(BaseFactory):
             # Amendment Scope - Part of Amendment
 
             # Compound Codes - No implementation details currently
-            x = self._title_page["compound_codes"]
+            # _ = self._title_page["compound_codes"]
 
             # Compound Names - No implementation details currently
-            x = self._title_page["compound_names"]
+            # _ = self._title_page["compound_names"]
 
             # Trial Phase
             phase = self._study_design.phase()

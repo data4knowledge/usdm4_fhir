@@ -1,8 +1,8 @@
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Full Title = A Phase 1 Randomized, Placebo-controlled
-    Study to Assess the Safety, Tolerability and Pharmacokinetics of Multiple Doses
-    of ASP8062 with a Single Dose of Morphine in Recreational Opioid Using Participants
+  message: Decoded M11 FHIR message Full Title = A Phase 3 Study of Nasal Glucagon
+    (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced
+    Hypoglycemia in Japanese Patients with Diabetes Mellitus
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Debug
@@ -21,9 +21,9 @@
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Full Title = A Phase 1 Randomized, Placebo-controlled
-    Study to Assess the Safety, Tolerability and Pharmacokinetics of Multiple Doses
-    of ASP8062 with a Single Dose of Morphine in Recreational Opioid Using Participants
+  message: Decoded M11 FHIR message Full Title = A Phase 3 Study of Nasal Glucagon
+    (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced
+    Hypoglycemia in Japanese Patients with Diabetes Mellitus
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
@@ -35,7 +35,7 @@
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Sponsor Protocol Identifier = 8062-CL-2002
+  message: Decoded M11 FHIR message Sponsor Protocol Identifier = I8R-JE-IGBJ
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
@@ -45,22 +45,22 @@
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Version Number = 1.1
+  message: Decoded M11 FHIR message Version Number = (a)
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Version Date = 30 JUL 2020
+  message: Decoded M11 FHIR message Version Date = 05-Dec-2017
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Amendment Identifier = 1.1
+  message: Decoded M11 FHIR message Amendment Identifier = I8R-JE-IGBJ(a)
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Amendment Scope = Local US
+  message: Decoded M11 FHIR message Amendment Scope = Global
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
@@ -72,90 +72,78 @@
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Trial Phase = Phase I
+  message: Decoded M11 FHIR message Trial Phase = Phase 3
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Compound Code = ASP8062
-  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
-  type: ''
-- level: Info
-  location:
-    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
-    method_name: _table_get_row
-  message: Failed to decode M11 FHIR message Compound Name
+  message: Decoded M11 FHIR message Compound Code = LY900018
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Trial Phase = Phase I
-  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
-  type: ''
-- level: Info
-  location:
-    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
-    method_name: _table_get_row
-  message: Failed to decode M11 FHIR message Short Title
+  message: Decoded M11 FHIR message Compound Name = Glucagon
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: 'Decoded M11 FHIR message Sponsor Name and Address = Astellas Pharma
+  message: Decoded M11 FHIR message Trial Phase = Phase 3
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Short Title = A Phase 3 Study of Nasal Glucagon
+    (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced
+    Hypoglycemia in Japanese Patients with Diabetes Mellitus
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Decoded M11 FHIR message Sponsor Name and Address = Eli Lilly Japan K.K
 
-    Global Development Inc.
-
-    1 Astellas Way Northbrook, IL 60062, US'
+    Japan'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Sponsor name set to 'Astellas Pharma'
+  message: Sponsor name set to 'Eli Lilly Japan K.K'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: 'Processing address Astellas Pharma
+  message: 'Processing address Eli Lilly Japan K.K
 
-    Global Development Inc.
-
-    1 Astellas Way Northbrook, IL 60062, US'
+    Japan'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: 'Address service result ''Global Development Inc. 1 Astellas Way Northbrook,
-    IL 60062, US'' returned [{''label'': ''house'', ''value'': ''global development
-    inc.''}, {''label'': ''house_number'', ''value'': ''1''}, {''label'': ''road'',
-    ''value'': ''astellas way''}, {''label'': ''city'', ''value'': ''northbrook''},
-    {''label'': ''state'', ''value'': ''il''}, {''label'': ''postcode'', ''value'':
-    ''60062''}, {''label'': ''country'', ''value'': ''us''}]'
+  message: 'Address service result ''Japan'' returned [{''label'': ''country'', ''value'':
+    ''japan''}]'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location:
     class_name: usdm4_fhir.m11.import_.title_page.TitlePage
     method_name: _sponsor_name_and_address
-  message: 'Name and address result ''Astellas Pharma'', ''{''line'': '''', ''city'':
-    ''Northbrook'', ''district'': '''', ''state'': ''IL'', ''postalCode'': ''60062'',
-    ''country'': ''US''}'''
+  message: 'Name and address result ''Eli Lilly Japan K.K'', ''{''line'': '''', ''city'':
+    '''', ''district'': '''', ''state'': '''', ''postalCode'': '''', ''country'':
+    ''Japan''}'''
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Regulatory Agency Identifier Number(s) = IND 146215
+  message: Decoded M11 FHIR message Regulatory Agency Identifier Number(s) = NCT03421379
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Sponsor Approval = 30/JUL/2020
+  message: Decoded M11 FHIR message Sponsor Approval = 26-Oct-2017
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
-  location:
-    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
-    method_name: _table_get_row
-  message: Failed to decode M11 FHIR message Manufacturer
+  location: {}
+  message: Decoded M11 FHIR message Manufacturer = On file with sponsor.
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
@@ -186,20 +174,20 @@
   type: ''
 - level: Debug
   location: {}
-  message: Study name checking '8062-CL-2002'
+  message: Study name checking 'I8R-JE-IGBJ'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location:
     class_name: usdm4_fhir.m11.import_.title_page.TitlePage
     method_name: _study_name
-  message: Study name set to '8062CL2002'
+  message: Study name set to 'I8RJEIGBJ'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location:
     class_name: usdm4.encoder.encoder.Encoder
     method_name: phase
-  message: Trial phase 'I' decoded as 'C15600', 'Phase I Trial'
+  message: Trial phase '3' decoded as 'C15602', 'Phase III Trial'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''

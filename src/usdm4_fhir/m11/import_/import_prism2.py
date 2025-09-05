@@ -182,10 +182,10 @@ class ImportPRISM2:
 
         # Dates
         sponsor_approval_date_code = self._builder.cdisc_code(
-            "C132352", "Sponsor Approval Date"
+            "C132352", "Protocol Approval by Sponsor Date"
         )
         protocol_date_code: Code = self._builder.cdisc_code(
-            "C99903x1", "Protocol Effective Date"
+            "C207598", "Protocol Effective Date"
         )
         global_code: Code = self._builder.cdisc_code("C68846", "Global")
         global_scope: GeographicScope = self._builder.create(
@@ -217,12 +217,12 @@ class ImportPRISM2:
 
         # Titles
         sponsor_title_code: Code = self._builder.cdisc_code(
-            "C99905x2", "Official Study Title"
+            "C207616", "Official Study Title"
         )
         sponsor_short_title_code: Code = self._builder.cdisc_code(
-            "C99905x1", "Brief Study Title"
+            "C207615", "Brief Study Title"
         )
-        acronym_code: Code = self._builder.cdisc_code("C94108", "Study Acronym")
+        acronym_code: Code = self._builder.cdisc_code("C207646", "Study Acronym")
         titles = []
         title = self._builder.create(
             StudyTitle,

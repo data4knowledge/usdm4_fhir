@@ -1,8 +1,8 @@
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Full Title = A Phase 1 Randomized, Placebo-controlled
-    Study to Assess the Safety, Tolerability and Pharmacokinetics of Multiple Doses
-    of ASP8062 with a Single Dose of Morphine in Recreational Opioid Using Participants
+  message: Decoded M11 FHIR message Full Title = Proof of concept study (multicenter,
+    phase II) on the efficacy of the selective TYK2 inhibitor Deucravacitinib in Lichen
+    planus patients (DEUCRALIP)
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Debug
@@ -21,21 +21,19 @@
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Full Title = A Phase 1 Randomized, Placebo-controlled
-    Study to Assess the Safety, Tolerability and Pharmacokinetics of Multiple Doses
-    of ASP8062 with a Single Dose of Morphine in Recreational Opioid Using Participants
-  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
-  type: ''
-- level: Info
-  location:
-    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
-    method_name: _table_get_row
-  message: Failed to decode M11 FHIR message Acronym
+  message: Decoded M11 FHIR message Full Title = Proof of concept study (multicenter,
+    phase II) on the efficacy of the selective TYK2 inhibitor Deucravacitinib in Lichen
+    planus patients (DEUCRALIP)
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Sponsor Protocol Identifier = 8062-CL-2002
+  message: Decoded M11 FHIR message Acronym = DEUCRALIP
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Sponsor Protocol Identifier = DER-202201
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
@@ -45,22 +43,22 @@
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Version Number = 1.1
+  message: Decoded M11 FHIR message Version Number = 3
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Version Date = 30 JUL 2020
+  message: Decoded M11 FHIR message Version Date = 07-NOV-2023
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Amendment Identifier = 1.1
+  message: Decoded M11 FHIR message Amendment Identifier = 3
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Amendment Scope = Local US
+  message: Decoded M11 FHIR message Amendment Scope = Global
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
@@ -72,83 +70,87 @@
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Trial Phase = Phase I
+  message: Decoded M11 FHIR message Trial Phase = Phase II
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Compound Code = ASP8062
-  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
-  type: ''
-- level: Info
-  location:
-    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
-    method_name: _table_get_row
-  message: Failed to decode M11 FHIR message Compound Name
+  message: Decoded M11 FHIR message Compound Code = L04AA56
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Trial Phase = Phase I
-  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
-  type: ''
-- level: Info
-  location:
-    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
-    method_name: _table_get_row
-  message: Failed to decode M11 FHIR message Short Title
-  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
-  type: ''
-- level: Info
-  location: {}
-  message: 'Decoded M11 FHIR message Sponsor Name and Address = Astellas Pharma
+  message: 'Decoded M11 FHIR message Compound Name = Deucravacitinib
 
-    Global Development Inc.
-
-    1 Astellas Way Northbrook, IL 60062, US'
+    SOTYKTU'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Sponsor name set to 'Astellas Pharma'
+  message: Decoded M11 FHIR message Trial Phase = Phase II
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: 'Processing address Astellas Pharma
-
-    Global Development Inc.
-
-    1 Astellas Way Northbrook, IL 60062, US'
+  message: Decoded M11 FHIR message Short Title = DEUCRALIP
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: 'Address service result ''Global Development Inc. 1 Astellas Way Northbrook,
-    IL 60062, US'' returned [{''label'': ''house'', ''value'': ''global development
-    inc.''}, {''label'': ''house_number'', ''value'': ''1''}, {''label'': ''road'',
-    ''value'': ''astellas way''}, {''label'': ''city'', ''value'': ''northbrook''},
-    {''label'': ''state'', ''value'': ''il''}, {''label'': ''postcode'', ''value'':
-    ''60062''}, {''label'': ''country'', ''value'': ''us''}]'
+  message: "Decoded M11 FHIR message Sponsor Name and Address = Rheinische Friedrich-Wilhelms-Universit\xE4\
+    t Bonn\nrepresented by the Faculty of Medicine of the University of Bonn represented\
+    \ by the Dean of the Faculty of Medicine Venusberg-Campus 1, D-53127 Bonn\nProf.\
+    \ Dr. med. Joerg Wenzel Department of Dermatology and Allergology University Hospital\
+    \ of Bonn Venusberg- Campus 1, D-53127 Bonn"
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: "Sponsor name set to 'Rheinische Friedrich-Wilhelms-Universit\xE4t Bonn'"
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: "Processing address Rheinische Friedrich-Wilhelms-Universit\xE4t Bonn\n\
+    represented by the Faculty of Medicine of the University of Bonn represented by\
+    \ the Dean of the Faculty of Medicine Venusberg-Campus 1, D-53127 Bonn\nProf.\
+    \ Dr. med. Joerg Wenzel Department of Dermatology and Allergology University Hospital\
+    \ of Bonn Venusberg- Campus 1, D-53127 Bonn"
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Address service result ''represented by the Faculty of Medicine of the
+    University of Bonn represented by the Dean of the Faculty of Medicine Venusberg-Campus
+    1, D-53127 Bonn Prof. Dr. med. Joerg Wenzel Department of Dermatology and Allergology
+    University Hospital of Bonn Venusberg- Campus 1, D-53127 Bonn'' returned [{''label'':
+    ''house'', ''value'': ''represented by the faculty of medicine of the university
+    of bonn represented by the dean of the faculty of medicine venusberg-campus''},
+    {''label'': ''house_number'', ''value'': ''1''}, {''label'': ''postcode'', ''value'':
+    ''d-53127''}, {''label'': ''house'', ''value'': ''bonn prof. dr. med. joerg wenzel
+    department of dermatology and allergology university hospital of bonn venusberg
+    campus''}, {''label'': ''house_number'', ''value'': ''1''}, {''label'': ''postcode'',
+    ''value'': ''d-53127''}, {''label'': ''city'', ''value'': ''bonn''}]'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location:
     class_name: usdm4_fhir.m11.import_.title_page.TitlePage
     method_name: _sponsor_name_and_address
-  message: 'Name and address result ''Astellas Pharma'', ''{''line'': '''', ''city'':
-    ''Northbrook'', ''district'': '''', ''state'': ''IL'', ''postalCode'': ''60062'',
-    ''country'': ''US''}'''
+  message: "Name and address result 'Rheinische Friedrich-Wilhelms-Universit\xE4t\
+    \ Bonn', '{'line': '', 'city': 'Bonn', 'district': '', 'state': '', 'postalCode':\
+    \ 'D-53127', 'country': ''}'"
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Regulatory Agency Identifier Number(s) = IND 146215
+  message: Decoded M11 FHIR message Regulatory Agency Identifier Number(s) = EU CT
+    2022-502991-21-00
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: Decoded M11 FHIR message Sponsor Approval = 30/JUL/2020
+  message: Decoded M11 FHIR message Sponsor Approval = 07-NOV-2023
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
@@ -181,25 +183,20 @@
   type: ''
 - level: Debug
   location: {}
-  message: Study name checking ''
-  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
-  type: ''
-- level: Debug
-  location: {}
-  message: Study name checking '8062-CL-2002'
+  message: Study name checking 'DEUCRALIP'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location:
     class_name: usdm4_fhir.m11.import_.title_page.TitlePage
     method_name: _study_name
-  message: Study name set to '8062CL2002'
+  message: Study name set to 'DEUCRALIP'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location:
     class_name: usdm4.encoder.encoder.Encoder
     method_name: phase
-  message: Trial phase 'I' decoded as 'C15600', 'Phase I Trial'
+  message: Trial phase 'II' decoded as 'C15601', 'Phase II Trial'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''

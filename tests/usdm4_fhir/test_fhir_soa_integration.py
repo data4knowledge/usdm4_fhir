@@ -1,7 +1,7 @@
 import json
 from tests.usdm4_fhir.files.files import read_yaml, write_json, read_json
 from tests.usdm4_fhir.helpers.helpers import fix_uuid, fix_iso_dates
-from usdm4_fhir.soa.export.export import Export
+from usdm4_fhir.soa.export.export_soa import ExportSoA
 from usdm4 import USDM4
 
 SAVE = False
@@ -18,7 +18,7 @@ def _run_test_to(name, save=False):
     extra = read_yaml(_full_path(f"{name}_extra.yaml", version, mode))
     study_version = study.first_version()
     study_design = study_version.studyDesigns[0]
-    result = Export(
+    result = ExportSoA(
         study, study_design.main_timeline().id, "FAKE-UUID", extra
     ).to_message()
     result = fix_iso_dates(result)

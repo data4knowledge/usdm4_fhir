@@ -20,7 +20,7 @@ from simple_error_log.errors import Errors
 from simple_error_log.error_location import KlassMethodLocation
 
 
-class Export:
+class ExportSoA:
     MODULE = "usdm4_fhir.soa.export.Export"
 
     def __init__(self, study: Study, timeline_id: str, uuid: str, extra: dict = {}):
@@ -35,6 +35,10 @@ class Export:
         self._timeline: ScheduleTimeline = self._study_design.find_timeline(timeline_id)
         self._uuid = uuid
 
+    @property
+    def errors(self) -> Errors:
+        return self._errors
+    
     def to_message(self):
         """
         Build the FHIR SoA message

@@ -93,7 +93,7 @@ def test_to_fhir_prism2_igbj():
     run_test_to_prism2("IGBJ", SAVE)
 
 
-def test_to_fhir_prism2_deucralip():
+def test_to_fhir_prism2_pilot():
     run_test_to_prism2("pilot", SAVE)
 
 
@@ -110,15 +110,15 @@ def test_to_fhir_madrid_pilot():
 
 
 @pytest.mark.anyio
-async def test_from_fhir_prism2_ASP8062():
+async def test_from_fhir_prism2_asp8062():
     await _run_test_from_prism2("ASP8062", SAVE)
 
 
 @pytest.mark.anyio
-async def test_from_fhir_prism2_DEUCRALIP():
+async def test_from_fhir_prism2_deucralipP():
     await _run_test_from_prism2("DEUCRALIP", SAVE)
 
 
 @pytest.mark.anyio
-async def test_from_fhir_prism2_IGBJ():
+async def test_from_fhir_prism2_igbj():
     await _run_test_from_prism2("IGBJ", SAVE)

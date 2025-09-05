@@ -1,5 +1,6 @@
 from d4k_ms_base import Service, ServiceEnvironment
 
+
 class AddressService(Service):
     def __init__(self):
         se = ServiceEnvironment()

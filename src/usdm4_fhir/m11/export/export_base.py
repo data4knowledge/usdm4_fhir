@@ -38,7 +38,7 @@ class ExportBase:
     @property
     def errors(self) -> Errors:
         return self._errors
-    
+
     def _process_sections(self) -> list:
         sections = []
         processed_map = {}
@@ -52,7 +52,9 @@ class ExportBase:
             more = True if content else False
         return sections
 
-    def _next_narrative_content(self, content: NarrativeContent, map: dict) -> NarrativeContent | None:
+    def _next_narrative_content(
+        self, content: NarrativeContent, map: dict
+    ) -> NarrativeContent | None:
         processed = True
         while processed:
             if content.nextId:
@@ -63,7 +65,9 @@ class ExportBase:
                 processed = False
         return None
 
-    def _content_to_section(self, content: NarrativeContent, processed_map: dict) -> CompositionSection:
+    def _content_to_section(
+        self, content: NarrativeContent, processed_map: dict
+    ) -> CompositionSection:
         # print(f"CONTENT TO SECTION: {content}")
         processed_map[content.id] = True
         content_text = self._narrative_content_item(content)

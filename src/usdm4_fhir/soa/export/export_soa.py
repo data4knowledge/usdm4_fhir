@@ -38,7 +38,7 @@ class ExportSoA:
     @property
     def errors(self) -> Errors:
         return self._errors
-    
+
     def to_message(self):
         """
         Build the FHIR SoA message

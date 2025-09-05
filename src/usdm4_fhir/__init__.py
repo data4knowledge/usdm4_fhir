@@ -19,7 +19,9 @@ class M11(FHIRBase):
     MADRID = "madrid"
     PRISM2 = "prism2"
 
-    def to_message(self, study: Study, extra: dict, version: str = PRISM2) -> str | None:
+    def to_message(
+        self, study: Study, extra: dict, version: str = PRISM2
+    ) -> str | None:
         match version:
             case self.MADRID:
                 self._export = ExportMadrid(study, extra)
@@ -30,7 +32,9 @@ class M11(FHIRBase):
         self._errors = self._export.errors
         return self._export.to_message()
 
-    async def from_message(self, file_path: str, version: str = PRISM2) -> Wrapper | None:
+    async def from_message(
+        self, file_path: str, version: str = PRISM2
+    ) -> Wrapper | None:
         match version:
             case self.PRISM2:
                 self._import = ImportPRISM2()

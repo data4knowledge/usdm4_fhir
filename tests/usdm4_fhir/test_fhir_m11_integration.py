@@ -1,4 +1,3 @@
-
 import json
 import pytest
 from tests.usdm4_fhir.helpers.files import read_yaml, write_json, read_json, write_yaml
@@ -8,9 +7,11 @@ from usdm4_fhir import M11
 from usdm4 import USDM4
 from usdm4.api.wrapper import Wrapper
 
+
 @pytest.fixture
 def anyio_backend():
     return "asyncio"
+
 
 SAVE = True
 
@@ -25,6 +26,7 @@ def run_test_to_prism2(name, save=False):
     version = "prism2"
     mode = "export"
     run_test(name, version, mode, save)
+
 
 def run_test(name, version, mode, save=False):
     filename = f"{name}_usdm.json"
@@ -43,11 +45,14 @@ def run_test(name, version, mode, save=False):
     error_filename = f"{name}_errors.yaml"
     if save:
         write_json(_full_path(result_filename, version, mode), result)
-        write_yaml(_full_path(error_filename, version, mode), errors_clean_all(instance.errors))
+        write_yaml(
+            _full_path(error_filename, version, mode), errors_clean_all(instance.errors)
+        )
     expected = read_json(_full_path(result_filename, version, mode))
     assert pretty_result == expected
     error_expected = read_yaml(_full_path(error_filename, version, mode))
     assert errors_clean_all(instance.errors) == error_expected
+
 
 async def _run_test_from_prism2(name, save=False):
     version = "prism2"
@@ -56,17 +61,20 @@ async def _run_test_from_prism2(name, save=False):
     instance = M11()
     result: Wrapper = await instance.from_message(_full_path(filename, version, mode))
     print(f"ERRORS:\n{instance.errors.dump(0)}")
-    result.study.id = "FAKE-UUID" # UUID allocated is dynamic, make fixed
+    result.study.id = "FAKE-UUID"  # UUID allocated is dynamic, make fixed
     pretty_result = json.dumps(json.loads(result.to_json()), indent=2)
     result_filename = f"{name}_usdm.json"
     error_filename = f"{name}_errors.yaml"
     if save:
         write_json(_full_path(result_filename, version, mode), result)
-        write_yaml(_full_path(error_filename, version, mode), errors_clean_all(instance.errors))
+        write_yaml(
+            _full_path(error_filename, version, mode), errors_clean_all(instance.errors)
+        )
     expected = read_json(_full_path(result_filename, version, mode))
     assert pretty_result == expected
     error_expected = read_yaml(_full_path(error_filename, version, mode))
     assert errors_clean_all(instance.errors) == error_expected
+
 
 def _full_path(filename, version, mode):
     return f"tests/usdm4_fhir/test_files/m11/{mode}/{version}/{filename}"
@@ -98,6 +106,7 @@ def test_to_fhir_madrid_igbj():
 
 def test_to_fhir_madrid_pilot():
     run_test_to_madrid("pilot", SAVE)
+
 
 @pytest.mark.anyio
 async def test_from_fhir_prism2_ASP8062():

@@ -49,7 +49,6 @@ class ExportPRISM2(ExportBase):
             self._errors.exception(
                 "Exception raised generating FHIR PRISM2 M11 message.",
                 e,
-                KlassMethodLocation(self.MODULE, "to_message")
+                KlassMethodLocation(self.MODULE, "to_message"),
             )
             return None
-

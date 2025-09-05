@@ -23,10 +23,14 @@ from usdm4 import USDM4
 from usdm4.__info__ import (
     __model_version__ as usdm_version,
 )
-from usdm4_fhir.__info__ import __system_name__ as SYSTEM_NAME, __package_version__ as VERSION
+from usdm4_fhir.__info__ import (
+    __system_name__ as SYSTEM_NAME,
+    __package_version__ as VERSION,
+)
 from usdm4_fhir.m11.import_.title_page import TitlePage
 from usdm4.builder.builder import Builder
 from usdm4.assembler.encoder import Encoder
+
 
 class ImportPRISM2:
     MODULE = "usdm4_fhir.m11.import_.import_prism2.ImportPRISM2"
@@ -46,7 +50,7 @@ class ImportPRISM2:
     @property
     def errors(self) -> Errors:
         return self._errors
-    
+
     async def from_message(self, filepath: str) -> Wrapper | None:
         try:
             data = self._read_file(filepath)
@@ -59,8 +63,9 @@ class ImportPRISM2:
             )
         except Exception as e:
             self._errors.exception(
-                "Exception raised parsing FHIR content", e,
-                KlassMethodLocation(self.MODULE, "from_message")
+                "Exception raised parsing FHIR content",
+                e,
+                KlassMethodLocation(self.MODULE, "from_message"),
             )
             return None
 
@@ -114,7 +119,9 @@ class ImportPRISM2:
         self._index = 1
         for item in bundle.entry[0].resource.section:
             _ = self._section(item, protocl_document_version, ncis)
-        self._builder.double_link(protocl_document_version.contents, "previousId", "nextId")
+        self._builder.double_link(
+            protocl_document_version.contents, "previousId", "nextId"
+        )
         # print(f"DOC: {protocl_document}")
         return protocl_document, ncis
 
@@ -157,7 +164,9 @@ class ImportPRISM2:
         ncis.append(nci)
         if section.section:
             for item in section.section:
-                child_nc: NarrativeContent = self._section(item, protocol_document_version, ncis)
+                child_nc: NarrativeContent = self._section(
+                    item, protocol_document_version, ncis
+                )
                 nc.childIds.append(child_nc.id)
         return nc
 
@@ -175,9 +184,13 @@ class ImportPRISM2:
         sponsor_approval_date_code = self._builder.cdisc_code(
             "C132352", "Sponsor Approval Date"
         )
-        protocol_date_code: Code = self._builder.cdisc_code("C99903x1", "Protocol Effective Date")
+        protocol_date_code: Code = self._builder.cdisc_code(
+            "C99903x1", "Protocol Effective Date"
+        )
         global_code: Code = self._builder.cdisc_code("C68846", "Global")
-        global_scope: GeographicScope = self._builder.create(GeographicScope, {"type": global_code})
+        global_scope: GeographicScope = self._builder.create(
+            GeographicScope, {"type": global_code}
+        )
         dates = []
         approval_date: GovernanceDate = self._builder.create(
             GovernanceDate,
@@ -203,8 +216,12 @@ class ImportPRISM2:
             dates.append(protocol_date)
 
         # Titles
-        sponsor_title_code: Code = self._builder.cdisc_code("C99905x2", "Official Study Title")
-        sponsor_short_title_code: Code = self._builder.cdisc_code("C99905x1", "Brief Study Title")
+        sponsor_title_code: Code = self._builder.cdisc_code(
+            "C99905x2", "Official Study Title"
+        )
+        sponsor_short_title_code: Code = self._builder.cdisc_code(
+            "C99905x1", "Brief Study Title"
+        )
         acronym_code: Code = self._builder.cdisc_code("C94108", "Study Acronym")
         titles = []
         title = self._builder.create(
@@ -229,8 +246,12 @@ class ImportPRISM2:
             titles.append(title)
 
         # Build
-        intervention_model_code: Code = self._builder.cdisc_code("C82639", "Parallel Study")
-        sponsor_code: Code = self._builder.cdisc_code("C54149", "Pharmaceutical Company")
+        intervention_model_code: Code = self._builder.cdisc_code(
+            "C82639", "Parallel Study"
+        )
+        sponsor_code: Code = self._builder.cdisc_code(
+            "C54149", "Pharmaceutical Company"
+        )
         empty_population = self._builder.create(
             StudyDesignPopulation,
             {
@@ -255,10 +276,14 @@ class ImportPRISM2:
                 "studyPhase": self._encoder.phase(self._title_page.trial_phase),
             },
         )
-        self._title_page.sponsor_address["country"] = self._builder.iso3166_code_or_decode(
-            self._title_page.sponsor_address["country"].upper()
+        self._title_page.sponsor_address["country"] = (
+            self._builder.iso3166_code_or_decode(
+                self._title_page.sponsor_address["country"].upper()
+            )
         )
-        address: Address = self._builder.create(Address, self._title_page.sponsor_address)
+        address: Address = self._builder.create(
+            Address, self._title_page.sponsor_address
+        )
         address.set_text()
         organization: Organization = self._builder.create(
             Organization,
@@ -309,7 +334,11 @@ class ImportPRISM2:
                 f.close()
                 return data
         except Exception as e:
-            self._errors.exception("Failed to read FHIR message file", e, KlassMethodLocation(self.MODULE, "_read_file"))
+            self._errors.exception(
+                "Failed to read FHIR message file",
+                e,
+                KlassMethodLocation(self.MODULE, "_read_file"),
+            )
 
     # def _cdisc_ct_code(self, code, decode):
     #     return self._builder.create(

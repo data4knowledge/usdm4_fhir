@@ -9,6 +9,7 @@ from usdm4_fhir.m11.utility.address_service import AddressService
 
 class TitlePage:
     MODULE = "usdm4_fhir.m11.import_.title_page.TitlePage"
+
     def __init__(self, sections: list, items: list, errors: Errors):
         self._sections = sections
         self._items = items
@@ -101,9 +102,15 @@ class TitlePage:
                 for table in soup(["table"]):
                     title = self._table_get_row(table, "Full Title")
                     if title:
-                        self._errors.debug("Found M11 title page table", KlassMethodLocation(self.MODULE, "_title_table"))
+                        self._errors.debug(
+                            "Found M11 title page table",
+                            KlassMethodLocation(self.MODULE, "_title_table"),
+                        )
                         return table
-        self._errors.warning("Cannot locate M11 title page table!", KlassMethodLocation(self.MODULE, "_title_table"))
+        self._errors.warning(
+            "Cannot locate M11 title page table!",
+            KlassMethodLocation(self.MODULE, "_title_table"),
+        )
         return None
 
     def _table_get_row(self, table, key: str) -> str:
@@ -116,7 +123,10 @@ class TitlePage:
                     r2 = ("\n").join(r1)
                     self._errors.info(f"Decoded M11 FHIR message {key} = {r2}")
                     return r2
-        self._errors.info(f"Failed to decode M11 FHIR message {key}", KlassMethodLocation(self.MODULE, "_table_get_row"))
+        self._errors.info(
+            f"Failed to decode M11 FHIR message {key}",
+            KlassMethodLocation(self.MODULE, "_table_get_row"),
+        )
         return ""
 
     def _get_soup(self, text):
@@ -127,11 +137,14 @@ class TitlePage:
             if warning_list:
                 for item in warning_list:
                     self._errors.debug(
-                        f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'", KlassMethodLocation(self.MODULE, "_get_soup")
+                        f"Warning raised within Soup package, processing '{text}'\nMessage returned '{item.message}'",
+                        KlassMethodLocation(self.MODULE, "_get_soup"),
                     )
         except Exception as e:
             self._errors.exception(
-                f"Error raised while Beautiful Soup parsing '{text}'", e, KlassMethodLocation(self.MODULE, "_get_soup")
+                f"Error raised while Beautiful Soup parsing '{text}'",
+                e,
+                KlassMethodLocation(self.MODULE, "_get_soup"),
             )
         return soup
 
@@ -141,7 +154,10 @@ class TitlePage:
             self._errors.debug(f"Study name checking '{item}'")
             if item:
                 name = re.sub(r"[\W_]+", "", item.upper())
-                self._errors.info(f"Study name set to '{name}'", KlassMethodLocation(self.MODULE, "_study_name"))
+                self._errors.info(
+                    f"Study name set to '{name}'",
+                    KlassMethodLocation(self.MODULE, "_study_name"),
+                )
                 return name
         return ""
 
@@ -160,9 +176,7 @@ class TitlePage:
             name = parts[0].strip()
             self._errors.info(f"Sponsor name set to '{name}'")
         if len(parts) > 1:
-            self._errors.info(
-                f"Processing address {self.sponsor_name_and_address}"
-            )
+            self._errors.info(f"Processing address {self.sponsor_name_and_address}")
             tmp_address = (" ").join([x.strip() for x in parts[1:]])
             results = await self._address_service.parser(tmp_address)
             self._errors.info(
@@ -170,7 +184,8 @@ class TitlePage:
             )
             if "error" in results:
                 self._errors.error(
-                    f"Error with address server: {results['error']}", KlassMethodLocation(self.MODULE, "_sponsor_name_and_address")
+                    f"Error with address server: {results['error']}",
+                    KlassMethodLocation(self.MODULE, "_sponsor_name_and_address"),
                 )
             else:
                 for result in results:
@@ -186,7 +201,10 @@ class TitlePage:
                         params[result["label"]] = self._preserve_original(
                             parts[1:], result["value"]
                         )
-        self._errors.info(f"Name and address result '{name}', '{params}'", KlassMethodLocation(self.MODULE, "_sponsor_name_and_address"))
+        self._errors.info(
+            f"Name and address result '{name}', '{params}'",
+            KlassMethodLocation(self.MODULE, "_sponsor_name_and_address"),
+        )
         return name, params
 
     def _get_sponsor_approval_date(self, table):
@@ -205,7 +223,9 @@ class TitlePage:
                 return None
         except Exception as e:
             self._errors.exception(
-                f"Exception raised during date processing for '{text}'", e, KlassMethodLocation(self.MODULE, "_get_date")
+                f"Exception raised during date processing for '{text}'",
+                e,
+                KlassMethodLocation(self.MODULE, "_get_date"),
             )
             return None
 

@@ -8,22 +8,20 @@ SAVE = False
 
 
 def run_test_to_v3(name, save=False):
-    version = "v3"
+    version = "madrid"
     mode = "export"
     filename = f"{name}_usdm.json"
     contents = json.loads(read_json(_full_path(filename, version, mode)))
     usdm = USDM4()
     wrapper = usdm.from_json(contents)
     study = wrapper.study
-    # print(f"STUDY: {study}")
     extra = read_yaml(_full_path(f"{name}_extra.yaml", version, mode))
     instance = M11()
-    result = instance.to_m11(study, extra)
-    print(f"ERRORS: {instance.errors()}")
+    result = instance.to_message(study, extra)
+    print(f"ERRORS:\n{instance.errors.dump(0)}")
     result = fix_iso_dates(result)
     result = fix_uuid(result)
     pretty_result = json.dumps(json.loads(result), indent=2)
-    # print(f"RESULT: {pretty_result}")
     result_filename = f"{name}_fhir_m11.json"
     if save:
         write_json(_full_path(result_filename, version, mode), result)

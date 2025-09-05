@@ -17,8 +17,8 @@ from usdm4_fhir.factory.extension_factory import ExtensionFactory
 from usdm4_fhir.factory.group_factory import GroupFactory
 
 
-class Export(ExportBase):
-    MODULE = "usdm4_fhir.m11.export.Export"
+class ExportMadrid(ExportBase):
+    MODULE = "usdm4_fhir.m11.export.ExportMadrid"
 
     class LogicError(Exception):
         pass
@@ -57,7 +57,7 @@ class Export(ExportBase):
             )
             return bundle.item.json()
         except Exception as e:
-            self.errors.exception(
+            self._errors.exception(
                 "Exception raised generating FHIR content.",
                 e,
                 KlassMethodLocation(self.MODULE, "export"),
@@ -122,7 +122,7 @@ class Export(ExportBase):
         )
         criterion_item = version.criterion_item(criterion.criterionItemId)
         if criterion_item:
-            soup = get_soup(criterion_item.text, self.errors)
+            soup = get_soup(criterion_item.text, self._errors)
             outer = self._extension_string(
                 "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.characteristic.description",
                 soup.get_text(),

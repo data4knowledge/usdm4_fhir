@@ -27,14 +27,18 @@ class ExportBase:
         self._title_page = extra["title_page"]
         self._miscellaneous = extra["miscellaneous"]
         self._amendment = extra["amendment"]
-        self.errors = Errors()
+        self._errors = Errors()
         self.study_version: StudyVersion = study.first_version()
         self._nci_map = self.study_version.narrative_content_item_map()
         # print(f"NCI MAP: {self._nci_map}")
         self.study_design = self.study_version.studyDesigns[0]
         self.protocol_document_version = self.study.documentedBy[0].versions[0]
-        self.tag_ref = TagReference(self._data_store, self.errors)
+        self.tag_ref = TagReference(self._data_store, self._errors)
 
+    @property
+    def errors(self) -> Errors:
+        return self._errors
+    
     def _content_to_section(self, content: NarrativeContent) -> CompositionSection:
         # print(f"CONTENT CONTENT: {content}")
         content_text = self._section_item(content)
@@ -87,7 +91,7 @@ class ExportBase:
             )
 
     def _clean_tags(self, content):
-        soup = get_soup(content, self.errors)
+        soup = get_soup(content, self._errors)
         # 'ol' tag with 'type' attribute
         for ref in soup("ol"):
             try:
@@ -96,7 +100,7 @@ class ExportBase:
                     ref.attrs = {}
             except Exception as e:
                 location = KlassMethodLocation(self.MODULE, "_clean_tag")
-                self.errors.exception(
+                self._errors.exception(
                     "Exception raised cleaning 'ol' tags", e, location
                 )
         # Styles
@@ -105,7 +109,7 @@ class ExportBase:
                 ref.extract()
             except Exception as e:
                 location = KlassMethodLocation(self.MODULE, "_clean_tag")
-                self.errors.exception(
+                self._errors.exception(
                     "Exception raised cleaning 'script' tags", e, location
                 )
         # Images
@@ -123,7 +127,7 @@ class ExportBase:
                 location = KlassMethodLocation(
                     "usdm4_fhir.m11.export.export_base.ExportBase", "_clean_tag"
                 )
-                self.errors.exception(
+                self._errors.exception(
                     "Exception raised cleaning empty 'p' tags", e, location
                 )
         return str(soup)

@@ -59,10 +59,11 @@ async def _run_test_from_prism2(name, save=False):
     mode = "import"
     filename = f"{name}_fhir_m11.json"
     instance = M11()
-    result: Wrapper = await instance.from_message(_full_path(filename, version, mode))
+    wrapper: Wrapper = await instance.from_message(_full_path(filename, version, mode))
     print(f"ERRORS:\n{instance.errors.dump(0)}")
-    result.study.id = "FAKE-UUID"  # UUID allocated is dynamic, make fixed
-    pretty_result = json.dumps(json.loads(result.to_json()), indent=2)
+    result = wrapper.to_json()
+    result = fix_uuid(result)
+    pretty_result = json.dumps(json.loads(result), indent=2)
     result_filename = f"{name}_usdm.json"
     error_filename = f"{name}_errors.yaml"
     if save:

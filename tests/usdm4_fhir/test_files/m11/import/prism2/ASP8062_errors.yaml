@@ -1,0 +1,336 @@
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Full Title = A Phase 1 Randomized, Placebo-controlled
+    Study to Assess the Safety, Tolerability and Pharmacokinetics of Multiple Doses
+    of ASP8062 with a Single Dose of Morphine in Recreational Opioid Using Participants
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _title_table
+  message: Found M11 title page table
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message Sponsor Confidentiality
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Full Title = A Phase 1 Randomized, Placebo-controlled
+    Study to Assess the Safety, Tolerability and Pharmacokinetics of Multiple Doses
+    of ASP8062 with a Single Dose of Morphine in Recreational Opioid Using Participants
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message Acronym
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Sponsor Protocol Identifier = 8062-CL-2002
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Original Protocol = No
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Version Number = 1.1
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Version Date = 30 JUL 2020
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Amendment Identifier = 1.1
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Amendment Scope = Local US
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message Amendment Details
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Trial Phase = Phase I
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Compound Code = ASP8062
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message Compound Name
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Trial Phase = Phase I
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message Short Title
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Decoded M11 FHIR message Sponsor Name and Address = Astellas Pharma
+
+    Global Development Inc.
+
+    1 Astellas Way Northbrook, IL 60062, US'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Sponsor name set to 'Astellas Pharma'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Processing address Astellas Pharma
+
+    Global Development Inc.
+
+    1 Astellas Way Northbrook, IL 60062, US'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Address service result ''Global Development Inc. 1 Astellas Way Northbrook,
+    IL 60062, US'' returned [{''label'': ''house'', ''value'': ''global development
+    inc.''}, {''label'': ''house_number'', ''value'': ''1''}, {''label'': ''road'',
+    ''value'': ''astellas way''}, {''label'': ''city'', ''value'': ''northbrook''},
+    {''label'': ''state'', ''value'': ''il''}, {''label'': ''postcode'', ''value'':
+    ''60062''}, {''label'': ''country'', ''value'': ''us''}]'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _sponsor_name_and_address
+  message: 'Name and address result ''Astellas Pharma'', ''{''line'': '''', ''city'':
+    ''Northbrook'', ''district'': '''', ''state'': ''IL'', ''postalCode'': ''60062'',
+    ''country'': ''US''}'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Regulatory Agency Identifier Number(s) = IND 146215
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Sponsor Approval = 30/JUL/2020
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message Manufacturer
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message Sponsor Signatory
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message Medical Expert
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message SAE Reporting
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location: {}
+  message: Study name checking ''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location: {}
+  message: Study name checking '8062-CL-2002'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _study_name
+  message: Study name set to '8062CL2002'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Error
+  location:
+    class_name: usdm4.builder.builder.Builder
+    method_name: create
+  message: "Failed to create instance of klass '<class 'usdm4.api.governance_date.GovernanceDate'>'\
+    \ with params {'name': 'Protocol Date', 'type': None, 'dateValue': datetime.datetime(2020,\
+    \ 7, 30, 0, 0), 'geographicScopes': [GeographicScope(id='GeographicScope_1', extensionAttributes=[],\
+    \ type=Code(id='Code_5', extensionAttributes=[], code='C68846', codeSystem='http://www.cdisc.org',\
+    \ codeSystemVersion='2024-09-27', decode='Global', instanceType='Code'), code=None,\
+    \ instanceType='GeographicScope')], 'id': 'GovernanceDate_2', 'instanceType':\
+    \ 'GovernanceDate'}, reason: Failed to create GovernanceDate instance, details:\
+    \ 1 validation error for GovernanceDate\ntype\n  Input should be a valid dictionary\
+    \ or instance of Code [type=model_type, input_value=None, input_type=NoneType]\n\
+    \    For further information visit https://errors.pydantic.dev/2.7/v/model_type\n\
+    \nDetails\nFailed to create GovernanceDate instance, details: 1 validation error\
+    \ for GovernanceDate\ntype\n  Input should be a valid dictionary or instance of\
+    \ Code [type=model_type, input_value=None, input_type=NoneType]\n    For further\
+    \ information visit https://errors.pydantic.dev/2.7/v/model_type\n\nTraceback\n\
+    Traceback (most recent call last):\n  usdm3/base/api_instance.py, line 22, in\
+    \ create\n    return klass(**params)\n           ^^^^^^^^^^^^^^^\n  usdm4/api/api_base_model.py,\
+    \ line 38, in __init__\n    super().__init__(*args, **kwargs)\n  pydantic/main.py,\
+    \ line 176, in __init__\n    self.__pydantic_validator__.validate_python(data,\
+    \ self_instance=self)\npydantic_core._pydantic_core.ValidationError: 1 validation\
+    \ error for GovernanceDate\ntype\n  Input should be a valid dictionary or instance\
+    \ of Code [type=model_type, input_value=None, input_type=NoneType]\n    For further\
+    \ information visit https://errors.pydantic.dev/2.7/v/model_type\n\nDuring handling\
+    \ of the above exception, another exception occurred:\n\nTraceback (most recent\
+    \ call last):\n  usdm4/builder/builder.py, line 70, in create\n    object: ApiBaseModelWithId\
+    \ = self.api_instance.create(klass, params)\n                                \
+    \ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  usdm3/base/api_instance.py, line\
+    \ 24, in create\n    raise self.APIInstanceError(\nusdm3.base.api_instance.APIInstance.APIInstanceError:\
+    \ Failed to create GovernanceDate instance, details: 1 validation error for GovernanceDate\n\
+    type\n  Input should be a valid dictionary or instance of Code [type=model_type,\
+    \ input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.7/v/model_type\n"
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Error
+  location:
+    class_name: usdm4.builder.builder.Builder
+    method_name: create
+  message: "Failed to create instance of klass '<class 'usdm4.api.study_title.StudyTitle'>'\
+    \ with params {'text': 'A Phase 1 Randomized, Placebo-controlled Study to Assess\
+    \ the Safety, Tolerability and Pharmacokinetics of Multiple Doses of ASP8062 with\
+    \ a Single Dose of Morphine in Recreational Opioid Using Participants', 'type':\
+    \ None, 'id': 'StudyTitle_1', 'instanceType': 'StudyTitle'}, reason: Failed to\
+    \ create StudyTitle instance, details: 1 validation error for StudyTitle\ntype\n\
+    \  Input should be a valid dictionary or instance of Code [type=model_type, input_value=None,\
+    \ input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.7/v/model_type\n\
+    \nDetails\nFailed to create StudyTitle instance, details: 1 validation error for\
+    \ StudyTitle\ntype\n  Input should be a valid dictionary or instance of Code [type=model_type,\
+    \ input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.7/v/model_type\n\
+    \nTraceback\nTraceback (most recent call last):\n  usdm3/base/api_instance.py,\
+    \ line 22, in create\n    return klass(**params)\n           ^^^^^^^^^^^^^^^\n\
+    \  usdm4/api/api_base_model.py, line 38, in __init__\n    super().__init__(*args,\
+    \ **kwargs)\n  pydantic/main.py, line 176, in __init__\n    self.__pydantic_validator__.validate_python(data,\
+    \ self_instance=self)\npydantic_core._pydantic_core.ValidationError: 1 validation\
+    \ error for StudyTitle\ntype\n  Input should be a valid dictionary or instance\
+    \ of Code [type=model_type, input_value=None, input_type=NoneType]\n    For further\
+    \ information visit https://errors.pydantic.dev/2.7/v/model_type\n\nDuring handling\
+    \ of the above exception, another exception occurred:\n\nTraceback (most recent\
+    \ call last):\n  usdm4/builder/builder.py, line 70, in create\n    object: ApiBaseModelWithId\
+    \ = self.api_instance.create(klass, params)\n                                \
+    \ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  usdm3/base/api_instance.py, line\
+    \ 24, in create\n    raise self.APIInstanceError(\nusdm3.base.api_instance.APIInstance.APIInstanceError:\
+    \ Failed to create StudyTitle instance, details: 1 validation error for StudyTitle\n\
+    type\n  Input should be a valid dictionary or instance of Code [type=model_type,\
+    \ input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.7/v/model_type\n"
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Error
+  location:
+    class_name: usdm4.builder.builder.Builder
+    method_name: create
+  message: "Failed to create instance of klass '<class 'usdm4.api.study_title.StudyTitle'>'\
+    \ with params {'text': '', 'type': None, 'id': 'StudyTitle_2', 'instanceType':\
+    \ 'StudyTitle'}, reason: Failed to create StudyTitle instance, details: 1 validation\
+    \ error for StudyTitle\ntype\n  Input should be a valid dictionary or instance\
+    \ of Code [type=model_type, input_value=None, input_type=NoneType]\n    For further\
+    \ information visit https://errors.pydantic.dev/2.7/v/model_type\n\nDetails\n\
+    Failed to create StudyTitle instance, details: 1 validation error for StudyTitle\n\
+    type\n  Input should be a valid dictionary or instance of Code [type=model_type,\
+    \ input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.7/v/model_type\n\
+    \nTraceback\nTraceback (most recent call last):\n  usdm3/base/api_instance.py,\
+    \ line 22, in create\n    return klass(**params)\n           ^^^^^^^^^^^^^^^\n\
+    \  usdm4/api/api_base_model.py, line 38, in __init__\n    super().__init__(*args,\
+    \ **kwargs)\n  pydantic/main.py, line 176, in __init__\n    self.__pydantic_validator__.validate_python(data,\
+    \ self_instance=self)\npydantic_core._pydantic_core.ValidationError: 1 validation\
+    \ error for StudyTitle\ntype\n  Input should be a valid dictionary or instance\
+    \ of Code [type=model_type, input_value=None, input_type=NoneType]\n    For further\
+    \ information visit https://errors.pydantic.dev/2.7/v/model_type\n\nDuring handling\
+    \ of the above exception, another exception occurred:\n\nTraceback (most recent\
+    \ call last):\n  usdm4/builder/builder.py, line 70, in create\n    object: ApiBaseModelWithId\
+    \ = self.api_instance.create(klass, params)\n                                \
+    \ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  usdm3/base/api_instance.py, line\
+    \ 24, in create\n    raise self.APIInstanceError(\nusdm3.base.api_instance.APIInstance.APIInstanceError:\
+    \ Failed to create StudyTitle instance, details: 1 validation error for StudyTitle\n\
+    type\n  Input should be a valid dictionary or instance of Code [type=model_type,\
+    \ input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.7/v/model_type\n"
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Error
+  location:
+    class_name: usdm4.builder.builder.Builder
+    method_name: create
+  message: "Failed to create instance of klass '<class 'usdm4.api.study_title.StudyTitle'>'\
+    \ with params {'text': '', 'type': None, 'id': 'StudyTitle_3', 'instanceType':\
+    \ 'StudyTitle'}, reason: Failed to create StudyTitle instance, details: 1 validation\
+    \ error for StudyTitle\ntype\n  Input should be a valid dictionary or instance\
+    \ of Code [type=model_type, input_value=None, input_type=NoneType]\n    For further\
+    \ information visit https://errors.pydantic.dev/2.7/v/model_type\n\nDetails\n\
+    Failed to create StudyTitle instance, details: 1 validation error for StudyTitle\n\
+    type\n  Input should be a valid dictionary or instance of Code [type=model_type,\
+    \ input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.7/v/model_type\n\
+    \nTraceback\nTraceback (most recent call last):\n  usdm3/base/api_instance.py,\
+    \ line 22, in create\n    return klass(**params)\n           ^^^^^^^^^^^^^^^\n\
+    \  usdm4/api/api_base_model.py, line 38, in __init__\n    super().__init__(*args,\
+    \ **kwargs)\n  pydantic/main.py, line 176, in __init__\n    self.__pydantic_validator__.validate_python(data,\
+    \ self_instance=self)\npydantic_core._pydantic_core.ValidationError: 1 validation\
+    \ error for StudyTitle\ntype\n  Input should be a valid dictionary or instance\
+    \ of Code [type=model_type, input_value=None, input_type=NoneType]\n    For further\
+    \ information visit https://errors.pydantic.dev/2.7/v/model_type\n\nDuring handling\
+    \ of the above exception, another exception occurred:\n\nTraceback (most recent\
+    \ call last):\n  usdm4/builder/builder.py, line 70, in create\n    object: ApiBaseModelWithId\
+    \ = self.api_instance.create(klass, params)\n                                \
+    \ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  usdm3/base/api_instance.py, line\
+    \ 24, in create\n    raise self.APIInstanceError(\nusdm3.base.api_instance.APIInstance.APIInstanceError:\
+    \ Failed to create StudyTitle instance, details: 1 validation error for StudyTitle\n\
+    type\n  Input should be a valid dictionary or instance of Code [type=model_type,\
+    \ input_value=None, input_type=NoneType]\n    For further information visit https://errors.pydantic.dev/2.7/v/model_type\n"
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.encoder.encoder.Encoder
+    method_name: phase
+  message: Trial phase 'I' decoded as 'C15600', 'Phase I Trial'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''

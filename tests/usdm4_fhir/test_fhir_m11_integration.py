@@ -28,12 +28,19 @@ def run_test_to_prism2(name, save=False):
     run_test(name, version, mode, save)
 
 
+def run_test_to_prism3(name, save=False):
+    version = "prism3"
+    mode = "export"
+    run_test(name, version, mode, save)
+
+
 def run_test(name, version, mode, save=False):
     filename = f"{name}_usdm.json"
     contents = json.loads(read_json(_full_path(filename, version, mode)))
     usdm = USDM4()
     wrapper = usdm.from_json(contents)
     study = wrapper.study
+    print(f"STUDY: {study is not None}")
     extra = read_yaml(_full_path(f"{name}_extra.yaml", version, mode))
     instance = M11()
     result = instance.to_message(study, extra, version)
@@ -108,6 +115,9 @@ def test_to_fhir_madrid_igbj():
 def test_to_fhir_madrid_pilot():
     run_test_to_madrid("pilot", SAVE)
 
+
+def test_to_fhir_prism3_asp8062():
+    run_test_to_prism3("ASP8062", SAVE)
 
 @pytest.mark.anyio
 async def test_from_fhir_prism2_asp8062():

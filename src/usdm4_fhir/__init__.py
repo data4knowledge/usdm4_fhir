@@ -5,6 +5,7 @@ from usdm4.api.study import Study
 from usdm4_fhir.soa.export.export_soa import ExportSoA
 from usdm4_fhir.m11.export.export_madrid import ExportMadrid
 from usdm4_fhir.m11.export.export_prism2 import ExportPRISM2
+from usdm4_fhir.m11.export.export_prism3 import ExportPRISM3
 from usdm4_fhir.m11.import_.import_prism2 import ImportPRISM2
 
 
@@ -18,11 +19,12 @@ class FHIRBase:
 class M11(FHIRBase):
     MADRID = "madrid"
     PRISM2 = "prism2"
+    PRISM3 = "prism3"
 
     def __init__(self):
         self._import = None
         self._export = None
-        
+
     def to_message(
         self, study: Study, extra: dict, version: str = PRISM2
     ) -> str | None:
@@ -31,6 +33,8 @@ class M11(FHIRBase):
                 self._export = ExportMadrid(study, extra)
             case self.PRISM2:
                 self._export = ExportPRISM2(study, extra)
+            case self.PRISM3:
+                self._export = ExportPRISM3(study, extra)
             case _:
                 raise Exception(f"Version parameter '{version}' not recognized")
         self._errors = self._export.errors

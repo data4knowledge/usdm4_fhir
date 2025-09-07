@@ -68,10 +68,11 @@ class ExportBase:
     def _content_to_section(
         self, content: NarrativeContent, processed_map: dict
     ) -> CompositionSection:
-        # print(f"CONTENT TO SECTION: {content}")
+        print(f"CONTENT: {content}")
         processed_map[content.id] = True
         content_text = self._narrative_content_item(content)
         div = self.tag_ref.translate(content_text)
+        print(f"DIV: {div}")
         text = str(div)
         text = self._remove_line_feeds(text)
         narrative = Narrative(status="generated", div=text)
@@ -115,8 +116,9 @@ class ExportBase:
         if narrative.div == self.EMPTY_DIV:
             return CompositionSection(title=f"{title}", code=code, section=[])
         else:
+            title = title if title else "-"
             return CompositionSection(
-                title=f"{title}", code=code, text=narrative, section=[]
+                title=title, code=code, text=narrative, section=[]
             )
 
     def _clean_tags(self, content):

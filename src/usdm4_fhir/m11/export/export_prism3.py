@@ -5,6 +5,7 @@ from usdm4_fhir.factory.research_study_factory_p3 import ResearchStudyFactoryP3
 from usdm4_fhir.factory.codeable_concept_factory import CodeableConceptFactory
 from usdm4_fhir.factory.reference_factory import ReferenceFactory
 from usdm4_fhir.factory.composition_factory import CompositionFactory
+from usdm4_fhir.factory.extension_factory import ExtensionFactory
 
 
 class ExportPRISM3(ExportBase):
@@ -20,7 +21,17 @@ class ExportPRISM3(ExportBase):
 
             # Research Study
             rs: ResearchStudyFactoryP3 = ResearchStudyFactoryP3(self.study, self._extra)
-            rs.item.extension.append(compositions)
+            composition: CompositionFactory
+            for composition in compositions:
+                ext: ExtensionFactory = ExtensionFactory(
+                    **{
+                        "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
+                        "valueReference": {
+                            "reference": f"Composition/{composition.item.id}"
+                        },
+                    }
+                )
+                rs.item.extension.append(ext.item)
             return rs.item.json()
         except Exception as e:
             self._errors.exception(
@@ -38,7 +49,7 @@ class ExportPRISM3(ExportBase):
         for content in contents:
             section = self._content_to_composition_entry(content, processed_map)
             if section:
-                compositions.append(section.item)
+                compositions.append(section)
         return compositions
 
     def _content_to_composition_entry(
@@ -48,6 +59,7 @@ class ExportPRISM3(ExportBase):
         type_code = CodeableConceptFactory(text="EvidenceReport").item
         author = ReferenceFactory(display="USDM").item
         return CompositionFactory(
+            id="XXXX",
             title="ccc",
             date="2025-06-30T12:46:00Z",
             type=type_code,

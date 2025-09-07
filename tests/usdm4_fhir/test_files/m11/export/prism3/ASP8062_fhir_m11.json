@@ -6,6 +6,12 @@
       "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/m11-research-study-profile"
     ]
   },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/uv/ebm/StructureDefinition/research-study-sponsor-confidentiality-statement",
+      "valueString": "Tnis is the confidentiality statement"
+    }
+  ],
   "identifier": [
     {
       "type": {
@@ -13,13 +19,6 @@
       },
       "system": "https://example.org/sponsor-identifier",
       "value": "8062-CL-2002"
-    },
-    {
-      "type": {
-        "text": "Amendment Identifier"
-      },
-      "system": "https://example.org/amendment-identifier",
-      "value": ""
     }
   ],
   "version": "1.1",
@@ -53,48 +52,15 @@
     }
   ],
   "date": "2020-07-30",
-  "status": "active",
+  "status": "Final",
   "phase": {
     "coding": [
       {
-        "system": "http://www.cdisc.org",
-        "version": "2025-03-28",
+        "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
         "code": "C15600",
         "display": "Phase I Trial"
       }
     ],
     "text": "Phase I Trial"
-  },
-  "associatedParty": [
-    {
-      "role": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/research-study-party-role",
-            "code": "sponsor",
-            "display": "sponsor"
-          }
-        ]
-      },
-      "party": {
-        "reference": "Organization/FAKE-UUID"
-      }
-    }
-  ],
-  "progressStatus": [
-    {
-      "state": {
-        "coding": [
-          {
-            "system": "http://hl7.org/fhir/research-study-party-role",
-            "code": "sponsor-approved",
-            "display": "sponsor apporval date"
-          }
-        ]
-      },
-      "period": {
-        "start": "2020-07-30"
-      }
-    }
-  ]
+  }
 }

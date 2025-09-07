@@ -56,11 +56,11 @@ class M11(FHIRBase):
     def errors(self) -> Errors:
         return self._errors
 
-
     @property
     def extra(self) -> dict:
         return self._import.extra
-    
+
+
 class SoA(FHIRBase):
     def to_message(self, study: Study, extra: dict) -> str | None:
         self._export = ExportSoA(study, extra)

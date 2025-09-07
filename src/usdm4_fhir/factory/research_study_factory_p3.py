@@ -1,16 +1,11 @@
-import datetime
 from usdm4.api.study import Study as USDMStudy
 from usdm4.api.study_version import StudyVersion as USDMStudyVersion
-from usdm4.api.governance_date import GovernanceDate
 from usdm4.api.study_title import StudyTitle
 from fhir.resources.researchstudy import ResearchStudy
 from usdm4_fhir.factory.base_factory import BaseFactory
 from usdm4_fhir.factory.extension_factory import ExtensionFactory
 from usdm4_fhir.factory.codeable_concept_factory import CodeableConceptFactory
 from usdm4_fhir.factory.coding_factory import CodingFactory
-from usdm4_fhir.factory.organization_factory import OrganizationFactory
-from usdm4_fhir.factory.associated_party_factory import AssociatedPartyFactory
-from usdm4_fhir.factory.progress_status_factory import ProgressStatusFactory
 from usdm4_fhir.factory.label_type_factory import LabelTypeFactory
 
 
@@ -31,7 +26,7 @@ class ResearchStudyFactoryP3(BaseFactory):
                     "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/m11-research-study-profile"
                 ]
             }
-            
+
             # Base instance
             self.item = ResearchStudy(
                 id=f"{self._version.sponsor_identifier_text()}-ResearchStudy",
@@ -47,11 +42,9 @@ class ResearchStudyFactoryP3(BaseFactory):
                 outcomeMeasure=[],
                 protocol=[],
             )
-    
+
             # Full Title
-            self.item.title = (
-                self._version.official_title_text()
-            ) 
+            self.item.title = self._version.official_title_text()
 
             # Trial Acronym and Short Title
             acronym: StudyTitle = self._version.acronym()
@@ -64,7 +57,6 @@ class ResearchStudyFactoryP3(BaseFactory):
                 self.item.label.append(
                     LabelTypeFactory(usdm_code=st.type, text=st.text).item
                 )
-
 
             # Identifiers
             for identifier in self._version.studyIdentifiers:

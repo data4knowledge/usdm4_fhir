@@ -131,7 +131,6 @@ class ImportPRISM2:
         protocol_document_version: StudyDefinitionDocumentVersion,
         ncis: list,
     ) -> NarrativeContent:
-        print(f"INDEX1: {self._index}")
         self._index += 1
         # print(f"SECTION: {section.title}, {section.code.text}")
         section_number = self._get_section_number(section.code.text)
@@ -142,7 +141,6 @@ class ImportPRISM2:
         dst = True if st else False
         # print(f"SECTION: sn='{sn}', dsn='{dsn}', st='{st}', dst='{dst}'")
         text = section.text.div if section.text else "&nbsp"
-        print(f"INDEX2: {self._index}")
         nci: NarrativeContentItem = self._builder.create(
             NarrativeContentItem, {"name": f"NCI-{self._index}", "text": text}
         )

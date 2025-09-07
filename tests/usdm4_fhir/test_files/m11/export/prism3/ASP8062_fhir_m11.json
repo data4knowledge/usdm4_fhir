@@ -14,1129 +14,1129 @@
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C0"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C1"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C2"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C3"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C4"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C5"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C6"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C7"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C8"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C9"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C10"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C11"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C12"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C13"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C14"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C15"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C16"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C17"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C18"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C19"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C20"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C21"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C22"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C23"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C24"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C25"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C26"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C27"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C28"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C29"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C30"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C31"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C32"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C33"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C34"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C35"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C36"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C37"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C38"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C39"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C40"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C41"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C42"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C43"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C44"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C45"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C46"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C47"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C48"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C49"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C50"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C51"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C52"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C53"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C54"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C55"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C56"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C57"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C58"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C59"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C60"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C61"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C62"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C63"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C64"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C65"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C66"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C67"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C68"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C69"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C70"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C71"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C72"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C73"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C74"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C75"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C76"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C77"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C78"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C79"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C80"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C81"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C82"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C83"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C84"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C85"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C86"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C87"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C88"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C89"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C90"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C91"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C92"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C93"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C94"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C95"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C96"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C97"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C98"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C99"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C100"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C101"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C102"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C103"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C104"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C105"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C106"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C107"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C108"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C109"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C110"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C111"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C112"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C113"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C114"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C115"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C116"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C117"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C118"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C119"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C120"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C121"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C122"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C123"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C124"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C125"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C126"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C127"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C128"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C129"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C130"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C131"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C132"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C133"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C134"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C135"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C136"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C137"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C138"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C139"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C140"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C141"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C142"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C143"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C144"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C145"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C146"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C147"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C148"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C149"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C150"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C151"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C152"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C153"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C154"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C155"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C156"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C157"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C158"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C159"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C160"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C161"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C162"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C163"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C164"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C165"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C166"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C167"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C168"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C169"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C170"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C171"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C172"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C173"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C174"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C175"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C176"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C177"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C178"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C179"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C180"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C181"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C182"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C183"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C184"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C185"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C186"
       }
     },
     {
       "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
       "valueReference": {
-        "reference": "Composition/XXXX"
+        "reference": "Composition/C187"
       }
     }
   ],

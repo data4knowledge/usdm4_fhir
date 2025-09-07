@@ -46,10 +46,11 @@ class ExportPRISM3(ExportBase):
         compositions = []
         contents = self.protocol_document_version.narrative_content_in_order()
         content: NarrativeContent
-        for content in contents:
-            section = self._content_to_composition_entry(content, processed_map)
-            if section:
-                compositions.append(section)
+        for index, content in enumerate(contents):
+            composition = self._content_to_composition_entry(content, processed_map)
+            if composition:
+                composition.item.id = f"C{index}"
+                compositions.append(composition)
         return compositions
 
     def _content_to_composition_entry(
@@ -59,7 +60,6 @@ class ExportPRISM3(ExportBase):
         type_code = CodeableConceptFactory(text="EvidenceReport").item
         author = ReferenceFactory(display="USDM").item
         return CompositionFactory(
-            id="XXXX",
             title="ccc",
             date="2025-06-30T12:46:00Z",
             type=type_code,

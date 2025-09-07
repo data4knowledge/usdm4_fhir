@@ -23,9 +23,17 @@ class ResearchStudyFactoryP3(BaseFactory):
             self._study_design = self._version.studyDesigns[0]
             self._organizations: dict = self._version.organization_map()
 
+            # Set Profile meta data
+            meta = {
+                "profile": [
+                    "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/m11-research-study-profile"
+                ]
+            }
+            
             # Base instance
             self.item = ResearchStudy(
-                id="XXX",
+                id=f"{self._version.sponsor_identifier_text()}-ResearchStudy",
+                meta=meta,
                 status="active",
                 identifier=[],
                 extension=[],

@@ -1,5 +1,11 @@
 {
   "resourceType": "ResearchStudy",
+  "id": "8062-CL-2002-ResearchStudy",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/m11-research-study-profile"
+    ]
+  },
   "identifier": [
     {
       "type": {

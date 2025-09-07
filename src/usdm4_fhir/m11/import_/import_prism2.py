@@ -68,6 +68,7 @@ class ImportPRISM2:
             )
             return None
 
+    @property
     def extra(self):
         return {
             "title_page": self._title_page.extra(),

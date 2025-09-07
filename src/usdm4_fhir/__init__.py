@@ -19,6 +19,10 @@ class M11(FHIRBase):
     MADRID = "madrid"
     PRISM2 = "prism2"
 
+    def __init__(self):
+        self._import = None
+        self._export = None
+        
     def to_message(
         self, study: Study, extra: dict, version: str = PRISM2
     ) -> str | None:
@@ -49,6 +53,10 @@ class M11(FHIRBase):
         return self._errors
 
 
+    @property
+    def extra(self) -> dict:
+        return self._import.extra
+    
 class SoA(FHIRBase):
     def to_message(self, study: Study, extra: dict) -> str | None:
         self._export = ExportSoA(study, extra)

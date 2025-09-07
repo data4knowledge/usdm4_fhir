@@ -55,7 +55,16 @@ TBD
 
 ### extensions
 
-#### 
+#### composition narratives
+
+```
+{
+    "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
+    "valueReference": {
+        "reference": "Composition/IGBJ-Narrative-2.1"
+    }
+}
+```
 
 #### confidentiality 
 

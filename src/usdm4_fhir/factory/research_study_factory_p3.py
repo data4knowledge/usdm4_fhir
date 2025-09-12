@@ -1,3 +1,4 @@
+from uuid import uuid4
 from usdm4.api.study import Study as USDMStudy
 from usdm4.api.study_version import StudyVersion as USDMStudyVersion
 from usdm4.api.study_title import StudyTitle
@@ -29,7 +30,8 @@ class ResearchStudyFactoryP3(BaseFactory):
 
             # Base instance
             self.item = ResearchStudy(
-                id=f"{self._version.sponsor_identifier_text()}-ResearchStudy",
+                #id=f"{self._version.sponsor_identifier_text()}-ResearchStudy",
+                id=str(uuid4()),
                 meta=meta,
                 status="active",
                 identifier=[],

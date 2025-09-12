@@ -1,3 +1,4 @@
+from datetime import datetime
 from usdm4.api.study import Study
 from usdm4.api.narrative_content import NarrativeContent
 from usdm4.api.study_version import StudyVersion
@@ -28,6 +29,7 @@ class ExportBase:
         self._miscellaneous = extra["miscellaneous"]
         self._amendment = extra["amendment"]
         self._errors = Errors()
+        self._now = datetime.now().isoformat()
         self.study_version: StudyVersion = study.first_version()
         self.study_design = self.study_version.studyDesigns[0]
         self.protocol_document_version = self.study.documentedBy[0].versions[0]

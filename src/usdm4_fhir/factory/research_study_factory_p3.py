@@ -51,14 +51,18 @@ class ResearchStudyFactoryP3(BaseFactory):
             # Trial Acronym and Short Title
             acronym: StudyTitle = self._version.acronym()
             if acronym:
-                self.item.label.append(
-                    LabelTypeFactory(usdm_code=acronym.type, text=acronym.text).item
-                )
+                print(f"ACRONYM: {acronym}")
+                if acronym.text:
+                    self.item.label.append(
+                        LabelTypeFactory(usdm_code=acronym.type, text=acronym.text).item
+                    )
             st: StudyTitle = self._version.short_title()
             if st:
-                self.item.label.append(
-                    LabelTypeFactory(usdm_code=st.type, text=st.text).item
-                )
+                print(f"SHORT TITLE: {st}")
+                if st.text:
+                    self.item.label.append(
+                        LabelTypeFactory(usdm_code=st.type, text=st.text).item
+                    )
 
             # Identifiers
             for identifier in self._version.studyIdentifiers:
@@ -117,7 +121,7 @@ class ResearchStudyFactoryP3(BaseFactory):
             ).item
 
             # Status
-            self.item.status = self._document.status.decode
+            self.item.status = "active" # self._document.status.decode
 
             # Sponsor Confidentiality Statememt
             if self._title_page["sponsor_confidentiality"]:

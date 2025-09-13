@@ -89,13 +89,16 @@ class ExportPRISM3(ExportBase):
         self, content: NarrativeContent, processed_map: dict
     ):
         section = self._content_to_section(content, processed_map)
-        type_code = CodeableConceptFactory(text="EvidenceReport").item
-        author = ReferenceFactory(display="USDM").item
-        return CompositionFactory(
-            title=section.title,
-            date=self._now,
-            type=type_code,
-            section=[section],
-            status="preliminary",
-            author=[author],
-        )
+        if section:
+            type_code = CodeableConceptFactory(text="EvidenceReport").item
+            author = ReferenceFactory(display="USDM").item
+            return CompositionFactory(
+                title=section.title,
+                date=self._now,
+                type=type_code,
+                section=[section],
+                status="preliminary",
+                author=[author],
+            )
+        else:
+            return None

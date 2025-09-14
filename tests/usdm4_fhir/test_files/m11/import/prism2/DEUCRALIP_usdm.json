@@ -9,7 +9,7 @@
         "id": "StudyVersion_1",
         "extensionAttributes": [],
         "versionIdentifier": "3",
-        "rationale": "XXX",
+        "rationale": "Not set",
         "documentVersionIds": [
           "StudyDefinitionDocumentVersion_1"
         ],
@@ -3993,7 +3993,7 @@
             "id": "Organization_1",
             "extensionAttributes": [],
             "name": "Rheinische Friedrich-Wilhelms-Universit\u00e4t Bonn",
-            "label": null,
+            "label": "Rheinische Friedrich-Wilhelms-Universit\u00e4t Bonn",
             "type": {
               "id": "Code_11",
               "extensionAttributes": [],
@@ -4003,8 +4003,8 @@
               "decode": "Pharmaceutical Company",
               "instanceType": "Code"
             },
-            "identifierScheme": "DUNS",
-            "identifier": "123456789",
+            "identifierScheme": "UNKNOWN",
+            "identifier": "UNKNOWN",
             "legalAddress": {
               "id": "Address_1",
               "extensionAttributes": [],

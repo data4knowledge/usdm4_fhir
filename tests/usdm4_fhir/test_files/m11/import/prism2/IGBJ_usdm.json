@@ -9,7 +9,7 @@
         "id": "StudyVersion_1",
         "extensionAttributes": [],
         "versionIdentifier": "(a)",
-        "rationale": "XXX",
+        "rationale": "Not set",
         "documentVersionIds": [
           "StudyDefinitionDocumentVersion_1"
         ],
@@ -2957,7 +2957,7 @@
             "id": "Organization_1",
             "extensionAttributes": [],
             "name": "Eli Lilly Japan K.K",
-            "label": null,
+            "label": "Eli Lilly Japan K.K",
             "type": {
               "id": "Code_11",
               "extensionAttributes": [],
@@ -2967,8 +2967,8 @@
               "decode": "Pharmaceutical Company",
               "instanceType": "Code"
             },
-            "identifierScheme": "DUNS",
-            "identifier": "123456789",
+            "identifierScheme": "UNKNOWN",
+            "identifier": "UNKNOWN",
             "legalAddress": {
               "id": "Address_1",
               "extensionAttributes": [],

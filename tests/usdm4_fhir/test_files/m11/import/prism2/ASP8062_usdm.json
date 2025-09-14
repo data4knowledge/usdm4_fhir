@@ -9,7 +9,7 @@
         "id": "StudyVersion_1",
         "extensionAttributes": [],
         "versionIdentifier": "1.1",
-        "rationale": "XXX",
+        "rationale": "Not set",
         "documentVersionIds": [
           "StudyDefinitionDocumentVersion_1"
         ],
@@ -3524,7 +3524,7 @@
             "id": "Organization_1",
             "extensionAttributes": [],
             "name": "Astellas Pharma",
-            "label": null,
+            "label": "Astellas Pharma",
             "type": {
               "id": "Code_11",
               "extensionAttributes": [],
@@ -3534,8 +3534,8 @@
               "decode": "Pharmaceutical Company",
               "instanceType": "Code"
             },
-            "identifierScheme": "DUNS",
-            "identifier": "123456789",
+            "identifierScheme": "UNKNOWN",
+            "identifier": "UNKNOWN",
             "legalAddress": {
               "id": "Address_1",
               "extensionAttributes": [],

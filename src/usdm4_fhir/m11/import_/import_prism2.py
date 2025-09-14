@@ -287,9 +287,10 @@ class ImportPRISM2:
             Organization,
             {
                 "name": self._title_page.sponsor_name,
+                "label": self._title_page.sponsor_name,
                 "type": sponsor_code,
-                "identifier": "123456789",
-                "identifierScheme": "DUNS",
+                "identifier": "UNKNOWN",
+                "identifierScheme": "UNKNOWN",
                 "legalAddress": address,
             },
         )
@@ -302,7 +303,7 @@ class ImportPRISM2:
         )
         params = {
             "versionIdentifier": self._title_page.version_number,
-            "rationale": "XXX",
+            "rationale": "Not set",
             "titles": titles,
             "dateValues": dates,
             "studyDesigns": [study_design],

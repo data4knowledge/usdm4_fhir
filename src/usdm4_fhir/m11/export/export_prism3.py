@@ -31,22 +31,22 @@ class ExportPRISM3(ExportBase):
             )
             return None
 
-    def _bundle(self, research_study: ResearchStudyFactoryP3, compositions: list[CompositionFactory]):
+    def _bundle(
+        self,
+        research_study: ResearchStudyFactoryP3,
+        compositions: list[CompositionFactory],
+    ):
         entries = []
         composition: CompositionFactory
         for composition in compositions:
             entry = BundleEntry(
-                resource=composition.item, request={
-                    "method": "PUT",
-                    "url": f"Composition/{composition.item.id}"
-                }
+                resource=composition.item,
+                request={"method": "PUT", "url": f"Composition/{composition.item.id}"},
             )
             entries.append(entry)
         entry = BundleEntry(
-            resource=research_study.item, request={
-                "method": "PUT",
-                "url": f"ResearchStudy/{research_study.item.id}"
-            }
+            resource=research_study.item,
+            request={"method": "PUT", "url": f"ResearchStudy/{research_study.item.id}"},
         )
         entries.append(entry)
         bundle = Bundle(
@@ -58,7 +58,9 @@ class ExportPRISM3(ExportBase):
         )
         return bundle
 
-    def _research_study(self, compositions: list[CompositionFactory]) -> ResearchStudyFactoryP3:
+    def _research_study(
+        self, compositions: list[CompositionFactory]
+    ) -> ResearchStudyFactoryP3:
         rs: ResearchStudyFactoryP3 = ResearchStudyFactoryP3(self.study, self._extra)
         composition: CompositionFactory
         for composition in compositions:
@@ -74,6 +76,11 @@ class ExportPRISM3(ExportBase):
         return rs
 
     def _create_compositions(self):
+        # For debug purposes, limit number of sections added
+        # count = 10
+        # index = 1
+
+        # Normal processing
         processed_map = {}
         compositions = []
         contents = self.protocol_document_version.narrative_content_in_order()
@@ -83,6 +90,11 @@ class ExportPRISM3(ExportBase):
             if composition:
                 composition.item.id = str(uuid4())
                 compositions.append(composition)
+
+            # Debug
+            # index += 1
+            # if index >= count:
+            #     break
         return compositions
 
     def _content_to_composition_entry(

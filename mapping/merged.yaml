@@ -29,6 +29,7 @@ Sponsor Confidentiality Statement:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 1
   usdm:
     map_status: Mapped
     mappings:
@@ -85,6 +86,7 @@ Full Title:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 2
   usdm:
     map_status: Mapped
     mappings:
@@ -135,6 +137,7 @@ Trial Acronym:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 3
   usdm:
     map_status: Mapped
     mappings:
@@ -198,6 +201,7 @@ Sponsor Protocol Identifier:
       other: 'Note: Must have at least One Character, May not be space (null)'
     repeating: 'No'
     ct: []
+  ordinal: 4
   usdm:
     map_status: Mapped
     mappings:
@@ -268,6 +272,7 @@ Original Protocol Indicator:
     - ncit_code: C49488
       preferred_term: 'Yes'
       definition: The affirmative response to a question.
+  ordinal: 5
   usdm:
     map_status: Mapped
     mappings:
@@ -327,6 +332,7 @@ Version Number:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 6
   usdm:
     map_status: Mapped
     mappings:
@@ -374,6 +380,7 @@ Version Date:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 7
   usdm:
     map_status: Mapped
     mappings:
@@ -435,6 +442,7 @@ Amendment Identifier:
       other: ''
     repeating: Yes, repeatable for Table for Document History
     ct: []
+  ordinal: 8
   usdm:
     map_status: Mapped
     mappings:
@@ -513,6 +521,7 @@ Amendment Scope:
     - ncit_code: C217026
       preferred_term: Not Global
       definition: Covering or affecting a portion of the system.
+  ordinal: 9
   usdm:
     map_status: Mapped
     mappings:
@@ -586,6 +595,7 @@ Country Identifier:
       other: ''
     repeating: Yes, repeatable in 12.2 country/region-specific differences
     ct: []
+  ordinal: 10
   usdm:
     map_status: Mapped
     mappings:
@@ -654,6 +664,7 @@ Region Identifier:
       other: ''
     repeating: Yes, repeatable in 12.2 country/region-specific differences
     ct: []
+  ordinal: 11
   usdm:
     map_status: Mapped
     mappings:
@@ -722,6 +733,7 @@ Site Identifier:
       other: ''
     repeating: Yes, repeatable in 12.2 country/region-specific differences
     ct: []
+  ordinal: 12
   usdm:
     map_status: Mapped
     mappings:
@@ -780,6 +792,7 @@ Sponsors Investigational Product Codes:
 
       Yes, repeatable in 1.1.2 under Intervention'
     ct: []
+  ordinal: 13
   usdm:
     map_status: Mapped
     mappings:
@@ -849,6 +862,7 @@ Nonproprietary Names:
     repeating: "Yes, repeatable for each nonproprietary name \nYes, repeatable in\
       \ 1.1.2 under intervention"
     ct: []
+  ordinal: 14
   usdm:
     map_status: Mapped
     mappings:
@@ -916,6 +930,7 @@ Proprietary Names:
       other: ''
     repeating: Yes, repeatable for each proprietary name
     ct: []
+  ordinal: 15
   usdm:
     map_status: Mapped
     mappings:
@@ -1047,6 +1062,7 @@ Trial Phase:
     - ncit_code: ''
       preferred_term: ''
       definition: ''
+  ordinal: 16
   usdm:
     map_status: Mapped
     mappings:
@@ -1111,6 +1127,7 @@ Trial Short Title:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 17
   usdm:
     map_status: Mapped
     mappings:
@@ -1175,6 +1192,7 @@ Sponsor Name:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 18
   usdm:
     map_status: Mapped
     mappings:
@@ -1252,6 +1270,7 @@ Sponsor Legal Address:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 19
   usdm:
     map_status: Mapped
     mappings:
@@ -1347,6 +1366,7 @@ Co-Sponsor Name:
 
       Repeat for each Co-Sponsor Name'
     ct: []
+  ordinal: 20
   usdm:
     map_status: Mapped
     mappings:
@@ -1433,6 +1453,7 @@ Co-Sponsor Legal Address:
     repeating: "No \nRepeat for each associated  Co-Sponsor . There is only one Co-Sponsor\
       \ Legal Address for each Co-Sponsor."
     ct: []
+  ordinal: 21
   usdm:
     map_status: Mapped
     mappings:
@@ -1526,6 +1547,7 @@ Local Sponsor Name:
       other: ''
     repeating: Yes, repeatable for each Local Sponsor Name
     ct: []
+  ordinal: 22
   usdm:
     map_status: Mapped
     mappings:
@@ -1606,6 +1628,7 @@ Local Sponsor Address:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 23
   usdm:
     map_status: Mapped
     mappings:
@@ -1703,6 +1726,7 @@ Device Manufacturer Name:
       other: ''
     repeating: Yes, repeatable for each device manufacturers
     ct: []
+  ordinal: 24
   usdm:
     map_status: Mapped
     mappings:
@@ -1782,6 +1806,7 @@ Device Manufacturer Address:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 25
   usdm:
     map_status: Mapped
     mappings:
@@ -1869,6 +1894,7 @@ EU CT Number:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 26
   usdm:
     map_status: Mapped
     mappings:
@@ -1934,6 +1960,7 @@ FDA IND Number:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 27
   usdm:
     map_status: Mapped
     mappings:
@@ -1999,6 +2026,7 @@ IDE Number:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 28
   usdm:
     map_status: Mapped
     mappings:
@@ -2065,6 +2093,7 @@ jRCT Number:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 29
   usdm:
     map_status: Mapped
     mappings:
@@ -2132,6 +2161,7 @@ NCT Number:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 30
   usdm:
     map_status: Mapped
     mappings:
@@ -2198,6 +2228,7 @@ NMPA IND Number:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 31
   usdm:
     map_status: Mapped
     mappings:
@@ -2264,6 +2295,7 @@ WHO-UTN Number:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 32
   usdm:
     map_status: Mapped
     mappings:
@@ -2334,6 +2366,7 @@ Other Regulatory or Clinical Trial Identifier:
       other: ''
     repeating: Yes, repeatable for each regulatory agency identifier
     ct: []
+  ordinal: 33
   usdm:
     map_status: Mapped
     mappings:
@@ -2417,6 +2450,7 @@ Approval Date:
       preferred_term: Location of Sponsor Approval Date
       definition: The physical or virtual location of the date on which the sponsor
         approved the current version of the protocol.
+  ordinal: 34
   usdm:
     map_status: Mapped
     mappings:
@@ -2487,6 +2521,7 @@ State location where Information can be found:
       preferred_term: Location of Sponsor Approval Date
       definition: The physical or virtual location of the date on which the sponsor
         approved the current version of the protocol.
+  ordinal: 35
   usdm:
     map_status: Mapped
     mappings:
@@ -2545,6 +2580,7 @@ State location where Information can be found:
     ct: []
     short_name: Sponsor signatory eg name title signature and date or state location
       where information can be found eg electronic signature
+  ordinal: 36
 contact information for Medical Expert as designated by sponsor or state location where information can be found:
   template:
     long_name: Enter contact information for Medical Expert (as designated by sponsor)
@@ -2579,6 +2615,7 @@ contact information for Medical Expert as designated by sponsor or state locatio
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 37
   usdm:
     map_status: Mapped
     mappings:
@@ -2655,6 +2692,7 @@ Current Amendment Enrollment:
     repeating: Yes, reuse to section 12.3
     ct: []
     short_name: Current Amendment Enrollment
+  ordinal: 38
   usdm:
     map_status: Mapped
     mappings:
@@ -2721,6 +2759,7 @@ Amendment Scope Enrollment Description:
     - ncit_code: C218489
       preferred_term: Cohort
       definition: Covering or affecting a cohort of individuals.
+  ordinal: 39
   usdm:
     map_status: Mapped
     mappings:
@@ -2862,6 +2901,7 @@ Primary Reason for Amendment:
     - ncit_code: C48660
       preferred_term: Not Applicable
       definition: Determination of a value is not relevant in the current context.
+  ordinal: 40
   usdm:
     map_status: Mapped
     mappings:
@@ -2993,6 +3033,7 @@ Secondary Reason for Amendment:
     - ncit_code: C48660
       preferred_term: Not Applicable
       definition: Determination of a value is not relevant in the current context.
+  ordinal: 41
   usdm:
     map_status: Mapped
     mappings:
@@ -3059,6 +3100,7 @@ Amendment Summary:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 42
   usdm:
     map_status: Mapped
     mappings:
@@ -3115,6 +3157,7 @@ Substantial Impact Safety:
       preferred_term: 'Yes'
       definition: The affirmative response to a question.
     short_name: Substantial Impact Safety
+  ordinal: 43
   usdm:
     map_status: Mapped
     mappings:
@@ -3186,6 +3229,7 @@ Substantial Impact Data:
       preferred_term: 'Yes'
       definition: The affirmative response to a question.
     short_name: Substantial Impact Data
+  ordinal: 44
   usdm:
     map_status: Mapped
     mappings:
@@ -3247,6 +3291,7 @@ Description of Change:
       other: ''
     repeating: Yes, repeatable for every description of change in the amendment
     ct: []
+  ordinal: 45
   usdm:
     map_status: Mapped
     mappings:
@@ -3297,6 +3342,7 @@ Brief Rationale for Change:
       other: ''
     repeating: Yes, repeatable for each description of change in the amendment
     ct: []
+  ordinal: 46
   usdm:
     map_status: Mapped
     mappings:
@@ -3377,6 +3423,7 @@ Section - and Name of Change:
       other: ''
     repeating: Yes, repeatable for each description of change in the amendment
     ct: []
+  ordinal: 47
   usdm:
     map_status: Mapped
     mappings:
@@ -3443,6 +3490,7 @@ Primary and Secondary Objectives and Estimands:
       from section 3.1, reuse <Secondary Objective and <endpoint> for each Secondary
       Objective from section 3.2.
     ct: []
+  ordinal: 48
   usdm:
     map_status: Mapped
     mappings:
@@ -3492,6 +3540,7 @@ Sponsors Investigational Product Codes 2:
 
       yes, reuse for each Investigational Product'
     ct: []
+  ordinal: 49
 Nonproprietary Names Control:
   template:
     long_name: Enter Nonproprietary Name(s)
@@ -3525,6 +3574,7 @@ Nonproprietary Names Control:
       Yes, reuse for each Investigational Product'
     ct: []
     short_name: Nonproprietary Names Control
+  ordinal: 50
 Population Type:
   template:
     long_name: Population type
@@ -3561,6 +3611,7 @@ Population Type:
       preferred_term: Without Disease
       definition: An indication that the individual or group of individuals has not
         been diagnosed with the disease of interest or under study.
+  ordinal: 51
   usdm:
     map_status: Mapped
     mappings:
@@ -3629,6 +3680,7 @@ Intervention Model:
     - ncit_code: C17649
       preferred_term: Other
       definition: Different than the one(s) previously specified or mentioned.
+  ordinal: 52
   usdm:
     map_status: Mapped
     mappings:
@@ -3674,6 +3726,7 @@ Population Diagnosis or Condition:
       other: ''
     repeating: Yes, repeatable for each population diagnosis or condition
     ct: []
+  ordinal: 53
   usdm:
     map_status: Mapped
     mappings:
@@ -3750,6 +3803,7 @@ Control Type:
       definition: A type of negative control in which a procedure is performed that
         mimics the procedure under study but does not include investigational processes
         or components.
+  ordinal: 54
   usdm:
     map_status: Mapped
     mappings:
@@ -3797,6 +3851,7 @@ Minimum Age:
     repeating: 'No'
     ct: []
     short_name: Minimum Age
+  ordinal: 55
   usdm:
     map_status: Mapped
     mappings:
@@ -3870,6 +3925,7 @@ units of minimum age:
       preferred_term: YEARS
       definition: The period of time that it takes for Earth to make a complete revolution
         around the sun, approximately 365 days; a specific one year period.
+  ordinal: 56
   usdm:
     map_status: Mapped
     mappings:
@@ -3924,6 +3980,7 @@ maximum age:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 57
   usdm:
     map_status: Mapped
     mappings:
@@ -3997,6 +4054,7 @@ units of maximum age:
       preferred_term: YEARS
       definition: The period of time that it takes for Earth to make a complete revolution
         around the sun, approximately 365 days; a specific one year period.
+  ordinal: 58
   usdm:
     map_status: Mapped
     mappings:
@@ -4045,6 +4103,7 @@ Nonproprietary name:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 59
   usdm:
     map_status: Mapped
     mappings:
@@ -4086,6 +4145,7 @@ INN:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 60
   usdm:
     map_status: Mapped
     mappings:
@@ -4128,6 +4188,7 @@ Not applicable:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 61
   usdm:
     map_status: Mapped
     mappings:
@@ -4180,6 +4241,7 @@ Site Distribution:
       preferred_term: Multicentre
       definition: A clinical trial conducted according to a single protocol but at
         more than one site, and therefore, carried out by more than one investigator.
+  ordinal: 62
   usdm:
     map_status: Mapped
     mappings:
@@ -4230,6 +4292,7 @@ Site geographic scope:
     - ncit_code: C217007
       preferred_term: Multiple Countries
       definition: Of, or pertaining to, an occurrence in more than one country.
+  ordinal: 63
   usdm:
     map_status: Mapped
     mappings:
@@ -4290,6 +4353,7 @@ Intervention Assignment Method:
         to important prognostic factors and then assigning participants within each
         stratum to different treatment or control groups using an element of chance
         and in order to reduce bias.
+  ordinal: 64
   usdm:
     map_status: Mapped
     mappings:
@@ -4341,6 +4405,7 @@ Master Protocol Indicator:
     - ncit_code: C49488
       preferred_term: 'Yes'
       definition: The affirmative response to a question.
+  ordinal: 65
   usdm:
     map_status: Mapped
     mappings:
@@ -4392,6 +4457,7 @@ Drug-Device Combination Product Indicator:
     - ncit_code: C49488
       preferred_term: 'Yes'
       definition: The affirmative response to a question.
+  ordinal: 66
   usdm:
     map_status: Mapped
     mappings:
@@ -4449,6 +4515,7 @@ Adaptive Trial Design Indicator:
     repeating: 'No'
     ct: []
     short_name: Adaptive Trial Design Indicator
+  ordinal: 67
   usdm:
     map_status: Mapped
     mappings:
@@ -4493,6 +4560,7 @@ Number of Arms:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 68
   usdm:
     map_status: Mapped
     mappings:
@@ -4560,6 +4628,7 @@ Trial Blind Schema:
       preferred_term: Single Blind
       definition: A study in which one party, either the participant or study personnel,
         does not know which intervention is administered to the participant.
+  ordinal: 69
   usdm:
     map_status: Mapped
     mappings:
@@ -4636,6 +4705,7 @@ Blinded Roles:
       preferred_term: Not Applicable
       definition: Determination of a value is not relevant in the current context.
     short_name: Blinded Roles
+  ordinal: 70
   usdm:
     map_status: Mapped
     mappings:
@@ -4681,6 +4751,7 @@ Target-Maximum:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 71
   usdm:
     map_status: Mapped
     mappings:
@@ -4724,6 +4795,7 @@ Number of Participants:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 72
   usdm:
     map_status: Mapped
     mappings:
@@ -4778,6 +4850,7 @@ randomly assigned to trial intervention-enrolled:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 73
   usdm:
     map_status: Mapped
     mappings:
@@ -4844,6 +4917,7 @@ total planned duration of trial intervention:
       preferred_term: YEARS
       definition: The period of time that it takes for Earth to make a complete revolution
         around the sun, approximately 365 days; a specific one year period.
+  ordinal: 74
   usdm:
     map_status: Mapped
     mappings:
@@ -4910,6 +4984,7 @@ total planned duration of trial intervention unit of time:
       definition: The period of time that it takes for Earth to make a complete revolution
         around the sun, approximately 365 days; a specific one year period.
     short_name: total planned duration of trial intervention unit of time
+  ordinal: 75
   usdm:
     map_status: Mapped
     mappings:
@@ -4958,6 +5033,7 @@ alternate description of planned duration of trial intervention:
     repeating: 'No'
     ct: []
     short_name: alternate description of planned duration of trial intervention
+  ordinal: 76
 total planned duration of trial participation:
   template:
     long_name: Enter total planned duration of trial participation
@@ -5009,6 +5085,7 @@ total planned duration of trial participation:
       preferred_term: YEARS
       definition: The period of time that it takes for Earth to make a complete revolution
         around the sun, approximately 365 days; a specific one year period.
+  ordinal: 77
   usdm:
     map_status: Mapped
     mappings:
@@ -5078,6 +5155,7 @@ total planned duration of trial participation unit of time:
       definition: The period of time that it takes for Earth to make a complete revolution
         around the sun, approximately 365 days; a specific one year period.
     short_name: total planned duration of trial participation unit of time
+  ordinal: 78
   usdm:
     map_status: Mapped
     mappings:
@@ -5130,6 +5208,7 @@ alternate description of planned duration of trial participation:
     repeating: 'No'
     ct: []
     short_name: alternate description of planned duration of trial participation
+  ordinal: 79
 Additional Description of Duration:
   template:
     long_name: Enter Additional Description of Duration
@@ -5160,6 +5239,7 @@ Additional Description of Duration:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 80
   usdm:
     map_status: Mapped
     mappings:
@@ -5233,6 +5313,7 @@ Independent Committees:
     - ncit_code: C41132
       preferred_term: None
       definition: No person or thing, nobody, not any.
+  ordinal: 81
   usdm:
     map_status: Mapped
     mappings:
@@ -5277,6 +5358,7 @@ Other Committees:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 82
   usdm:
     map_status: Mapped
     mappings:
@@ -5327,6 +5409,7 @@ Trial Schema:
       other: ''
     repeating: Yes, repeatable within Section
     ct: []
+  ordinal: 83
   usdm:
     map_status: Mapped
     mappings:
@@ -5378,6 +5461,7 @@ Schema Notes:
       other: ''
     repeating: Yes, repeatable and aligned with appropriate schema
     ct: []
+  ordinal: 84
   usdm:
     map_status: Mapped
     mappings:
@@ -5434,6 +5518,7 @@ Schedule of Activities:
       other: ''
     repeating: Yes, repeatable for each Schedule of Activity if needed
     ct: []
+  ordinal: 85
   usdm:
     map_status: Mapped
     mappings:
@@ -5481,6 +5566,7 @@ Purpose of Trial:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 86
   usdm:
     map_status: Mapped
     mappings:
@@ -5534,6 +5620,7 @@ Trial-specific Intervention Risks and Mitigations:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 87
   usdm:
     map_status: Mapped
     mappings:
@@ -5587,6 +5674,7 @@ Trial-specific Procedure Risks and Mitigations:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 88
   usdm:
     map_status: Mapped
     mappings:
@@ -5637,6 +5725,7 @@ Trial-specific Other Risks and Mitigations:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 89
   usdm:
     map_status: Mapped
     mappings:
@@ -5690,6 +5779,7 @@ Benefit Summary:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 90
   usdm:
     map_status: Mapped
     mappings:
@@ -5740,6 +5830,7 @@ Overall Risk-Benefit Assessment:
         the user guidance below Section 2.2 applies.
     repeating: 'No'
     ct: []
+  ordinal: 91
   usdm:
     map_status: Mapped
     mappings:
@@ -5788,6 +5879,7 @@ Primary Objective:
 
       Yes, reuse to the table in Section 1.1.1.for each primary objective'
     ct: []
+  ordinal: 92
   usdm:
     map_status: Mapped
     mappings:
@@ -5857,6 +5949,7 @@ Population:
       other: ''
     repeating: Yes, repeatable for each numbered primary objective
     ct: []
+  ordinal: 93
   usdm:
     map_status: Mapped
     mappings:
@@ -5931,6 +6024,7 @@ Treatment:
       other: ''
     repeating: Yes, repeatable for each numbered primary objective
     ct: []
+  ordinal: 94
   usdm:
     map_status: Mapped
     mappings:
@@ -6148,6 +6242,7 @@ Endpoint:
       other: ''
     repeating: Yes, repeatable for each numbered primary objective
     ct: []
+  ordinal: 95
   usdm:
     map_status: Mapped
     mappings:
@@ -6209,6 +6304,7 @@ Population-level Summary:
       other: ''
     repeating: Yes, repeatable for each numbered primary objective
     ct: []
+  ordinal: 96
 Description of Intercurrent Event:
   template:
     long_name: Enter Description of Intercurrent Event
@@ -6240,6 +6336,7 @@ Description of Intercurrent Event:
       other: ''
     repeating: Yes, repeatable for each intercurrent event
     ct: []
+  ordinal: 97
   usdm:
     map_status: Mapped
     mappings:
@@ -6311,6 +6408,7 @@ Intercurrent Event 1 Strategy:
       other: ''
     repeating: Yes, repeatable for each intercurrent event
     ct: []
+  ordinal: 98
   usdm:
     map_status: Mapped
     mappings:
@@ -6380,6 +6478,7 @@ Secondary Objective:
       other: ''
     repeating: Yes, repeatable for each numbered secondary objective.
     ct: []
+  ordinal: 99
   usdm:
     map_status: Mapped
     mappings:
@@ -6426,6 +6525,7 @@ Exploratory Objective:
       other: ''
     repeating: Yes, repeatable for each numbered exploratory objective.
     ct: []
+  ordinal: 100
   usdm:
     map_status: Mapped
     mappings:
@@ -6483,6 +6583,7 @@ Overall Description of Trial Design and Description of Intervention Model:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 101
   usdm:
     map_status: Mapped
     mappings:
@@ -6533,6 +6634,7 @@ Description of Trial Duration:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 102
   usdm:
     map_status: Mapped
     mappings:
@@ -6580,6 +6682,7 @@ Description of Method of Assignment to Trial Intervention:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 103
 Description of Level and Method of Blinding:
   template:
     long_name: Enter Description of Level and Method of Blinding
@@ -6620,6 +6723,7 @@ Description of Level and Method of Blinding:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 104
   usdm:
     map_status: Mapped
     mappings:
@@ -6664,6 +6768,7 @@ Additional Description of Trial Design:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 105
   usdm:
     map_status: Mapped
     mappings:
@@ -6711,6 +6816,7 @@ Stakeholder Input into Design:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 106
   usdm:
     map_status: Mapped
     mappings:
@@ -6757,6 +6863,7 @@ Overall Rationale for Trial Design:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 107
   usdm:
     map_status: Mapped
     mappings:
@@ -6808,6 +6915,7 @@ Rationale for Estimands:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 108
   usdm:
     map_status: Mapped
     mappings:
@@ -6858,6 +6966,7 @@ Rationale for Intervention Model:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 109
   usdm:
     map_status: Mapped
     mappings:
@@ -6908,6 +7017,7 @@ Rationale for Control Type:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 110
   usdm:
     map_status: Mapped
     mappings:
@@ -6953,6 +7063,7 @@ Rationale for Trial Duration:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 111
   usdm:
     map_status: To Be Mapped
     mappings:
@@ -6992,6 +7103,7 @@ Rationale for Adaptive or Novel Trial Design:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 112
   usdm:
     map_status: Mapped
     mappings:
@@ -7039,6 +7151,7 @@ Rationale for Interim Analysis:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 113
   usdm:
     map_status: Mapped
     mappings:
@@ -7086,6 +7199,7 @@ Rationale for Other Trial Design Aspects:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 114
   usdm:
     map_status: Mapped
     mappings:
@@ -7139,6 +7253,7 @@ Trial Stopping Rules:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 115
   usdm:
     map_status: Mapped
     mappings:
@@ -7192,6 +7307,7 @@ Start of Trial:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 116
   usdm:
     map_status: Mapped
     mappings:
@@ -7245,6 +7361,7 @@ End of Trial:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 117
   usdm:
     map_status: Mapped
     mappings:
@@ -7293,6 +7410,7 @@ Access to Trial Intervention after End of Trial:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 118
   usdm:
     map_status: Mapped
     mappings:
@@ -7362,6 +7480,7 @@ Description of Trial Population and Rationale:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 119
   usdm:
     map_status: Mapped
     mappings:
@@ -7406,6 +7525,7 @@ Inclusion Criterion Number:
     repeating: Yes, repeatable for each inclusion criterion
     ct: []
     short_name: Inclusion Criterion Number
+  ordinal: 120
   usdm:
     map_status: Mapped
     mappings:
@@ -7453,6 +7573,7 @@ Inclusion Criterion:
     repeating: Yes, number consecutively, repeatable for each inclusion criteria.
       If deleted for an amendment, do not replace and do not duplicate
     ct: []
+  ordinal: 121
   usdm:
     map_status: Mapped
     mappings:
@@ -7498,6 +7619,7 @@ Exclusion Criterion Number:
       If deleted for an amendment, do not replace and do not duplicate
     ct: []
     short_name: Exclusion Criterion Number
+  ordinal: 122
   usdm:
     map_status: Mapped
     mappings:
@@ -7545,6 +7667,7 @@ Exclusion Criterion:
     repeating: Yes, repeatable for each exclusion criterion, if deleted do not replace,
       do not duplicate
     ct: []
+  ordinal: 123
   usdm:
     map_status: Mapped
     mappings:
@@ -7595,6 +7718,7 @@ Definitions Related to Childbearing Potential:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 124
   usdm:
     map_status: Mapped
     mappings:
@@ -7641,6 +7765,7 @@ Contraception Requirements:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 125
   usdm:
     map_status: Mapped
     mappings:
@@ -7689,6 +7814,7 @@ Lifestyle Restrictions:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 126
   usdm:
     map_status: Mapped
     mappings:
@@ -7735,6 +7861,7 @@ Meals and Dietary Restrictions:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 127
   usdm:
     map_status: Mapped
     mappings:
@@ -7781,6 +7908,7 @@ Caffeine Alcohol Tobacco and Other Restrictions:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 128
   usdm:
     map_status: Mapped
     mappings:
@@ -7828,6 +7956,7 @@ Physical Activity Restrictions:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 129
   usdm:
     map_status: Mapped
     mappings:
@@ -7874,6 +8003,7 @@ Other Activity Restrictions:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 130
   usdm:
     map_status: Mapped
     mappings:
@@ -7923,6 +8053,7 @@ Screen Failure:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 131
   usdm:
     map_status: Mapped
     mappings:
@@ -7972,6 +8103,7 @@ Rescreening:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 132
   usdm:
     map_status: Mapped
     mappings:
@@ -8031,6 +8163,7 @@ Description of the overview of trial interventions or a heading for the optional
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 133
 Arm Name:
   template:
     long_name: Enter Arm Name
@@ -8058,6 +8191,7 @@ Arm Name:
       other: ''
     repeating: Yes, repeatable for each arm name and intervention and use combination
     ct: []
+  ordinal: 134
   usdm:
     map_status: Mapped
     mappings:
@@ -8125,6 +8259,7 @@ Arm Type:
     - ncit_code: C174269
       preferred_term: Sham Comparator Arm
       definition: An arm describing the sham comparator.
+  ordinal: 135
   usdm:
     map_status: Mapped
     mappings:
@@ -8166,6 +8301,7 @@ Intervention Name:
       other: ''
     repeating: Yes, repeatable for each arm name and arm type
     ct: []
+  ordinal: 136
   usdm:
     map_status: Mapped
     mappings:
@@ -8271,6 +8407,7 @@ Intervention Type:
     - ncit_code: C18020
       preferred_term: Diagnostic Test
       definition: Any procedure or test to diagnose a disease or disorder.
+  ordinal: 137
   usdm:
     map_status: Mapped
     mappings:
@@ -8315,6 +8452,7 @@ Pharmaceutical Dose Form:
     repeating: Yes, repeatable for each intervention name and Pharmaceutical Dose
       Form
     ct: []
+  ordinal: 138
 Dosage Strengths:
   template:
     long_name: Enter Dosage Strength(s)
@@ -8344,6 +8482,7 @@ Dosage Strengths:
     repeating: Yes, repeatable for each intervention name and formulation pharmaceutical
       dose form per arm name and arm type
     ct: []
+  ordinal: 139
   usdm:
     map_status: Mapped
     mappings:
@@ -8389,6 +8528,7 @@ Dosage Levels:
     repeating: Yes, repeatable for each intervention name, pharmaceutical dose form,
       dosage strength and dosage level per arm
     ct: []
+  ordinal: 140
   usdm:
     map_status: Mapped
     mappings:
@@ -8433,6 +8573,7 @@ Route of Administration:
     repeating: Yes, repeatable for each intervention name, pharmaceutical dose form,
       per arm name
     ct: []
+  ordinal: 141
   usdm:
     map_status: Mapped
     mappings:
@@ -8476,6 +8617,7 @@ Regimen-Treatment Period-Vaccination Regimen:
       other: ''
     repeating: Yes, repeatable for each arm name
     ct: []
+  ordinal: 142
   usdm:
     map_status: Mapped
     mappings:
@@ -8558,6 +8700,7 @@ Use:
       definition: A medicinal product that must be administered along with the experimental
         treatment (e.g., drug studies wherein opioid blockers are administered to
         prevent overdose).
+  ordinal: 143
   usdm:
     map_status: Mapped
     mappings:
@@ -8611,6 +8754,7 @@ IMP or NIMP:
       definition: A medicinal product that is related to the specific needs of the
         clinical trial as described in the protocol, but not as an investigational
         medicinal product.
+  ordinal: 144
   usdm:
     map_status: Mapped
     mappings:
@@ -8662,6 +8806,7 @@ Sourcing:
     - ncit_code: C215660
       preferred_term: Locally Sourced
       definition: An indication that the entity is obtained from a local source.
+  ordinal: 145
   usdm:
     map_status: Mapped
     mappings:
@@ -8709,6 +8854,7 @@ Description of Investigational Trial Intervention:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 146
   usdm:
     map_status: Mapped
     mappings:
@@ -8768,6 +8914,7 @@ Rationale for Investigational Trial Intervention Dose and Regimen:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 147
   usdm:
     map_status: Mapped
     mappings:
@@ -8821,6 +8968,7 @@ Investigational Trial Intervention Administration:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 148
   usdm:
     map_status: Mapped
     mappings:
@@ -8874,6 +9022,7 @@ Investigational Trial Intervention Dose Modification:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 149
   usdm:
     map_status: Mapped
     mappings:
@@ -8922,6 +9071,7 @@ Management of Investigational Trial Intervention Overdose:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 150
   usdm:
     map_status: Mapped
     mappings:
@@ -8980,6 +9130,7 @@ Preparation of Investigational Trial Intervention:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 151
   usdm:
     map_status: Mapped
     mappings:
@@ -9036,6 +9187,7 @@ Storage and Handling of Investigational Trial Intervention:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 152
   usdm:
     map_status: Mapped
     mappings:
@@ -9081,6 +9233,7 @@ Accountability of Investigational Trial Intervention:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 153
   usdm:
     map_status: Mapped
     mappings:
@@ -9133,6 +9286,7 @@ Participant Assignment to Investigational Trial Intervention:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 154
   usdm:
     map_status: Mapped
     mappings:
@@ -9183,6 +9337,7 @@ Randomisation:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 155
   usdm:
     map_status: Mapped
     mappings:
@@ -9227,6 +9382,7 @@ Measures to Maintain Blinding:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 156
   usdm:
     map_status: Mapped
     mappings:
@@ -9278,6 +9434,7 @@ Emergency Unblinding at the Site:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 157
   usdm:
     map_status: Mapped
     mappings:
@@ -9330,6 +9487,7 @@ Investigational Trial Intervention Adherence:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 158
   usdm:
     map_status: Mapped
     mappings:
@@ -9378,6 +9536,7 @@ Description of Noninvestigational Trial Interventions:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 159
 Background Trial Interventions:
   template:
     long_name: Enter Background Trial Interventions
@@ -9410,6 +9569,7 @@ Background Trial Interventions:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 160
 Rescue Therapy:
   template:
     long_name: Enter Rescue Therapy
@@ -9448,6 +9608,7 @@ Rescue Therapy:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 161
   usdm:
     map_status: Mapped
     mappings:
@@ -9495,6 +9656,7 @@ Other Noninvestigational Trial Intervention:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 162
   usdm:
     map_status: Mapped
     mappings:
@@ -9546,6 +9708,7 @@ Concomitant Therapy:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 163
   usdm:
     map_status: Mapped
     mappings:
@@ -9590,6 +9753,7 @@ Prohibited Concomitant Therapy:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 164
   usdm:
     map_status: Mapped
     mappings:
@@ -9634,6 +9798,7 @@ Permitted Concomitant Therapy:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 165
   usdm:
     map_status: Mapped
     mappings:
@@ -9679,6 +9844,7 @@ Permanent Discontinuation of Trial Intervention:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 166
   usdm:
     map_status: Mapped
     mappings:
@@ -9724,6 +9890,7 @@ Temporary Discontinuation of Trial Intervention:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 167
   usdm:
     map_status: Mapped
     mappings:
@@ -9774,6 +9941,7 @@ Rechallenge:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 168
   usdm:
     map_status: Mapped
     mappings:
@@ -9828,6 +9996,7 @@ Participant Discontinuation or Withdrawal from Trial:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 169
   usdm:
     map_status: Mapped
     mappings:
@@ -9879,6 +10048,7 @@ Management of Loss to Follow-Up:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 170
   usdm:
     map_status: Mapped
     mappings:
@@ -9925,6 +10095,7 @@ Trial Assessments and Procedures Considerations:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 171
   usdm:
     map_status: Mapped
     mappings:
@@ -9975,6 +10146,7 @@ Screening Assessments and Procedures:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 172
   usdm:
     map_status: Mapped
     mappings:
@@ -10026,6 +10198,7 @@ Baseline Assessments and Procedures:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 173
   usdm:
     map_status: Mapped
     mappings:
@@ -10072,6 +10245,7 @@ Efficacy Assessments and Procedures:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 174
   usdm:
     map_status: Mapped
     mappings:
@@ -10117,6 +10291,7 @@ Safety Assessments and Procedures:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 175
   usdm:
     map_status: Mapped
     mappings:
@@ -10163,6 +10338,7 @@ Physical Examination:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 176
   usdm:
     map_status: Mapped
     mappings:
@@ -10209,6 +10385,7 @@ Vital Signs:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 177
   usdm:
     map_status: Mapped
     mappings:
@@ -10256,6 +10433,7 @@ Electrocardiograms:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 178
   usdm:
     map_status: Mapped
     mappings:
@@ -10300,6 +10478,7 @@ Clinical Laboratory Assessments:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 179
 Pregnancy Testing:
   template:
     long_name: Enter Pregnancy Testing
@@ -10328,6 +10507,7 @@ Pregnancy Testing:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 180
   usdm:
     map_status: Mapped
     mappings:
@@ -10379,6 +10559,7 @@ Suicidal Ideation and Behaviour Risk Monitoring:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 181
   usdm:
     map_status: Mapped
     mappings:
@@ -10425,6 +10606,7 @@ Pharmacokinetics:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 182
   usdm:
     map_status: Mapped
     mappings:
@@ -10471,6 +10653,7 @@ Genetics and Pharmacogenomics:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 183
   usdm:
     map_status: Mapped
     mappings:
@@ -10518,6 +10701,7 @@ Pharmacodynamic Biomarkers:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 184
   usdm:
     map_status: Mapped
     mappings:
@@ -10564,6 +10748,7 @@ Other Biomarkers:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 185
   usdm:
     map_status: Mapped
     mappings:
@@ -10611,6 +10796,7 @@ Immunogenicity Assessments:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 186
   usdm:
     map_status: Mapped
     mappings:
@@ -10663,6 +10849,7 @@ Medical Resource Utilisation and Health Economics:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 187
   usdm:
     map_status: Mapped
     mappings:
@@ -10708,6 +10895,7 @@ Definitions of Adverse Events:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 188
   usdm:
     map_status: Mapped
     mappings:
@@ -10753,6 +10941,7 @@ Definitions of Serious Adverse Events:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 189
   usdm:
     map_status: Mapped
     mappings:
@@ -10798,6 +10987,7 @@ Definitions of Product Complaints:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 190
 Definitions of Medical Device Product Complaints:
   template:
     long_name: Enter Definitions of Medical Device Product Complaints
@@ -10826,6 +11016,7 @@ Definitions of Medical Device Product Complaints:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 191
 Event Type:
   template:
     long_name: Event Type
@@ -10904,6 +11095,7 @@ Event Type:
         program, for which ongoing monitoring and rapid communication by the investigator
         to the sponsor could be appropriate, and which is deemed to be not reportable
         to the appropriate regulatory authority.
+  ordinal: 192
   usdm:
     map_status: Mapped
     mappings:
@@ -10949,6 +11141,7 @@ Situational Scope:
       other: ''
     repeating: Yes, repeatable for each event type
     ct: []
+  ordinal: 193
   usdm:
     map_status: Mapped
     mappings:
@@ -10995,6 +11188,7 @@ Reportable Period Start:
       other: ''
     repeating: Yes, repeatable for each event type and situational scope
     ct: []
+  ordinal: 194
   usdm:
     map_status: Mapped
     mappings:
@@ -11042,6 +11236,7 @@ Reportable Period End:
     repeating: Yes, repeatable for each event type, situation scope, reportable period
       start
     ct: []
+  ordinal: 195
   usdm:
     map_status: Mapped
     mappings:
@@ -11087,6 +11282,7 @@ Timing for Reporting to Sponsor or Designee:
       other: ''
     repeating: Yes, repeatable for each event type and situational scope
     ct: []
+  ordinal: 196
   usdm:
     map_status: Mapped
     mappings:
@@ -11134,6 +11330,7 @@ Method for Reporting:
       other: ''
     repeating: Yes, repeatable for each event type and situational scope
     ct: []
+  ordinal: 197
   usdm:
     map_status: Mapped
     mappings:
@@ -11182,6 +11379,7 @@ Backup Method for Reporting:
     repeating: Yes, repeatable for each event type and situational scope
     ct: []
     short_name: Backup Method for Reporting
+  ordinal: 198
   usdm:
     map_status: Mapped
     mappings:
@@ -11228,6 +11426,7 @@ Event Collection and Reporting Timing:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 199
   usdm:
     map_status: Mapped
     mappings:
@@ -11275,6 +11474,7 @@ Identification:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 200
   usdm:
     map_status: Mapped
     mappings:
@@ -11319,6 +11519,7 @@ Severity:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 201
   usdm:
     map_status: Mapped
     mappings:
@@ -11364,6 +11565,7 @@ Causality:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 202
   usdm:
     map_status: Mapped
     mappings:
@@ -11408,6 +11610,7 @@ Recording:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 203
   usdm:
     map_status: Mapped
     mappings:
@@ -11455,6 +11658,7 @@ Follow-up:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 204
   usdm:
     map_status: Mapped
     mappings:
@@ -11503,6 +11707,7 @@ Reporting:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 205
   usdm:
     map_status: Mapped
     mappings:
@@ -11550,6 +11755,7 @@ Regulatory Reporting Requirements:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 206
   usdm:
     map_status: Mapped
     mappings:
@@ -11597,6 +11803,7 @@ Adverse Events of Special Interest:
     repeating: 'No'
     ct: []
     short_name: Adverse Events of Special Interest
+  ordinal: 207
 Disease Related Events or Outcomes Not Qualifying as AEs or SAEs:
   template:
     long_name: Enter Disease-related Events or Outcomes not Qualifying as AEs or SAEs
@@ -11629,6 +11836,7 @@ Disease Related Events or Outcomes Not Qualifying as AEs or SAEs:
     repeating: 'No'
     ct: []
     short_name: Disease Related Events or Outcomes Not Qualifying as AEs or SAEs
+  ordinal: 208
   usdm:
     map_status: Mapped
     mappings:
@@ -11676,6 +11884,7 @@ Participants Who Become Pregnant During the Trial:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 209
   usdm:
     map_status: Mapped
     mappings:
@@ -11723,6 +11932,7 @@ Participants Whose Partners Become Pregnant During the Trial:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 210
   usdm:
     map_status: Mapped
     mappings:
@@ -11770,6 +11980,7 @@ Special Safety Situations:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 211
   usdm:
     map_status: Mapped
     mappings:
@@ -11819,6 +12030,7 @@ General Considerations:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 212
   usdm:
     map_status: Mapped
     mappings:
@@ -11868,6 +12080,7 @@ Analysis Sets:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 213
   usdm:
     map_status: Mapped
     mappings:
@@ -11923,6 +12136,7 @@ Analyses of Demographics and Other Baseline Variables:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 214
   usdm:
     map_status: Mapped
     mappings:
@@ -11982,6 +12196,7 @@ Statistical Analysis Method:
       (10.4.X.1, 10.4.X.2, 10.4.X.3, 10.4.X.4, 10.4.X.5).
     ct: []
     short_name: Statistical Analysis Method
+  ordinal: 215
   usdm:
     map_status: Mapped
     mappings:
@@ -12036,6 +12251,7 @@ Handling of Data in Relation to Primary Estimands:
     repeating: Yes, repeatable for each objective as a series of level 4 sections
       (10.4.X.1, 10.4.X.2, 10.4.X.3, 10.4.X.4, 10.4.X.5).
     ct: []
+  ordinal: 216
   usdm:
     map_status: Mapped
     mappings:
@@ -12085,6 +12301,7 @@ Handling of Missing Data in Relation to Primary Estimands:
     repeating: Yes, repeatable for each objective as a series of level 4 sections
       (10.4.X.1, 10.4.X.2, 10.4.X.3, 10.4.X.4, 10.4.X.5).
     ct: []
+  ordinal: 217
 Sensitivity Analysis:
   template:
     long_name: Enter Sensitivity Analysis
@@ -12120,6 +12337,7 @@ Sensitivity Analysis:
     repeating: Yes, repeatable for each objective as a series of level 4 sections
       (10.4.X.1, 10.4.X.2, 10.4.X.3, 10.4.X.4, 10.4.X.5).
     ct: []
+  ordinal: 218
   usdm:
     map_status: Mapped
     mappings:
@@ -12171,6 +12389,7 @@ Supplementary Analysis:
     repeating: Yes, repeatable for each objective as a series of level 4 sections
       (10.4.X.1, 10.4.X.2, 10.4.X.3, 10.4.X.4, 10.4.X.5).
     ct: []
+  ordinal: 219
   usdm:
     map_status: Mapped
     mappings:
@@ -12218,6 +12437,7 @@ Handling of Data in Relation to Secondary Estimands:
     repeating: Yes, repeatable for each objective as a series of level 4 sections
       (10.5.X.1, 10.5.X.2, 10.5.X.3, 10.5.X.4, 10.5.X.5).
     ct: []
+  ordinal: 220
   usdm:
     map_status: Mapped
     mappings:
@@ -12265,6 +12485,7 @@ Handling of Missing Data in Relation to Secondary Estimands:
     repeating: Yes, repeatable for each objective as a series of level 4 sections
       (10.5.X.1, 10.5.X.2, 10.5.X.3, 10.5.X.4, 10.5.X.5).
     ct: []
+  ordinal: 221
   usdm:
     map_status: Mapped
     mappings:
@@ -12315,6 +12536,7 @@ Secondary Objectives Sensitivity Analysis:
       (10.5.X.1, 10.5.X.2, 10.5.X.3, 10.5.X.4, 10.5.X.5).
     ct: []
     short_name: Secondary Objectives Sensitivity Analysis
+  ordinal: 222
   usdm:
     map_status: Mapped
     mappings:
@@ -12365,6 +12587,7 @@ Secondary Objectives Supplementary Analysis:
       (10.5.X.1, 10.5.X.2, 10.5.X.3, 10.5.X.4, 10.5.X.5).
     ct: []
     short_name: Secondary Objectives Supplementary Analysis
+  ordinal: 223
   usdm:
     map_status: Mapped
     mappings:
@@ -12414,6 +12637,7 @@ Analysis Associated with Exploratory Objectives:
     repeating: 'No'
     ct: []
     short_name: Analysis Associated with Exploratory Objectives
+  ordinal: 224
   usdm:
     map_status: Mapped
     mappings:
@@ -12467,6 +12691,7 @@ Safety Analyses:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 225
   usdm:
     map_status: Mapped
     mappings:
@@ -12514,6 +12739,7 @@ Other Analyses:
       other: Value AllowedYes
     repeating: 'No'
     ct: []
+  ordinal: 226
   usdm:
     map_status: Mapped
     mappings:
@@ -12560,6 +12786,7 @@ Interim Analyses:
       other: ''
     repeating: Yes, repeatable for each interim
     ct: []
+  ordinal: 227
   usdm:
     map_status: Mapped
     mappings:
@@ -12630,6 +12857,7 @@ Multiplicity Adjustments:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 228
   usdm:
     map_status: Mapped
     mappings:
@@ -12678,6 +12906,7 @@ Sample Size Determination:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 229
   usdm:
     map_status: Mapped
     mappings:
@@ -12724,6 +12953,7 @@ Regulatory and Ethical Considerations:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 230
   usdm:
     map_status: Mapped
     mappings:
@@ -12777,6 +13007,7 @@ Trial Oversight:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 231
   usdm:
     map_status: Mapped
     mappings:
@@ -12825,6 +13056,7 @@ Investigator Responsibilities:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 232
   usdm:
     map_status: Mapped
     mappings:
@@ -12871,6 +13103,7 @@ Sponsor Responsibilities:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 233
   usdm:
     map_status: Mapped
     mappings:
@@ -12920,6 +13153,7 @@ Description of Informed Consent Process:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 234
   usdm:
     map_status: Mapped
     mappings:
@@ -12969,6 +13203,7 @@ Description of Assent Process:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 235
   usdm:
     map_status: Mapped
     mappings:
@@ -13018,6 +13253,7 @@ Description of Emergency Consent Process:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 236
   usdm:
     map_status: Mapped
     mappings:
@@ -13067,6 +13303,7 @@ Informed Consent for Rescreening:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 237
   usdm:
     map_status: Mapped
     mappings:
@@ -13125,6 +13362,7 @@ Informed Consent for Use of Remaining Samples in Exploratory Research:
     repeating: 'No'
     ct: []
     short_name: Informed Consent for Use of Remaining Samples in Exploratory Research
+  ordinal: 238
   usdm:
     map_status: Mapped
     mappings:
@@ -13176,6 +13414,7 @@ Committees:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 239
   usdm:
     map_status: Mapped
     mappings:
@@ -13224,6 +13463,7 @@ Insurance and Indemnity:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 240
   usdm:
     map_status: Mapped
     mappings:
@@ -13272,6 +13512,7 @@ Risk-Based Quality Management:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 241
   usdm:
     map_status: Mapped
     mappings:
@@ -13322,6 +13563,7 @@ Data Governance:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 242
   usdm:
     map_status: Mapped
     mappings:
@@ -13373,6 +13615,7 @@ Data Protection:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 243
   usdm:
     map_status: Mapped
     mappings:
@@ -13430,6 +13673,7 @@ Source Data Introduction:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 244
   usdm:
     map_status: Mapped
     mappings:
@@ -13476,6 +13720,7 @@ Investigator Expectations for Source Data:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 245
   usdm:
     map_status: Mapped
     mappings:
@@ -13522,6 +13767,7 @@ Trial Monitor Expectations for Source Data:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 246
   usdm:
     map_status: Mapped
     mappings:
@@ -13566,6 +13812,7 @@ Identification of Source Data:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 247
   usdm:
     map_status: Mapped
     mappings:
@@ -13613,6 +13860,7 @@ Protocol Deviations:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 248
   usdm:
     map_status: Mapped
     mappings:
@@ -13660,6 +13908,7 @@ Decision Rights for Site Closure:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 249
   usdm:
     map_status: Mapped
     mappings:
@@ -13705,6 +13954,7 @@ Criteria for Early Closure:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 250
   usdm:
     map_status: Mapped
     mappings:
@@ -13753,6 +14003,7 @@ Responsibilities Following Early Site Closure:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 251
   usdm:
     map_status: Mapped
     mappings:
@@ -13800,6 +14051,7 @@ Data Dissemination:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 252
   usdm:
     map_status: Mapped
     mappings:
@@ -13849,6 +14101,7 @@ Clinical Laboratory Tests:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 253
   usdm:
     map_status: Mapped
     mappings:
@@ -13910,6 +14163,7 @@ Country-Region Identifier:
       other: ''
     repeating: Yes, repeatable for each Country/Region
     ct: []
+  ordinal: 254
   usdm:
     map_status: Mapped
     mappings:
@@ -13965,6 +14219,7 @@ Country-Region Specific Requirements:
     repeating: Yes, repeatable for each Country/Region
     ct: []
     short_name: Country-Region Specific Requirements
+  ordinal: 255
   usdm:
     map_status: Mapped
     mappings:
@@ -14023,6 +14278,7 @@ Country-Region Specific Protocol Clarifications:
     repeating: Yes, repeatable for each country/region
     ct: []
     short_name: Country-Region Specific Protocol Clarifications
+  ordinal: 256
   usdm:
     map_status: Mapped
     mappings:
@@ -14069,6 +14325,7 @@ Prior Amendment Identifier:
     repeating: Yes, reuse from the title page or other previous amendment
     ct: []
     short_name: Prior Amendment Identifier
+  ordinal: 257
   usdm:
     map_status: Mapped
     mappings:
@@ -14110,6 +14367,7 @@ Sponsor Approval Date:
       other: ''
     repeating: Yes, reuse from the title page or other previous amendment
     ct: []
+  ordinal: 258
   usdm:
     map_status: Mapped
     mappings:
@@ -14203,6 +14461,7 @@ Amendment Details:
         Summary of Changes for the current amendment is located directly before the
         Table of Contents. Prior amendment(s) to this protocol are listed in the table
         below, beginning with the most recent.
+  ordinal: 259
   usdm:
     map_status: Mapped
     mappings:
@@ -14279,6 +14538,7 @@ Primary Reason Other:
     repeating: 'No'
     ct: []
     short_name: Primary Reason Other
+  ordinal: 260
   usdm:
     map_status: Mapped
     mappings:
@@ -14325,6 +14585,7 @@ Secondary Reason Other:
     repeating: 'No'
     ct: []
     short_name: Secondary Reason Other
+  ordinal: 261
   usdm:
     map_status: Mapped
     mappings:
@@ -14376,6 +14637,7 @@ Briefly Explain Substantial Impact On Safety:
     repeating: 'No'
     ct: []
     short_name: Briefly Explain Substantial Impact On Safety
+  ordinal: 262
   usdm:
     map_status: Mapped
     mappings:
@@ -14427,6 +14689,7 @@ Briefly Explain Substantial Impact on Data:
     repeating: 'No'
     ct: []
     short_name: Briefly Explain Substantial Impact on Data
+  ordinal: 263
   usdm:
     map_status: Mapped
     mappings:
@@ -14474,6 +14737,7 @@ specify alternative location:
       other: ''
     repeating: Yes, reuse from the title page.
     ct: []
+  ordinal: 264
   usdm:
     map_status: Mapped
     mappings:
@@ -14521,6 +14785,7 @@ Amendment Identifier 3:
       other: ''
     repeating: Yes, repeatable one table per amendment identifier
     ct: []
+  ordinal: 265
 Previous Amendment Overview Description of Change:
   template:
     long_name: Enter Description of Change
@@ -14551,6 +14816,7 @@ Previous Amendment Overview Description of Change:
     repeating: Yes, repeatable for every description of change
     ct: []
     short_name: Previous Amendment Overview Description of Change
+  ordinal: 266
   usdm:
     map_status: Mapped
     mappings:
@@ -14595,6 +14861,7 @@ Previous Amendment Overview Brief Rationale for Change:
     repeating: Yes, repeatable for every description of change
     ct: []
     short_name: Previous Amendment Overview Brief Rationale for Change
+  ordinal: 267
   usdm:
     map_status: Mapped
     mappings:
@@ -14668,6 +14935,7 @@ Previous Amendment Overview Section:
     repeating: Yes, repeatable for every Description of Change
     ct: []
     short_name: Previous Amendment Overview Section
+  ordinal: 268
   usdm:
     map_status: Mapped
     mappings:
@@ -14744,6 +15012,7 @@ Prior Protocol Amendments:
         Summary of Changes for the current amendment is located directly before the
         Table of Contents. Prior amendment(s) to this protocol are listed in the table
         below, beginning with the most recent.
+  ordinal: 269
   usdm:
     map_status: Mapped
     mappings:
@@ -14790,6 +15059,7 @@ Glossary of Terms and Abbreviations:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 270
   usdm:
     map_status: Mapped
     mappings:
@@ -14842,6 +15112,7 @@ References:
       other: ''
     repeating: 'No'
     ct: []
+  ordinal: 271
   usdm:
     map_status: Mapped
     mappings:

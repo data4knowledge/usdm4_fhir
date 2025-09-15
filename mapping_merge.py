@@ -128,9 +128,14 @@ def merge_mapping_files():
     print("\nMerging data...")
     
     # Process each entry in the M11 master file
+    ordinal = 1
     for key, m11_entry in m11_data.items():
         # Start with the M11 data
         merged_entry = m11_entry.copy()
+        
+        # Add ordinal field to preserve order
+        merged_entry["ordinal"] = ordinal
+        ordinal += 1
         
         # Check for USDM match
         if key in usdm_data:

@@ -221,20 +221,15 @@ def create_data_panel(title, data, panel_id):
             <div class="card-body">
     '''
     
-    # Check if this is a panel that should be highlighted in red
-    is_technical_panel = panel_id == "technical-panel"
-    is_template_panel = panel_id == "template-panel"
-    
     if isinstance(data, dict):
         for key, value in data.items():
             # Check if this specific field should be highlighted in red
-            # Only highlight specific guidance/instruction fields, not entire panels
+            # Only highlight specific guidance/instruction fields
             is_guidance_field = (key.lower() == 'guidance' or 'guidance' in key.lower())
             is_instruction_field = (key.lower() == 'instruction' or 'instruction' in key.lower())
             
-            # Highlight entire technical and template panels, but only specific guidance/instruction fields in other panels
-            should_highlight = (is_guidance_field or 
-                              is_instruction_field)
+            # Only highlight guidance and instruction fields
+            should_highlight = (is_guidance_field or is_instruction_field)
             
             text_style = 'style="color: red;"' if should_highlight else ''
             
@@ -264,8 +259,7 @@ def create_data_panel(title, data, panel_id):
             else:
                 panel_html += f'<div class="mb-2" {text_style}><strong>{escape_html(key)}:</strong> {escape_html(value)}</div>'
     else:
-        text_style = 'style="color: red;"' if is_technical_panel else ''
-        panel_html += f'<div {text_style}>{escape_html(data)}</div>'
+        panel_html += f'<div>{escape_html(data)}</div>'
     
     panel_html += '''
             </div>
@@ -468,8 +462,13 @@ def create_section_page(section_title, elements, html_dir):
     <div class="row">
     '''
     
-    # Sort elements by name
-    sorted_elements = sorted(elements, key=lambda x: x[0])
+    # Sort elements by ordinal field, fallback to name if ordinal not present
+    def get_element_sort_key(element_item):
+        element_name, element_data = element_item
+        ordinal = element_data.get('ordinal', float('inf'))  # Use infinity if no ordinal
+        return (ordinal, element_name)  # Secondary sort by name for consistency
+    
+    sorted_elements = sorted(elements, key=get_element_sort_key)
     
     for element_name, element_data in sorted_elements:
         template_data = element_data.get('template', {})

@@ -11,6 +11,16 @@
       "fullUrl": "https://www.example.com/Composition/1234A",
       "resource": {
         "resourceType": "ResearchStudy",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/study-amendment",
+            "valueCoding": {
+              "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+              "code": "C49488",
+              "display": "Yes"
+            }
+          }
+        ],
         "identifier": [
           {
             "type": {

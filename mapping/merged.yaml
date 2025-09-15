@@ -1978,8 +1978,8 @@ EU CT Number:
 
       %VALUE = <vvvv>'
   status:
-    value: ''
-    notes: ''
+    value: 'Full'
+    notes: 'Needs testing to make sure works'
 FDA IND Number:
   template:
     long_name: FDA IND Number
@@ -2046,8 +2046,8 @@ FDA IND Number:
 
       %VALUE = <vvvv>'
   status:
-    value: ''
-    notes: ''
+    value: 'Full'
+    notes: 'Needs testing to make sure works'
 IDE Number:
   template:
     long_name: IDE Number
@@ -2114,8 +2114,8 @@ IDE Number:
 
       %VALUE = <vvvv>'
   status:
-    value: ''
-    notes: ''
+    value: 'None'
+    notes: 'Need to check this'
 jRCT Number:
   template:
     long_name: jRCT Number
@@ -2184,8 +2184,8 @@ jRCT Number:
 
       %VALUE = <vvvv>'
   status:
-    value: ''
-    notes: ''
+    value: 'Full'
+    notes: 'Needs testing to make sure works'
 NCT Number:
   template:
     long_name: NCT Number
@@ -2253,7 +2253,7 @@ NCT Number:
 
       %VALUE = <vvvv>'
   status:
-    value: ''
+    value: 'Full'
     notes: ''
 NMPA IND Number:
   template:
@@ -2322,7 +2322,7 @@ NMPA IND Number:
 
       %VALUE = <vvvv>'
   status:
-    value: ''
+    value: 'Full'
     notes: ''
 WHO-UTN Number:
   template:
@@ -2391,7 +2391,7 @@ WHO-UTN Number:
 
       %VALUE = <vvvv>'
   status:
-    value: ''
+    value: 'Full'
     notes: ''
 Other Regulatory or Clinical Trial Identifier:
   template:
@@ -2470,8 +2470,8 @@ Other Regulatory or Clinical Trial Identifier:
       code for the type to be added.  However an alternative is to have the assigner
       point to the organisation creating the code.
   status:
-    value: ''
-    notes: ''
+    value: 'None'
+    notes: 'Need to look at this'
 Approval Date:
   template:
     long_name: Enter Approval Date

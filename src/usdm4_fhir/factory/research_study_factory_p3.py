@@ -159,19 +159,19 @@ class ResearchStudyFactoryP3(BaseFactory):
             self.item.extension.append(ext.item)
 
             # Compound Codes - No implementation details currently
-            if self._title_page["compound_codes"]:
-                params = {
-                    "id": str(uuid4()),
-                    "name": ["something"],
-                    "identifier": [
-                        {
-                            "system": "https://example.org/sponsor-identifier",
-                            "value": self._title_page["compound_codes"],
-                        }
-                    ],
-                }
-                medicinal_product = MedicinalProductDefinitionFactory(**params)
-                self._resources.append(medicinal_product)
+            # if self._title_page["compound_codes"]:
+            #     params = {
+            #         "id": str(uuid4()),
+            #         "name": ["something"],
+            #         "identifier": [
+            #             {
+            #                 "system": "https://example.org/sponsor-identifier",
+            #                 "value": self._title_page["compound_codes"],
+            #             }
+            #         ],
+            #     }
+            #     medicinal_product = MedicinalProductDefinitionFactory(**params)
+            #     self._resources.append(medicinal_product)
 
             # Compound Names - No implementation details currently
             # _ = self._title_page["compound_names"]
@@ -204,9 +204,9 @@ class ResearchStudyFactoryP3(BaseFactory):
             
             # Device Manufacturer Name and Address
 
-            # Regulatory Agency Identifiers
-            # Sponsor Identifier
+            # Regulatory Agency and CT Registry Identifiers
             identifiers = self._version.regulatory_identifiers()
+            identifiers += self._version.registry_identifiers()
             for identifier in identifiers:
                 org = identifier.scoped_by(self._organizations)
                 identifier_cc = CodeableConceptFactory(text=org.type.decode)

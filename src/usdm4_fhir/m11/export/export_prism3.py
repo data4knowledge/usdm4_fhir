@@ -44,6 +44,13 @@ class ExportPRISM3(ExportBase):
                 request={"method": "PUT", "url": f"Composition/{composition.item.id}"},
             )
             entries.append(entry)
+        for resource in research_study.resources:
+            klass = resource.item.__class__.__name__
+            entry = BundleEntry(
+                resource=resource.item,
+                request={"method": "PUT", "url": f"{klass}/{resource.item.id}"},
+            )
+            entries.append(entry)
         entry = BundleEntry(
             resource=research_study.item,
             request={"method": "PUT", "url": f"ResearchStudy/{research_study.item.id}"},

@@ -636,8 +636,8 @@ Country Identifier:
     Comment: Country is an extension because it is within amendment.   An alternative
       is to bring another ResearchStudy that is the amended protocol into the extension.
   status:
-    value: ''
-    notes: ''
+    value: 'Other'
+    notes: 'Part of amendments'
 Region Identifier:
   template:
     long_name: Region Identifier
@@ -707,8 +707,8 @@ Region Identifier:
     Comment: Region is an extension because it is within amendment  An alternative
       is to bring another ResearchStudy that is the amended protocol into the extension.
   status:
-    value: ''
-    notes: ''
+    value: 'Other'
+    notes: 'Part of amendments'
 Site Identifier:
   template:
     long_name: Enter Site Identifier
@@ -780,8 +780,8 @@ Site Identifier:
     Comment: Site is an extension because it is within an amendment.  An alternative
       is to bring another ResearchStudy that is the amended protocol into the extension.
   status:
-    value: ''
-    notes: ''
+    value: 'Other'
+    notes: 'Part of amendments'
 Sponsors Investigational Product Codes:
   template:
     long_name: Enter Sponsor’s Investigational Product Code(s)
@@ -855,8 +855,8 @@ Sponsors Investigational Product Codes:
       it is clear this identifier refers to "Sponsor Investigational Product" because
       it is linked to the focus attribute of ResearchStudy
   status:
-    value: ''
-    notes: ''
+    value: 'Extra'
+    notes: 'Something simple so far, FHIR mapping looks weird'
 Nonproprietary Names:
   template:
     long_name: Enter Nonproprietary Name(s)
@@ -925,8 +925,8 @@ Nonproprietary Names:
     Binding (strength): This doesn't have an explicit binding becaause MedicinalProductDefinition
       is not profiled here.  It should already have guidance for IDMP.
   status:
-    value: ''
-    notes: ''
+    value: 'Other'
+    notes: 'Check this, part of compund codes'
 Proprietary Names:
   template:
     long_name: Enter Proprietary Name(s)
@@ -993,8 +993,8 @@ Proprietary Names:
     Binding (strength): This doesn't have an explicit binding becaause MedicinalProductDefinition
       is not profiled here.  It should already have guidance for IDMP
   status:
-    value: ''
-    notes: ''
+    value: 'Other'
+    notes: 'Check this, part of compund codes'
 Trial Phase:
   template:
     long_name: Trial Phase
@@ -1122,7 +1122,7 @@ Trial Phase:
 
       (extensible)'
   status:
-    value: ''
+    value: 'Full'
     notes: ''
 Trial Short Title:
   template:
@@ -1273,7 +1273,7 @@ Sponsor Name:
 
       (extensible)'
   status:
-    value: ''
+    value: 'Full'
     notes: ''
 Sponsor Legal Address:
   template:
@@ -1368,7 +1368,7 @@ Sponsor Legal Address:
 
       (extensible)'
   status:
-    value: ''
+    value: 'Full'
     notes: ''
 Co-Sponsor Name:
   template:

@@ -8,6 +8,9 @@ from usdm4_fhir.factory.extension_factory import ExtensionFactory
 from usdm4_fhir.factory.codeable_concept_factory import CodeableConceptFactory
 from usdm4_fhir.factory.coding_factory import CodingFactory
 from usdm4_fhir.factory.label_type_factory import LabelTypeFactory
+from usdm4_fhir.factory.medicinal_product_factory import MedicinalProductDefinitionFactory
+from usdm4_fhir.factory.organization_factory import OrganizationFactory
+from usdm4_fhir.factory.associated_party_factory import AssociatedPartyFactory
 
 
 class ResearchStudyFactoryP3(BaseFactory):
@@ -24,7 +27,7 @@ class ResearchStudyFactoryP3(BaseFactory):
             self._study_design = self._version.studyDesigns[0]
             self._document = study.documentedBy[0].versions[0]
             self._organizations: dict = self._version.organization_map()
-
+            self._resources: list[BaseFactory] = []
             # Set Profile meta data
             meta = {
                 "profile": [
@@ -149,7 +152,17 @@ class ResearchStudyFactoryP3(BaseFactory):
             self.item.extension.append(ext.item)
 
             # Compound Codes - No implementation details currently
-            # _ = self._title_page["compound_codes"]
+            if self._title_page["compound_codes"]:
+                params = {
+                    "id": str(uuid4()),
+                    "name": ["something"],
+                    "identifier": [{
+                        "system": "https://example.org/sponsor-identifier",
+                        "value": self._title_page["compound_codes"]
+                    }]
+                }
+                medicinal_product = MedicinalProductDefinitionFactory(**params)
+                self._resources.append(medicinal_product)
 
             # Compound Names - No implementation details currently
             # _ = self._title_page["compound_names"]
@@ -165,28 +178,16 @@ class ResearchStudyFactoryP3(BaseFactory):
                 coding=[phase_code.item], text=phase.decode
             ).item
 
-            # Status
-            self.item.status = "active"  # self._document.status.decode
-
-            # Sponsor Confidentiality Statememt
-            if self._title_page["sponsor_confidentiality"]:
-                ext = ExtensionFactory(
-                    **{
-                        "url": "http://hl7.org/fhir/uv/ebm/StructureDefinition/research-study-sponsor-confidentiality-statement",
-                        "valueString": self._title_page["sponsor_confidentiality"],
-                    }
-                )
-                self.item.extension.append(ext.item)
-
-            # # Sponsor Name and Address
-            # sponsor = self._version.sponsor()
-            # org = OrganizationFactory(sponsor)
-            # ap = AssociatedPartyFactory(
-            #     party={"reference": f"Organization/{self.fix_id(org.item.id)}"},
-            #     role_code="sponsor",
-            #     role_display="sponsor",
-            # )
-            # self.item.associatedParty.append(ap.item)
+            # Sponsor Name and Address
+            sponsor = self._version.sponsor()
+            org = OrganizationFactory(sponsor)
+            ap = AssociatedPartyFactory(
+                party={"reference": f"Organization/{org.item.id}"},
+                role_code="sponsor",
+                role_display="sponsor",
+            )
+            self.item.associatedParty.append(ap.item)
+            self._resources.append(org)
 
             # Manufacturer Name and Address
             # x = self._title_page['manufacturer_name_and_address']
@@ -219,3 +220,7 @@ class ResearchStudyFactoryP3(BaseFactory):
         except Exception as e:
             self.item = None
             self.handle_exception(e)
+
+    @property
+    def resources(self) -> list[BaseFactory]:
+        return self._resources

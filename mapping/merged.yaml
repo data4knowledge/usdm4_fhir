@@ -1451,8 +1451,8 @@ Co-Sponsor Name:
 
       (extensible)'
   status:
-    value: ''
-    notes: ''
+    value: 'None'
+    notes: 'Not needed yet'
 Co-Sponsor Legal Address:
   template:
     long_name: Enter Co-Sponsor Legal Address
@@ -1555,8 +1555,8 @@ Co-Sponsor Legal Address:
 
       (extensible)'
   status:
-    value: ''
-    notes: ''
+    value: 'None'
+    notes: 'Not needed yet'
 Local Sponsor Name:
   template:
     long_name: Enter Local Sponsor Name
@@ -1636,8 +1636,8 @@ Local Sponsor Name:
 
       (extensible)'
   status:
-    value: ''
-    notes: ''
+    value: 'None'
+    notes: 'Not needed yet'
 Local Sponsor Address:
   template:
     long_name: Enter Local Sponsor Address
@@ -1734,8 +1734,8 @@ Local Sponsor Address:
 
       (extensible)'
   status:
-    value: ''
-    notes: ''
+    value: 'None'
+    notes: 'Not needed yet'
 Device Manufacturer Name:
   template:
     long_name: Enter Device Manufacturer Name
@@ -1811,8 +1811,8 @@ Device Manufacturer Name:
       (extensible)'
     Comment: C25392 Manufacturer is not "Device Manufacturer"
   status:
-    value: ''
-    notes: ''
+    value: 'None'
+    notes: 'Not needed yet'
 Device Manufacturer Address:
   template:
     long_name: Enter Device Manufacturer Address
@@ -1908,8 +1908,8 @@ Device Manufacturer Address:
       (extensible)'
     Comment: C25392 Manufacturer is not "Device Manufacturer"
   status:
-    value: ''
-    notes: ''
+    value: 'None'
+    notes: 'Not needed yet'
 EU CT Number:
   template:
     long_name: EU CT Number

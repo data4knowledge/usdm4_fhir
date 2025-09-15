@@ -508,15 +508,23 @@ def create_section_page(section_title, elements, html_dir):
         status_value = status_data.get("value", "").lower()
         if status_value == "full":
             status_icon = (
-                '<i class="fas fa-circle text-success me-2" title="Full Status"></i>'
+                '<i class="fas fa-circle text-success me-2" title="Full Implementation"></i>'
+            )
+        elif status_value == "partial":
+            status_icon = (
+                '<i class="fas fa-circle text-warning me-2" title="Partial Implementation"></i>'
+            )
+        elif status_value == "none":
+            status_icon = (
+                '<i class="fas fa-circle text-danger me-2" title="No Implementation"></i>'
             )
         elif status_value == "extra":
             status_icon = (
-                '<i class="fas fa-circle text-warning me-2" title="Extra Status"></i>'
+                '<i class="fas fa-circle text-primary me-2" title="Extra Used"></i>'
             )
         elif status_value == "other":
             status_icon = (
-                '<i class="fas fa-circle text-danger me-2" title="Other Status"></i>'
+                '<i class="fas fa-circle text-info me-2" title="Something Else Going On"></i>'
             )
         else:
             status_icon = (

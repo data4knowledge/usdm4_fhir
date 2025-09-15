@@ -55,8 +55,10 @@
 | Value | Meaning |
 | :---- | :---- |
 | Full | Fully implemented |
+| Partial | Partially implemented, see the notes |
+| None | Not implemented, notes might contain something |
 | Extra | Using the extra file to circumnvigate some issue or other, see the notes field |
-| Other | Something else is going on 
+| Other | Something else is going on |
 
 
 

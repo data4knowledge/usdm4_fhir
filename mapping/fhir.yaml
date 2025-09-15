@@ -1,0 +1,1016 @@
+"Sponsor Confidentiality Statement":
+  "Resource": |-
+    ResearchStudy.extension[confidentialityStatement]
+  "Sample XML": |-
+    <extension  url=$EBM_Conf>
+        <valueString value= %VALUE/>
+      </extension>
+  "Example Value(s)": |-
+    %VALUE = <All data is confidential>
+"Full Title":
+  "Resource": |-
+    ResearchStudy.title
+  "Sample XML": |-
+    <title value=%VALUE/>
+  "Example Value(s)": |-
+    %VALUE = <A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus>
+"Trial Acronym":
+  "Resource": |-
+    ResearchStudy.label
+  "Sample XML": |-
+    <label>
+        <type>
+            <coding>
+                <system value= %SYSTEM />
+                <code value= %CODE />
+                <display value= %DISPLAY />
+            </coding>
+        </type>
+        <value value= %VALUE />
+    </label>
+  "Example Value(s)": |-
+    %SYSTEM = $NCI
+    %CODE = C207646
+    %DISPLAY =Study Acronym
+    ---------------
+    %VALUE = <A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus>
+  "Binding (strength)": |-
+    $study-title-type-vs
+    (extensible)
+"Sponsor Protocol Identifier":
+  "Resource": |-
+    ResearchStudy.identifier
+  "Sample XML": |-
+    <identifier>
+        <type>
+            <coding>
+                <system value=%TYPESYSTEM/>
+                <code value=%TYPECODE/>
+                <display value=%TYPEVALUE/>
+            </coding>
+        </type>
+        <system value=%SYSTEM/>
+        <value value=%VALUE/>
+    </identifier>
+  "Example Value(s)": |-
+    %TYPESYSTEM = $identifier-type-vs
+    %TYPECODE = C132351
+    %TYPEVALUE = Sponsor Protocol Identifier
+    ----------------
+    %SYSTEM = <ssss>
+    %VALUE = <I8R-JE-IGBJ>
+"Original Protocol Indicator":
+  "Resource": |-
+    ResearchStudy.extension($UDP/study-amendment)
+  "Sample XML": |-
+    <extension url="$UDP/study-amendment">
+        <valueCoding>
+            <system value= %SYSTEM />
+            <code value= %CODE />
+            <display value= %DISPLAY />
+        </valueCoding>
+    </extension>
+  "Example Value(s)": |-
+    %SYSTEM = $NCIT
+    -----------------------
+    %CODE = <C49488>
+    %DISPLAY = <Yes>
+  "Binding (strength)": |-
+    $YesNoUnknownVS
+    (required)
+  "Comment": |-
+    Alternative mapping may be ResearchStudy.classifier
+"Version Number":
+  "Resource": |-
+    ResearchStudy.version
+  "Sample XML": |-
+    <version value="%VALUE"/>
+  "Example Value(s)": |-
+    %VALUE = <(a)>
+  "Comment": |-
+    Definition: Is it alphanumeric or just numeric?
+"Version Date":
+  "Resource": |-
+    ResearchStudy.date
+  "Sample XML": |-
+    <date value="%VALUE"/>
+  "Example Value(s)": |-
+    %VALUE = <2017-12-05>
+  "Comment": |-
+    FHIR dates are in the form yyyy-mm-dd whereas the ICH specification is DD MMM YYYY where MMM is alphabetic
+
+    This date is an defined to be the resource change management date.  Need to be clear if this is really the same as the protocol version date.
+
+    The M11 Tech Spec appears to mix up coded values and a date
+"Amendment Identifier":
+  "Resource": |-
+    ResearchStudy.identifier
+  "Sample XML": |-
+    <identifier>
+        <type>
+            <coding>
+                <system value=%TYPESYSTEM/>
+                <code value=%TYPECODE/>
+                <display value=%TYPEVALUE/>
+            </coding>
+        </type>
+        <system value=%SYSTEM/>
+        <value value=%VALUE/>
+    </identifier>
+  "Example Value(s)": |-
+    %TYPESYSTEM = $identifier-type-vs
+    %TYPECODE = C218477
+    %TYPEVALUE = Amendment Identifier
+    ----------------
+    %SYSTEM = <ssss>
+    %VALUE =  <I8R-JE-IGBJ(a)>
+"Amendment Scope":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[scope]
+  "Sample XML": |-
+    <extension url= $ext-amd>
+        <extension url="scope">
+            <valueCode value= %VALUE />
+        </extension>
+    </extension>
+  "Example Value(s)": |-
+    %VALUE = <C217026>
+  "Binding (strength)": |-
+    m11-study-amendment-scope-vs (required)
+  "Comment": |-
+    The spec is not clear if this is actually coded - for now assume it isn't
+
+    Additional note for info: It is coded in a sense. Values are "Not Applicable", "Global", "Not Global" depending on a set of rules as per the M11 spec. It, in theory, can be derived.
+"Country Identifier":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[country]
+  "Sample XML": |-
+    <extension url= $ext-amd>
+        <extension url="country">
+            <valueCode value= %VALUE />
+        </extension>
+    </extension>
+  "Example Value(s)": |-
+    %VALUE = DE
+  "Binding (strength)": |-
+    m11-country-region-vs (extenssible)
+  "Comment": |-
+    Country is an extension because it is within amendment.   An alternative is to bring another ResearchStudy that is the amended protocol into the extension.
+"Region Identifier":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[region]
+  "Sample XML": |-
+    <extension url= $ext-amd>
+        <extension url="region">
+            <valueCode value= %VALUE />
+        </extension>
+    </extension>
+  "Example Value(s)": |-
+    %VALUE = EU
+  "Binding (strength)": |-
+    m11-country-region-vs (extenssible)
+  "Comment": |-
+    Region is an extension because it is within amendment  An alternative is to bring another ResearchStudy that is the amended protocol into the extension.
+"Site Identifier":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[site]
+  "Sample XML": |-
+    <extension url= $ext-amd>
+        <extension url="site">
+          <identifier>
+            <system value=%SYSTEM/>
+            <value value=%VALUE/>
+          </identifier>
+    </extension>
+  "Example Value(s)": |-
+    %SYSTEM = $AmdSite
+    %VALUE =  <sss>
+  "Comment": |-
+    Site is an extension because it is within an amendment.  An alternative is to bring another ResearchStudy that is the amended protocol into the extension.
+"Sponsors Investigational Product Codes":
+  "Resource": |-
+    ResearchStudy.focus
+  "Sample XML": |-
+    <focus>
+        <reference>
+          <reference value="MedicinalProductDefinition/%ID"/>
+        </reference>
+      </focus>
+
+    <MedicinalProductDefinition>
+      <id value=%ID/>
+    …
+      <identifier>
+        <system value=%SYSTEM/>
+        <value value=%VALUE/>
+      </identifier>
+    ...
+    </MedicinalProductDefinition>
+  "Example Value(s)": |-
+    %ID = <IGBJ-MedicinalProduct>
+    %SYSTEM = $SpID
+    %VALUE =  <LY900018>
+  "Comment": |-
+    This identifier follows a different patter because it is in a different resource and one where IDMP has already established a working pattern.  Also it is clear this identifier refers to "Sponsor Investigational Product" because it is linked to the focus attribute of ResearchStudy
+"Nonproprietary Names":
+  "Resource": |-
+    ResearchStudy.focus
+  "Sample XML": |-
+    <focus>
+        <reference>
+          <reference value="MedicinalProductDefinition/%ID"/>
+        </reference>
+      </focus>
+
+    <MedicinalProductDefinition>
+      <id value=%ID/>
+    ...
+      <name>
+        <productName value=%VALUE/>
+        <type>
+          <coding>
+            <system value=%SYSTEM/>
+            <code value=%CODE/>
+             <display value=%DISPLAY/>
+          </coding>
+        </type>
+      </name>
+    ...
+    </MedicinalProductDefinition>
+  "Example Value(s)": |-
+    %SYSTEM = $NCIT
+    %CODE = C97054
+    %DISPLAY = Nonproprietary Name
+    -----------------------
+    %ID = IGBJ-MedicinalProduct
+    %VALUE =  glucagon nasal powder
+  "Binding (strength)": |-
+    This doesn't have an explicit binding becaause MedicinalProductDefinition is not profiled here.  It should already have guidance for IDMP.
+"Proprietary Names":
+  "Resource": |-
+    ResearchStudy.focus
+  "Sample XML": |-
+    <focus>
+        <reference>
+          <reference value="MedicinalProductDefinition/%ID"/>
+        </reference>
+      </focus>
+
+    <MedicinalProductDefinition>
+      <id value=%ID/>
+    ...
+      <name>
+        <productName value=%VALUE/>
+        <type>
+          <coding>
+            <system value=$NCIT/>
+            <code value=%CODE/>
+            <display value=%DISPLAY/>
+          </coding>
+        </type>
+      </name>
+    ...
+    </MedicinalProductDefinition>
+  "Example Value(s)": |-
+    %SYSTEM = $NCIT
+    %CODE = C71898
+    %DISPLAY = Proprietary Name
+    -----------------------
+    %ID = <IGBJ-MedicinalProduct>
+    VALUE = <BAQSIMI>
+  "Binding (strength)": |-
+    This doesn't have an explicit binding becaause MedicinalProductDefinition is not profiled here.  It should already have guidance for IDMP
+"Trial Phase":
+  "Resource": |-
+    ResearchStudy.phase
+  "Sample XML": |-
+    <phase>
+        <coding>
+            <system value= %SYSTEM" />
+            <code value= %CODE />
+            <display value= %DISPLAY />
+        </coding>
+    </phase>
+  "Example Value(s)": |-
+    %SYSTEM = $NCIT
+    ------------------
+    %CODE = <C15602>
+    %DISPLAY = <Phase 3>
+  "Binding (strength)": |-
+    $phase-vs
+    (extensible)
+"Trial Short Title":
+  "Resource": |-
+    ResearchStudy.label
+  "Sample XML": |-
+    <label>
+        <type>
+            <coding>
+                <system value= %SYSTEM />
+                <code value= %CODE />
+                <display value= %DISPLAY />
+            </coding>
+        </type>
+        <value value= %VALUE />
+    </label>
+  "Example Value(s)": |-
+    %SYSTEM =$NCIT
+    %CODE = C207615
+    %DISPLAY =Brief Study Title
+    ---------------
+    %VALUE = <A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus>
+  "Binding (strength)": |-
+    $study-title-type-vs
+    (extensible)
+"Sponsor Name":
+  "Resource": |-
+    ResearchStudy.associatedParty.party.reference -->
+    Organization.name.value
+  "Sample XML": "<associatedParty>\n    <role>\n        <coding>\n            <system value= %SYSTEM />\n            <code\
+    \ value= %CODE />\n            <display value= %DISPLAY />\n        </coding>\n    </role>\n    <party>\n        <reference\
+    \ value=\"Organization/%ID\" />\n    </party>\n</associatedParty>\n\n<Organization>\n    <id value= %ID />\n    ... \n\
+    \    <name value= %VALUE />\n    ...\n</Organization>"
+  "Example Value(s)": |-
+    %SYSTEM = $NCIT
+    %CODE = C70793
+    %DISPLAY = Clinical Study Sponsor
+    ----------------
+    %ID = <org-EliLilly>
+    %VALUE = <Eli Lilly Japan K.K>
+  "Binding (strength)": |-
+    $study-role-vs
+    (extensible)
+"Sponsor Legal Address":
+  "Resource": |-
+    ResearchStudy.associatedParty.party.reference -->
+    Organization.contact.address
+  "Sample XML": "<associatedParty>\n    <role>\n        <coding>\n            <system value= %SYSTEM />\n            <code\
+    \ value= %CODE />\n            <display value= %DISPLAY />\n        </coding>\n    </role>\n    <party>\n        <reference\
+    \ value=\"Organization/%ID\" />\n    </party>\n</associatedParty>\n\n<Organization>\n    <id value= %ID /> \n    ... \n\
+    \    <contact>\n        <address>\n            <line value= %LINE1 />\n            <line value= %LINE2 />\n          \
+    \  <city value= %CITY />\n            <country value= %COUNTRY />\n            <postalCode value= %POSTALCODE />\n   \
+    \     </address>\n    </contact> \n    ...\n </Organization>"
+  "Example Value(s)": |-
+    %SYSTEM = $NCIT
+    %CODE = C70793
+    %DISPLAY = Clinical Study Sponsor
+    ----------------
+    %ID = <org-EliLilly>
+    %LINE1 = <aaa>
+    %LINE2 = <aaa>
+    %CITY = <aaa>
+    %COUNTRY = <aaa>
+    %POSTALCODE = <aaa>
+
+    Note: Address has many options for format
+  "Binding (strength)": |-
+    $study-role-vs
+    (extensible)
+"Co-Sponsor Name":
+  "Resource": |-
+    ResearchStudy.associatedParty.party.reference -->
+    Organization.name.value
+  "Sample XML": "<associatedParty>\n    <role>\n        <coding>\n            <system value= %SYSTEM />\n            <code\
+    \ value= %CODE />\n            <display value= %DISPLAY />\n        </coding>\n    </role>\n    <party>\n        <reference\
+    \ value=\"Organization/%ID\" />\n    </party>\n</associatedParty>\n\n<Organization>\n    <id value= %ID />\n    ... \n\
+    \    <name value= %VALUE />\n    ...\n</Organization>"
+  "Example Value(s)": |-
+    %SYSTEM = $NCIT
+    %CODE = C215669
+    %DISPLAY = Study Co-Sponsor
+    ----------------
+    %ID = <org-xxx>
+    %VALUE = <xxxx>
+  "Binding (strength)": |-
+    $study-role-vs
+    (extensible)
+"Co-Sponsor Legal Address":
+  "Resource": |-
+    ResearchStudy.associatedParty.party.reference -->
+    Organization.contact.address
+  "Sample XML": "<associatedParty>\n    <role>\n        <coding>\n            <system value= %SYSTEM />\n            <code\
+    \ value= %CODE />\n            <display value= %DISPLAY />\n        </coding>\n    </role>\n    <party>\n        <reference\
+    \ value=\"Organization/%ID\" />\n    </party>\n</associatedParty>\n\n<Organization>\n    <id value= %ID /> \n    ... \n\
+    \    <contact>\n        <address>\n            <line value= %LINE1 />\n            <line value= %LINE2 />\n          \
+    \  <city value= %CITY />\n            <country value= %COUNTRY />\n            <postalCode value= %POSTALCODE />\n   \
+    \     </address>\n    </contact> \n    ...\n </Organization>"
+  "Example Value(s)": |-
+    %SYSTEM =$NCIT
+    %CODE = C215669
+    %DISPLAY = Study Co-Sponsor
+    ----------------
+    %ID = <org-xxx>
+    %LINE1 = <xxx>
+    %LINE2 = <xxx>
+    %CITY = <xxx>
+    %COUNTRY = <xxx>
+    %POSTALCODE = <xxx>
+
+    Note: Address has many options for format
+  "Binding (strength)": |-
+    $study-role-vs
+    (extensible)
+"Local Sponsor Name":
+  "Resource": |-
+    ResearchStudy.associatedParty.party.reference -->
+    Organization.name.value
+  "Sample XML": "<associatedParty>\n    <role>\n        <coding>\n            <system value= %SYSTEM />\n            <code\
+    \ value= %CODE />\n            <display value= %DISPLAY />\n        </coding>\n    </role>\n    <party>\n        <reference\
+    \ value=\"Organization/%ID\" />\n    </party>\n</associatedParty>\n\n<Organization>\n    <id value= %ID />\n    ... \n\
+    \    <name value= %VALUE />\n    ...\n</Organization>"
+  "Example Value(s)": |-
+    %SYSTEM = $NCIT
+    %CODE = C215670
+    %DISPLAY = Local Legal Sponsor
+    ----------------
+    %ID = <org-yyy>
+    %VALUE = <yyy>
+  "Binding (strength)": |-
+    $study-role-vs
+    (extensible)
+"Local Sponsor Address":
+  "Resource": |-
+    ResearchStudy.associatedParty.party.reference -->
+    Organization.contact.address
+  "Sample XML": "<associatedParty>\n    <role>\n        <coding>\n            <system value= %SYSTEM />\n            <code\
+    \ value= %CODE />\n            <display value= %DISPLAY />\n        </coding>\n    </role>\n    <party>\n        <reference\
+    \ value=\"Organization/%ID\" />\n    </party>\n</associatedParty>\n\n<Organization>\n    <id value= %ID /> \n    ... \n\
+    \    <contact>\n        <address>\n            <line value= %LINE1 />\n            <line value= %LINE2 />\n          \
+    \  <city value= %CITY />\n            <country value= %COUNTRY />\n            <postalCode value= %POSTALCODE />\n   \
+    \     </address>\n    </contact> \n    ...\n </Organization>"
+  "Example Value(s)": |-
+    %SYSTEM = $NCIT
+    %CODE = C215670
+    %DISPLAY =Local Legal Sponsor
+    ----------------
+    %ID = <org-yyy>
+    %LINE1 = <yyy>
+    %LINE2 = <yyy>
+    %CITY = <yyy>
+    %COUNTRY = <yyy>
+    %POSTALCODE = <yyy>
+
+    Note: Address has many options for format
+  "Binding (strength)": |-
+    $study-role-vs
+    (extensible)
+"Device Manufacturer Name":
+  "Resource": |-
+    ResearchStudy.associatedParty.party.reference -->
+    Organization.name.value
+  "Sample XML": "<associatedParty>\n    <role>\n        <coding>\n            <system value= %SYSTEM />\n            <code\
+    \ value= %CODE />\n            <display value= %DISPLAY />\n        </coding>\n    </role>\n    <party>\n        <reference\
+    \ value=\"Organization/%ID\" />\n    </party>\n</associatedParty>\n\n<Organization>\n    <id value= %ID />\n    ... \n\
+    \    <name value= %VALUE />\n    ...\n</Organization>"
+  "Example Value(s)": |-
+    %SYSTEM =$NCIT
+    %CODE =$CNEW
+    %DISPLAY = Device Manufacturer
+    ----------------
+    %ID = <org-zzz>
+    %VALUE = <zzzz>
+  "Binding (strength)": |-
+    $study-role-vs
+    (extensible)
+  "Comment": |-
+    C25392 Manufacturer is not "Device Manufacturer"
+"Device Manufacturer Address":
+  "Resource": |-
+    ResearchStudy.associatedParty.party.reference -->
+    Organization.contact.address
+  "Sample XML": "<associatedParty>\n    <role>\n        <coding>\n            <system value= %SYSTEM />\n            <code\
+    \ value= %CODE />\n            <display value= %DISPLAY />\n        </coding>\n    </role>\n    <party>\n        <reference\
+    \ value=\"Organization/%ID\" />\n    </party>\n</associatedParty>\n\n<Organization>\n    <id value= %ID /> \n    ... \n\
+    \    <contact>\n        <address>\n            <line value= %LINE1 />\n            <line value= %LINE2 />\n          \
+    \  <city value= %CITY />\n            <country value= %COUNTRY />\n            <postalCode value= %POSTALCODE />\n   \
+    \     </address>\n    </contact> \n    ...\n </Organization>"
+  "Example Value(s)": |-
+    %SYSTEM = $NCIT
+    %CODE = $CNEW
+    %DISPLAY = Device Manufacturer
+    ----------------
+    %ID = <org-zzz>
+    %LINE1 = <zzz>
+    %LINE2 = <zzz>
+    %CITY = <zzz>
+    %COUNTRY = <zzz>
+    %POSTALCODE = <zzz>
+
+    Note: Address has many options for format
+  "Binding (strength)": |-
+    $study-role-vs
+    (extensible)
+  "Comment": |-
+    C25392 Manufacturer is not "Device Manufacturer"
+"EU CT Number":
+  "Resource": |-
+    ResearchStudy.identifier
+  "Sample XML": |-
+    <identifier>
+        <type>
+            <coding>
+                <system value=%TYPESYSTEM/>
+                <code value=%TYPECODE/>
+                <display value=%TYPEVALUE/>
+            </coding>
+        </type>
+        <system value=%SYSTEM/>
+        <value value=%VALUE/>
+    </identifier>
+  "Example Value(s)": |-
+    %TYPESYSTEM = $identifier-type-vs
+    %TYPECODE = C218684
+    %TYPEVALUE = EU CT Number
+    ----------------
+    %SYSTEM = <ssss>
+    %VALUE = <vvvv>
+"FDA IND Number":
+  "Resource": |-
+    ResearchStudy.identifier
+  "Sample XML": |-
+    <identifier>
+        <type>
+            <coding>
+                <system value=%TYPESYSTEM/>
+                <code value=%TYPECODE/>
+                <display value=%TYPEVALUE/>
+            </coding>
+        </type>
+        <system value=%SYSTEM/>
+        <value value=%VALUE/>
+    </identifier>
+  "Example Value(s)": |-
+    %TYPESYSTEM = $identifier-type-vs
+    %TYPECODE = C218685
+    %TYPEVALUE = FDA IND Number
+    ----------------
+    %SYSTEM = <ssss>
+    %VALUE = <vvvv>
+"IDE Number":
+  "Resource": |-
+    ResearchStudy.identifier
+  "Sample XML": |-
+    <identifier>
+        <type>
+            <coding>
+                <system value=%TYPESYSTEM/>
+                <code value=%TYPECODE/>
+                <display value=%TYPEVALUE/>
+            </coding>
+        </type>
+        <system value=%SYSTEM/>
+        <value value=%VALUE/>
+    </identifier>
+  "Example Value(s)": |-
+    %TYPESYSTEM = $identifier-type-vs
+    %TYPECODE = C218686
+    %TYPEVALUE = IDE Number
+    ----------------
+    %SYSTEM = <ssss>
+    %VALUE = <vvvv>
+"jRCT Number":
+  "Resource": |-
+    ResearchStudy.identifier
+  "Sample XML": |-
+    <identifier>
+        <type>
+            <coding>
+                <system value=%TYPESYSTEM/>
+                <code value=%TYPECODE/>
+                <display value=%TYPEVALUE/>
+            </coding>
+        </type>
+        <system value=%SYSTEM/>
+        <value value=%VALUE/>
+    </identifier>
+  "Example Value(s)": |-
+    %TYPESYSTEM = $identifier-type-vs
+    %TYPECODE = C218687
+    %TYPEVALUE = jRCT Number
+    ----------------
+    %SYSTEM = <ssss>
+    %VALUE = <vvvv>
+"NCT Number":
+  "Resource": |-
+    ResearchStudy.identifier
+  "Sample XML": |-
+    <identifier>
+        <type>
+            <coding>
+                <system value=%TYPESYSTEM/>
+                <code value=%TYPECODE/>
+                <display value=%TYPEVALUE/>
+            </coding>
+        </type>
+        <system value=%SYSTEM/>
+        <value value=%VALUE/>
+    </identifier>
+  "Example Value(s)": |-
+    %TYPESYSTEM = $identifier-type-vs
+    %TYPECODE = C172240
+    %TYPEVALUE = NCT Number
+    ----------------
+    %SYSTEM = <ssss>
+    %VALUE = <vvvv>
+"NMPA IND Number":
+  "Resource": |-
+    ResearchStudy.identifier
+  "Sample XML": |-
+    <identifier>
+        <type>
+            <coding>
+                <system value=%TYPESYSTEM/>
+                <code value=%TYPECODE/>
+                <display value=%TYPEVALUE/>
+            </coding>
+        </type>
+        <system value=%SYSTEM/>
+        <value value=%VALUE/>
+    </identifier>
+  "Example Value(s)": |-
+    %TYPESYSTEM = $identifier-type-vs
+    %TYPECODE = C218688
+    %TYPEVALUE = NMPA IND Number
+    ----------------
+    %SYSTEM = <ssss>
+    %VALUE = <vvvv>
+"WHO-UTN Number":
+  "Resource": |-
+    ResearchStudy.identifier
+  "Sample XML": |-
+    <identifier>
+        <type>
+            <coding>
+                <system value=%TYPESYSTEM/>
+                <code value=%TYPECODE/>
+                <display value=%TYPEVALUE/>
+            </coding>
+        </type>
+        <system value=%SYSTEM/>
+        <value value=%VALUE/>
+    </identifier>
+  "Example Value(s)": |-
+    %TYPESYSTEM = $identifier-type-vs
+    %TYPECODE = C218689
+    %TYPEVALUE = WHO/UTN Number
+    ----------------
+    %SYSTEM = <ssss>
+    %VALUE = <vvvv>
+"Other Regulatory or Clinical Trial Identifier":
+  "Resource": |-
+    ResearchStudy.identifier
+  "Sample XML": |-
+    <identifier>
+        <type>
+            <coding>
+                <system value=%TYPESYSTEM/>
+                <code value=%TYPECODE/>
+                <display value=%TYPEVALUE/>
+            </coding>
+        </type>
+        <system value=%SYSTEM/>
+        <value value=%VALUE/>
+        <assigner>
+            <reference value="Organization/%ID"/>
+        </assigner>
+    </identifier>
+  "Example Value(s)": |-
+    %TYPESYSTEM = $identifier-type-vs
+    %TYPECODE = C218690
+    %TYPEVALUE = Other Regulatory or Clinical Trial Identifier
+    ----------------
+    %SYSTEM = <ssss>
+    %VALUE = <vvvv>
+    %ID = <iiii>
+  "Comment": |-
+    In HL7 because $identifier-type-vs is Extensible we would expect an additional code for the type to be added.  However an alternative is to have the assigner point to the organisation creating the code.
+"Approval Date":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[approvalDate]
+  "Sample XML": |-
+    <extension url= $ext-amd>
+        <extension url="approvalDate">
+            <valueDate value= %VALUE />
+        </extension>
+    </extension>
+  "Example Value(s)": |-
+    %VALUE = 2017-12-05
+
+    Note HL7 date format
+  "Comment": |-
+    This looks wrong, needs checking. Think the M11 info is wrong, dont really expect CT here.
+"State location where Information can be found":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[signatureURL]
+  "Sample XML": |-
+    <extension url= $ext-amd>
+        <extension url="signatureURL">
+          <valueURL value = %URL/>
+        </extension>
+    </extension>
+  "Example Value(s)": |-
+    %URL = <https://somelocation>
+  "Comment": |-
+    This looks wrong, needs checking. Think the M11 info is wrong, dont really expect CT here.
+"sponsor signature block name and title of sponsor signatory and signature date":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[signature]
+  "Sample XML": |-
+    <extension url= $ext-amd>
+        <extension url="signature">
+          <valueSignature>
+            <sigFormat value=%FORMAT/>
+            <data  value=%SIGNATURE />
+          </valueSignature>
+        </extension>
+    </extension>
+  "Example Value(s)": |-
+    %FORMAT = $mime#XML
+    %SIGNATURE = <xxxx>
+
+    Note: This uses the standard HL7 signature data type
+  "Binding (strength)": |-
+    http://hl7.org/fhir/ValueSet/mimetypes
+
+    This is the standard HL7 MIME type value set
+  "Comment": |-
+    This looks wrong, needs checking. Think the M11 info is wrong, dont really expect CT here.
+"Describe Method":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[signatureMethod]
+  "Sample XML": |-
+    <extension url= $ext-amd>
+        <extension url="signatureMethod">
+          <valueString value = %Method/>
+        </extension>
+    </extension>
+  "Example Value(s)": |-
+    %Method = <electronic and wet ink copy>
+  "Comment": |-
+    An alternative FHIR mapping is ResearchStudy.RelatesTo with a typeCode of signs
+"contact information for Medical Expert as designated by sponsor or state location where information can be found":
+  "Resource": |-
+    ResearchStudy.associatedParty.party.reference -->
+    Practitioner
+  "Sample XML": "<associatedParty>\n    <role>\n        <coding>\n            <system value= %SYSTEM />\n            <code\
+    \ value= %CODE />\n            <display value= %DISPLAY />\n        </coding>\n    </role>\n    <party>\n        <reference\
+    \ value=\"Practitioner/%ID\" />\n    </party>\n</associatedParty>\n\n<Practitioner>\n    <id value= %ID />\n    ... \n\
+    \    <telecom>\n        <system value=\"phone\" />\n        <value value=\"(555) 675 5745\" />\n    </telecom\n    ...\n\
+    </Organization>"
+  "Example Value(s)": |-
+    %SYSTEM = $NCIT
+    %CODE = C51876
+    %DISPLAY = Sponsor Medical Expert
+    ----------------
+    %ID = <prac-xxx>
+    Note: Contact information can be telephone, eMail, etc M11 doesn't specify
+  "Binding (strength)": |-
+    $study-role-vs
+    (extensible)
+"Current Amendment Enrollment":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[scopeImpact].extension[scope]
+  "Sample XML": |-
+    <extension url= $ext-amd>
+        <extension  url=$ext-scope">
+          <extension url="number">
+            <valuePositiveInt value=%VALUE/>
+          </extension>
+        </extension>
+    </extension>
+  "Example Value(s)": |-
+    %VALUE = 234
+"Amendment Scope Enrollment Description":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[scopeImpact].extension[scope]
+  "Sample XML": |-
+    <extension url= $ext-amd>
+        <extension  url=$ext-scope">
+          <extension url="scope">
+            <valueCode value=%CODE/>
+          </extension>
+        </extension>
+    </extension>
+  "Example Value(s)": |-
+    %SYSTEM =<$NCIT>
+    %CODE = C41065
+  "Binding (strength)": |-
+    m11-amendment-scope-enrollment-vs (extensible)
+"Primary Reason for Amendment":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[primaryReason]
+  "Sample XML": |-
+    <extension url=$ext-amd>
+        <extension url="primaryReason">
+          <valueCodeableConcept>
+            <coding>
+              <system value=%SYSTEM/>
+              <code value=%CODE/>
+              <display value=%DISPLAY/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+      </extension>
+
+      <extension url=$ext-amd>
+        <extension url="primaryReason">
+          <valueCodeableConcept>
+            <text value=%TEXT/>
+          </valueCodeableConcept>
+        </extension>
+      </extension>
+  "Example Value(s)": |-
+    %SYSTEM =<$NCIT>
+    %CODE = <C218493>
+    %DISPLAY = <New Safety Information Available>
+    %TEXT = <tttt>
+
+    Note only use %TEXT for the "other" primary reason that is not coded.  Should be a separate block from the coded item
+  "Binding (strength)": |-
+    $study-amendment-reason-vs
+    (extensible)
+  "Comment": |-
+    The text attribute is probably only used if the code is C17649 Other where the text field can be used to provide additionol information
+"Secondary Reason for Amendment":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[secondaryReason]
+  "Sample XML": |-
+    <extension url=$ext-amd>
+        <extension url="secondaryReason">
+          <valueCodeableConcept>
+            <coding>
+              <system value=%SYSTEM/>
+              <code value=%CODE/>
+              <display value=%DISPLAY/>
+            </coding>
+          </valueCodeableConcept>
+        </extension>
+      </extension>
+
+      <extension url=$ext-amd>
+        <extension url="secondaryReason">
+          <valueCodeableConcept>
+            <text value=%TEXT/>
+          </valueCodeableConcept>
+        </extension>
+      </extension>
+  "Example Value(s)": |-
+    %SYSTEM =<$NCIT>
+    %CODE = <C218493>
+    %DISPLAY = <New Safety Information Available>
+    %TEXT = <tttt>
+
+    Note only use %TEXT for the "other" primary reason that is not coded.  Should be a separate block from the coded item
+"Amendment Summary":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[summary]
+  "Sample XML": |-
+    <extension url=$ext-amd>
+        <extension url="summary">
+             <valueString value=%VALUE/>
+        </extension>
+      </extension>
+  "Example Value(s)": |-
+    %VALUE = <sss>
+"Substantial Impact Safety":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[substantialImpactSafety]
+  "Sample XML": |-
+    <extension url=$ext-amd>
+        <extension url="substantialImpactSafety">
+            <valueCoding>
+              <system value=%SYSTEM/>
+              <code value=%CODE/>
+              <display value=%DISPLAY/>
+            </valueCoding>
+        </extension>
+      </extension>
+  "Example Value(s)": |-
+    %SYSTEM = $NCIT
+    -----------------------
+    %CODE = <C49488>
+    %DISPLAY = <Yes>
+  "Binding (strength)": |-
+    $YesNoUnknownVS
+    (required)
+  "Comment": |-
+    %SYSTEM is fixed here because of the binding
+"substantialImpactSafetyComment":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[substantialImpactSafetyComment]
+  "Sample XML": |-
+    <extension url=$ext-amd>
+        <extension url="substantialImpactSafetyComment">
+            <valueString value = %COMMENT>
+        </extension>
+      </extension>
+  "Example Value(s)": |-
+    %COMMENT = <ccc>
+"Substantial Impact Data":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[substantialImpactReliability]
+  "Sample XML": |-
+    <extension url=$ext-amd>
+        <extension url="substantialImpactReliability">
+            <valueCoding>
+              <system value=%SYSTEM/>
+              <code value=%CODE/>
+              <display value=%DISPLAY/>
+            </valueCoding>
+        </extension>
+      </extension>
+  "Example Value(s)": |-
+    %SYSTEM = $NCIT
+    -----------------------
+    %CODE = <C17998>
+    %DISPLAY = <Unknown>
+  "Binding (strength)": |-
+    $YesNoUnknownVS
+    (required)
+"substantialImpactReliabilityComment":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[substantialImpactReliabilityComment]
+  "Sample XML": |-
+    <extension url=$ext-amd>
+        <extension url="substantialImpactReliabilityComment">
+            <valueString value = %COMMENT>
+        </extension>
+      </extension>
+  "Example Value(s)": |-
+    %COMMENT = <ccc>
+"Description of Change":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[details].extension[detail]
+  "Sample XML": |-
+    <extension url= $ext-amd>
+        <extension  url=$ext-detail">
+          <extension url="detail">
+            <valueString value=%VALUE/>
+          </extension>
+        </extension>
+    </extension>
+  "Example Value(s)": |-
+    %VALUE = <ddd>
+"Brief Rationale for Change":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[details].extension[rationale]
+  "Sample XML": |-
+    <extension url= $ext-amd>
+        <extension  url=$ext-detail">
+          <extension url="rationale">
+            <valueString value=%VALUE/>
+          </extension>
+        </extension>
+    </extension>
+  "Example Value(s)": |-
+    %VALUE = <Updates to address safety concern and align with product guidelines.>
+"Section - and Name of Change":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[details].extension[section]
+  "Sample XML": |-
+    <extension url= $ext-amd>
+        <extension  url=$ext-detail">
+          <extension url="section">
+            <valueCode value=%CODE/>
+          </extension>
+        </extension>
+    </extension>
+  "Example Value(s)": |-
+    %CODE = $NCIT#C218515  "1.1 Protocol Synopsis"
+  "Binding (strength)": |-
+    m11-section-codes-vs (extensible)
+  "Comment": |-
+    This is a code list provided by M11 that USDM has not, so far, used.
+"Amendment Details":
+  "Resource": |-
+    ResearchStudy.extension[$ext-amd].extension[description]
+  "Sample XML": |-
+    <extension url=$ext-amd>
+        <extension url="description">
+             <valueString value=%VALUE/>
+        </extension>
+      </extension>
+  "Example Value(s)": |-
+    %VALUE = <This protocol has not been amended previously.>
+  "Comment": |-
+    This looks wrong, needs checking. Think the M11 info is wrong, dont really expect CT here.
+"Schedule of Activities":
+  "Resource": |-
+    ResearchStudy.extension[$ext-nar].{extension(code) extension(narrative)}
+  "Sample XML": |-
+    See: Narrative Section Mapping
+  "Example Value(s)": |-
+    See: Narrative Section Mapping
+  "Binding (strength)": |-
+    See: Narrative Section Mapping
+  "Comment": |-
+    The Code to identify the section is repeated in both the ResearchStudy and the Composition.  While not strictly necessary in ResearchStudy it simplifies the process of searching for a specifi section of the narrative.
+"Purpose of Trial":
+  "Resource": |-
+    See: Narrative Section Mapping
+  "Sample XML": |-
+    See: Narrative Section Mapping
+  "Example Value(s)": |-
+    See: Narrative Section Mapping
+  "Binding (strength)": |-
+    See: Narrative Section Mapping

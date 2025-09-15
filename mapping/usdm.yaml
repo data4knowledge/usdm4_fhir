@@ -1,0 +1,4838 @@
+Access to Trial Intervention after End of Trial:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Access to Trial Intervention after End of Trial
+  notes: ''
+Accountability of Investigational Trial Intervention:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Accountability of Investigational Trial Intervention
+  notes: ''
+Adaptive Trial Design Indicator:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@characteristics/Code/@decode =
+        "C98704"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/InterventionalStudyDesign/@characteristics
+  name: Adaptive Trial Design Indicator
+  notes: ''
+Additional Description of Duration:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Additional Description of Duration
+  notes: ''
+Additional Description of Trial Design:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Additional Description of Trial Design
+  notes: ''
+Adverse Events of Special Interest or state Not applicable:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Adverse Events of Special Interest or state Not applicable
+  notes: ''
+Amendment Details:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@amendments = null
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: 'This is a textual statement based on the number of amendments: 0, 1
+        or many'
+      path: StudyVersion/@amendments
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@previous = null
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: 'This is a textual statement based on the number of amendments: 0, 1
+        or many'
+      path: StudyVersion/@amendments/StudyAmendment/@previous
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@previous is not null
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: 'This is a textual statement based on the number of amendments: 0, 1
+        or many'
+      path: StudyVersion/@amendments/StudyAmendment/@previous
+  name: Amendment Details
+  notes: 'This is a textual statement based on the number of amendments: 0, 1 or many'
+Amendment Identifier:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@number
+  name: Amendment Identifier
+  notes: ''
+Amendment Scope:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@geographicScopes/GeographicScope/@type/Code/@decode
+  name: Amendment Scope
+  notes: ''
+Amendment Scope Enrollment Description:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/enrollments/SubjectEnrollment/@forGeographicScope/GeographicScope/@type/Code/@code="C68846"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/enrollments/SubjectEnrollment/@forGeographicScope/GeographicScope/@type
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/enrollments/SubjectEnrollment/@forGeographicScope/GeographicScope/@type/Code/@code="C41129"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/enrollments/SubjectEnrollment/@forGeographicScope/GeographicScope/@code/AliasCode/@standardCode/Code/@decode
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/enrollments/SubjectEnrollment/@forStudySite/StudySite/@label
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/enrollments/SubjectEnrollment/@forStudyCohort/StudyCohort/@label
+  name: Amendment Scope Enrollment Description
+  notes: ''
+Amendment Summary:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@summary
+  name: Amendment Summary
+  notes: ''
+Analyses of Demographics and Other Baseline Variables:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Analyses of Demographics and Other Baseline Variables
+  notes: ''
+Analysis Associated with Exploratory Objectives:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Analysis Associated with Exploratory Objectives
+  notes: ''
+Analysis Sets:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Analysis Sets
+  notes: ''
+Approval Date:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyDefinitionDocument/@type/code/@code="C70817"
+    - notes: ''
+      path: StudyDefinitionDocument/@versions/ StudyDefinitionDocumentVersion/@dateValues/GovernanceDate/@type/Code/@code="C71476"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyDefinitionDocument/@versions/ StudyDefinitionDocumentVersion/@dateValues/GovernanceDate/@dateValue
+  name: Approval Date
+  notes: ''
+Arm Name:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@label
+  name: Arm Name
+  notes: ''
+Arm Type:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@type/Code/@decode
+  name: Arm Type
+  notes: ''
+Background Trial Intervention:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Background Trial Intervention
+  notes: ''
+Backup Method for Reporting:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Backup Method for Reporting
+  notes: ''
+Baseline Assessments and Procedures:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Baseline Assessments and Procedures
+  notes: ''
+Benefit Summary:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Benefit Summary
+  notes: ''
+Blinded Roles:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyRole/@masking/Masking/@isMasked=True
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@code/Code/@decode
+  name: Blinded Roles
+  notes: ''
+Brief Rationale for Change:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@changes/StudyChange/@rationale
+  name: Brief Rationale for Change
+  notes: ''
+Briefly Explain Substantial Impact On Safety:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@impacts/StudyAmendmentImpact/@type/Code/@decode="Study
+        Subject Safety" OR StudyVersion/@amendments/StudyAmendment/@impacts/StudyAmendmentImpact/@type/Code/@decode="Study
+        Subject Rights"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@impacts/StudyAmendmentImpact/@text
+  name: Briefly Explain Substantial Impact On Safety
+  notes: ''
+Briefly Explain Substantial Impact on Data:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@impacts/StudyAmendmentImpact/@type/Code/@decode="Study
+        Data Reliability" OR StudyVersion/@amendments/StudyAmendment/@impacts/StudyAmendmentImpact/@type/Code/@decode="Study
+        Data Robustness"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@impacts/StudyAmendmentImpact/@text
+  name: Briefly Explain Substantial Impact on Data
+  notes: ''
+Caffeine Alcohol Tobacco and Other Restrictions:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Caffeine Alcohol Tobacco and Other Restrictions
+  notes: ''
+Causality:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Causality
+  notes: ''
+Clinical Laboratory Tests:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Clinical Laboratory Tests
+  notes: ''
+Clinical Safety Laboratory Assessments:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Clinical Safety Laboratory Assessments
+  notes: ''
+Co-Sponsor Legal Address:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@decode="Co-Sponsor"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@organizations/Organization/@legalAddress/Address/@text
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@decode="Co-Sponsor"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@assignedPersons/AssignedPerson/@organization/Organization/@legalAddress/Address/@text
+  name: Co-Sponsor Legal Address
+  notes: ''
+Co-Sponsor Name:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@decode="Co-Sponsor"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@organizations/Organization/@label
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@decode="Co-Sponsor"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@assignedPersons/AssignedPerson/@label
+  name: Co-Sponsor Name
+  notes: ''
+Committees:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Committees
+  notes: ''
+Concomitant Therapy:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Concomitant Therapy
+  notes: ''
+Contraception Requirements:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Contraception Requirements
+  notes: ''
+Control Type:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@type/Code/@code
+        IN ("C174267","C174268","C174269")
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@type/Code/@decode
+  name: Control Type
+  notes: ''
+Country Identifier:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@geographicScopes/GeographicScope/@type/Code/@code="C25464"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@geographicScopes/GeographicScope/@code/AliasCode/@standardCode/Code/@decode
+  name: Country Identifier
+  notes: ''
+Country Region Not Applicable:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Country Region Not Applicable
+  notes: Need to map this to a better name
+Country-Region Identifier:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Country-Region Identifier
+  notes: ''
+Country-Region Specific Protocol Clarifications:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Country-Region Specific Protocol Clarifications
+  notes: ''
+Country-Region Specific Requirements:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Country-Region Specific Requirements
+  notes: ''
+Criteria for Early Closure:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Criteria for Early Closure
+  notes: ''
+Current Amendment Enrollment:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/enrollments/SubjectEnrollment/@quantity/Quantity/@value
+        + @unit
+  name: Current Amendment Enrollment
+  notes: ''
+Data Dissemination:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Data Dissemination
+  notes: ''
+Data Governance:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Data Governance
+  notes: ''
+Data Protection:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Data Protection
+  notes: ''
+Decision Rights for Site Closure:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Decision Rights for Site Closure
+  notes: ''
+Definition of Medical Device Product Complaints:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Definition of Medical Device Product Complaints
+  notes: ''
+Definition of Product Complaints:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Definition of Product Complaints
+  notes: ''
+Definitions Related to Childbearing Potential:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Definitions Related to Childbearing Potential
+  notes: ''
+Definitions of Adverse Events:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Definitions of Adverse Events
+  notes: ''
+Definitions of Serious Adverse Events:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Definitions of Serious Adverse Events
+  notes: ''
+Describe Method:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Describe Method
+  notes: Mapped to narrative text
+Description of Assent Process:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Description of Assent Process
+  notes: ''
+Description of Change:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@changes/StudyChange/@summary
+  name: Description of Change
+  notes: ''
+Description of Emergency Consent Process:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Description of Emergency Consent Process
+  notes: ''
+Description of Informed Consent Process:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Description of Informed Consent Process
+  notes: ''
+Description of Intercurrent Event:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85826"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@intercurrentEvents/IntercurrentEvent/@text
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85827"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@intercurrentEvents/IntercurrentEvent/@text
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C163559"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@intercurrentEvents/IntercurrentEvent/@text
+  name: Description of Intercurrent Event
+  notes: ''
+Description of Investigational Trial Intervention:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Description of Investigational Trial Intervention
+  notes: ''
+Description of Level and Method of Blinding:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Description of Level and Method of Blinding
+  notes: ''
+Description of Noninvestigational Trial Intervention:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Description of Noninvestigational Trial Intervention
+  notes: ''
+Description of Trial Duration:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Description of Trial Duration
+  notes: ''
+Description of Trial Population and Rationale:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Description of Trial Population and Rationale
+  notes: ''
+Device Manufacturer Address:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ProductOrganizationRole/@appliesTo=StudyVersion/@studyDesigns/StudyDesign/@StudyInterventions/StudyIntervention/@administrations/Administration/@medicalDevice/MedicalDevice/@id
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: ProductOrganizationRole/@organization/Organization/@legalAddress/Address/@text
+  name: Device Manufacturer Address
+  notes: ''
+Device Manufacturer Name:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ProductOrganizationRole/@appliesTo=StudyVersion/@studyDesigns/StudyDesign/@StudyInterventions/StudyIntervention/@administrations/Administration/@medicalDevice/MedicalDevice/@id
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: ProductOrganizationRole/@organization/Organization/@label
+  name: Device Manufacturer Name
+  notes: ''
+Disease Related Events or Outcomes Not Qualifying as AEs or SAEs:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Disease Related Events or Outcomes Not Qualifying as AEs or SAEs
+  notes: ''
+Dosage Levels:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@id=StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@arm
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@administrations/Administration/@dose/Quantity/@value
+        + /@unit/AliasCode/@standardCode/Code/@decode
+  name: Dosage Levels
+  notes: ''
+Dosage Strengths:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@id=StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@arm
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@ingredients/Ingredient/@role/Code/@code="100000072072"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@ingredients/Ingredient/@substance/Substance/@strengths
+  name: Dosage Strengths
+  notes: ''
+Drug-Device Combination Product Indicator:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@amedicalDevice/MedicalDevice/@embeddedProduct
+  name: Drug-Device Combination Product Indicator
+  notes: ''
+EU CT Number:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Identify the organization as a regulatory agency
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@type/Code/@code="C188863"
+    - notes: Identify the organization as EMA
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@label="EMA"
+    standard_mapping:
+      category: Study Identifier
+      name: EU CT Study Identifier
+    target:
+      notes: ''
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@text
+  name: EU CT Number
+  notes: Find the identifier scoped by the EMA (regulatory agency)
+Efficacy Assessments and Procedures:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Efficacy Assessments and Procedures
+  notes: ''
+Electrocardiograms:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Electrocardiograms
+  notes: ''
+Emergency Unblinding at the Site:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Emergency Unblinding at the Site
+  notes: ''
+End of Trial:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: End of Trial
+  notes: ''
+Endpoint:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85826"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@text
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85827"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@text
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C163559"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@text
+  name: Endpoint
+  notes: ''
+Event Collection and Reporting Timing:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Event Collection and Reporting Timing
+  notes: ''
+Event Type:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Event Type
+  notes: ''
+Exclusion Criterion:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@criteria/EligibilityCriterion/@category="C25370"
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@criteria/EligibilityCriterion/@category="C25370"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@criteria/EligibilityCriterion/@text
+        AND StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@criteria/EligibilityCriterion/@text
+  name: Exclusion Criterion
+  notes: ''
+Exclusion Criterion Number:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@criteria/EligibilityCriterion/@category="C25370"
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@criteria/EligibilityCriterion/@category="C25370"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@criteria/EligibilityCriterion/@identifier
+        AND StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@criteria/EligibilityCriterion/@identifier
+  name: Exclusion Criterion Number
+  notes: ''
+Exploratory Objective:
+  map_status: Mapped
+  mappings:
+  - conditions: []
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: Select information required
+      path: StudyDesign/@objectives/Objective
+  name: Exploratory Objective
+  notes: ''
+FDA IND Number:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Find the organization that is a regulatory authority
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@type/Code/@code="C188863"
+    - notes: Identify the organization as FDA
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@label="FDA"
+    standard_mapping:
+      category: Study Identifier
+      name: FDA IND Study Identifier
+    target:
+      notes: ''
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@text
+  name: FDA IND Number
+  notes: Find the identifier scoped by the FDA (regulatory authority)
+Follow-up:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Follow-up
+  notes: ''
+Full Title:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@titles/StudyTitle/@type/Code/@code="C207616"
+    standard_mapping:
+      category: Study Title
+      name: Full Title
+    target:
+      notes: ''
+      path: StudyVersion/@titles/StudyTitle/@text
+  name: Full Title
+  notes: ''
+General Considerations:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: General Considerations
+  notes: ''
+Genetics and Pharmacogenomics:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Genetics and Pharmacogenomics
+  notes: ''
+Glossary of Terms and Abbreviations:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@abbreviations/Abbreviation/@abbreviatedText
+    - notes: ''
+      path: StudyVersion/@abbreviations/Abbreviation/@expandedText
+    - notes: Use to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type
+    - notes: Use to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type
+    - notes: The section within the document slected by the section Number attribute
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: The actual section text
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Glossary of Terms and Abbreviations
+  notes: ''
+Handling of Data in Relation to Primary Estimands:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Handling of Data in Relation to Primary Estimands
+  notes: ''
+Handling of Data in Relation to Secondary Estimands:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Handling of Data in Relation to Secondary Estimands
+  notes: ''
+Handling of Missing Data in Relation to Primary Estimand:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Handling of Missing Data in Relation to Primary Estimand
+  notes: ''
+Handling of Missing Data in Relation to Secondary Estimands:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Handling of Missing Data in Relation to Secondary Estimands
+  notes: ''
+IDE Number:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Find the organization that is a regulatory agency
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@type/Code/@code="C188863"
+    - notes: Identify the organization as FDA
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@label="FDA"
+    standard_mapping:
+      category: Study Identifier
+      name: FDA IDE Study Identifier
+    target:
+      notes: ''
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@text
+  name: IDE Number
+  notes: Find the identifier scoped by the FDA (regulatory agency)
+IMP or NIMP:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@id=StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@arm
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@productDesignation/
+        Code/@decode
+  name: IMP or NIMP
+  notes: ''
+INN:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyIntervention/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@productDesignation/Code/@code="C156473"
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyIntervention/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@ingredient/Ingredient/@role/Code/@code="100000072072"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@ingredients/Ingredient/@substance/Substance/@label
+  name: INN
+  notes: ''
+Identification:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Identification
+  notes: ''
+Identification of Source Data:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Identification of Source Data
+  notes: ''
+Immunogenicity Assessments:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Immunogenicity Assessments
+  notes: ''
+Inclusion Criterion:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@criteria/EligibilityCriterion/@category="C25532"
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@criteria/EligibilityCriterion/@category="C25532"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@criteria/EligibilityCriterion/@text
+        AND StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@criteria/EligibilityCriterion/@text
+  name: Inclusion Criterion
+  notes: ''
+Inclusion Criterion Number:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@criteria/EligibilityCriterion/@category="C25532"
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@criteria/EligibilityCriterion/@category="C25532"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@criteria/EligibilityCriterion/@identifier
+        AND StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@criteria/EligibilityCriterion/@identifier
+  name: Inclusion Criterion Number
+  notes: ''
+Independent Committees:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@code IN ("C142578")
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@label
+  name: Independent Committees
+  notes: ''
+Informed Consent for Rescreening:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Informed Consent for Rescreening
+  notes: ''
+Informed Consent for Use of Remaining Samples in Exploratory Research:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Informed Consent for Use of Remaining Samples in Exploratory Research
+  notes: ''
+Insurance and Indemnity:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Insurance and Indemnity
+  notes: ''
+Intercurrent Event 1 Strategy:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85826"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@intercurrentEvents/IntercurrentEvent/@strategy
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85827"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@intercurrentEvents/IntercurrentEvent/@strategy
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C163559"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@intercurrentEvents/IntercurrentEvent/@strategy
+  name: Intercurrent Event 1 Strategy
+  notes: ''
+Interim Analyses:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Interim Analyses
+  notes: ''
+Intervention Assignment Method:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@characteristics/Code/@decode IN
+        ("C46079")
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: Not handled by model?
+      path: StudyVersion/@studyDesigns/StudyDesign/@characteristics
+  name: Intervention Assignment Method
+  notes: Not handled by model?
+Intervention Model:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/InterventionalStudyDesign/@model/Code/@decode
+  name: Intervention Model
+  notes: ''
+Intervention Name:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@id=StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@arm/StudyArm/@id
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@label
+  name: Intervention Name
+  notes: ''
+Intervention Type:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@id=StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@arm/StudyArm/@id
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@type/Code/@decode
+  name: Intervention Type
+  notes: ''
+Investigational Trial Intervention Adherence:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Investigational Trial Intervention Adherence
+  notes: ''
+Investigational Trial Intervention Administration:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Investigational Trial Intervention Administration
+  notes: ''
+Investigational Trial Intervention Dose Modification:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Investigational Trial Intervention Dose Modification
+  notes: ''
+Investigator Expectations for Source Data:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Investigator Expectations for Source Data
+  notes: ''
+Investigator Responsibilities:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Investigator Responsibilities
+  notes: ''
+Lifestyle Restrictions:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Lifestyle Restrictions
+  notes: ''
+Local Sponsor Address:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@decode="Local Sponsor"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@organizations/Organization/@legalAddress/Address/@text
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@decode="Local Sponsor"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@assignedPersons/AssignedPerson/@organization/Organization/@legalAddress/Address/@text
+  name: Local Sponsor Address
+  notes: ''
+Local Sponsor Name:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@decode="Local Sponsor"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@organizations/Organization/@label
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@decode="Local Sponsor"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@assignedPersons/AssignedPerson/@label
+  name: Local Sponsor Name
+  notes: ''
+Management of Investigational Trial Intervention Overdose:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Management of Investigational Trial Intervention Overdose
+  notes: ''
+Management of Loss to Follow-Up:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Management of Loss to Follow-Up
+  notes: ''
+Master Protocol Indicator:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: Note handled by model. Should this be in StudyDesign characteristics?
+      path: StudyDefinitionDocument/@versions/StudyDefinitionDocumentVersion/@children
+  name: Master Protocol Indicator
+  notes: Note handled by model. Should this be in StudyDesign characteristics?
+Meals and Dietary Restrictions:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Meals and Dietary Restrictions
+  notes: ''
+Measures to Maintain Blinding:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Measures to Maintain Blinding
+  notes: ''
+Medical Resource Utilisation and Health Economics:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Medical Resource Utilisation and Health Economics
+  notes: ''
+Method for Reporting:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Method for Reporting
+  notes: ''
+Method of Assignment to Trial Intervention:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@characteristics/Code/@decode IN
+        ("C46079")
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@characteristics
+  name: Method of Assignment to Trial Intervention
+  notes: ''
+Minimum Age:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@plannedAge/Range/@minValue/Quantity/@value
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@plannedAge/Range/@minValue/Quantity/@value
+  name: Minimum Age
+  notes: ''
+Multiplicity Adjustments:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Multiplicity Adjustments
+  notes: ''
+NCT Number:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Identify the organization as a trials registry
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@type/Code/@code="C93453"
+    - notes: Identify the organization as clinicaltrials.gov
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@label="ClinicalTrials.gov"
+    standard_mapping:
+      category: Study Identifier
+      name: NCT Study Identifier
+    target:
+      notes: ''
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@text
+  name: NCT Number
+  notes: Find the identifier scoped by clinicaltrials.gov (regulatory agency)
+NMPA IND Number:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Identify the organization as a regulatory agency
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@type/Code/@code="C188863"
+    - notes: Identify the organization as NMPA
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@label="NMPA"
+    standard_mapping:
+      category: Study Identifier
+      name: NMPA IND Study Identifier
+    target:
+      notes: ''
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@text
+  name: NMPA IND Number
+  notes: Find the identifier scoped by the NMPA (regulatory agency)
+Nonproprietary Names:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyIntervention/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@productDesignation/Code/@code="C202579"
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyIntervention/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@ingredient/Ingredient/@role/Code/@code="100000072072"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@ingredients/Ingredient/@substance/Substance/@label
+  name: Nonproprietary Names
+  notes: ''
+Nonproprietary name:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyIntervention/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@productDesignation/Code/@code="C156473"
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyIntervention/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@ingredient/Ingredient/@role/Code/@code="100000072072"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@ingredients/Ingredient/@substance/Substance/@label
+  name: Nonproprietary name
+  notes: ''
+Not applicable:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyIntervention/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@productDesignation/Code/@code="C156473"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: Dont think we need to map this, remove from mapping if so.
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@productDesignation/Code/@code
+  name: Not applicable
+  notes: Dont think we need to map this, remove from mapping if so.
+Number of Arms:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms
+  name: Number of Arms
+  notes: ''
+Number of Participants:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@plannedEnrollmentNumberQuantiy/Quantity/@value
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@plannedEnrollmentNumberRange/Range/@maxValue
+  name: Number of Participants
+  notes: ''
+Original Protocol Indicator:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: There are no amendments, the collection is empty
+      path: StudyVersion/@amendments
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments
+  name: Original Protocol Indicator
+  notes: ''
+Other Activity Restrictions:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Other Activity Restrictions
+  notes: ''
+Other Analyses:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Other Analyses
+  notes: ''
+Other Biomarkers:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Other Biomarkers
+  notes: ''
+Other Committees:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@code IN ("C78726","C142578","C142489") OR StudyRole/@code/Code/@decode
+        = "Dose Escalation Committee"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@label
+  name: Other Committees
+  notes: ''
+Other Noninvestigational Trial Intervention:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Other Noninvestigational Trial Intervention
+  notes: ''
+Other Regulatory or Clinical Trial Identifier:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Identify the organization as a clinical trial registry
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@type/Code/@code="C93453"
+    - notes: Identify the organization as a regulatory agency
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@type/Code/@code="C188863"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@text
+  name: Other Regulatory or Clinical Trial Identifier
+  notes: Find the identifier scoped by other regulatory authorities or registries
+Overall Description of Trial Design and Description of Intervention Model:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Overall Description of Trial Design and Description of Intervention Model
+  notes: ''
+Overall Rationale for Trial Design:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Overall Rationale for Trial Design
+  notes: ''
+Overall Risk-Benefit Assessment:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Overall Risk-Benefit Assessment
+  notes: ''
+Participant Assignment to Investigational Trial Intervention:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Participant Assignment to Investigational Trial Intervention
+  notes: ''
+Participant Discontinuation or Withdrawal from Trial:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Participant Discontinuation or Withdrawal from Trial
+  notes: ''
+Participants Who Become Pregnant During the Trial:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Participants Who Become Pregnant During the Trial
+  notes: ''
+Participants Whose Partners Become Pregnant During the Trial:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Participants Whose Partners Become Pregnant During the Trial
+  notes: ''
+Permanent Discontinuation of Trial Intervention:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Permanent Discontinuation of Trial Intervention
+  notes: ''
+Permitted Concomitant Therapy:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Permitted Concomitant Therapy
+  notes: ''
+Pharmaceutical Dose Formulation:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@id=StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@arm/StudyArm/@id
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@administrableDoseForm/Code/@decode
+  name: Pharmaceutical Dose Formulation
+  notes: ''
+Pharmacodynamic Biomarkers:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Pharmacodynamic Biomarkers
+  notes: ''
+Pharmacokinetics:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Pharmacokinetics
+  notes: ''
+Physical Activity Restrictions:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Physical Activity Restrictions
+  notes: ''
+Physical Examination:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Physical Examination
+  notes: ''
+Population:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85826"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@analysisPopulation/AnalysisPopulation/@text
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85827"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@analysisPopulation/AnalysisPopulation/@text
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C163559"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@analysisPopulation/AnalysisPopulation/@text
+  name: Population
+  notes: ''
+Population Diagnosis or Condition:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@indications/Indication/@label
+  name: Population Diagnosis or Condition
+  notes: ''
+Population Type:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@includesHealthySubjects
+  name: Population Type
+  notes: ''
+Pregnancy Testing:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Pregnancy Testing
+  notes: ''
+Preparation of Investigational Trial Intervention:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Preparation of Investigational Trial Intervention
+  notes: ''
+Previous Amendment Approval Date:
+  map_status: To Be Mapped
+  mappings:
+  - conditions: []
+    standard_mapping:
+      category: ''
+      name: ''
+    target: {}
+  name: Previous Amendment Approval Date
+  notes: ''
+Previous Amendment Enrollment:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/enrollments/SubjectEnrollment/@quantity/Quantity/@value
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/enrollments/SubjectEnrollment/@quantity/Quantity/@unit
+  name: Previous Amendment Enrollment
+  notes: ''
+Previous Amendment Enrollment Scope:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/enrollments/SubjectEnrollment/@forStudySite/StudySite/@label
+    - notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/enrollments/SubjectEnrollment/@forStudySite/GeographicScope/@code
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/enrollments/SubjectEnrollment/@forStudySite/StudyCohort/@label
+  name: Previous Amendment Enrollment Scope
+  notes: ''
+Previous Amendment Number:
+  map_status: Mapped
+  mappings:
+  - conditions: []
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@number
+  name: Previous Amendment Number
+  notes: ''
+Previous Amendment Overview Brief Rationale for Change:
+  map_status: Mapped
+  mappings:
+  - conditions: []
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@changes/StudyChange/@rationale
+  name: Previous Amendment Overview Brief Rationale for Change
+  notes: ''
+Previous Amendment Overview Description of Change:
+  map_status: Mapped
+  mappings:
+  - conditions: []
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@changes/StudyChange/@summary
+  name: Previous Amendment Overview Description of Change
+  notes: ''
+Previous Amendment Overview Section:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@changes/StudyChange/@changedSections/DocumentContentReference/@sectionNumber
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@changes/StudyChange/@changedSections/DocumentContentReference/@sectionTitle
+  name: Previous Amendment Overview Section
+  notes: ''
+Primary Objective:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85826"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@text
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85827"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@text
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C163559"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@text
+  name: Primary Objective
+  notes: ''
+Primary Reason Other:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@primaryReason/StudyAmendmentReason/@otherReason
+  name: Primary Reason Other
+  notes: ''
+Primary Reason for Amendment:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@primaryReason/StudyAmendmentReason/@code/Code/@decode
+  name: Primary Reason for Amendment
+  notes: ''
+Primary and Secondary Objectives and Estimands:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Primary and Secondary Objectives and Estimands
+  notes: ''
+Prior Amendment Identifier:
+  map_status: Mapped
+  mappings:
+  - conditions: []
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@number
+  name: Prior Amendment Identifier
+  notes: ''
+Prior Protocol Amendments:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Prior Protocol Amendments
+  notes: 'This is a textual statement regarding the number of amendments to the protocol,
+    on of three possible values: 0, 1 or many'
+Prohibited Concomitant Therapy:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Prohibited Concomitant Therapy
+  notes: ''
+Proprietary Names:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyIntervention/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@productDesignation/Code/@code="C202579"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@label
+  name: Proprietary Names
+  notes: ''
+Protocol Deviations:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Protocol Deviations
+  notes: ''
+Purpose of Trial:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Purpose of Trial
+  notes: ''
+Randomisation:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Randomisation
+  notes: ''
+Rationale for Adaptive or Novel Trial Design:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Rationale for Adaptive or Novel Trial Design
+  notes: ''
+Rationale for Control Type:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Rationale for Control Type
+  notes: ''
+Rationale for Estimands:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Rationale for Estimands
+  notes: ''
+Rationale for Interim Analysis:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Rationale for Interim Analysis
+  notes: ''
+Rationale for Intervention Model:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Rationale for Intervention Model
+  notes: ''
+Rationale for Investigational Trial Intervention Dose and Regimen:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Rationale for Investigational Trial Intervention Dose and Regimen
+  notes: ''
+Rationale for Other Trial Design Aspects:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Rationale for Other Trial Design Aspects
+  notes: ''
+Rationale for Trial Duration:
+  map_status: To Be Mapped
+  mappings:
+  - conditions: []
+    standard_mapping:
+      category: ''
+      name: ''
+    target: {}
+  name: Rationale for Trial Duration
+  notes: ''
+Rechallenge:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Rechallenge
+  notes: ''
+Recording:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Recording
+  notes: ''
+References:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: References
+  notes: ''
+Regimen-Treatment Period-Vaccination Regimen:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@id=StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@arm
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@frequency/AliasCode/@standardCode/Code/@decode
+  name: Regimen-Treatment Period-Vaccination Regimen
+  notes: ''
+Region Identifier:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@geographicScopes/GeographicScope/@type/Code/@code="C41129"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@geographicScopes/GeographicScope/@code/AliasCode/@standardCode/Code/@decode
+  name: Region Identifier
+  notes: ''
+Regulatory Reporting Requirements:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Regulatory Reporting Requirements
+  notes: ''
+Regulatory and Ethical Considerations:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Regulatory and Ethical Considerations
+  notes: ''
+Reportable Period End:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Reportable Period End
+  notes: ''
+Reportable Period Start:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Reportable Period Start
+  notes: ''
+Reporting:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Reporting
+  notes: ''
+Rescreening:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Rescreening
+  notes: ''
+Rescue Therapy:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Rescue Therapy
+  notes: ''
+Responsibilities Following Early Site Closure:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Responsibilities Following Early Site Closure
+  notes: ''
+Risk-Based Quality Management:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Risk-Based Quality Management
+  notes: ''
+Route of Administration:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@id=StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@arm
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@administrations/Administration/@route/AliasCode/@standardCode/Code/@decode
+  name: Route of Administration
+  notes: ''
+Safety Analyses:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Safety Analyses
+  notes: ''
+Safety Assessments and Procedures:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Safety Assessments and Procedures
+  notes: ''
+Sample Size Determination:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Sample Size Determination
+  notes: ''
+Schedule of Activities:
+  map_status: Mapped
+  mappings:
+  - conditions: []
+    standard_mapping:
+      category: ''
+      name: ''
+    target: {}
+  name: Schedule of Activities
+  notes: This would probably include the SoA table(s) or images
+Schema Notes:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Schema Notes
+  notes: ''
+Screen Failure:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Screen Failure
+  notes: ''
+Screening Assessments and Procedures:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Screening Assessments and Procedures
+  notes: ''
+Secondary Objective:
+  map_status: Mapped
+  mappings:
+  - conditions: []
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: Where the objective level is 'secondary'
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@text
+  name: Secondary Objective
+  notes: ''
+Secondary Objectives Sensitivity Analysis:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Secondary Objectives Sensitivity Analysis
+  notes: ''
+Secondary Objectives Statistical Analysis Method:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Secondary Objectives Statistical Analysis Method
+  notes: ''
+Secondary Objectives Supplementary Analysis:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Secondary Objectives Supplementary Analysis
+  notes: ''
+Secondary Reason Other:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@secondaryReasons/StudyAmendmentReason/@otherReason
+  name: Secondary Reason Other
+  notes: ''
+Secondary Reason for Amendment:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@secondaryReasons/StudyAmendmentReason/@code/Code/@decode
+  name: Secondary Reason for Amendment
+  notes: ''
+Section - and Name of Change:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@changes/StudyChange/@changedSections/DocumentContentReference/@sectionNumber
+        + @sectionTitle
+  name: Section - and Name of Change
+  notes: ''
+Sensitivity Analysis:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Sensitivity Analysis
+  notes: ''
+Severity:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Severity
+  notes: ''
+Site Distribution:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: Organization/@managedSites/StudySite/@name
+  name: Site Distribution
+  notes: ''
+Site Identifier:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@enrollments/SubjectEnrollment/@forStudySites/StudySite/@label
+  name: Site Identifier
+  notes: ''
+Site geographic scope:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: Organization/@managedSites/StudySite/@country/Code/@decode
+  name: Site geographic scope
+  notes: ''
+Situational Scope:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Situational Scope
+  notes: ''
+Source Data Introduction:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Source Data Introduction
+  notes: ''
+Sourcing:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@id=StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@arm
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@sourcing/Code/@decode
+  name: Sourcing
+  notes: ''
+Special Safety Situations:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Special Safety Situations
+  notes: ''
+Sponsor Approval Date:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Use to select the protocol amendment approval date
+      path: StudyVersion/@dateValues/GovernanceDate/@type
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@dateValues/GovernanceDate/@dateValue
+  name: Sponsor Approval Date
+  notes: ''
+Sponsor Confidentiality Statement:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Sponsor Confidentiality Statement
+  notes: Do this via NarrativeContent but maybe a better mechanism could be provided
+Sponsor Legal Address:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@code="C70793"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@organizations/Organization/@legalAddress/Address/@text
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@code="C70793"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@assignedPersons/AssignedPerson/@organization/Organization/@legalAddress/Address/@text
+  name: Sponsor Legal Address
+  notes: ''
+Sponsor Name:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@code="C70793"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@organizations/Organization/@label
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@code="C70793"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@assignedPersons/AssignedPerson/@label
+  name: Sponsor Name
+  notes: ''
+Sponsor Protocol Identifier:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Identifies the sponsor role
+      path: StudyRole/@code/Code/@code="C70793"
+    - notes: Identifies the sponsor organization from the role
+      path: StudyRole/@organizations
+    - notes: Identifies the sponsor organization from the study identifier
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope
+    standard_mapping:
+      category: Study Identifier
+      name: Sponsor Study Identifier
+    target:
+      notes: ''
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@text
+  name: Sponsor Protocol Identifier
+  notes: Find the identifier scoped by the organization which has the role of sponsor.
+Sponsor Responsibilities:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Sponsor Responsibilities
+  notes: ''
+Sponsors Investigational Product Codes:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyIntervention/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@productDesignation/Code/@code="C202579"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@identifiers/AdministrableProductIdentifier/@text
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyIntervention/StudyIntervention/@administrations/Administration/@medicalDevice/MedicalDevice/@identifiers/MedicalDeviceIdentifier/@type/Code/@code="C99285"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@medicalDevice/MedicalDevice/@identifiers/MedicalDeviceIdentifier/@text
+  name: Sponsors Investigational Product Codes
+  notes: ''
+Stakeholder Input into Design:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Stakeholder Input into Design
+  notes: ''
+Start of Trial:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Start of Trial
+  notes: ''
+State location where Information can be found:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: State location where Information can be found
+  notes: placed into narrative text but note that the USDM will [should] have the
+    date stored.
+Statistical Analysis Method:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Statistical Analysis Method
+  notes: ''
+Storage and Handling of Investigational Trial Intervention:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Storage and Handling of Investigational Trial Intervention
+  notes: ''
+Substantial Impact Data:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@impacts/StudyAmendmentImpact/@type/Code/@decode="Study
+        Data Reliability" OR StudyVersion/@amendments/StudyAmendment/@impacts/StudyAmendmentImpact/@type/Code/@decode="Study
+        Data Robustness"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@impacts/StudyAmendmentImpact/@isSubtantial
+  name: Substantial Impact Data
+  notes: ''
+Substantial Impact Safety:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@impacts/StudyAmendmentImpact/@type/Code/@decode="Study
+        Subject Safety" OR StudyVersion/@amendments/StudyAmendment/@impacts/StudyAmendmentImpact/@type/Code/@decode="Study
+        Subject Rights"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@amendments/StudyAmendment/@impacts/StudyAmendmentImpact/@isSubtantial
+  name: Substantial Impact Safety
+  notes: ''
+Suicidal Ideation and Behaviour Risk Monitoring:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Suicidal Ideation and Behaviour Risk Monitoring
+  notes: ''
+Supplementary Analysis:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Supplementary Analysis
+  notes: ''
+Table of Estimand Characteristics including Endpoint at a minimum:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Table of Estimand Characteristics including Endpoint at a minimum
+  notes: ''
+Target-Maximum:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@plannedEnrollmentNumberRange
+  name: Target-Maximum
+  notes: ''
+Temporary Discontinuation of Trial Intervention:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Temporary Discontinuation of Trial Intervention
+  notes: ''
+Timing for Reporting to Sponsor or Designee:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Timing for Reporting to Sponsor or Designee
+  notes: ''
+Treatment:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85826"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@label
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85826"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@administration/Administration/@administrableProduct/AdministrableProduct/@label
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85826"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@administration/Administration/@dose/Quantity/@value
+        + @unit + @frequency @route
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85826"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@administration/Administration/@frequency/AliasCode/@defaultCode/Code/@decode
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85826"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@administration/Administration/@route/AliasCode/@defaultCode/Code/@decode
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85827"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@label
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85827"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@administration/Administration/@administrableProduct/AdministrableProduct/@label
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85827"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@administration/Administration/@dose/Quantity/@value
+        + @unit + @frequency @route
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85827"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@administration/Administration/@frequency/AliasCode/@defaultCode/Code/@decode
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C85827"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@administration/Administration/@route/AliasCode/@defaultCode/Code/@decode
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C163559"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@label
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C163559"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@administration/Administration/@administrableProduct/AdministrableProduct/@label
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C163559"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@administration/Administration/@dose/Quantity/@value
+        + @unit + @frequency @route
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C163559"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@administration/Administration/@frequency/AliasCode/@defaultCode/Code/@decode
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@variableOfInterest/Endpoint/@id
+        = StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@id
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@level/Code/@code="C163559"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@administration/Administration/@route/AliasCode/@defaultCode/Code/@decode
+  name: Treatment
+  notes: ''
+Trial Acronym:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@titles/StudyTitle/@type/Code/@code="C94108"
+    standard_mapping:
+      category: Study Title
+      name: Trial Acronym
+    target:
+      notes: ''
+      path: StudyVersion/@titles/StudyTitle/@text
+  name: Trial Acronym
+  notes: ''
+Trial Assessments and Procedures Considerations:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Trial Assessments and Procedures Considerations
+  notes: ''
+Trial Blind Schema:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/InterventionalStudyDesign/@blindingSchema/AliasCode/@standardCode/Code/@decode
+  name: Trial Blind Schema
+  notes: ''
+Trial Monitor Expectations for Source Data:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Trial Monitor Expectations for Source Data
+  notes: ''
+Trial Oversight:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Trial Oversight
+  notes: ''
+Trial Phase:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyPhase/AliasCode/@standardCode/Code/@decode
+  name: Trial Phase
+  notes: ''
+Trial Schema:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Trial Schema
+  notes: ''
+Trial Short Title:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@titles/StudyTitle/@type/Code/@code="C207615"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@titles/StudyTitle/@text
+  name: Trial Short Title
+  notes: ''
+Trial Stopping Rules:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Trial Stopping Rules
+  notes: ''
+Trial-specific Intervention Risks and Mitigations:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Trial-specific Intervention Risks and Mitigations
+  notes: ''
+Trial-specific Other Risks and Mitigations:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Trial-specific Other Risks and Mitigations
+  notes: ''
+Trial-specific Procedure Risks and Mitigations:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Trial-specific Procedure Risks and Mitigations
+  notes: ''
+Use:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@id=StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@arm
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@role/Code/@decode
+  name: Use
+  notes: ''
+Version Date:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Find the protocol document
+      path: StudyDefinitionDocument/@type/Code/@code="C70817"
+    - notes: ''
+      path: StudyDefinitionDocument/@versions/StudyDefinitionDocumentVersion/@dateValues/GovernanceDate/@type/Code/@decode="Issued
+        Date"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyDefinitionDocument/@versions/StudyDefinitionDocumentVersion/@dateValues/GovernanceDate/@dateValue
+  name: Version Date
+  notes: ''
+Version Number:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Find the protocol document
+      path: StudyDefinitionDocument/@type/Code/@code="C70817"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyDefinitionDocument/@versions/StudyDefinitionDocumentVersion/@version
+  name: Version Number
+  notes: ''
+Vital Signs:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: Vital Signs
+  notes: ''
+WHO-UTN Number:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Identify the organization as a trials registry
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@type/Code/@code="C93453"
+    - notes: Identify the organization as WHO
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@label="WHO"
+    standard_mapping:
+      category: Study Identifier
+      name: WHO UTN Study Identifier
+    target:
+      notes: ''
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@text
+  name: WHO-UTN Number
+  notes: Find the identifier scoped by the WHO (trial registry)
+alternate description of planned duration of trial intervention if duration will vary:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyIntervention/StudyIntervention/@administrations/Administration/@duration/AdministrationDuration/@durationWillVary=True
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@duration/AdministrationDuration/@reasonDurationWillVary
+  name: alternate description of planned duration of trial intervention if duration
+    will vary
+  notes: ''
+alternate description of planned duration of trial participation if duration will vary:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: alternate description of planned duration of trial participation if duration
+    will vary
+  notes: ''
+contact information for Medical Expert as designated by sponsor or state location where information can be found:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyRole/@code/Code/@code="C51876"
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyRole/@assignedPersons/AssignedPerson/@label + @organization/Organization/@legalAddress/Address/@text
+  name: contact information for Medical Expert as designated by sponsor or state location
+    where information can be found
+  notes: ''
+description of the overview of trial interventions or a heading for the optional table below:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: description of the overview of trial interventions or a heading for the optional
+    table below
+  notes: ''
+jRCT Number:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Identify the organization as a trials registry
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@type/Code/@code="C93453"
+    - notes: Identify the organization as JRCT
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@scope/Organization/@label="JRCT"
+    standard_mapping:
+      category: Study Identifier
+      name: jRCT Study Identifier
+    target:
+      notes: ''
+      path: StudyVersion/@studyIdentifiers/StudyIdentifier/@text
+  name: jRCT Number
+  notes: Find the identifier scoped by the Japan Registry for Clinical Trials (trial
+    registry)
+maximum age:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@plannedAge/Range/@maxValue/Quantity/@value
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@plannedAge/Range/@maxValue/Quantity/@value
+  name: maximum age
+  notes: ''
+randomly assigned to trial intervention-enrolled:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@characteristics/Code/@decode IN
+        ("C46079")
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@characteristics
+  name: randomly assigned to trial intervention-enrolled
+  notes: ''
+specify alternative location:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: specify alternative location
+  notes: Textual statement of the alternative location of the amendment information
+sponsor signature block name and title of sponsor signatory and signature date:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: Used to select the protocol document
+      path: Study/@documentedBy/StudyDefinitionDocument/@type/Code/@code='C70817'
+    - notes: Used to select the correct section
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@sectionNumber=<desired
+        section>
+    standard_mapping:
+      category: Narrative Content
+      name: Narrative Content Item
+    target:
+      notes: ''
+      path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
+  name: sponsor signature block name and title of sponsor signatory and signature
+    date
+  notes: ''
+total planned duration of trial intervention:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyIntervention/StudyIntervention/@administrations/Administration/@duration/AdministrationDuration/@durationWillVary=False
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@duration/AdministrationDuration/@quantity/Quantity/@value
+  name: total planned duration of trial intervention
+  notes: ''
+total planned duration of trial intervention unit of time:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyIntervention/StudyIntervention/@administrations/Administration/@duration/AdministrationDuration/@durationWillVary=False
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@duration/AdministrationDuration/@quantity/Quantity/@unit/AliasCode/@standardCode/Code/@decode
+  name: total planned duration of trial intervention unit of time
+  notes: ''
+total planned duration of trial participation:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@scheduleTimelines/ScheduleTimeline/@mainTimeline=True
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@scheduleTimelines/ScheduleTimeline/@timings/Timing/@relativeFromScheduledInstance/ScheduledActivityInstance/timelineExit
+        is not null
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@scheduleTimelines/ScheduleTimeline/@timings/Timing/@value
+  name: total planned duration of trial participation
+  notes: ''
+total planned duration of trial participation unit of time:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@scheduleTimelines/ScheduleTimeline/@mainTimeline=True
+    - notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@scheduleTimelines/ScheduleTimeline/@timings/Timing/@relativeFromScheduledInstance/ScheduledActivityInstance/timelineExit
+        is not null
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@scheduleTimelines/ScheduleTimeline/@timings/Timing/@value
+  name: total planned duration of trial participation unit of time
+  notes: ''
+units of maximum age:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@plannedAge/Range/@maxValue/Quantity/@unit/Code/@decode
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@plannedAge/Range/@maxValue/Quantity/@unit/Code/@decode
+  name: units of maximum age
+  notes: ''
+units of minimum age:
+  map_status: Mapped
+  mappings:
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@plannedAge/Range/@minValue/Quantity/@unit/Code/@decode
+  - conditions:
+    - notes: ''
+      path: ''
+    standard_mapping:
+      category: ''
+      name: ''
+    target:
+      notes: ''
+      path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@plannedAge/Range/@minValue/Quantity/@unit/Code/@decode
+  name: units of minimum age
+  notes: ''

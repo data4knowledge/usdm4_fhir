@@ -143,7 +143,7 @@ class ResearchStudyFactoryP3(BaseFactory):
             ext = ExtensionFactory(
                 **{
                     "url": f"{self.PROTOCOL_AMENDMENT_BASE}",
-                    "extension": scope.item,
+                    "extension": [scope.item],
                 }
             )
             self.item.extension.append(ext.item)

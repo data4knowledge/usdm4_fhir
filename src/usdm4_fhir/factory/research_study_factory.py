@@ -90,7 +90,6 @@ class ResearchStudyFactory(BaseFactory):
                     "valueCoding": original_code.item,
                 }
             )
-            print(f"ORIGNINAL: {ext}")
             self.item.extension.append(ext.item)
 
             # Version Number

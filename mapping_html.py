@@ -475,6 +475,7 @@ def create_section_page(section_title, elements, html_dir):
         technical_data = element_data.get('technical', {})
         usdm_data = element_data.get('usdm')
         fhir_data = element_data.get('fhir')
+        status_data = element_data.get('status', {})
         
         # Create status badges
         badges = []
@@ -484,6 +485,17 @@ def create_section_page(section_title, elements, html_dir):
             badges.append('<span class="badge bg-warning me-1">FHIR</span>')
         
         badges_html = ''.join(badges) if badges else '<span class="badge bg-secondary">No Mappings</span>'
+        
+        # Create status icon based on traffic light system
+        status_value = status_data.get('value', '').lower()
+        if status_value == 'full':
+            status_icon = '<i class="fas fa-circle text-success me-2" title="Full Status"></i>'
+        elif status_value == 'extra':
+            status_icon = '<i class="fas fa-circle text-warning me-2" title="Extra Status"></i>'
+        elif status_value == 'other':
+            status_icon = '<i class="fas fa-circle text-danger me-2" title="Other Status"></i>'
+        else:
+            status_icon = '<i class="fas fa-circle text-muted me-2" title="No Status"></i>'
         
         # Get short description
         short_name = template_data.get('short_name', element_name)
@@ -495,7 +507,10 @@ def create_section_page(section_title, elements, html_dir):
         content += f'''
         <div class="col-lg-6 col-xl-4 mb-3">
             <div class="card element-card searchable">
-                <div class="card-body">
+                <div class="card-body position-relative">
+                    <div class="position-absolute top-0 end-0 mt-2 me-2">
+                        {status_icon}
+                    </div>
                     <h6 class="card-title">
                         <a href="../elements/{element_filename}.html" class="text-decoration-none">
                             {escape_html(short_name)}
@@ -542,6 +557,7 @@ def create_element_page(element_name, element_data, section_title, html_dir):
     technical_data = element_data.get('technical', {})
     usdm_data = element_data.get('usdm')
     fhir_data = element_data.get('fhir')
+    status_data = element_data.get('status')
     
     # Create status badges
     badges = []
@@ -578,6 +594,10 @@ def create_element_page(element_name, element_data, section_title, html_dir):
     # FHIR panel
     if fhir_data:
         content += create_data_panel("FHIR Mapping", fhir_data, "fhir-panel")
+    
+    # Status panel
+    if status_data:
+        content += create_data_panel("Implementation Status", status_data, "status-panel")
     
     # Create the full HTML page
     template = get_base_template()

@@ -31,7 +31,6 @@ Sponsor Confidentiality Statement:
     ct: []
   ordinal: 1
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -51,6 +50,9 @@ Sponsor Confidentiality Statement:
     Resource: ResearchStudy.extension[confidentialityStatement]
     Sample XML: "<extension  url=$EBM_Conf>\n    <valueString value= %VALUE/>\n  </extension>"
     Example Value(s): '%VALUE = <All data is confidential>'
+  status:
+    value: 'Extra'
+    notes: 'Need a full USDM mechanism for this'
 Full Title:
   template:
     long_name: Enter Full Title
@@ -88,7 +90,6 @@ Full Title:
     ct: []
   ordinal: 2
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -107,6 +108,9 @@ Full Title:
     Example Value(s): '%VALUE = <A Phase 3 Study of Nasal Glucagon (LY900018) Compared
       to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese
       Patients with Diabetes Mellitus>'
+  status:
+    value: 'Full'
+    notes: ''
 Trial Acronym:
   template:
     long_name: Enter Trial Acronym
@@ -139,7 +143,6 @@ Trial Acronym:
     ct: []
   ordinal: 3
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -172,6 +175,9 @@ Trial Acronym:
     Binding (strength): '$study-title-type-vs
 
       (extensible)'
+  status:
+    value: 'Full'
+    notes: ''
 Sponsor Protocol Identifier:
   template:
     long_name: Enter Sponsor Protocol Identifier
@@ -203,7 +209,6 @@ Sponsor Protocol Identifier:
     ct: []
   ordinal: 4
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Identifies the sponsor role
@@ -237,6 +242,9 @@ Sponsor Protocol Identifier:
       %SYSTEM = <ssss>
 
       %VALUE = <I8R-JE-IGBJ>'
+  status:
+    value: 'Full'
+    notes: ''
 Original Protocol Indicator:
   template:
     long_name: Original Protocol Indicator
@@ -274,7 +282,6 @@ Original Protocol Indicator:
       definition: The affirmative response to a question.
   ordinal: 5
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: There are no amendments, the collection is empty
@@ -303,6 +310,9 @@ Original Protocol Indicator:
 
       (required)'
     Comment: Alternative mapping may be ResearchStudy.classifier
+  status:
+    value: 'Extra'
+    notes: 'Fix when amendments fully merged in'
 Version Number:
   template:
     long_name: Enter Version Number
@@ -334,7 +344,6 @@ Version Number:
     ct: []
   ordinal: 6
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Find the protocol document
@@ -352,6 +361,9 @@ Version Number:
     Sample XML: <version value="%VALUE"/>
     Example Value(s): '%VALUE = <(a)>'
     Comment: 'Definition: Is it alphanumeric or just numeric?'
+  status:
+    value: 'Full'
+    notes: ''
 Version Date:
   template:
     long_name: Enter Version Date
@@ -382,7 +394,6 @@ Version Date:
     ct: []
   ordinal: 7
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Find the protocol document
@@ -411,6 +422,9 @@ Version Date:
 
 
       The M11 Tech Spec appears to mix up coded values and a date'
+  status:
+    value: ''
+    notes: ''
 Amendment Identifier:
   template:
     long_name: Amendment Identifier
@@ -444,7 +458,6 @@ Amendment Identifier:
     ct: []
   ordinal: 8
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -474,6 +487,9 @@ Amendment Identifier:
       %SYSTEM = <ssss>
 
       %VALUE =  <I8R-JE-IGBJ(a)>'
+  status:
+    value: ''
+    notes: ''
 Amendment Scope:
   template:
     long_name: Amendment Scope
@@ -523,7 +539,6 @@ Amendment Scope:
       definition: Covering or affecting a portion of the system.
   ordinal: 9
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -549,6 +564,9 @@ Amendment Scope:
       Additional note for info: It is coded in a sense. Values are "Not Applicable",
       "Global", "Not Global" depending on a set of rules as per the M11 spec. It,
       in theory, can be derived.'
+  status:
+    value: ''
+    notes: ''
 Country Identifier:
   template:
     long_name: Country Identifier
@@ -597,7 +615,6 @@ Country Identifier:
     ct: []
   ordinal: 10
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -618,6 +635,9 @@ Country Identifier:
     Binding (strength): m11-country-region-vs (extenssible)
     Comment: Country is an extension because it is within amendment.   An alternative
       is to bring another ResearchStudy that is the amended protocol into the extension.
+  status:
+    value: ''
+    notes: ''
 Region Identifier:
   template:
     long_name: Region Identifier
@@ -666,7 +686,6 @@ Region Identifier:
     ct: []
   ordinal: 11
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -687,6 +706,9 @@ Region Identifier:
     Binding (strength): m11-country-region-vs (extenssible)
     Comment: Region is an extension because it is within amendment  An alternative
       is to bring another ResearchStudy that is the amended protocol into the extension.
+  status:
+    value: ''
+    notes: ''
 Site Identifier:
   template:
     long_name: Enter Site Identifier
@@ -735,7 +757,6 @@ Site Identifier:
     ct: []
   ordinal: 12
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -758,6 +779,9 @@ Site Identifier:
       %VALUE =  <sss>'
     Comment: Site is an extension because it is within an amendment.  An alternative
       is to bring another ResearchStudy that is the amended protocol into the extension.
+  status:
+    value: ''
+    notes: ''
 Sponsors Investigational Product Codes:
   template:
     long_name: Enter Sponsor’s Investigational Product Code(s)
@@ -794,7 +818,6 @@ Sponsors Investigational Product Codes:
     ct: []
   ordinal: 13
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -831,6 +854,9 @@ Sponsors Investigational Product Codes:
       resource and one where IDMP has already established a working pattern.  Also
       it is clear this identifier refers to "Sponsor Investigational Product" because
       it is linked to the focus attribute of ResearchStudy
+  status:
+    value: ''
+    notes: ''
 Nonproprietary Names:
   template:
     long_name: Enter Nonproprietary Name(s)
@@ -864,7 +890,6 @@ Nonproprietary Names:
     ct: []
   ordinal: 14
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -899,6 +924,9 @@ Nonproprietary Names:
       %VALUE =  glucagon nasal powder'
     Binding (strength): This doesn't have an explicit binding becaause MedicinalProductDefinition
       is not profiled here.  It should already have guidance for IDMP.
+  status:
+    value: ''
+    notes: ''
 Proprietary Names:
   template:
     long_name: Enter Proprietary Name(s)
@@ -932,7 +960,6 @@ Proprietary Names:
     ct: []
   ordinal: 15
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -965,6 +992,9 @@ Proprietary Names:
       VALUE = <BAQSIMI>'
     Binding (strength): This doesn't have an explicit binding becaause MedicinalProductDefinition
       is not profiled here.  It should already have guidance for IDMP
+  status:
+    value: ''
+    notes: ''
 Trial Phase:
   template:
     long_name: Trial Phase
@@ -1064,7 +1094,6 @@ Trial Phase:
       definition: ''
   ordinal: 16
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -1092,6 +1121,9 @@ Trial Phase:
     Binding (strength): '$phase-vs
 
       (extensible)'
+  status:
+    value: ''
+    notes: ''
 Trial Short Title:
   template:
     long_name: Enter Trial Short Title
@@ -1129,7 +1161,6 @@ Trial Short Title:
     ct: []
   ordinal: 17
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -1162,6 +1193,9 @@ Trial Short Title:
     Binding (strength): '$study-title-type-vs
 
       (extensible)'
+  status:
+    value: ''
+    notes: ''
 Sponsor Name:
   template:
     long_name: Enter Sponsor Name
@@ -1194,7 +1228,6 @@ Sponsor Name:
     ct: []
   ordinal: 18
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -1239,6 +1272,9 @@ Sponsor Name:
     Binding (strength): '$study-role-vs
 
       (extensible)'
+  status:
+    value: ''
+    notes: ''
 Sponsor Legal Address:
   template:
     long_name: Enter Sponsor Legal Address
@@ -1272,7 +1308,6 @@ Sponsor Legal Address:
     ct: []
   ordinal: 19
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -1332,6 +1367,9 @@ Sponsor Legal Address:
     Binding (strength): '$study-role-vs
 
       (extensible)'
+  status:
+    value: ''
+    notes: ''
 Co-Sponsor Name:
   template:
     long_name: Enter Co-Sponsor Name
@@ -1368,7 +1406,6 @@ Co-Sponsor Name:
     ct: []
   ordinal: 20
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -1413,6 +1450,9 @@ Co-Sponsor Name:
     Binding (strength): '$study-role-vs
 
       (extensible)'
+  status:
+    value: ''
+    notes: ''
 Co-Sponsor Legal Address:
   template:
     long_name: Enter Co-Sponsor Legal Address
@@ -1455,7 +1495,6 @@ Co-Sponsor Legal Address:
     ct: []
   ordinal: 21
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -1515,6 +1554,9 @@ Co-Sponsor Legal Address:
     Binding (strength): '$study-role-vs
 
       (extensible)'
+  status:
+    value: ''
+    notes: ''
 Local Sponsor Name:
   template:
     long_name: Enter Local Sponsor Name
@@ -1549,7 +1591,6 @@ Local Sponsor Name:
     ct: []
   ordinal: 22
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -1594,6 +1635,9 @@ Local Sponsor Name:
     Binding (strength): '$study-role-vs
 
       (extensible)'
+  status:
+    value: ''
+    notes: ''
 Local Sponsor Address:
   template:
     long_name: Enter Local Sponsor Address
@@ -1630,7 +1674,6 @@ Local Sponsor Address:
     ct: []
   ordinal: 23
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -1690,6 +1733,9 @@ Local Sponsor Address:
     Binding (strength): '$study-role-vs
 
       (extensible)'
+  status:
+    value: ''
+    notes: ''
 Device Manufacturer Name:
   template:
     long_name: Enter Device Manufacturer Name
@@ -1728,7 +1774,6 @@ Device Manufacturer Name:
     ct: []
   ordinal: 24
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -1765,6 +1810,9 @@ Device Manufacturer Name:
 
       (extensible)'
     Comment: C25392 Manufacturer is not "Device Manufacturer"
+  status:
+    value: ''
+    notes: ''
 Device Manufacturer Address:
   template:
     long_name: Enter Device Manufacturer Address
@@ -1808,7 +1856,6 @@ Device Manufacturer Address:
     ct: []
   ordinal: 25
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -1860,6 +1907,9 @@ Device Manufacturer Address:
 
       (extensible)'
     Comment: C25392 Manufacturer is not "Device Manufacturer"
+  status:
+    value: ''
+    notes: ''
 EU CT Number:
   template:
     long_name: EU CT Number
@@ -1896,7 +1946,6 @@ EU CT Number:
     ct: []
   ordinal: 26
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Identify the organization as a regulatory agency
@@ -1928,6 +1977,9 @@ EU CT Number:
       %SYSTEM = <ssss>
 
       %VALUE = <vvvv>'
+  status:
+    value: ''
+    notes: ''
 FDA IND Number:
   template:
     long_name: FDA IND Number
@@ -1962,7 +2014,6 @@ FDA IND Number:
     ct: []
   ordinal: 27
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Find the organization that is a regulatory authority
@@ -1994,6 +2045,9 @@ FDA IND Number:
       %SYSTEM = <ssss>
 
       %VALUE = <vvvv>'
+  status:
+    value: ''
+    notes: ''
 IDE Number:
   template:
     long_name: IDE Number
@@ -2028,7 +2082,6 @@ IDE Number:
     ct: []
   ordinal: 28
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Find the organization that is a regulatory agency
@@ -2060,6 +2113,9 @@ IDE Number:
       %SYSTEM = <ssss>
 
       %VALUE = <vvvv>'
+  status:
+    value: ''
+    notes: ''
 jRCT Number:
   template:
     long_name: jRCT Number
@@ -2095,7 +2151,6 @@ jRCT Number:
     ct: []
   ordinal: 29
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Identify the organization as a trials registry
@@ -2128,6 +2183,9 @@ jRCT Number:
       %SYSTEM = <ssss>
 
       %VALUE = <vvvv>'
+  status:
+    value: ''
+    notes: ''
 NCT Number:
   template:
     long_name: NCT Number
@@ -2163,7 +2221,6 @@ NCT Number:
     ct: []
   ordinal: 30
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Identify the organization as a trials registry
@@ -2195,6 +2252,9 @@ NCT Number:
       %SYSTEM = <ssss>
 
       %VALUE = <vvvv>'
+  status:
+    value: ''
+    notes: ''
 NMPA IND Number:
   template:
     long_name: NMPA IND Number
@@ -2230,7 +2290,6 @@ NMPA IND Number:
     ct: []
   ordinal: 31
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Identify the organization as a regulatory agency
@@ -2262,6 +2321,9 @@ NMPA IND Number:
       %SYSTEM = <ssss>
 
       %VALUE = <vvvv>'
+  status:
+    value: ''
+    notes: ''
 WHO-UTN Number:
   template:
     long_name: WHO/UTN Number
@@ -2297,7 +2359,6 @@ WHO-UTN Number:
     ct: []
   ordinal: 32
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Identify the organization as a trials registry
@@ -2329,6 +2390,9 @@ WHO-UTN Number:
       %SYSTEM = <ssss>
 
       %VALUE = <vvvv>'
+  status:
+    value: ''
+    notes: ''
 Other Regulatory or Clinical Trial Identifier:
   template:
     long_name: Other Regulatory or Clinical Trial Identifier
@@ -2368,7 +2432,6 @@ Other Regulatory or Clinical Trial Identifier:
     ct: []
   ordinal: 33
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Identify the organization as a clinical trial registry
@@ -2406,6 +2469,9 @@ Other Regulatory or Clinical Trial Identifier:
     Comment: In HL7 because $identifier-type-vs is Extensible we would expect an additional
       code for the type to be added.  However an alternative is to have the assigner
       point to the organisation creating the code.
+  status:
+    value: ''
+    notes: ''
 Approval Date:
   template:
     long_name: Enter Approval Date
@@ -2452,7 +2518,6 @@ Approval Date:
         approved the current version of the protocol.
   ordinal: 34
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -2477,6 +2542,9 @@ Approval Date:
       Note HL7 date format'
     Comment: This looks wrong, needs checking. Think the M11 info is wrong, dont really
       expect CT here.
+  status:
+    value: ''
+    notes: ''
 State location where Information can be found:
   template:
     long_name: State location where information can be found
@@ -2523,7 +2591,6 @@ State location where Information can be found:
         approved the current version of the protocol.
   ordinal: 35
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -2547,6 +2614,9 @@ State location where Information can be found:
     Example Value(s): '%URL = <https://somelocation>'
     Comment: This looks wrong, needs checking. Think the M11 info is wrong, dont really
       expect CT here.
+  status:
+    value: ''
+    notes: ''
 ? Sponsor signatory eg name title signature and date or state location where information
   can be found eg electronic signature
 : template:
@@ -2581,6 +2651,9 @@ State location where Information can be found:
     short_name: Sponsor signatory eg name title signature and date or state location
       where information can be found eg electronic signature
   ordinal: 36
+  status:
+    value: ''
+    notes: ''
 contact information for Medical Expert as designated by sponsor or state location where information can be found:
   template:
     long_name: Enter contact information for Medical Expert (as designated by sponsor)
@@ -2617,7 +2690,6 @@ contact information for Medical Expert as designated by sponsor or state locatio
     ct: []
   ordinal: 37
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -2655,6 +2727,9 @@ contact information for Medical Expert as designated by sponsor or state locatio
     Binding (strength): '$study-role-vs
 
       (extensible)'
+  status:
+    value: ''
+    notes: ''
 Current Amendment Enrollment:
   template:
     long_name: '#/%'
@@ -2694,7 +2769,6 @@ Current Amendment Enrollment:
     short_name: Current Amendment Enrollment
   ordinal: 38
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -2714,6 +2788,9 @@ Current Amendment Enrollment:
       \    <extension url=\"number\">\n        <valuePositiveInt value=%VALUE/>\n\
       \      </extension>\n    </extension>\n</extension>"
     Example Value(s): '%VALUE = 234'
+  status:
+    value: ''
+    notes: ''
 Amendment Scope Enrollment Description:
   template:
     long_name: enter Amendment Scope Enrollment Definition
@@ -2761,7 +2838,6 @@ Amendment Scope Enrollment Description:
       definition: Covering or affecting a cohort of individuals.
   ordinal: 39
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -2810,6 +2886,9 @@ Amendment Scope Enrollment Description:
 
       %CODE = C41065'
     Binding (strength): m11-amendment-scope-enrollment-vs (extensible)
+  status:
+    value: ''
+    notes: ''
 Primary Reason for Amendment:
   template:
     long_name: Primary Reason for Amendment
@@ -2903,7 +2982,6 @@ Primary Reason for Amendment:
       definition: Determination of a value is not relevant in the current context.
   ordinal: 40
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -2941,6 +3019,9 @@ Primary Reason for Amendment:
       (extensible)'
     Comment: The text attribute is probably only used if the code is C17649 Other
       where the text field can be used to provide additionol information
+  status:
+    value: ''
+    notes: ''
 Secondary Reason for Amendment:
   template:
     long_name: Secondary Reason for Amendment
@@ -3035,7 +3116,6 @@ Secondary Reason for Amendment:
       definition: Determination of a value is not relevant in the current context.
   ordinal: 41
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -3068,6 +3148,9 @@ Secondary Reason for Amendment:
 
       Note only use %TEXT for the "other" primary reason that is not coded.  Should
       be a separate block from the coded item'
+  status:
+    value: ''
+    notes: ''
 Amendment Summary:
   template:
     long_name: Amendment Summary
@@ -3102,7 +3185,6 @@ Amendment Summary:
     ct: []
   ordinal: 42
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -3120,6 +3202,9 @@ Amendment Summary:
     Sample XML: "<extension url=$ext-amd>\n    <extension url=\"summary\">\n     \
       \    <valueString value=%VALUE/>\n    </extension>\n  </extension>"
     Example Value(s): '%VALUE = <sss>'
+  status:
+    value: ''
+    notes: ''
 Substantial Impact Safety:
   template:
     long_name: Yes/No
@@ -3159,7 +3244,6 @@ Substantial Impact Safety:
     short_name: Substantial Impact Safety
   ordinal: 43
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -3191,6 +3275,9 @@ Substantial Impact Safety:
 
       (required)'
     Comment: '%SYSTEM is fixed here because of the binding'
+  status:
+    value: ''
+    notes: ''
 Substantial Impact Data:
   template:
     long_name: Yes/No
@@ -3231,7 +3318,6 @@ Substantial Impact Data:
     short_name: Substantial Impact Data
   ordinal: 44
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -3262,6 +3348,9 @@ Substantial Impact Data:
     Binding (strength): '$YesNoUnknownVS
 
       (required)'
+  status:
+    value: ''
+    notes: ''
 Description of Change:
   template:
     long_name: Enter Description of Change
@@ -3293,7 +3382,6 @@ Description of Change:
     ct: []
   ordinal: 45
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -3312,6 +3400,9 @@ Description of Change:
       \     <extension url=\"detail\">\n        <valueString value=%VALUE/>\n    \
       \  </extension>\n    </extension>\n</extension>"
     Example Value(s): '%VALUE = <ddd>'
+  status:
+    value: ''
+    notes: ''
 Brief Rationale for Change:
   template:
     long_name: Enter Brief Rationale for Change
@@ -3344,7 +3435,6 @@ Brief Rationale for Change:
     ct: []
   ordinal: 46
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -3364,6 +3454,9 @@ Brief Rationale for Change:
       \     </extension>\n    </extension>\n</extension>"
     Example Value(s): '%VALUE = <Updates to address safety concern and align with
       product guidelines.>'
+  status:
+    value: ''
+    notes: ''
 Section - and Name of Change:
   template:
     long_name: 'Enter Section # and Name of Change'
@@ -3425,7 +3518,6 @@ Section - and Name of Change:
     ct: []
   ordinal: 47
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -3447,6 +3539,9 @@ Section - and Name of Change:
     Example Value(s): '%CODE = $NCIT#C218515  "1.1 Protocol Synopsis"'
     Binding (strength): m11-section-codes-vs (extensible)
     Comment: This is a code list provided by M11 that USDM has not, so far, used.
+  status:
+    value: ''
+    notes: ''
 Primary and Secondary Objectives and Estimands:
   template:
     long_name: Enter Primary and Secondary Objectives and Estimands
@@ -3492,7 +3587,6 @@ Primary and Secondary Objectives and Estimands:
     ct: []
   ordinal: 48
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -3507,6 +3601,9 @@ Primary and Secondary Objectives and Estimands:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Primary and Secondary Objectives and Estimands
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Sponsors Investigational Product Codes 2:
   template:
@@ -3541,6 +3638,9 @@ Sponsors Investigational Product Codes 2:
       yes, reuse for each Investigational Product'
     ct: []
   ordinal: 49
+  status:
+    value: ''
+    notes: ''
 Nonproprietary Names Control:
   template:
     long_name: Enter Nonproprietary Name(s)
@@ -3575,6 +3675,9 @@ Nonproprietary Names Control:
     ct: []
     short_name: Nonproprietary Names Control
   ordinal: 50
+  status:
+    value: ''
+    notes: ''
 Population Type:
   template:
     long_name: Population type
@@ -3613,7 +3716,6 @@ Population Type:
         been diagnosed with the disease of interest or under study.
   ordinal: 51
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -3625,6 +3727,9 @@ Population Type:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@includesHealthySubjects
     name: Population Type
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Intervention Model:
   template:
@@ -3682,7 +3787,6 @@ Intervention Model:
       definition: Different than the one(s) previously specified or mentioned.
   ordinal: 52
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -3694,6 +3798,9 @@ Intervention Model:
         notes: ''
         path: StudyVersion/@studyDesigns/InterventionalStudyDesign/@model/Code/@decode
     name: Intervention Model
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Population Diagnosis or Condition:
   template:
@@ -3728,7 +3835,6 @@ Population Diagnosis or Condition:
     ct: []
   ordinal: 53
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -3740,6 +3846,9 @@ Population Diagnosis or Condition:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@indications/Indication/@label
     name: Population Diagnosis or Condition
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Control Type:
   template:
@@ -3805,7 +3914,6 @@ Control Type:
         or components.
   ordinal: 54
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -3818,6 +3926,9 @@ Control Type:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@type/Code/@decode
     name: Control Type
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Minimum Age:
   template:
@@ -3853,7 +3964,6 @@ Minimum Age:
     short_name: Minimum Age
   ordinal: 55
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -3874,6 +3984,9 @@ Minimum Age:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@plannedAge/Range/@minValue/Quantity/@value
     name: Minimum Age
+    notes: ''
+  status:
+    value: ''
     notes: ''
 units of minimum age:
   template:
@@ -3927,7 +4040,6 @@ units of minimum age:
         around the sun, approximately 365 days; a specific one year period.
   ordinal: 56
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -3948,6 +4060,9 @@ units of minimum age:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@plannedAge/Range/@minValue/Quantity/@unit/Code/@decode
     name: units of minimum age
+    notes: ''
+  status:
+    value: ''
     notes: ''
 maximum age:
   template:
@@ -3982,7 +4097,6 @@ maximum age:
     ct: []
   ordinal: 57
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4003,6 +4117,9 @@ maximum age:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@plannedAge/Range/@maxValue/Quantity/@value
     name: maximum age
+    notes: ''
+  status:
+    value: ''
     notes: ''
 units of maximum age:
   template:
@@ -4056,7 +4173,6 @@ units of maximum age:
         around the sun, approximately 365 days; a specific one year period.
   ordinal: 58
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4077,6 +4193,9 @@ units of maximum age:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@plannedAge/Range/@maxValue/Quantity/@unit/Code/@decode
     name: units of maximum age
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Nonproprietary name:
   template:
@@ -4105,7 +4224,6 @@ Nonproprietary name:
     ct: []
   ordinal: 59
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4119,6 +4237,9 @@ Nonproprietary name:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@ingredients/Ingredient/@substance/Substance/@label
     name: Nonproprietary name
+    notes: ''
+  status:
+    value: ''
     notes: ''
 INN:
   template:
@@ -4147,7 +4268,6 @@ INN:
     ct: []
   ordinal: 60
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4161,6 +4281,9 @@ INN:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@ingredients/Ingredient/@substance/Substance/@label
     name: INN
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Not applicable:
   template:
@@ -4190,7 +4313,6 @@ Not applicable:
     ct: []
   ordinal: 61
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4203,6 +4325,9 @@ Not applicable:
         path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@productDesignation/Code/@code
     name: Not applicable
     notes: Dont think we need to map this, remove from mapping if so.
+  status:
+    value: ''
+    notes: ''
 Site Distribution:
   template:
     long_name: Site distribution
@@ -4243,7 +4368,6 @@ Site Distribution:
         more than one site, and therefore, carried out by more than one investigator.
   ordinal: 62
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4255,6 +4379,9 @@ Site Distribution:
         notes: ''
         path: Organization/@managedSites/StudySite/@name
     name: Site Distribution
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Site geographic scope:
   template:
@@ -4294,7 +4421,6 @@ Site geographic scope:
       definition: Of, or pertaining to, an occurrence in more than one country.
   ordinal: 63
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4306,6 +4432,9 @@ Site geographic scope:
         notes: ''
         path: Organization/@managedSites/StudySite/@country/Code/@decode
     name: Site geographic scope
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Intervention Assignment Method:
   template:
@@ -4355,7 +4484,6 @@ Intervention Assignment Method:
         and in order to reduce bias.
   ordinal: 64
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4369,6 +4497,9 @@ Intervention Assignment Method:
         path: StudyVersion/@studyDesigns/StudyDesign/@characteristics
     name: Intervention Assignment Method
     notes: Not handled by model?
+  status:
+    value: ''
+    notes: ''
 Master Protocol Indicator:
   template:
     long_name: Master Protocol Indicator
@@ -4407,7 +4538,6 @@ Master Protocol Indicator:
       definition: The affirmative response to a question.
   ordinal: 65
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4420,6 +4550,9 @@ Master Protocol Indicator:
         path: StudyDefinitionDocument/@versions/StudyDefinitionDocumentVersion/@children
     name: Master Protocol Indicator
     notes: Note handled by model. Should this be in StudyDesign characteristics?
+  status:
+    value: ''
+    notes: ''
 Drug-Device Combination Product Indicator:
   template:
     long_name: Drug/Device Combination Product Indicator
@@ -4459,7 +4592,6 @@ Drug-Device Combination Product Indicator:
       definition: The affirmative response to a question.
   ordinal: 66
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4471,6 +4603,9 @@ Drug-Device Combination Product Indicator:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@amedicalDevice/MedicalDevice/@embeddedProduct
     name: Drug-Device Combination Product Indicator
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Adaptive Trial Design Indicator:
   template:
@@ -4517,7 +4652,6 @@ Adaptive Trial Design Indicator:
     short_name: Adaptive Trial Design Indicator
   ordinal: 67
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4530,6 +4664,9 @@ Adaptive Trial Design Indicator:
         notes: ''
         path: StudyVersion/@studyDesigns/InterventionalStudyDesign/@characteristics
     name: Adaptive Trial Design Indicator
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Number of Arms:
   template:
@@ -4562,7 +4699,6 @@ Number of Arms:
     ct: []
   ordinal: 68
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4574,6 +4710,9 @@ Number of Arms:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@arms
     name: Number of Arms
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Trial Blind Schema:
   template:
@@ -4630,7 +4769,6 @@ Trial Blind Schema:
         does not know which intervention is administered to the participant.
   ordinal: 69
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4642,6 +4780,9 @@ Trial Blind Schema:
         notes: ''
         path: StudyVersion/@studyDesigns/InterventionalStudyDesign/@blindingSchema/AliasCode/@standardCode/Code/@decode
     name: Trial Blind Schema
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Blinded Roles:
   template:
@@ -4707,7 +4848,6 @@ Blinded Roles:
     short_name: Blinded Roles
   ordinal: 70
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4719,6 +4859,9 @@ Blinded Roles:
         notes: ''
         path: StudyRole/@code/Code/@decode
     name: Blinded Roles
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Target-Maximum:
   template:
@@ -4753,7 +4896,6 @@ Target-Maximum:
     ct: []
   ordinal: 71
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4765,6 +4907,9 @@ Target-Maximum:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@plannedEnrollmentNumberRange
     name: Target-Maximum
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Number of Participants:
   template:
@@ -4797,7 +4942,6 @@ Number of Participants:
     ct: []
   ordinal: 72
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4818,6 +4962,9 @@ Number of Participants:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@plannedEnrollmentNumberRange/Range/@maxValue
     name: Number of Participants
+    notes: ''
+  status:
+    value: ''
     notes: ''
 randomly assigned to trial intervention-enrolled:
   template:
@@ -4852,7 +4999,6 @@ randomly assigned to trial intervention-enrolled:
     ct: []
   ordinal: 73
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4865,6 +5011,9 @@ randomly assigned to trial intervention-enrolled:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@characteristics
     name: randomly assigned to trial intervention-enrolled
+    notes: ''
+  status:
+    value: ''
     notes: ''
 total planned duration of trial intervention:
   template:
@@ -4919,7 +5068,6 @@ total planned duration of trial intervention:
         around the sun, approximately 365 days; a specific one year period.
   ordinal: 74
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4931,6 +5079,9 @@ total planned duration of trial intervention:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@duration/AdministrationDuration/@quantity/Quantity/@value
     name: total planned duration of trial intervention
+    notes: ''
+  status:
+    value: ''
     notes: ''
 total planned duration of trial intervention unit of time:
   template:
@@ -4986,7 +5137,6 @@ total planned duration of trial intervention unit of time:
     short_name: total planned duration of trial intervention unit of time
   ordinal: 75
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -4998,6 +5148,9 @@ total planned duration of trial intervention unit of time:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@duration/AdministrationDuration/@quantity/Quantity/@unit/AliasCode/@standardCode/Code/@decode
     name: total planned duration of trial intervention unit of time
+    notes: ''
+  status:
+    value: ''
     notes: ''
 alternate description of planned duration of trial intervention:
   template:
@@ -5034,6 +5187,9 @@ alternate description of planned duration of trial intervention:
     ct: []
     short_name: alternate description of planned duration of trial intervention
   ordinal: 76
+  status:
+    value: ''
+    notes: ''
 total planned duration of trial participation:
   template:
     long_name: Enter total planned duration of trial participation
@@ -5087,7 +5243,6 @@ total planned duration of trial participation:
         around the sun, approximately 365 days; a specific one year period.
   ordinal: 77
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -5102,6 +5257,9 @@ total planned duration of trial participation:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@scheduleTimelines/ScheduleTimeline/@timings/Timing/@value
     name: total planned duration of trial participation
+    notes: ''
+  status:
+    value: ''
     notes: ''
 total planned duration of trial participation unit of time:
   template:
@@ -5157,7 +5315,6 @@ total planned duration of trial participation unit of time:
     short_name: total planned duration of trial participation unit of time
   ordinal: 78
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -5172,6 +5329,9 @@ total planned duration of trial participation unit of time:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@scheduleTimelines/ScheduleTimeline/@timings/Timing/@value
     name: total planned duration of trial participation unit of time
+    notes: ''
+  status:
+    value: ''
     notes: ''
 alternate description of planned duration of trial participation:
   template:
@@ -5209,6 +5369,9 @@ alternate description of planned duration of trial participation:
     ct: []
     short_name: alternate description of planned duration of trial participation
   ordinal: 79
+  status:
+    value: ''
+    notes: ''
 Additional Description of Duration:
   template:
     long_name: Enter Additional Description of Duration
@@ -5241,7 +5404,6 @@ Additional Description of Duration:
     ct: []
   ordinal: 80
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -5256,6 +5418,9 @@ Additional Description of Duration:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Additional Description of Duration
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Independent Committees:
   template:
@@ -5315,7 +5480,6 @@ Independent Committees:
       definition: No person or thing, nobody, not any.
   ordinal: 81
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -5327,6 +5491,9 @@ Independent Committees:
         notes: ''
         path: StudyRole/@label
     name: Independent Committees
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Other Committees:
   template:
@@ -5360,7 +5527,6 @@ Other Committees:
     ct: []
   ordinal: 82
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -5373,6 +5539,9 @@ Other Committees:
         notes: ''
         path: StudyRole/@label
     name: Other Committees
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Trial Schema:
   template:
@@ -5411,7 +5580,6 @@ Trial Schema:
     ct: []
   ordinal: 83
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -5426,6 +5594,9 @@ Trial Schema:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Trial Schema
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Schema Notes:
   template:
@@ -5463,7 +5634,6 @@ Schema Notes:
     ct: []
   ordinal: 84
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -5478,6 +5648,9 @@ Schema Notes:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Schema Notes
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Schedule of Activities:
   template:
@@ -5520,7 +5693,6 @@ Schedule of Activities:
     ct: []
   ordinal: 85
   usdm:
-    map_status: Mapped
     mappings:
     - conditions: []
       standard_mapping:
@@ -5537,6 +5709,9 @@ Schedule of Activities:
     Comment: The Code to identify the section is repeated in both the ResearchStudy
       and the Composition.  While not strictly necessary in ResearchStudy it simplifies
       the process of searching for a specifi section of the narrative.
+  status:
+    value: ''
+    notes: ''
 Purpose of Trial:
   template:
     long_name: Enter Purpose of Trial
@@ -5568,7 +5743,6 @@ Purpose of Trial:
     ct: []
   ordinal: 86
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -5589,6 +5763,9 @@ Purpose of Trial:
     Sample XML: 'See: Narrative Section Mapping'
     Example Value(s): 'See: Narrative Section Mapping'
     Binding (strength): 'See: Narrative Section Mapping'
+  status:
+    value: ''
+    notes: ''
 Trial-specific Intervention Risks and Mitigations:
   template:
     long_name: Enter Trial-specific Intervention Risks and Mitigations
@@ -5622,7 +5799,6 @@ Trial-specific Intervention Risks and Mitigations:
     ct: []
   ordinal: 87
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -5637,6 +5813,9 @@ Trial-specific Intervention Risks and Mitigations:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Trial-specific Intervention Risks and Mitigations
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Trial-specific Procedure Risks and Mitigations:
   template:
@@ -5676,7 +5855,6 @@ Trial-specific Procedure Risks and Mitigations:
     ct: []
   ordinal: 88
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -5691,6 +5869,9 @@ Trial-specific Procedure Risks and Mitigations:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Trial-specific Procedure Risks and Mitigations
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Trial-specific Other Risks and Mitigations:
   template:
@@ -5727,7 +5908,6 @@ Trial-specific Other Risks and Mitigations:
     ct: []
   ordinal: 89
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -5742,6 +5922,9 @@ Trial-specific Other Risks and Mitigations:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Trial-specific Other Risks and Mitigations
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Benefit Summary:
   template:
@@ -5781,7 +5964,6 @@ Benefit Summary:
     ct: []
   ordinal: 90
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -5796,6 +5978,9 @@ Benefit Summary:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Benefit Summary
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Overall Risk-Benefit Assessment:
   template:
@@ -5832,7 +6017,6 @@ Overall Risk-Benefit Assessment:
     ct: []
   ordinal: 91
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -5847,6 +6031,9 @@ Overall Risk-Benefit Assessment:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Overall Risk-Benefit Assessment
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Primary Objective:
   template:
@@ -5881,7 +6068,6 @@ Primary Objective:
     ct: []
   ordinal: 92
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -5914,6 +6100,9 @@ Primary Objective:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@text
     name: Primary Objective
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Population:
   template:
@@ -5951,7 +6140,6 @@ Population:
     ct: []
   ordinal: 93
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -5991,6 +6179,9 @@ Population:
         path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@analysisPopulation/AnalysisPopulation/@text
     name: Population
     notes: ''
+  status:
+    value: ''
+    notes: ''
 Treatment:
   template:
     long_name: Enter Treatment
@@ -6026,7 +6217,6 @@ Treatment:
     ct: []
   ordinal: 94
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -6213,6 +6403,9 @@ Treatment:
         path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@interventions/StudyIntervention/@administration/Administration/@route/AliasCode/@defaultCode/Code/@decode
     name: Treatment
     notes: ''
+  status:
+    value: ''
+    notes: ''
 Endpoint:
   template:
     long_name: Enter Endpoint
@@ -6244,7 +6437,6 @@ Endpoint:
     ct: []
   ordinal: 95
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -6274,6 +6466,9 @@ Endpoint:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@endpoints/Endpoint/@text
     name: Endpoint
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Population-level Summary:
   template:
@@ -6305,6 +6500,9 @@ Population-level Summary:
     repeating: Yes, repeatable for each numbered primary objective
     ct: []
   ordinal: 96
+  status:
+    value: ''
+    notes: ''
 Description of Intercurrent Event:
   template:
     long_name: Enter Description of Intercurrent Event
@@ -6338,7 +6536,6 @@ Description of Intercurrent Event:
     ct: []
   ordinal: 97
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -6376,6 +6573,9 @@ Description of Intercurrent Event:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@intercurrentEvents/IntercurrentEvent/@text
     name: Description of Intercurrent Event
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Intercurrent Event 1 Strategy:
   template:
@@ -6410,7 +6610,6 @@ Intercurrent Event 1 Strategy:
     ct: []
   ordinal: 98
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -6449,6 +6648,9 @@ Intercurrent Event 1 Strategy:
         path: StudyVersion/@studyDesigns/StudyDesign/@estimands/Estimand/@intercurrentEvents/IntercurrentEvent/@strategy
     name: Intercurrent Event 1 Strategy
     notes: ''
+  status:
+    value: ''
+    notes: ''
 Secondary Objective:
   template:
     long_name: Enter Secondary Objective
@@ -6480,7 +6682,6 @@ Secondary Objective:
     ct: []
   ordinal: 99
   usdm:
-    map_status: Mapped
     mappings:
     - conditions: []
       standard_mapping:
@@ -6490,6 +6691,9 @@ Secondary Objective:
         notes: Where the objective level is 'secondary'
         path: StudyVersion/@studyDesigns/StudyDesign/@objectives/Objective/@text
     name: Secondary Objective
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Exploratory Objective:
   template:
@@ -6527,7 +6731,6 @@ Exploratory Objective:
     ct: []
   ordinal: 100
   usdm:
-    map_status: Mapped
     mappings:
     - conditions: []
       standard_mapping:
@@ -6537,6 +6740,9 @@ Exploratory Objective:
         notes: Select information required
         path: StudyDesign/@objectives/Objective
     name: Exploratory Objective
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Overall Description of Trial Design and Description of Intervention Model:
   template:
@@ -6585,7 +6791,6 @@ Overall Description of Trial Design and Description of Intervention Model:
     ct: []
   ordinal: 101
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -6600,6 +6805,9 @@ Overall Description of Trial Design and Description of Intervention Model:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Overall Description of Trial Design and Description of Intervention Model
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Description of Trial Duration:
   template:
@@ -6636,7 +6844,6 @@ Description of Trial Duration:
     ct: []
   ordinal: 102
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -6651,6 +6858,9 @@ Description of Trial Duration:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Description of Trial Duration
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Description of Method of Assignment to Trial Intervention:
   template:
@@ -6683,6 +6893,9 @@ Description of Method of Assignment to Trial Intervention:
     repeating: 'No'
     ct: []
   ordinal: 103
+  status:
+    value: ''
+    notes: ''
 Description of Level and Method of Blinding:
   template:
     long_name: Enter Description of Level and Method of Blinding
@@ -6725,7 +6938,6 @@ Description of Level and Method of Blinding:
     ct: []
   ordinal: 104
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -6740,6 +6952,9 @@ Description of Level and Method of Blinding:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Description of Level and Method of Blinding
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Additional Description of Trial Design:
   template:
@@ -6770,7 +6985,6 @@ Additional Description of Trial Design:
     ct: []
   ordinal: 105
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -6785,6 +6999,9 @@ Additional Description of Trial Design:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Additional Description of Trial Design
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Stakeholder Input into Design:
   template:
@@ -6818,7 +7035,6 @@ Stakeholder Input into Design:
     ct: []
   ordinal: 106
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -6833,6 +7049,9 @@ Stakeholder Input into Design:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Stakeholder Input into Design
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Overall Rationale for Trial Design:
   template:
@@ -6865,7 +7084,6 @@ Overall Rationale for Trial Design:
     ct: []
   ordinal: 107
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -6880,6 +7098,9 @@ Overall Rationale for Trial Design:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Overall Rationale for Trial Design
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Rationale for Estimands:
   template:
@@ -6917,7 +7138,6 @@ Rationale for Estimands:
     ct: []
   ordinal: 108
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -6932,6 +7152,9 @@ Rationale for Estimands:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Rationale for Estimands
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Rationale for Intervention Model:
   template:
@@ -6968,7 +7191,6 @@ Rationale for Intervention Model:
     ct: []
   ordinal: 109
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -6983,6 +7205,9 @@ Rationale for Intervention Model:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Rationale for Intervention Model
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Rationale for Control Type:
   template:
@@ -7019,7 +7244,6 @@ Rationale for Control Type:
     ct: []
   ordinal: 110
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7034,6 +7258,9 @@ Rationale for Control Type:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Rationale for Control Type
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Rationale for Trial Duration:
   template:
@@ -7065,7 +7292,6 @@ Rationale for Trial Duration:
     ct: []
   ordinal: 111
   usdm:
-    map_status: To Be Mapped
     mappings:
     - conditions: []
       standard_mapping:
@@ -7073,6 +7299,9 @@ Rationale for Trial Duration:
         name: ''
       target: {}
     name: Rationale for Trial Duration
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Rationale for Adaptive or Novel Trial Design:
   template:
@@ -7105,7 +7334,6 @@ Rationale for Adaptive or Novel Trial Design:
     ct: []
   ordinal: 112
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7120,6 +7348,9 @@ Rationale for Adaptive or Novel Trial Design:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Rationale for Adaptive or Novel Trial Design
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Rationale for Interim Analysis:
   template:
@@ -7153,7 +7384,6 @@ Rationale for Interim Analysis:
     ct: []
   ordinal: 113
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7168,6 +7398,9 @@ Rationale for Interim Analysis:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Rationale for Interim Analysis
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Rationale for Other Trial Design Aspects:
   template:
@@ -7201,7 +7434,6 @@ Rationale for Other Trial Design Aspects:
     ct: []
   ordinal: 114
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7216,6 +7448,9 @@ Rationale for Other Trial Design Aspects:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Rationale for Other Trial Design Aspects
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Trial Stopping Rules:
   template:
@@ -7255,7 +7490,6 @@ Trial Stopping Rules:
     ct: []
   ordinal: 115
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7270,6 +7504,9 @@ Trial Stopping Rules:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Trial Stopping Rules
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Start of Trial:
   template:
@@ -7309,7 +7546,6 @@ Start of Trial:
     ct: []
   ordinal: 116
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7324,6 +7560,9 @@ Start of Trial:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Start of Trial
+    notes: ''
+  status:
+    value: ''
     notes: ''
 End of Trial:
   template:
@@ -7363,7 +7602,6 @@ End of Trial:
     ct: []
   ordinal: 117
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7378,6 +7616,9 @@ End of Trial:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: End of Trial
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Access to Trial Intervention after End of Trial:
   template:
@@ -7412,7 +7653,6 @@ Access to Trial Intervention after End of Trial:
     ct: []
   ordinal: 118
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7427,6 +7667,9 @@ Access to Trial Intervention after End of Trial:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Access to Trial Intervention after End of Trial
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Description of Trial Population and Rationale:
   template:
@@ -7482,7 +7725,6 @@ Description of Trial Population and Rationale:
     ct: []
   ordinal: 119
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7497,6 +7739,9 @@ Description of Trial Population and Rationale:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Description of Trial Population and Rationale
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Inclusion Criterion Number:
   template:
@@ -7527,7 +7772,6 @@ Inclusion Criterion Number:
     short_name: Inclusion Criterion Number
   ordinal: 120
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -7542,6 +7786,9 @@ Inclusion Criterion Number:
         path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@criteria/EligibilityCriterion/@identifier
           AND StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@criteria/EligibilityCriterion/@identifier
     name: Inclusion Criterion Number
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Inclusion Criterion:
   template:
@@ -7575,7 +7822,6 @@ Inclusion Criterion:
     ct: []
   ordinal: 121
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -7590,6 +7836,9 @@ Inclusion Criterion:
         path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@criteria/EligibilityCriterion/@text
           AND StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@criteria/EligibilityCriterion/@text
     name: Inclusion Criterion
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Exclusion Criterion Number:
   template:
@@ -7621,7 +7870,6 @@ Exclusion Criterion Number:
     short_name: Exclusion Criterion Number
   ordinal: 122
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -7636,6 +7884,9 @@ Exclusion Criterion Number:
         path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@criteria/EligibilityCriterion/@identifier
           AND StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@criteria/EligibilityCriterion/@identifier
     name: Exclusion Criterion Number
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Exclusion Criterion:
   template:
@@ -7669,7 +7920,6 @@ Exclusion Criterion:
     ct: []
   ordinal: 123
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -7684,6 +7934,9 @@ Exclusion Criterion:
         path: StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@criteria/EligibilityCriterion/@text
           AND StudyVersion/@studyDesigns/StudyDesign/@population/StudyDesignPopulation/@cohorts/StudyCohort/@criteria/EligibilityCriterion/@text
     name: Exclusion Criterion
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Definitions Related to Childbearing Potential:
   template:
@@ -7720,7 +7973,6 @@ Definitions Related to Childbearing Potential:
     ct: []
   ordinal: 124
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7735,6 +7987,9 @@ Definitions Related to Childbearing Potential:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Definitions Related to Childbearing Potential
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Contraception Requirements:
   template:
@@ -7767,7 +8022,6 @@ Contraception Requirements:
     ct: []
   ordinal: 125
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7782,6 +8036,9 @@ Contraception Requirements:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Contraception Requirements
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Lifestyle Restrictions:
   template:
@@ -7816,7 +8073,6 @@ Lifestyle Restrictions:
     ct: []
   ordinal: 126
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7831,6 +8087,9 @@ Lifestyle Restrictions:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Lifestyle Restrictions
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Meals and Dietary Restrictions:
   template:
@@ -7863,7 +8122,6 @@ Meals and Dietary Restrictions:
     ct: []
   ordinal: 127
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7878,6 +8136,9 @@ Meals and Dietary Restrictions:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Meals and Dietary Restrictions
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Caffeine Alcohol Tobacco and Other Restrictions:
   template:
@@ -7910,7 +8171,6 @@ Caffeine Alcohol Tobacco and Other Restrictions:
     ct: []
   ordinal: 128
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7925,6 +8185,9 @@ Caffeine Alcohol Tobacco and Other Restrictions:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Caffeine Alcohol Tobacco and Other Restrictions
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Physical Activity Restrictions:
   template:
@@ -7958,7 +8221,6 @@ Physical Activity Restrictions:
     ct: []
   ordinal: 129
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -7973,6 +8235,9 @@ Physical Activity Restrictions:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Physical Activity Restrictions
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Other Activity Restrictions:
   template:
@@ -8005,7 +8270,6 @@ Other Activity Restrictions:
     ct: []
   ordinal: 130
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -8020,6 +8284,9 @@ Other Activity Restrictions:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Other Activity Restrictions
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Screen Failure:
   template:
@@ -8055,7 +8322,6 @@ Screen Failure:
     ct: []
   ordinal: 131
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -8070,6 +8336,9 @@ Screen Failure:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Screen Failure
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Rescreening:
   template:
@@ -8105,7 +8374,6 @@ Rescreening:
     ct: []
   ordinal: 132
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -8120,6 +8388,9 @@ Rescreening:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Rescreening
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Description of the overview of trial interventions or a heading for the optional table:
   template:
@@ -8164,6 +8435,9 @@ Description of the overview of trial interventions or a heading for the optional
     repeating: 'No'
     ct: []
   ordinal: 133
+  status:
+    value: ''
+    notes: ''
 Arm Name:
   template:
     long_name: Enter Arm Name
@@ -8193,7 +8467,6 @@ Arm Name:
     ct: []
   ordinal: 134
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -8205,6 +8478,9 @@ Arm Name:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@label
     name: Arm Name
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Arm Type:
   template:
@@ -8261,7 +8537,6 @@ Arm Type:
       definition: An arm describing the sham comparator.
   ordinal: 135
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -8273,6 +8548,9 @@ Arm Type:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@arms/StudyArm/@type/Code/@decode
     name: Arm Type
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Intervention Name:
   template:
@@ -8303,7 +8581,6 @@ Intervention Name:
     ct: []
   ordinal: 136
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -8315,6 +8592,9 @@ Intervention Name:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@label
     name: Intervention Name
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Intervention Type:
   template:
@@ -8409,7 +8689,6 @@ Intervention Type:
       definition: Any procedure or test to diagnose a disease or disorder.
   ordinal: 137
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -8421,6 +8700,9 @@ Intervention Type:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@type/Code/@decode
     name: Intervention Type
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Pharmaceutical Dose Form:
   template:
@@ -8453,6 +8735,9 @@ Pharmaceutical Dose Form:
       Form
     ct: []
   ordinal: 138
+  status:
+    value: ''
+    notes: ''
 Dosage Strengths:
   template:
     long_name: Enter Dosage Strength(s)
@@ -8484,7 +8769,6 @@ Dosage Strengths:
     ct: []
   ordinal: 139
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -8498,6 +8782,9 @@ Dosage Strengths:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@ingredients/Ingredient/@substance/Substance/@strengths
     name: Dosage Strengths
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Dosage Levels:
   template:
@@ -8530,7 +8817,6 @@ Dosage Levels:
     ct: []
   ordinal: 140
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -8543,6 +8829,9 @@ Dosage Levels:
         path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@administrations/Administration/@dose/Quantity/@value
           + /@unit/AliasCode/@standardCode/Code/@decode
     name: Dosage Levels
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Route of Administration:
   template:
@@ -8575,7 +8864,6 @@ Route of Administration:
     ct: []
   ordinal: 141
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -8587,6 +8875,9 @@ Route of Administration:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@administrations/Administration/@route/AliasCode/@standardCode/Code/@decode
     name: Route of Administration
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Regimen-Treatment Period-Vaccination Regimen:
   template:
@@ -8619,7 +8910,6 @@ Regimen-Treatment Period-Vaccination Regimen:
     ct: []
   ordinal: 142
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -8631,6 +8921,9 @@ Regimen-Treatment Period-Vaccination Regimen:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@studyInterventions/StudyIntervention/@administrations/Administration/@frequency/AliasCode/@standardCode/Code/@decode
     name: Regimen-Treatment Period-Vaccination Regimen
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Use:
   template:
@@ -8702,7 +8995,6 @@ Use:
         prevent overdose).
   ordinal: 143
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -8714,6 +9006,9 @@ Use:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@role/Code/@decode
     name: Use
+    notes: ''
+  status:
+    value: ''
     notes: ''
 IMP or NIMP:
   template:
@@ -8756,7 +9051,6 @@ IMP or NIMP:
         medicinal product.
   ordinal: 144
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -8769,6 +9063,9 @@ IMP or NIMP:
         path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@productDesignation/
           Code/@decode
     name: IMP or NIMP
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Sourcing:
   template:
@@ -8808,7 +9105,6 @@ Sourcing:
       definition: An indication that the entity is obtained from a local source.
   ordinal: 145
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -8820,6 +9116,9 @@ Sourcing:
         notes: ''
         path: StudyVersion/@studyDesigns/StudyDesign/@studyCells/StudyCell/@elements/StudyElement/@studyInterventions/StudyIntervention/@administrations/Administration/@administrableProduct/AdministrableProduct/@sourcing/Code/@decode
     name: Sourcing
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Description of Investigational Trial Intervention:
   template:
@@ -8856,7 +9155,6 @@ Description of Investigational Trial Intervention:
     ct: []
   ordinal: 146
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -8871,6 +9169,9 @@ Description of Investigational Trial Intervention:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Description of Investigational Trial Intervention
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Rationale for Investigational Trial Intervention Dose and Regimen:
   template:
@@ -8916,7 +9217,6 @@ Rationale for Investigational Trial Intervention Dose and Regimen:
     ct: []
   ordinal: 147
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -8931,6 +9231,9 @@ Rationale for Investigational Trial Intervention Dose and Regimen:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Rationale for Investigational Trial Intervention Dose and Regimen
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Investigational Trial Intervention Administration:
   template:
@@ -8970,7 +9273,6 @@ Investigational Trial Intervention Administration:
     ct: []
   ordinal: 148
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -8985,6 +9287,9 @@ Investigational Trial Intervention Administration:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Investigational Trial Intervention Administration
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Investigational Trial Intervention Dose Modification:
   template:
@@ -9024,7 +9329,6 @@ Investigational Trial Intervention Dose Modification:
     ct: []
   ordinal: 149
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9039,6 +9343,9 @@ Investigational Trial Intervention Dose Modification:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Investigational Trial Intervention Dose Modification
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Management of Investigational Trial Intervention Overdose:
   template:
@@ -9073,7 +9380,6 @@ Management of Investigational Trial Intervention Overdose:
     ct: []
   ordinal: 150
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9088,6 +9394,9 @@ Management of Investigational Trial Intervention Overdose:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Management of Investigational Trial Intervention Overdose
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Preparation of Investigational Trial Intervention:
   template:
@@ -9132,7 +9441,6 @@ Preparation of Investigational Trial Intervention:
     ct: []
   ordinal: 151
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9147,6 +9455,9 @@ Preparation of Investigational Trial Intervention:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Preparation of Investigational Trial Intervention
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Storage and Handling of Investigational Trial Intervention:
   template:
@@ -9189,7 +9500,6 @@ Storage and Handling of Investigational Trial Intervention:
     ct: []
   ordinal: 152
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9204,6 +9514,9 @@ Storage and Handling of Investigational Trial Intervention:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Storage and Handling of Investigational Trial Intervention
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Accountability of Investigational Trial Intervention:
   template:
@@ -9235,7 +9548,6 @@ Accountability of Investigational Trial Intervention:
     ct: []
   ordinal: 153
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9250,6 +9562,9 @@ Accountability of Investigational Trial Intervention:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Accountability of Investigational Trial Intervention
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Participant Assignment to Investigational Trial Intervention:
   template:
@@ -9288,7 +9603,6 @@ Participant Assignment to Investigational Trial Intervention:
     ct: []
   ordinal: 154
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9303,6 +9617,9 @@ Participant Assignment to Investigational Trial Intervention:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Participant Assignment to Investigational Trial Intervention
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Randomisation:
   template:
@@ -9339,7 +9656,6 @@ Randomisation:
     ct: []
   ordinal: 155
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9354,6 +9670,9 @@ Randomisation:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Randomisation
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Measures to Maintain Blinding:
   template:
@@ -9384,7 +9703,6 @@ Measures to Maintain Blinding:
     ct: []
   ordinal: 156
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9399,6 +9717,9 @@ Measures to Maintain Blinding:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Measures to Maintain Blinding
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Emergency Unblinding at the Site:
   template:
@@ -9436,7 +9757,6 @@ Emergency Unblinding at the Site:
     ct: []
   ordinal: 157
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9451,6 +9771,9 @@ Emergency Unblinding at the Site:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Emergency Unblinding at the Site
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Investigational Trial Intervention Adherence:
   template:
@@ -9489,7 +9812,6 @@ Investigational Trial Intervention Adherence:
     ct: []
   ordinal: 158
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9504,6 +9826,9 @@ Investigational Trial Intervention Adherence:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Investigational Trial Intervention Adherence
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Description of Noninvestigational Trial Interventions:
   template:
@@ -9537,6 +9862,9 @@ Description of Noninvestigational Trial Interventions:
     repeating: 'No'
     ct: []
   ordinal: 159
+  status:
+    value: ''
+    notes: ''
 Background Trial Interventions:
   template:
     long_name: Enter Background Trial Interventions
@@ -9570,6 +9898,9 @@ Background Trial Interventions:
     repeating: 'No'
     ct: []
   ordinal: 160
+  status:
+    value: ''
+    notes: ''
 Rescue Therapy:
   template:
     long_name: Enter Rescue Therapy
@@ -9610,7 +9941,6 @@ Rescue Therapy:
     ct: []
   ordinal: 161
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9625,6 +9955,9 @@ Rescue Therapy:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Rescue Therapy
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Other Noninvestigational Trial Intervention:
   template:
@@ -9658,7 +9991,6 @@ Other Noninvestigational Trial Intervention:
     ct: []
   ordinal: 162
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9673,6 +10005,9 @@ Other Noninvestigational Trial Intervention:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Other Noninvestigational Trial Intervention
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Concomitant Therapy:
   template:
@@ -9710,7 +10045,6 @@ Concomitant Therapy:
     ct: []
   ordinal: 163
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9725,6 +10059,9 @@ Concomitant Therapy:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Concomitant Therapy
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Prohibited Concomitant Therapy:
   template:
@@ -9755,7 +10092,6 @@ Prohibited Concomitant Therapy:
     ct: []
   ordinal: 164
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9770,6 +10106,9 @@ Prohibited Concomitant Therapy:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Prohibited Concomitant Therapy
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Permitted Concomitant Therapy:
   template:
@@ -9800,7 +10139,6 @@ Permitted Concomitant Therapy:
     ct: []
   ordinal: 165
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9815,6 +10153,9 @@ Permitted Concomitant Therapy:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Permitted Concomitant Therapy
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Permanent Discontinuation of Trial Intervention:
   template:
@@ -9846,7 +10187,6 @@ Permanent Discontinuation of Trial Intervention:
     ct: []
   ordinal: 166
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9861,6 +10201,9 @@ Permanent Discontinuation of Trial Intervention:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Permanent Discontinuation of Trial Intervention
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Temporary Discontinuation of Trial Intervention:
   template:
@@ -9892,7 +10235,6 @@ Temporary Discontinuation of Trial Intervention:
     ct: []
   ordinal: 167
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9907,6 +10249,9 @@ Temporary Discontinuation of Trial Intervention:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Temporary Discontinuation of Trial Intervention
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Rechallenge:
   template:
@@ -9943,7 +10288,6 @@ Rechallenge:
     ct: []
   ordinal: 168
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -9958,6 +10302,9 @@ Rechallenge:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Rechallenge
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Participant Discontinuation or Withdrawal from Trial:
   template:
@@ -9998,7 +10345,6 @@ Participant Discontinuation or Withdrawal from Trial:
     ct: []
   ordinal: 169
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10013,6 +10359,9 @@ Participant Discontinuation or Withdrawal from Trial:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Participant Discontinuation or Withdrawal from Trial
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Management of Loss to Follow-Up:
   template:
@@ -10050,7 +10399,6 @@ Management of Loss to Follow-Up:
     ct: []
   ordinal: 170
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10065,6 +10413,9 @@ Management of Loss to Follow-Up:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Management of Loss to Follow-Up
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Trial Assessments and Procedures Considerations:
   template:
@@ -10097,7 +10448,6 @@ Trial Assessments and Procedures Considerations:
     ct: []
   ordinal: 171
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10112,6 +10462,9 @@ Trial Assessments and Procedures Considerations:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Trial Assessments and Procedures Considerations
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Screening Assessments and Procedures:
   template:
@@ -10148,7 +10501,6 @@ Screening Assessments and Procedures:
     ct: []
   ordinal: 172
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10163,6 +10515,9 @@ Screening Assessments and Procedures:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Screening Assessments and Procedures
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Baseline Assessments and Procedures:
   template:
@@ -10200,7 +10555,6 @@ Baseline Assessments and Procedures:
     ct: []
   ordinal: 173
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10215,6 +10569,9 @@ Baseline Assessments and Procedures:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Baseline Assessments and Procedures
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Efficacy Assessments and Procedures:
   template:
@@ -10247,7 +10604,6 @@ Efficacy Assessments and Procedures:
     ct: []
   ordinal: 174
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10262,6 +10618,9 @@ Efficacy Assessments and Procedures:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Efficacy Assessments and Procedures
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Safety Assessments and Procedures:
   template:
@@ -10293,7 +10652,6 @@ Safety Assessments and Procedures:
     ct: []
   ordinal: 175
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10308,6 +10666,9 @@ Safety Assessments and Procedures:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Safety Assessments and Procedures
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Physical Examination:
   template:
@@ -10340,7 +10701,6 @@ Physical Examination:
     ct: []
   ordinal: 176
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10355,6 +10715,9 @@ Physical Examination:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Physical Examination
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Vital Signs:
   template:
@@ -10387,7 +10750,6 @@ Vital Signs:
     ct: []
   ordinal: 177
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10402,6 +10764,9 @@ Vital Signs:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Vital Signs
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Electrocardiograms:
   template:
@@ -10435,7 +10800,6 @@ Electrocardiograms:
     ct: []
   ordinal: 178
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10450,6 +10814,9 @@ Electrocardiograms:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Electrocardiograms
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Clinical Laboratory Assessments:
   template:
@@ -10479,6 +10846,9 @@ Clinical Laboratory Assessments:
     repeating: 'No'
     ct: []
   ordinal: 179
+  status:
+    value: ''
+    notes: ''
 Pregnancy Testing:
   template:
     long_name: Enter Pregnancy Testing
@@ -10509,7 +10879,6 @@ Pregnancy Testing:
     ct: []
   ordinal: 180
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10524,6 +10893,9 @@ Pregnancy Testing:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Pregnancy Testing
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Suicidal Ideation and Behaviour Risk Monitoring:
   template:
@@ -10561,7 +10933,6 @@ Suicidal Ideation and Behaviour Risk Monitoring:
     ct: []
   ordinal: 181
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10576,6 +10947,9 @@ Suicidal Ideation and Behaviour Risk Monitoring:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Suicidal Ideation and Behaviour Risk Monitoring
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Pharmacokinetics:
   template:
@@ -10608,7 +10982,6 @@ Pharmacokinetics:
     ct: []
   ordinal: 182
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10623,6 +10996,9 @@ Pharmacokinetics:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Pharmacokinetics
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Genetics and Pharmacogenomics:
   template:
@@ -10655,7 +11031,6 @@ Genetics and Pharmacogenomics:
     ct: []
   ordinal: 183
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10670,6 +11045,9 @@ Genetics and Pharmacogenomics:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Genetics and Pharmacogenomics
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Pharmacodynamic Biomarkers:
   template:
@@ -10703,7 +11081,6 @@ Pharmacodynamic Biomarkers:
     ct: []
   ordinal: 184
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10718,6 +11095,9 @@ Pharmacodynamic Biomarkers:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Pharmacodynamic Biomarkers
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Other Biomarkers:
   template:
@@ -10750,7 +11130,6 @@ Other Biomarkers:
     ct: []
   ordinal: 185
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10765,6 +11144,9 @@ Other Biomarkers:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Other Biomarkers
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Immunogenicity Assessments:
   template:
@@ -10798,7 +11180,6 @@ Immunogenicity Assessments:
     ct: []
   ordinal: 186
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10813,6 +11194,9 @@ Immunogenicity Assessments:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Immunogenicity Assessments
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Medical Resource Utilisation and Health Economics:
   template:
@@ -10851,7 +11235,6 @@ Medical Resource Utilisation and Health Economics:
     ct: []
   ordinal: 187
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10866,6 +11249,9 @@ Medical Resource Utilisation and Health Economics:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Medical Resource Utilisation and Health Economics
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Definitions of Adverse Events:
   template:
@@ -10897,7 +11283,6 @@ Definitions of Adverse Events:
     ct: []
   ordinal: 188
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10912,6 +11297,9 @@ Definitions of Adverse Events:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Definitions of Adverse Events
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Definitions of Serious Adverse Events:
   template:
@@ -10943,7 +11331,6 @@ Definitions of Serious Adverse Events:
     ct: []
   ordinal: 189
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -10958,6 +11345,9 @@ Definitions of Serious Adverse Events:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Definitions of Serious Adverse Events
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Definitions of Product Complaints:
   template:
@@ -10988,6 +11378,9 @@ Definitions of Product Complaints:
     repeating: 'No'
     ct: []
   ordinal: 190
+  status:
+    value: ''
+    notes: ''
 Definitions of Medical Device Product Complaints:
   template:
     long_name: Enter Definitions of Medical Device Product Complaints
@@ -11017,6 +11410,9 @@ Definitions of Medical Device Product Complaints:
     repeating: 'No'
     ct: []
   ordinal: 191
+  status:
+    value: ''
+    notes: ''
 Event Type:
   template:
     long_name: Event Type
@@ -11097,7 +11493,6 @@ Event Type:
         to the appropriate regulatory authority.
   ordinal: 192
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11112,6 +11507,9 @@ Event Type:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Event Type
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Situational Scope:
   template:
@@ -11143,7 +11541,6 @@ Situational Scope:
     ct: []
   ordinal: 193
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11158,6 +11555,9 @@ Situational Scope:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Situational Scope
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Reportable Period Start:
   template:
@@ -11190,7 +11590,6 @@ Reportable Period Start:
     ct: []
   ordinal: 194
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11205,6 +11604,9 @@ Reportable Period Start:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Reportable Period Start
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Reportable Period End:
   template:
@@ -11238,7 +11640,6 @@ Reportable Period End:
     ct: []
   ordinal: 195
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11253,6 +11654,9 @@ Reportable Period End:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Reportable Period End
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Timing for Reporting to Sponsor or Designee:
   template:
@@ -11284,7 +11688,6 @@ Timing for Reporting to Sponsor or Designee:
     ct: []
   ordinal: 196
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11299,6 +11702,9 @@ Timing for Reporting to Sponsor or Designee:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Timing for Reporting to Sponsor or Designee
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Method for Reporting:
   template:
@@ -11332,7 +11738,6 @@ Method for Reporting:
     ct: []
   ordinal: 197
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11347,6 +11752,9 @@ Method for Reporting:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Method for Reporting
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Backup Method for Reporting:
   template:
@@ -11381,7 +11789,6 @@ Backup Method for Reporting:
     short_name: Backup Method for Reporting
   ordinal: 198
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11396,6 +11803,9 @@ Backup Method for Reporting:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Backup Method for Reporting
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Event Collection and Reporting Timing:
   template:
@@ -11428,7 +11838,6 @@ Event Collection and Reporting Timing:
     ct: []
   ordinal: 199
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11443,6 +11852,9 @@ Event Collection and Reporting Timing:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Event Collection and Reporting Timing
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Identification:
   template:
@@ -11476,7 +11888,6 @@ Identification:
     ct: []
   ordinal: 200
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11491,6 +11902,9 @@ Identification:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Identification
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Severity:
   template:
@@ -11521,7 +11935,6 @@ Severity:
     ct: []
   ordinal: 201
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11536,6 +11949,9 @@ Severity:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Severity
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Causality:
   template:
@@ -11567,7 +11983,6 @@ Causality:
     ct: []
   ordinal: 202
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11582,6 +11997,9 @@ Causality:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Causality
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Recording:
   template:
@@ -11612,7 +12030,6 @@ Recording:
     ct: []
   ordinal: 203
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11627,6 +12044,9 @@ Recording:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Recording
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Follow-up:
   template:
@@ -11660,7 +12080,6 @@ Follow-up:
     ct: []
   ordinal: 204
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11675,6 +12094,9 @@ Follow-up:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Follow-up
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Reporting:
   template:
@@ -11709,7 +12131,6 @@ Reporting:
     ct: []
   ordinal: 205
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11724,6 +12145,9 @@ Reporting:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Reporting
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Regulatory Reporting Requirements:
   template:
@@ -11757,7 +12181,6 @@ Regulatory Reporting Requirements:
     ct: []
   ordinal: 206
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11772,6 +12195,9 @@ Regulatory Reporting Requirements:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Regulatory Reporting Requirements
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Adverse Events of Special Interest:
   template:
@@ -11804,6 +12230,9 @@ Adverse Events of Special Interest:
     ct: []
     short_name: Adverse Events of Special Interest
   ordinal: 207
+  status:
+    value: ''
+    notes: ''
 Disease Related Events or Outcomes Not Qualifying as AEs or SAEs:
   template:
     long_name: Enter Disease-related Events or Outcomes not Qualifying as AEs or SAEs
@@ -11838,7 +12267,6 @@ Disease Related Events or Outcomes Not Qualifying as AEs or SAEs:
     short_name: Disease Related Events or Outcomes Not Qualifying as AEs or SAEs
   ordinal: 208
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11853,6 +12281,9 @@ Disease Related Events or Outcomes Not Qualifying as AEs or SAEs:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Disease Related Events or Outcomes Not Qualifying as AEs or SAEs
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Participants Who Become Pregnant During the Trial:
   template:
@@ -11886,7 +12317,6 @@ Participants Who Become Pregnant During the Trial:
     ct: []
   ordinal: 209
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11901,6 +12331,9 @@ Participants Who Become Pregnant During the Trial:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Participants Who Become Pregnant During the Trial
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Participants Whose Partners Become Pregnant During the Trial:
   template:
@@ -11934,7 +12367,6 @@ Participants Whose Partners Become Pregnant During the Trial:
     ct: []
   ordinal: 210
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11949,6 +12381,9 @@ Participants Whose Partners Become Pregnant During the Trial:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Participants Whose Partners Become Pregnant During the Trial
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Special Safety Situations:
   template:
@@ -11982,7 +12417,6 @@ Special Safety Situations:
     ct: []
   ordinal: 211
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -11997,6 +12431,9 @@ Special Safety Situations:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Special Safety Situations
+    notes: ''
+  status:
+    value: ''
     notes: ''
 General Considerations:
   template:
@@ -12032,7 +12469,6 @@ General Considerations:
     ct: []
   ordinal: 212
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12047,6 +12483,9 @@ General Considerations:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: General Considerations
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Analysis Sets:
   template:
@@ -12082,7 +12521,6 @@ Analysis Sets:
     ct: []
   ordinal: 213
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12097,6 +12535,9 @@ Analysis Sets:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Analysis Sets
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Analyses of Demographics and Other Baseline Variables:
   template:
@@ -12138,7 +12579,6 @@ Analyses of Demographics and Other Baseline Variables:
     ct: []
   ordinal: 214
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12153,6 +12593,9 @@ Analyses of Demographics and Other Baseline Variables:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Analyses of Demographics and Other Baseline Variables
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Statistical Analysis Method:
   template:
@@ -12198,7 +12641,6 @@ Statistical Analysis Method:
     short_name: Statistical Analysis Method
   ordinal: 215
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12213,6 +12655,9 @@ Statistical Analysis Method:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Statistical Analysis Method
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Handling of Data in Relation to Primary Estimands:
   template:
@@ -12253,7 +12698,6 @@ Handling of Data in Relation to Primary Estimands:
     ct: []
   ordinal: 216
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12268,6 +12712,9 @@ Handling of Data in Relation to Primary Estimands:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Handling of Data in Relation to Primary Estimands
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Handling of Missing Data in Relation to Primary Estimands:
   template:
@@ -12302,6 +12749,9 @@ Handling of Missing Data in Relation to Primary Estimands:
       (10.4.X.1, 10.4.X.2, 10.4.X.3, 10.4.X.4, 10.4.X.5).
     ct: []
   ordinal: 217
+  status:
+    value: ''
+    notes: ''
 Sensitivity Analysis:
   template:
     long_name: Enter Sensitivity Analysis
@@ -12339,7 +12789,6 @@ Sensitivity Analysis:
     ct: []
   ordinal: 218
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12354,6 +12803,9 @@ Sensitivity Analysis:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Sensitivity Analysis
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Supplementary Analysis:
   template:
@@ -12391,7 +12843,6 @@ Supplementary Analysis:
     ct: []
   ordinal: 219
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12406,6 +12857,9 @@ Supplementary Analysis:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Supplementary Analysis
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Handling of Data in Relation to Secondary Estimands:
   template:
@@ -12439,7 +12893,6 @@ Handling of Data in Relation to Secondary Estimands:
     ct: []
   ordinal: 220
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12454,6 +12907,9 @@ Handling of Data in Relation to Secondary Estimands:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Handling of Data in Relation to Secondary Estimands
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Handling of Missing Data in Relation to Secondary Estimands:
   template:
@@ -12487,7 +12943,6 @@ Handling of Missing Data in Relation to Secondary Estimands:
     ct: []
   ordinal: 221
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12502,6 +12957,9 @@ Handling of Missing Data in Relation to Secondary Estimands:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Handling of Missing Data in Relation to Secondary Estimands
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Secondary Objectives Sensitivity Analysis:
   template:
@@ -12538,7 +12996,6 @@ Secondary Objectives Sensitivity Analysis:
     short_name: Secondary Objectives Sensitivity Analysis
   ordinal: 222
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12553,6 +13010,9 @@ Secondary Objectives Sensitivity Analysis:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Secondary Objectives Sensitivity Analysis
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Secondary Objectives Supplementary Analysis:
   template:
@@ -12589,7 +13049,6 @@ Secondary Objectives Supplementary Analysis:
     short_name: Secondary Objectives Supplementary Analysis
   ordinal: 223
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12604,6 +13063,9 @@ Secondary Objectives Supplementary Analysis:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Secondary Objectives Supplementary Analysis
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Analysis Associated with Exploratory Objectives:
   template:
@@ -12639,7 +13101,6 @@ Analysis Associated with Exploratory Objectives:
     short_name: Analysis Associated with Exploratory Objectives
   ordinal: 224
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12654,6 +13115,9 @@ Analysis Associated with Exploratory Objectives:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Analysis Associated with Exploratory Objectives
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Safety Analyses:
   template:
@@ -12693,7 +13157,6 @@ Safety Analyses:
     ct: []
   ordinal: 225
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12708,6 +13171,9 @@ Safety Analyses:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Safety Analyses
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Other Analyses:
   template:
@@ -12741,7 +13207,6 @@ Other Analyses:
     ct: []
   ordinal: 226
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12756,6 +13221,9 @@ Other Analyses:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Other Analyses
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Interim Analyses:
   template:
@@ -12788,7 +13256,6 @@ Interim Analyses:
     ct: []
   ordinal: 227
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12803,6 +13270,9 @@ Interim Analyses:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Interim Analyses
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Multiplicity Adjustments:
   template:
@@ -12859,7 +13329,6 @@ Multiplicity Adjustments:
     ct: []
   ordinal: 228
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12874,6 +13343,9 @@ Multiplicity Adjustments:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Multiplicity Adjustments
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Sample Size Determination:
   template:
@@ -12908,7 +13380,6 @@ Sample Size Determination:
     ct: []
   ordinal: 229
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12923,6 +13394,9 @@ Sample Size Determination:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Sample Size Determination
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Regulatory and Ethical Considerations:
   template:
@@ -12955,7 +13429,6 @@ Regulatory and Ethical Considerations:
     ct: []
   ordinal: 230
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -12970,6 +13443,9 @@ Regulatory and Ethical Considerations:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Regulatory and Ethical Considerations
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Trial Oversight:
   template:
@@ -13009,7 +13485,6 @@ Trial Oversight:
     ct: []
   ordinal: 231
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13024,6 +13499,9 @@ Trial Oversight:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Trial Oversight
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Investigator Responsibilities:
   template:
@@ -13058,7 +13536,6 @@ Investigator Responsibilities:
     ct: []
   ordinal: 232
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13073,6 +13550,9 @@ Investigator Responsibilities:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Investigator Responsibilities
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Sponsor Responsibilities:
   template:
@@ -13105,7 +13585,6 @@ Sponsor Responsibilities:
     ct: []
   ordinal: 233
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13120,6 +13599,9 @@ Sponsor Responsibilities:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Sponsor Responsibilities
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Description of Informed Consent Process:
   template:
@@ -13155,7 +13637,6 @@ Description of Informed Consent Process:
     ct: []
   ordinal: 234
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13170,6 +13651,9 @@ Description of Informed Consent Process:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Description of Informed Consent Process
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Description of Assent Process:
   template:
@@ -13205,7 +13689,6 @@ Description of Assent Process:
     ct: []
   ordinal: 235
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13220,6 +13703,9 @@ Description of Assent Process:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Description of Assent Process
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Description of Emergency Consent Process:
   template:
@@ -13255,7 +13741,6 @@ Description of Emergency Consent Process:
     ct: []
   ordinal: 236
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13270,6 +13755,9 @@ Description of Emergency Consent Process:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Description of Emergency Consent Process
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Informed Consent for Rescreening:
   template:
@@ -13305,7 +13793,6 @@ Informed Consent for Rescreening:
     ct: []
   ordinal: 237
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13320,6 +13807,9 @@ Informed Consent for Rescreening:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Informed Consent for Rescreening
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Informed Consent for Use of Remaining Samples in Exploratory Research:
   template:
@@ -13364,7 +13854,6 @@ Informed Consent for Use of Remaining Samples in Exploratory Research:
     short_name: Informed Consent for Use of Remaining Samples in Exploratory Research
   ordinal: 238
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13379,6 +13868,9 @@ Informed Consent for Use of Remaining Samples in Exploratory Research:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Informed Consent for Use of Remaining Samples in Exploratory Research
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Committees:
   template:
@@ -13416,7 +13908,6 @@ Committees:
     ct: []
   ordinal: 239
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13431,6 +13922,9 @@ Committees:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Committees
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Insurance and Indemnity:
   template:
@@ -13465,7 +13959,6 @@ Insurance and Indemnity:
     ct: []
   ordinal: 240
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13480,6 +13973,9 @@ Insurance and Indemnity:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Insurance and Indemnity
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Risk-Based Quality Management:
   template:
@@ -13514,7 +14010,6 @@ Risk-Based Quality Management:
     ct: []
   ordinal: 241
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13529,6 +14024,9 @@ Risk-Based Quality Management:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Risk-Based Quality Management
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Data Governance:
   template:
@@ -13565,7 +14063,6 @@ Data Governance:
     ct: []
   ordinal: 242
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13580,6 +14077,9 @@ Data Governance:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Data Governance
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Data Protection:
   template:
@@ -13617,7 +14117,6 @@ Data Protection:
     ct: []
   ordinal: 243
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13632,6 +14131,9 @@ Data Protection:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Data Protection
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Source Data Introduction:
   template:
@@ -13675,7 +14177,6 @@ Source Data Introduction:
     ct: []
   ordinal: 244
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13690,6 +14191,9 @@ Source Data Introduction:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Source Data Introduction
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Investigator Expectations for Source Data:
   template:
@@ -13722,7 +14226,6 @@ Investigator Expectations for Source Data:
     ct: []
   ordinal: 245
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13737,6 +14240,9 @@ Investigator Expectations for Source Data:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Investigator Expectations for Source Data
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Trial Monitor Expectations for Source Data:
   template:
@@ -13769,7 +14275,6 @@ Trial Monitor Expectations for Source Data:
     ct: []
   ordinal: 246
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13784,6 +14289,9 @@ Trial Monitor Expectations for Source Data:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Trial Monitor Expectations for Source Data
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Identification of Source Data:
   template:
@@ -13814,7 +14322,6 @@ Identification of Source Data:
     ct: []
   ordinal: 247
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13829,6 +14336,9 @@ Identification of Source Data:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Identification of Source Data
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Protocol Deviations:
   template:
@@ -13862,7 +14372,6 @@ Protocol Deviations:
     ct: []
   ordinal: 248
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13877,6 +14386,9 @@ Protocol Deviations:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Protocol Deviations
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Decision Rights for Site Closure:
   template:
@@ -13910,7 +14422,6 @@ Decision Rights for Site Closure:
     ct: []
   ordinal: 249
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13925,6 +14436,9 @@ Decision Rights for Site Closure:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Decision Rights for Site Closure
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Criteria for Early Closure:
   template:
@@ -13956,7 +14470,6 @@ Criteria for Early Closure:
     ct: []
   ordinal: 250
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -13971,6 +14484,9 @@ Criteria for Early Closure:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Criteria for Early Closure
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Responsibilities Following Early Site Closure:
   template:
@@ -14005,7 +14521,6 @@ Responsibilities Following Early Site Closure:
     ct: []
   ordinal: 251
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -14020,6 +14535,9 @@ Responsibilities Following Early Site Closure:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Responsibilities Following Early Site Closure
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Data Dissemination:
   template:
@@ -14053,7 +14571,6 @@ Data Dissemination:
     ct: []
   ordinal: 252
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -14068,6 +14585,9 @@ Data Dissemination:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Data Dissemination
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Clinical Laboratory Tests:
   template:
@@ -14103,7 +14623,6 @@ Clinical Laboratory Tests:
     ct: []
   ordinal: 253
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -14118,6 +14637,9 @@ Clinical Laboratory Tests:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Clinical Laboratory Tests
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Country-Region Identifier:
   template:
@@ -14165,7 +14687,6 @@ Country-Region Identifier:
     ct: []
   ordinal: 254
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -14180,6 +14701,9 @@ Country-Region Identifier:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Country-Region Identifier
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Country-Region Specific Requirements:
   template:
@@ -14221,7 +14745,6 @@ Country-Region Specific Requirements:
     short_name: Country-Region Specific Requirements
   ordinal: 255
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -14236,6 +14759,9 @@ Country-Region Specific Requirements:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Country-Region Specific Requirements
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Country-Region Specific Protocol Clarifications:
   template:
@@ -14280,7 +14806,6 @@ Country-Region Specific Protocol Clarifications:
     short_name: Country-Region Specific Protocol Clarifications
   ordinal: 256
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -14295,6 +14820,9 @@ Country-Region Specific Protocol Clarifications:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Country-Region Specific Protocol Clarifications
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Prior Amendment Identifier:
   template:
@@ -14327,7 +14855,6 @@ Prior Amendment Identifier:
     short_name: Prior Amendment Identifier
   ordinal: 257
   usdm:
-    map_status: Mapped
     mappings:
     - conditions: []
       standard_mapping:
@@ -14337,6 +14864,9 @@ Prior Amendment Identifier:
         notes: ''
         path: StudyVersion/@amendments/StudyAmendment/@number
     name: Prior Amendment Identifier
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Sponsor Approval Date:
   template:
@@ -14369,7 +14899,6 @@ Sponsor Approval Date:
     ct: []
   ordinal: 258
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Use to select the protocol amendment approval date
@@ -14381,6 +14910,9 @@ Sponsor Approval Date:
         notes: ''
         path: StudyVersion/@dateValues/GovernanceDate/@dateValue
     name: Sponsor Approval Date
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Amendment Details:
   template:
@@ -14463,7 +14995,6 @@ Amendment Details:
         below, beginning with the most recent.
   ordinal: 259
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -14505,6 +15036,9 @@ Amendment Details:
     Example Value(s): '%VALUE = <This protocol has not been amended previously.>'
     Comment: This looks wrong, needs checking. Think the M11 info is wrong, dont really
       expect CT here.
+  status:
+    value: ''
+    notes: ''
 Primary Reason Other:
   template:
     long_name: Primary Reason Other
@@ -14540,7 +15074,6 @@ Primary Reason Other:
     short_name: Primary Reason Other
   ordinal: 260
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -14552,6 +15085,9 @@ Primary Reason Other:
         notes: ''
         path: StudyVersion/@amendments/StudyAmendment/@primaryReason/StudyAmendmentReason/@otherReason
     name: Primary Reason Other
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Secondary Reason Other:
   template:
@@ -14587,7 +15123,6 @@ Secondary Reason Other:
     short_name: Secondary Reason Other
   ordinal: 261
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -14599,6 +15134,9 @@ Secondary Reason Other:
         notes: ''
         path: StudyVersion/@amendments/StudyAmendment/@secondaryReasons/StudyAmendmentReason/@otherReason
     name: Secondary Reason Other
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Briefly Explain Substantial Impact On Safety:
   template:
@@ -14639,7 +15177,6 @@ Briefly Explain Substantial Impact On Safety:
     short_name: Briefly Explain Substantial Impact On Safety
   ordinal: 262
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -14653,6 +15190,9 @@ Briefly Explain Substantial Impact On Safety:
         notes: ''
         path: StudyVersion/@amendments/StudyAmendment/@impacts/StudyAmendmentImpact/@text
     name: Briefly Explain Substantial Impact On Safety
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Briefly Explain Substantial Impact on Data:
   template:
@@ -14691,7 +15231,6 @@ Briefly Explain Substantial Impact on Data:
     short_name: Briefly Explain Substantial Impact on Data
   ordinal: 263
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -14705,6 +15244,9 @@ Briefly Explain Substantial Impact on Data:
         notes: ''
         path: StudyVersion/@amendments/StudyAmendment/@impacts/StudyAmendmentImpact/@text
     name: Briefly Explain Substantial Impact on Data
+    notes: ''
+  status:
+    value: ''
     notes: ''
 specify alternative location:
   template:
@@ -14739,7 +15281,6 @@ specify alternative location:
     ct: []
   ordinal: 264
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -14755,6 +15296,9 @@ specify alternative location:
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: specify alternative location
     notes: Textual statement of the alternative location of the amendment information
+  status:
+    value: ''
+    notes: ''
 Amendment Identifier 3:
   template:
     long_name: enter Amendment Identifier
@@ -14786,6 +15330,9 @@ Amendment Identifier 3:
     repeating: Yes, repeatable one table per amendment identifier
     ct: []
   ordinal: 265
+  status:
+    value: ''
+    notes: ''
 Previous Amendment Overview Description of Change:
   template:
     long_name: Enter Description of Change
@@ -14818,7 +15365,6 @@ Previous Amendment Overview Description of Change:
     short_name: Previous Amendment Overview Description of Change
   ordinal: 266
   usdm:
-    map_status: Mapped
     mappings:
     - conditions: []
       standard_mapping:
@@ -14828,6 +15374,9 @@ Previous Amendment Overview Description of Change:
         notes: ''
         path: StudyVersion/@amendments/StudyAmendment/@changes/StudyChange/@summary
     name: Previous Amendment Overview Description of Change
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Previous Amendment Overview Brief Rationale for Change:
   template:
@@ -14863,7 +15412,6 @@ Previous Amendment Overview Brief Rationale for Change:
     short_name: Previous Amendment Overview Brief Rationale for Change
   ordinal: 267
   usdm:
-    map_status: Mapped
     mappings:
     - conditions: []
       standard_mapping:
@@ -14873,6 +15421,9 @@ Previous Amendment Overview Brief Rationale for Change:
         notes: ''
         path: StudyVersion/@amendments/StudyAmendment/@changes/StudyChange/@rationale
     name: Previous Amendment Overview Brief Rationale for Change
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Previous Amendment Overview Section:
   template:
@@ -14937,7 +15488,6 @@ Previous Amendment Overview Section:
     short_name: Previous Amendment Overview Section
   ordinal: 268
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -14949,6 +15499,9 @@ Previous Amendment Overview Section:
         notes: ''
         path: StudyVersion/@amendments/StudyAmendment/@changes/StudyChange/@changedSections/DocumentContentReference/@sectionTitle
     name: Previous Amendment Overview Section
+    notes: ''
+  status:
+    value: ''
     notes: ''
 Prior Protocol Amendments:
   template:
@@ -15014,7 +15567,6 @@ Prior Protocol Amendments:
         below, beginning with the most recent.
   ordinal: 269
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -15031,6 +15583,9 @@ Prior Protocol Amendments:
     name: Prior Protocol Amendments
     notes: 'This is a textual statement regarding the number of amendments to the
       protocol, on of three possible values: 0, 1 or many'
+  status:
+    value: ''
+    notes: ''
 Glossary of Terms and Abbreviations:
   template:
     long_name: Enter Glossary of Terms and Abbreviations
@@ -15061,7 +15616,6 @@ Glossary of Terms and Abbreviations:
     ct: []
   ordinal: 270
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: ''
@@ -15081,6 +15635,9 @@ Glossary of Terms and Abbreviations:
         notes: The actual section text
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: Glossary of Terms and Abbreviations
+    notes: ''
+  status:
+    value: ''
     notes: ''
 References:
   template:
@@ -15114,7 +15671,6 @@ References:
     ct: []
   ordinal: 271
   usdm:
-    map_status: Mapped
     mappings:
     - conditions:
       - notes: Used to select the protocol document
@@ -15129,4 +15685,7 @@ References:
         notes: ''
         path: StudyVersion/@documentVersion/StudyProtocolDocumentVersion/@contents/NarrativeContent/@contentItem/NarrativeContentItem/@text
     name: References
+    notes: ''
+  status:
+    value: ''
     notes: ''

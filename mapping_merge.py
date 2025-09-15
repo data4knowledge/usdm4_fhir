@@ -139,13 +139,23 @@ def merge_mapping_files():
         
         # Check for USDM match
         if key in usdm_data:
-            merged_entry["usdm"] = usdm_data[key]
+            usdm_entry = usdm_data[key].copy()
+            # Remove the map_status attribute from usdm if it exists
+            if 'map_status' in usdm_entry:
+                del usdm_entry['map_status']
+            merged_entry["usdm"] = usdm_entry
             usdm_matches += 1
         
         # Check for FHIR match
         if key in fhir_data:
             merged_entry["fhir"] = fhir_data[key]
             fhir_matches += 1
+        
+        # Add top-level status field with empty value and notes
+        merged_entry["status"] = {
+            "value": "",
+            "notes": ""
+        }
         
         # Add to merged data
         merged_data[key] = merged_entry

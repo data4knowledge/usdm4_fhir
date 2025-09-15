@@ -50,6 +50,13 @@
 }
 ```
 
+### Merged File Status
+
+| Value | Meaning |
+| :---- | :---- |
+| Full | Fully implemented |
+| Extra | Using the extra file to circumnvigate some issue or other, see the notes field |
+| Other | Something else is going on 
 
 
 

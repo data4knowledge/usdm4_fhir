@@ -81,8 +81,9 @@ class ResearchStudyFactoryP3(BaseFactory):
                         LabelTypeFactory(usdm_code=st.type, text=st.text).item
                     )
 
-            # Identifiers
-            for identifier in self._version.studyIdentifiers:
+            # Sponsor Identifier
+            identifier = self._version.sponsor_identifier()
+            if identifier:
                 org = identifier.scoped_by(self._organizations)
                 identifier_cc = CodeableConceptFactory(text=org.type.decode)
                 self.item.identifier.append(
@@ -197,11 +198,25 @@ class ResearchStudyFactoryP3(BaseFactory):
             self.item.associatedParty.append(ap.item)
             self._resources.append(org)
 
-            # Manufacturer Name and Address
-            # x = self._title_page['manufacturer_name_and_address']
+            # Co-sponsor Name and Address
+            
+            # Local-sponsor Name and Address
+            
+            # Device Manufacturer Name and Address
 
-            # Regulatory Agency Identifiers, see above
-            # x = self._title_page['regulatory_agency_identifiers']
+            # Regulatory Agency Identifiers
+            # Sponsor Identifier
+            identifiers = self._version.regulatory_identifiers()
+            for identifier in identifiers:
+                org = identifier.scoped_by(self._organizations)
+                identifier_cc = CodeableConceptFactory(text=org.type.decode)
+                self.item.identifier.append(
+                    {
+                        "type": identifier_cc.item,
+                        "system": "https://example.org/sponsor-identifier",
+                        "value": identifier.text,
+                    }
+                )
 
             # # Sponsor Approval
             # g_date: GovernanceDate = self._version.approval_date()

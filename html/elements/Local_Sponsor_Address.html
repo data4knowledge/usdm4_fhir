@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Sponsor Address - FHIR Mapping Navigator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://bootswatch.com/5/yeti/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .navbar-brand {
+            font-weight: bold;
+        }
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+        .section-card {
+            margin-bottom: 1rem;
+        }
+        .element-card {
+            margin-bottom: 0.5rem;
+        }
+        .data-panel {
+            margin-bottom: 1rem;
+        }
+        .search-box {
+            margin-bottom: 2rem;
+        }
+        .breadcrumb {
+            background-color: #f8f9fa;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
+        }
+        .metadata {
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+        .xml-code {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 0.375rem;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-sitemap me-2"></i>FHIR Mapping Navigator
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <nav aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../index.html"><i class="fas fa-home"></i> Home</a></li><li class="breadcrumb-item"><a href="../sections/Title_Page.html">Title Page</a></li><li class="breadcrumb-item active" aria-current="page">Local Sponsor Address</li></ol></nav>
+        
+    <div class="row">
+        <div class="col-12">
+            <h1>Local Sponsor Address</h1>
+            <div class="mb-3">
+                <span class="badge bg-info me-1">USDM Mapped</span><span class="badge bg-warning me-1">FHIR Mapped</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card data-panel">
+        <div class="card-header" data-bs-toggle="collapse" data-bs-target="#template-panel" style="cursor: pointer;">
+            <i class="fas fa-chevron-down me-2"></i>Template Information
+        </div>
+        <div id="template-panel" class="collapse">
+            <div class="card-body">
+    <div class="mb-2" ><strong>long_name:</strong> Enter Local Sponsor Address</div><div class="mb-2" ><strong>short_name:</strong> Local Sponsor Address</div><div class="mb-2" ><strong>original_name:</strong> Local Sponsor Address</div><div class="mb-2" ><strong>optional:</strong> True</div><div class="mb-2" ><strong>section_number:</strong> </div><div class="mb-2" ><strong>section_title:</strong> Title Page</div><div class="mb-2"><strong style="color: red;">instructions:</strong></div><ul class="list-unstyled ms-3" style="color: red;"><li>In some countries, the clinical trial Sponsor may be the local affiliate company (or designee). In such cases, indicate this in the Local Sponsor Name and Address Field.</li></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card data-panel">
+        <div class="card-header" data-bs-toggle="collapse" data-bs-target="#technical-panel" style="cursor: pointer;">
+            <i class="fas fa-chevron-down me-2"></i>Technical Specification
+        </div>
+        <div id="technical-panel" class="collapse">
+            <div class="card-body">
+    <div class="mb-2" ><strong>name:</strong> Local Sponsor Address</div><div class="mb-2" ><strong>data_type:</strong> Text</div><div class="mb-2"><strong >definition:</strong></div><ul class="list-unstyled ms-3" ><li><strong>c_code:</strong> C218681For review purpose, see definition of the controlled terminology below</li><li><strong>text:</strong> The legally registered address of the sponsor&#x27;s legal representative at a geographical region within which the sponsor has no legal presence.</li></ul><div class="mb-2" style="color: red;"><strong>guidance:</strong> In some countries, the clinical trial Sponsor may be the local affiliate company (or designee). In such cases, indicate this in the Sponsor Local Name and Address Field.</div><div class="mb-2" ><strong>conformance:</strong> Optional</div><div class="mb-2" ><strong>cardinality:</strong> One to one; One to Local Sponsor; One to Country</div><div class="mb-2" ><strong>relationship:</strong> Title page</div><div class="mb-2" ><strong>value:</strong> Text</div><div class="mb-2"><strong >business_rules:</strong></div><div class="ms-3" ><div><strong>value_allowed:</strong> Yes</div><div><strong>relationship:</strong> Heading; Local Sponsor; Country</div><div><strong>concept:</strong> C218681</div><div><strong>other:</strong> </div></div><div class="mb-2" ><strong>repeating:</strong> No</div><div class="mb-2"><strong >ct:</strong></div><ul class="list-unstyled ms-3" ></ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card data-panel">
+        <div class="card-header" data-bs-toggle="collapse" data-bs-target="#usdm-panel" style="cursor: pointer;">
+            <i class="fas fa-chevron-down me-2"></i>USDM Mapping
+        </div>
+        <div id="usdm-panel" class="collapse">
+            <div class="card-body">
+    <div class="mb-2" ><strong>map_status:</strong> Mapped</div><div class="mb-2"><strong >mappings:</strong></div><ul class="list-unstyled ms-3" ><li><strong>conditions:</strong> [{&#x27;notes&#x27;: &#x27;&#x27;, &#x27;path&#x27;: &#x27;StudyRole/@code/Code/@decode=&quot;Local Sponsor&quot;&#x27;}]</li><li><strong>standard_mapping:</strong> {&#x27;category&#x27;: &#x27;&#x27;, &#x27;name&#x27;: &#x27;&#x27;}</li><li><strong>target:</strong> {&#x27;notes&#x27;: &#x27;&#x27;, &#x27;path&#x27;: &#x27;StudyRole/@organizations/Organization/@legalAddress/Address/@text&#x27;}</li><li><strong>conditions:</strong> [{&#x27;notes&#x27;: &#x27;&#x27;, &#x27;path&#x27;: &#x27;StudyRole/@code/Code/@decode=&quot;Local Sponsor&quot;&#x27;}]</li><li><strong>standard_mapping:</strong> {&#x27;category&#x27;: &#x27;&#x27;, &#x27;name&#x27;: &#x27;&#x27;}</li><li><strong>target:</strong> {&#x27;notes&#x27;: &#x27;&#x27;, &#x27;path&#x27;: &#x27;StudyRole/@assignedPersons/AssignedPerson/@organization/Organization/@legalAddress/Address/@text&#x27;}</li></ul><div class="mb-2" ><strong>name:</strong> Local Sponsor Address</div><div class="mb-2" ><strong>notes:</strong> </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card data-panel">
+        <div class="card-header" data-bs-toggle="collapse" data-bs-target="#fhir-panel" style="cursor: pointer;">
+            <i class="fas fa-chevron-down me-2"></i>FHIR Mapping
+        </div>
+        <div id="fhir-panel" class="collapse">
+            <div class="card-body">
+    <div class="mb-2" ><strong>Resource:</strong> ResearchStudy.associatedParty.party.reference --&gt;
+Organization.contact.address</div>
+                <div class="mb-3">
+                    <strong >Sample XML:</strong>
+                    <div class="xml-code" >&lt;associatedParty&gt;
+    &lt;role&gt;
+        &lt;coding&gt;
+            &lt;system value= %SYSTEM /&gt;
+            &lt;code value= %CODE /&gt;
+            &lt;display value= %DISPLAY /&gt;
+        &lt;/coding&gt;
+    &lt;/role&gt;
+    &lt;party&gt;
+        &lt;reference value="Organization/%ID" /&gt;
+    &lt;/party&gt;
+&lt;/associatedParty&gt;
+
+&lt;Organization&gt;
+    &lt;id value= %ID /&gt; 
+    ... 
+    &lt;contact&gt;
+        &lt;address&gt;
+            &lt;line value= %LINE1 /&gt;
+            &lt;line value= %LINE2 /&gt;
+            &lt;city value= %CITY /&gt;
+            &lt;country value= %COUNTRY /&gt;
+            &lt;postalCode value= %POSTALCODE /&gt;
+        &lt;/address&gt;
+    &lt;/contact&gt; 
+    ...
+ &lt;/Organization&gt;</div>
+                </div>
+                <div class="mb-2" ><strong>Example Value(s):</strong> %SYSTEM = $NCIT
+%CODE = C215670
+%DISPLAY =Local Legal Sponsor
+----------------
+%ID = &lt;org-yyy&gt;
+%LINE1 = &lt;yyy&gt;
+%LINE2 = &lt;yyy&gt;
+%CITY = &lt;yyy&gt;
+%COUNTRY = &lt;yyy&gt;
+%POSTALCODE = &lt;yyy&gt;
+
+Note: Address has many options for format</div><div class="mb-2" ><strong>Binding (strength):</strong> $study-role-vs
+(extensible)</div>
+            </div>
+        </div>
+    </div>
+    
+    </div>
+
+    <button class="btn btn-primary back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Search functionality
+        function filterElements(searchTerm) {
+            const elements = document.querySelectorAll('.searchable');
+            const term = searchTerm.toLowerCase();
+            
+            elements.forEach(element => {
+                const text = element.textContent.toLowerCase();
+                const parent = element.closest('.card, .list-group-item');
+                if (parent) {
+                    if (text.includes(term) || term === '') {
+                        parent.style.display = '';
+                    } else {
+                        parent.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

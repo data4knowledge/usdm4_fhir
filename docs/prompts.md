@@ -23,4 +23,18 @@ Reads mapping/fhir.yaml and matches to the M11 data on the main, top level key
 
 Save the resulting merged data as "merged.yaml" in the "mapping" directory
 
+-----+-----
+
+Write a small python program that takes the "mapping/merged.yaml" file and creates a set of local ".html" files that allows me to naviagte the data using a local browser.
+- Main html file should be called "index.html"
+- All other html pages can be held in sub directories, one for each section of the M11 document or a data element
+    - Sections of the M11 document are held in the template.section_title field
+    - Date elements are defined by the main key in the data
+Each section of the document should display the set data elements contained within the section
+Each data element should display all of the information available under the keys "template", "technical", "usdm" and "fhir" each as a panel
+Use bootstrap 5 to style the web pages using the theme from https://bootswatch.com/yeti/
+Store all the output in a top level directory called "html"
+Store the program in a top level file called "mapping_html.py"
+
+
  

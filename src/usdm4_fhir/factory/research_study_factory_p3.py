@@ -8,7 +8,9 @@ from usdm4_fhir.factory.extension_factory import ExtensionFactory
 from usdm4_fhir.factory.codeable_concept_factory import CodeableConceptFactory
 from usdm4_fhir.factory.coding_factory import CodingFactory
 from usdm4_fhir.factory.label_type_factory import LabelTypeFactory
-from usdm4_fhir.factory.medicinal_product_factory import MedicinalProductDefinitionFactory
+from usdm4_fhir.factory.medicinal_product_factory import (
+    MedicinalProductDefinitionFactory,
+)
 from usdm4_fhir.factory.organization_factory import OrganizationFactory
 from usdm4_fhir.factory.associated_party_factory import AssociatedPartyFactory
 
@@ -61,7 +63,7 @@ class ResearchStudyFactoryP3(BaseFactory):
                     }
                 )
                 self.item.extension.append(ext.item)
-                
+
             # Full Title
             self.item.title = self._version.official_title_text()
 
@@ -92,7 +94,7 @@ class ResearchStudyFactoryP3(BaseFactory):
                 )
 
             # Original Protocol - No implementation details currently
-            original = self._title_page['original_protocol']
+            original = self._title_page["original_protocol"]
             original_code = CodingFactory(
                 system=self.NCI_CODE_SYSTEM,
                 code="C49488",
@@ -136,7 +138,11 @@ class ResearchStudyFactoryP3(BaseFactory):
             )
 
             # Amendment Scope
-            the_scope = self._title_page["amendment_scope"] if self._title_page["amendment_scope"] else "Global"
+            the_scope = (
+                self._title_page["amendment_scope"]
+                if self._title_page["amendment_scope"]
+                else "Global"
+            )
             scope = ExtensionFactory(
                 **{
                     "url": "scope",
@@ -156,10 +162,12 @@ class ResearchStudyFactoryP3(BaseFactory):
                 params = {
                     "id": str(uuid4()),
                     "name": ["something"],
-                    "identifier": [{
-                        "system": "https://example.org/sponsor-identifier",
-                        "value": self._title_page["compound_codes"]
-                    }]
+                    "identifier": [
+                        {
+                            "system": "https://example.org/sponsor-identifier",
+                            "value": self._title_page["compound_codes"],
+                        }
+                    ],
                 }
                 medicinal_product = MedicinalProductDefinitionFactory(**params)
                 self._resources.append(medicinal_product)

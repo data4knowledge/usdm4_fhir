@@ -495,7 +495,7 @@ def create_section_page(section_title, elements, html_dir):
         elif status_value == 'other':
             status_icon = '<i class="fas fa-circle text-danger me-2" title="Other Status"></i>'
         else:
-            status_icon = '<i class="fas fa-circle text-muted me-2" title="No Status"></i>'
+            status_icon = '<i class="fas fa-circle text-light me-2" title="No Status"></i>'
         
         # Get short description
         short_name = template_data.get('short_name', element_name)

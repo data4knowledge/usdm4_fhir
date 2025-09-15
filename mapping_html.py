@@ -250,14 +250,50 @@ def create_data_panel(title, data, panel_id):
                 """
             elif isinstance(value, list):
                 panel_html += f'<div class="mb-2"><strong {text_style}>{escape_html(key)}:</strong></div>'
-                panel_html += f'<ul class="list-unstyled ms-3" {text_style}>'
-                for item in value:
-                    if isinstance(item, dict):
-                        for sub_key, sub_value in item.items():
-                            panel_html += f"<li><strong>{escape_html(sub_key)}:</strong> {escape_html(sub_value)}</li>"
-                    else:
-                        panel_html += f"<li>{escape_html(item)}</li>"
-                panel_html += "</ul>"
+                
+                # Special handling for mappings field - display as structured array with conditions
+                if key.lower() == "mappings":
+                    panel_html += f'<div class="ms-3" {text_style}>'
+                    for i, item in enumerate(value):
+                        if isinstance(item, dict):
+                            panel_html += f'<div class="mb-3 p-3 border rounded bg-light">'
+                            panel_html += f'<h6 class="text-primary">Mapping {i+1}:</h6>'
+                            for sub_key, sub_value in item.items():
+                                if sub_key.lower() == "conditions" and isinstance(sub_value, list):
+                                    panel_html += f'<div class="mb-2"><strong>{escape_html(sub_key)}:</strong></div>'
+                                    panel_html += f'<div class="ms-2">'
+                                    for j, condition in enumerate(sub_value):
+                                        if isinstance(condition, dict):
+                                            panel_html += f'<div class="mb-2 p-2 border rounded bg-white">'
+                                            panel_html += f'<small class="text-muted">Condition {j+1}:</small>'
+                                            for cond_key, cond_value in condition.items():
+                                                panel_html += f'<div class="ms-2"><strong>{escape_html(cond_key)}:</strong> {escape_html(cond_value)}</div>'
+                                            panel_html += '</div>'
+                                        else:
+                                            panel_html += f'<div class="mb-1 p-1 border rounded bg-white">{escape_html(condition)}</div>'
+                                    panel_html += '</div>'
+                                elif isinstance(sub_value, dict):
+                                    panel_html += f'<div class="mb-2"><strong>{escape_html(sub_key)}:</strong></div>'
+                                    panel_html += f'<div class="ms-2">'
+                                    for dict_key, dict_value in sub_value.items():
+                                        panel_html += f'<div><strong>{escape_html(dict_key)}:</strong> {escape_html(dict_value)}</div>'
+                                    panel_html += '</div>'
+                                else:
+                                    panel_html += f'<div class="mb-1"><strong>{escape_html(sub_key)}:</strong> {escape_html(sub_value)}</div>'
+                            panel_html += '</div>'
+                        else:
+                            panel_html += f'<div class="mb-1 p-1 border rounded bg-light">{escape_html(item)}</div>'
+                    panel_html += '</div>'
+                else:
+                    # Default list handling for other fields
+                    panel_html += f'<ul class="list-unstyled ms-3" {text_style}>'
+                    for item in value:
+                        if isinstance(item, dict):
+                            for sub_key, sub_value in item.items():
+                                panel_html += f"<li><strong>{escape_html(sub_key)}:</strong> {escape_html(sub_value)}</li>"
+                        else:
+                            panel_html += f"<li>{escape_html(item)}</li>"
+                    panel_html += "</ul>"
             elif isinstance(value, dict):
                 panel_html += f'<div class="mb-2"><strong {text_style}>{escape_html(key)}:</strong></div>'
                 panel_html += f'<div class="ms-3" {text_style}>'

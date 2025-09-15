@@ -11,6 +11,10 @@ from usdm4_fhir.factory.label_type_factory import LabelTypeFactory
 
 
 class ResearchStudyFactoryP3(BaseFactory):
+    NCI_CODE_SYSTEM = "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
+    UDP_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocol"
+    PROTOCOL_AMENDMENT_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocolStructureDefinition/protocol-amendment"
+
     def __init__(self, study: USDMStudy, extra: dict = {}):
         try:
             self._title_page = extra["title_page"]
@@ -45,6 +49,16 @@ class ResearchStudyFactoryP3(BaseFactory):
                 protocol=[],
             )
 
+            # Sponsor Confidentiality Statememt
+            if self._title_page["sponsor_confidentiality"]:
+                ext = ExtensionFactory(
+                    **{
+                        "url": "http://hl7.org/fhir/uv/ebm/StructureDefinition/research-study-sponsor-confidentiality-statement",
+                        "valueString": self._title_page["sponsor_confidentiality"],
+                    }
+                )
+                self.item.extension.append(ext.item)
+                
             # Full Title
             self.item.title = self._version.official_title_text()
 
@@ -75,7 +89,22 @@ class ResearchStudyFactoryP3(BaseFactory):
                 )
 
             # Original Protocol - No implementation details currently
-            # x = self._title_page['original_protocol']
+            original = self._title_page['original_protocol']
+            original_code = CodingFactory(
+                system=self.NCI_CODE_SYSTEM,
+                code="C49488",
+                display="Yes",
+            )
+            if original.upper == "NO":
+                original_code.code = "C49487"
+                original_code.display = "No"
+            ext = ExtensionFactory(
+                **{
+                    "url": f"{self.UDP_BASE}/study-amendment",
+                    "valueCoding": original_code.item,
+                }
+            )
+            self.item.extension.append(ext.item)
 
             # Version Number
             self.item.version = (
@@ -89,17 +118,35 @@ class ResearchStudyFactoryP3(BaseFactory):
             if date_value:
                 self.item.date = date_value
 
-            # # Amendment Identifier
-            # identifier_code = CodeableConceptFactory(text="Amendment Identifier")
-            # self.item.identifier.append(
-            #     {
-            #         "type": identifier_code.item,
-            #         "system": "https://example.org/amendment-identifier",
-            #         "value": self._title_page["amendment_identifier"],
-            #     }
-            # )
+            # Amendment Identifier
+            identifier_code = CodingFactory(
+                system=self.NCI_CODE_SYSTEM,
+                code="C218477",
+                display="Amendment Identifier",
+            )
+            self.item.identifier.append(
+                {
+                    "type": identifier_code.item,
+                    "system": "https://example.org/amendment-identifier",
+                    "value": self._title_page["amendment_identifier"],
+                }
+            )
 
-            # Amendment Scope - Part of Amendment
+            # Amendment Scope
+            the_scope = self._title_page["amendment_scope"] if self._title_page["amendment_scope"] else "Global"
+            scope = ExtensionFactory(
+                **{
+                    "url": "scope",
+                    "valueCode": the_scope,
+                }
+            )
+            ext = ExtensionFactory(
+                **{
+                    "url": f"{self.PROTOCOL_AMENDMENT_BASE}",
+                    "extension": scope.item,
+                }
+            )
+            self.item.extension.append(ext.item)
 
             # Compound Codes - No implementation details currently
             # _ = self._title_page["compound_codes"]

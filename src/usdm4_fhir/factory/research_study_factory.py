@@ -14,9 +14,6 @@ from usdm4_fhir.factory.label_type_factory import LabelTypeFactory
 
 
 class ResearchStudyFactory(BaseFactory):
-    NCI_CODE_SYSTEM = "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
-    UDP_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocol"
-
     def __init__(self, study: USDMStudy, extra: dict = {}):
         try:
             self._title_page = extra["title_page"]
@@ -75,22 +72,7 @@ class ResearchStudyFactory(BaseFactory):
                 )
 
             # Original Protocol - No implementation details currently
-            original = self._title_page['original_protocol']
-            original_code = CodingFactory(
-                system=self.NCI_CODE_SYSTEM,
-                code="C49488",
-                display="Yes",
-            )
-            if original.upper == "NO":
-                original_code.code = "C49487"
-                original_code.display = "No"
-            ext = ExtensionFactory(
-                **{
-                    "url": f"{self.UDP_BASE}/study-amendment",
-                    "valueCoding": original_code.item,
-                }
-            )
-            self.item.extension.append(ext.item)
+            # x = self._title_page['original_protocol']
 
             # Version Number
             self.item.version = (

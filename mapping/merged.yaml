@@ -423,7 +423,7 @@ Version Date:
 
       The M11 Tech Spec appears to mix up coded values and a date'
   status:
-    value: ''
+    value: 'Full'
     notes: ''
 Amendment Identifier:
   template:
@@ -488,8 +488,8 @@ Amendment Identifier:
 
       %VALUE =  <I8R-JE-IGBJ(a)>'
   status:
-    value: ''
-    notes: ''
+    value: 'Extra'
+    notes: "Using extra until we implement amendments. The sponsor 'System URL for a sponsor's amendment identifier system' will not be able to be determined from a document import."
 Amendment Scope:
   template:
     long_name: Amendment Scope

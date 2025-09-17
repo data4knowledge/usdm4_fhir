@@ -6,6 +6,7 @@ from fhir.resources.codeableconcept import CodeableConcept
 from fhir.resources.coding import Coding
 from fhir.resources.researchstudy import ResearchStudy, ResearchStudyLabel
 from fhir.resources.extension import Extension
+from fhir.resources.identifier import Identifier
 from usdm4 import USDM4
 from usdm4_fhir.__info__ import (
     __system_name__ as SYSTEM_NAME,
@@ -224,7 +225,14 @@ class ImportPRISM3:
         return ""
 
     def _extract_sponsor_identifier(self, identifiers: list) -> str:
-        return self._extract_identifier(identifiers, "Pharmaceutical Company", "text")
+        if identifiers:
+            item: Identifier
+            for item in identifiers:
+                cc: CodeableConcept = item.type
+                print(f"CC: {cc}")
+                if hasattr(cc, "text") and cc.text == "Pharmaceutical Company":
+                    return item.value
+        return ""
 
     def _extract_identifier(
         self, identifiers: list, type: str, attribute_name: str

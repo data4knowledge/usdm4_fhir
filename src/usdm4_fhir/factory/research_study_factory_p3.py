@@ -132,7 +132,7 @@ class ResearchStudyFactoryP3(BaseFactory):
             )
             self.item.identifier.append(
                 {
-                    "type": identifier_code.item,
+                    "type": {"coding": [identifier_code.item]},
                     "system": "https://example.org/amendment-identifier",
                     "value": self._title_page["amendment_identifier"],
                 }

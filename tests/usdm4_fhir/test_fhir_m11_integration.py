@@ -13,7 +13,7 @@ def anyio_backend():
     return "asyncio"
 
 
-SAVE = True
+SAVE = False
 
 
 def run_test_to_madrid(name, save=False):
@@ -40,7 +40,6 @@ def run_to_test(name, version, mode, save=False):
     usdm = USDM4()
     wrapper = usdm.from_json(contents)
     study = wrapper.study
-    print(f"STUDY: {study is not None}")
     extra = read_yaml(_full_path(f"{name}_extra.yaml", version, mode))
     instance = M11()
     result = instance.to_message(study, extra, version)
@@ -72,7 +71,9 @@ async def _run_test_from_prism3(name, save=False):
 async def _run_from_test(name: str, version: str, mode: str, save: bool = False):
     filename = f"{name}_fhir_m11.json"
     instance = M11()
-    wrapper: Wrapper = await instance.from_message(_full_path(filename, version, mode))
+    wrapper: Wrapper = await instance.from_message(
+        _full_path(filename, version, mode), version
+    )
     print(f"ERRORS:\n{instance.errors.dump(0)}")
     result = wrapper.to_json()
     result = fix_uuid(result)

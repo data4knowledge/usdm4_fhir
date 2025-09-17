@@ -52,6 +52,7 @@ class ImportPRISM2:
 
     async def from_message(self, filepath: str) -> Wrapper | None:
         try:
+            self._errors.info("Importing FHIR PRISM2")
             data = self._read_file(filepath)
             study = await self._from_fhir(data)
             return Wrapper(

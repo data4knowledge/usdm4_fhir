@@ -7,7 +7,6 @@ def errors_clean_all(errors: Errors) -> list[dict]:
     for item in result:
         item = _fix_timestamp(item)
         item = _remove_file_paths(item)
-    print(f"RESULT: {result}")
     return result
 
 

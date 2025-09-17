@@ -31,6 +31,7 @@ class ImportPRISM3:
 
     async def from_message(self, filepath: str) -> Wrapper | None:
         try:
+            self._errors.info("Importing FHIR PRISM3")
             data = self._read_file(filepath)
             self._source_data = self._from_fhir(data)
             print(f"ASSEMBLER DICT: {self._source_data}")
@@ -126,7 +127,9 @@ class ImportPRISM3:
     def _study(self, research_study: ResearchStudy) -> dict:
         try:
             acronym = self._extract_acronym(research_study.label)
-            sponsor_identifier = self._extract_sponsor_identifier()
+            sponsor_identifier = self._extract_sponsor_identifier(
+                research_study.identifier
+            )
             result = {
                 "identification": {
                     "titles": {

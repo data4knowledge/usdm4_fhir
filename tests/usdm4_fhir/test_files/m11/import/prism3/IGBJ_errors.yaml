@@ -1,5 +1,10 @@
 - level: Info
   location: {}
+  message: Importing FHIR PRISM2
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
   message: 'Decoded M11 FHIR message Full Title = A Phase 3 Study of Nasal Glucagon
     (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced
     Hypoglycemia in Japanese Patients with Diabetes Mellitus '

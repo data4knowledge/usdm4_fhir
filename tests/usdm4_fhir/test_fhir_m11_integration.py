@@ -60,13 +60,16 @@ def run_to_test(name, version, mode, save=False):
     error_expected = read_yaml(_full_path(error_filename, version, mode))
     assert errors_clean_all(instance.errors) == error_expected
 
+
 async def _run_test_from_prism2(name, save=False):
     await _run_from_test(name, "prism2", "import", save)
+
 
 async def _run_test_from_prism3(name, save=False):
     await _run_from_test(name, "prism3", "import", save)
 
-async def _run_from_test(name: str, version: str, mode: str, save: bool=False):
+
+async def _run_from_test(name: str, version: str, mode: str, save: bool = False):
     filename = f"{name}_fhir_m11.json"
     instance = M11()
     wrapper: Wrapper = await instance.from_message(_full_path(filename, version, mode))
@@ -125,6 +128,7 @@ def test_to_fhir_prism3_asp8062():
 
 def test_to_fhir_prism3_igbj():
     run_test_to_prism3("IGBJ", SAVE)
+
 
 @pytest.mark.anyio
 async def test_from_fhir_prism2_asp8062():

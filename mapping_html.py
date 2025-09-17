@@ -250,40 +250,49 @@ def create_data_panel(title, data, panel_id):
                 """
             elif isinstance(value, list):
                 panel_html += f'<div class="mb-2"><strong {text_style}>{escape_html(key)}:</strong></div>'
-                
+
                 # Special handling for mappings field - display as structured array with conditions
                 if key.lower() == "mappings":
                     panel_html += f'<div class="ms-3" {text_style}>'
                     for i, item in enumerate(value):
                         if isinstance(item, dict):
-                            panel_html += f'<div class="mb-3 p-3 border rounded bg-light">'
-                            panel_html += f'<h6 class="text-primary">Mapping {i+1}:</h6>'
+                            panel_html += (
+                                '<div class="mb-3 p-3 border rounded bg-light">'
+                            )
+                            panel_html += (
+                                f'<h6 class="text-primary">Mapping {i + 1}:</h6>'
+                            )
                             for sub_key, sub_value in item.items():
-                                if sub_key.lower() == "conditions" and isinstance(sub_value, list):
+                                if sub_key.lower() == "conditions" and isinstance(
+                                    sub_value, list
+                                ):
                                     panel_html += f'<div class="mb-2"><strong>{escape_html(sub_key)}:</strong></div>'
-                                    panel_html += f'<div class="ms-2">'
+                                    panel_html += '<div class="ms-2">'
                                     for j, condition in enumerate(sub_value):
                                         if isinstance(condition, dict):
-                                            panel_html += f'<div class="mb-2 p-2 border rounded bg-white">'
-                                            panel_html += f'<small class="text-muted">Condition {j+1}:</small>'
-                                            for cond_key, cond_value in condition.items():
+                                            panel_html += '<div class="mb-2 p-2 border rounded bg-white">'
+                                            panel_html += f'<small class="text-muted">Condition {j + 1}:</small>'
+                                            for (
+                                                cond_key,
+                                                cond_value,
+                                            ) in condition.items():
                                                 panel_html += f'<div class="ms-2"><strong>{escape_html(cond_key)}:</strong> {escape_html(cond_value)}</div>'
-                                            panel_html += '</div>'
+                                            panel_html += "</div>"
                                         else:
                                             panel_html += f'<div class="mb-1 p-1 border rounded bg-white">{escape_html(condition)}</div>'
-                                    panel_html += '</div>'
+                                    panel_html += "</div>"
                                 elif isinstance(sub_value, dict):
                                     panel_html += f'<div class="mb-2"><strong>{escape_html(sub_key)}:</strong></div>'
-                                    panel_html += f'<div class="ms-2">'
+                                    panel_html += '<div class="ms-2">'
                                     for dict_key, dict_value in sub_value.items():
-                                        panel_html += f'<div><strong>{escape_html(dict_key)}:</strong> {escape_html(dict_value)}</div>'
-                                    panel_html += '</div>'
+                                        panel_html += f"<div><strong>{escape_html(dict_key)}:</strong> {escape_html(dict_value)}</div>"
+                                    panel_html += "</div>"
                                 else:
                                     panel_html += f'<div class="mb-1"><strong>{escape_html(sub_key)}:</strong> {escape_html(sub_value)}</div>'
-                            panel_html += '</div>'
+                            panel_html += "</div>"
                         else:
                             panel_html += f'<div class="mb-1 p-1 border rounded bg-light">{escape_html(item)}</div>'
-                    panel_html += '</div>'
+                    panel_html += "</div>"
                 else:
                     # Default list handling for other fields
                     panel_html += f'<ul class="list-unstyled ms-3" {text_style}>'
@@ -543,25 +552,17 @@ def create_section_page(section_title, elements, html_dir):
         # Create status icon based on traffic light system
         status_value = status_data.get("value", "").lower()
         if status_value == "full":
-            status_icon = (
-                '<i class="fas fa-circle text-success me-2" title="Full Implementation"></i>'
-            )
+            status_icon = '<i class="fas fa-circle text-success me-2" title="Full Implementation"></i>'
         elif status_value == "partial":
-            status_icon = (
-                '<i class="fas fa-circle text-warning me-2" title="Partial Implementation"></i>'
-            )
+            status_icon = '<i class="fas fa-circle text-warning me-2" title="Partial Implementation"></i>'
         elif status_value == "none":
-            status_icon = (
-                '<i class="fas fa-circle text-danger me-2" title="No Implementation"></i>'
-            )
+            status_icon = '<i class="fas fa-circle text-danger me-2" title="No Implementation"></i>'
         elif status_value == "extra":
             status_icon = (
                 '<i class="fas fa-circle text-primary me-2" title="Extra Used"></i>'
             )
         elif status_value == "other":
-            status_icon = (
-                '<i class="fas fa-circle text-info me-2" title="Something Else Going On"></i>'
-            )
+            status_icon = '<i class="fas fa-circle text-info me-2" title="Something Else Going On"></i>'
         else:
             status_icon = (
                 '<i class="fas fa-circle text-light me-2" title="No Status"></i>'

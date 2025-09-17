@@ -51,7 +51,9 @@ class ImportPRISM3:
                 "compound_codes": "",
                 "compound_names": "",
                 "amendment_identifier": "",
-                "sponsor_confidentiality": self._source_data["other"]["confidentiality"],
+                "sponsor_confidentiality": self._source_data["other"][
+                    "confidentiality"
+                ],
                 "regulatory_agency_identifiers": "",
                 # Those below not used?
                 "amendment_details": "",
@@ -82,11 +84,16 @@ class ImportPRISM3:
         try:
             study = None
             bundle = Bundle.parse_raw(data)
-            research_study: ResearchStudy = self._extract_from_bundle(bundle, ResearchStudy.__name__, first=True)
+            research_study: ResearchStudy = self._extract_from_bundle(
+                bundle, ResearchStudy.__name__, first=True
+            )
             if research_study:
                 study = self._study(research_study)
             else:
-                self._errors.warning(f"Failed to find ResearchStudy resource in the bundle.", KlassMethodLocation(self.MODULE, "_from_fhir"))
+                self._errors.warning(
+                    "Failed to find ResearchStudy resource in the bundle.",
+                    KlassMethodLocation(self.MODULE, "_from_fhir"),
+                )
             return study
         except Exception as e:
             self._errors.exception(
@@ -96,7 +103,9 @@ class ImportPRISM3:
             )
             return None
 
-    def _extract_from_bundle(self, bundle: Bundle, resource_type: str, first=False) -> list:
+    def _extract_from_bundle(
+        self, bundle: Bundle, resource_type: str, first=False
+    ) -> list:
         try:
             results = []
             entry: BundleEntry
@@ -132,43 +141,45 @@ class ImportPRISM3:
                                 "non_standard": {
                                     "type": "pharma",
                                     "description": "The sponsor organization",
-                                    "label": "sponsor", # sponsor, <<<<<
+                                    "label": "sponsor",  # sponsor, <<<<<
                                     "identifier": "UNKNOWN",
                                     "identifierScheme": "UNKNOWN",
-                                    "legalAddress": None, # address, <<<<<
+                                    "legalAddress": None,  # address, <<<<<
                                 }
                             },
                         }
                     ],
                 },
                 "compounds": {
-                    "compound_codes": "", # <<<<<
-                    "compound_names": "", # <<<<<
+                    "compound_codes": "",  # <<<<<
+                    "compound_names": "",  # <<<<<
                 },
                 "amendments_summary": {
-                    "amendment_identifier": "", # <<<<<
-                    "amendment_scope": "", # <<<<<
-                    "amendment_details": "", # <<<<<
+                    "amendment_identifier": "",  # <<<<<
+                    "amendment_scope": "",  # <<<<<
+                    "amendment_details": "",  # <<<<<
                 },
                 "study_design": {
                     "label": "Study Design 1",
                     "rationale": "Not set",
-                    "trial_phase": self._extract_phase(research_study.phase)
+                    "trial_phase": self._extract_phase(research_study.phase),
                 },
                 "study": {
-                    "sponsor_approval_date": "", # <<<<<
-                    "version_date": "", # <<<<<
-                    "version": "1", # <<<<<
+                    "sponsor_approval_date": "",  # <<<<<
+                    "version_date": "",  # <<<<<
+                    "version": "1",  # <<<<<
                     "rationale": "Not set",
                     "name": {
                         "acronym": acronym,
                         "identifier": sponsor_identifier,
-                        "compound_code": "", # "compund code", <<<<<
+                        "compound_code": "",  # "compund code", <<<<<
                     },
                 },
                 "other": {
-                    "confidentiality": self._extract_confidentiality_statement(research_study.extension),
-                    "regulatory_agency_identifiers": "", # <<<<<
+                    "confidentiality": self._extract_confidentiality_statement(
+                        research_study.extension
+                    ),
+                    "regulatory_agency_identifiers": "",  # <<<<<
                 },
                 "document": {},
                 #     "document": {
@@ -187,7 +198,7 @@ class ImportPRISM3:
                         "exclusion": [],
                     },
                 },
-                "amendments": []
+                "amendments": [],
             }
 
             return result
@@ -195,7 +206,7 @@ class ImportPRISM3:
             self._errors.exception(
                 "Exception raised assembling study information",
                 e,
-                KlassMethodLocation(self.MODULE, "__study")
+                KlassMethodLocation(self.MODULE, "__study"),
             )
             return None
 
@@ -203,15 +214,20 @@ class ImportPRISM3:
         if phase.coding:
             coding: Coding = phase.coding[0]
             return coding.display
-        self._errors.warning("Failed ot detect phase in ResearchStudy resource", KlassMethodLocation(self.MODULE, "_extract_phase"))
+        self._errors.warning(
+            "Failed ot detect phase in ResearchStudy resource",
+            KlassMethodLocation(self.MODULE, "_extract_phase"),
+        )
         return ""
 
     def _extract_sponsor_identifier(self, identifiers: list) -> str:
         return self._extract_identifier(identifiers, "Pharmaceutical Company", "text")
 
-    def _extract_identifier(self, identifiers: list, type: str, attribute_name: str) -> str:
+    def _extract_identifier(
+        self, identifiers: list, type: str, attribute_name: str
+    ) -> str:
         if identifiers:
-            identifier: CodeableConcept
+            item: CodeableConcept
             for item in identifiers:
                 if getattr(item.type.coding[0], attribute_name) == type:
                     return item.value
@@ -219,7 +235,7 @@ class ImportPRISM3:
 
     def _extract_acronym(self, labels) -> str:
         return self._extract_label(labels, "C207646")
-    
+
     def _extract_brief_title(self, labels) -> str:
         return self._extract_label(labels, "C207615")
 
@@ -232,9 +248,12 @@ class ImportPRISM3:
         return ""
 
     def _extract_confidentiality_statement(self, extensions: list) -> str:
-        ext = self._extract_extension(extensions, "http://hl7.org/fhir/uv/ebm/StructureDefinition/research-study-sponsor-confidentiality-statement")
+        ext = self._extract_extension(
+            extensions,
+            "http://hl7.org/fhir/uv/ebm/StructureDefinition/research-study-sponsor-confidentiality-statement",
+        )
         return ext.valueString if ext else ""
-    
+
     def _extract_extension(self, extensions: list, url: str) -> Extension:
         item: ResearchStudyLabel
         for item in extensions:

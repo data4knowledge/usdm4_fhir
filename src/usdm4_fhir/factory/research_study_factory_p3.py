@@ -8,9 +8,6 @@ from usdm4_fhir.factory.extension_factory import ExtensionFactory
 from usdm4_fhir.factory.codeable_concept_factory import CodeableConceptFactory
 from usdm4_fhir.factory.coding_factory import CodingFactory
 from usdm4_fhir.factory.label_type_factory import LabelTypeFactory
-from usdm4_fhir.factory.medicinal_product_factory import (
-    MedicinalProductDefinitionFactory,
-)
 from usdm4_fhir.factory.organization_factory import OrganizationFactory
 from usdm4_fhir.factory.associated_party_factory import AssociatedPartyFactory
 
@@ -199,9 +196,9 @@ class ResearchStudyFactoryP3(BaseFactory):
             self._resources.append(org)
 
             # Co-sponsor Name and Address
-            
+
             # Local-sponsor Name and Address
-            
+
             # Device Manufacturer Name and Address
 
             # Regulatory Agency and CT Registry Identifiers

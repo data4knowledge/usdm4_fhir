@@ -85,10 +85,10 @@ class ResearchStudyFactoryP3(BaseFactory):
             identifier = self._version.sponsor_identifier()
             if identifier:
                 org = identifier.scoped_by(self._organizations)
-                identifier_cc = CodeableConceptFactory(text=org.type.decode)
+                identifier_type = CodeableConceptFactory(text=org.type.decode)
                 self.item.identifier.append(
                     {
-                        "type": identifier_cc.item,
+                        "type": identifier_type.item,
                         "system": "https://example.org/sponsor-identifier",
                         "value": identifier.text,
                     }
@@ -209,10 +209,10 @@ class ResearchStudyFactoryP3(BaseFactory):
             identifiers += self._version.registry_identifiers()
             for identifier in identifiers:
                 org = identifier.scoped_by(self._organizations)
-                identifier_cc = CodeableConceptFactory(text=org.type.decode)
+                identifier_type = CodeableConceptFactory(text=org.type.decode)
                 self.item.identifier.append(
                     {
-                        "type": identifier_cc.item,
+                        "type": identifier_type.item,
                         "system": "https://example.org/sponsor-identifier",
                         "value": identifier.text,
                     }

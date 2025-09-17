@@ -1,0 +1,193 @@
+- level: Info
+  location: {}
+  message: 'Decoded M11 FHIR message Full Title = A Phase 3 Study of Nasal Glucagon
+    (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced
+    Hypoglycemia in Japanese Patients with Diabetes Mellitus '
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _title_table
+  message: Found M11 title page table
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message Sponsor Confidentiality
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Decoded M11 FHIR message Full Title = A Phase 3 Study of Nasal Glucagon
+    (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced
+    Hypoglycemia in Japanese Patients with Diabetes Mellitus '
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message Acronym
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Sponsor Protocol Identifier = I8R-JE-IGBJ
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Original Protocol = No
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Version Number = (a)
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Version Date = 05-Dec-2017
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Amendment Identifier = I8R-JE-IGBJ(a)
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Amendment Scope = Global
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message Amendment Details
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Trial Phase = Phase 3
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Compound Code = LY900018
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Compound Name = Glucagon
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Trial Phase = Phase 3
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Short Title = A Phase 3 Study of Nasal Glucagon
+    (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced
+    Hypoglycemia in Japanese Patients with Diabetes Mellitus
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Decoded M11 FHIR message Sponsor Name and Address = Eli Lilly Japan K.K
+
+    Japan'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Sponsor name set to 'Eli Lilly Japan K.K'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Processing address Eli Lilly Japan K.K
+
+    Japan'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Address service result ''Japan'' returned [{''label'': ''country'', ''value'':
+    ''japan''}]'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _sponsor_name_and_address
+  message: 'Name and address result ''Eli Lilly Japan K.K'', ''{''line'': '''', ''city'':
+    '''', ''district'': '''', ''state'': '''', ''postalCode'': '''', ''country'':
+    ''Japan''}'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Regulatory Agency Identifier Number(s) = NCT03421379
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Sponsor Approval = 26-Oct-2017
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Decoded M11 FHIR message Manufacturer = On file with sponsor.
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message Sponsor Signatory
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message Medical Expert
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _table_get_row
+  message: Failed to decode M11 FHIR message SAE Reporting
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location: {}
+  message: Study name checking ''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location: {}
+  message: Study name checking 'I8R-JE-IGBJ'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.m11.import_.title_page.TitlePage
+    method_name: _study_name
+  message: Study name set to 'I8RJEIGBJ'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.encoder.encoder.Encoder
+    method_name: phase
+  message: Trial phase '3' decoded as 'C15602', 'Phase III Trial'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''

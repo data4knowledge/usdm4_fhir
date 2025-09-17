@@ -1,0 +1,357 @@
+{
+  "study": {
+    "id": "FAKE-UUID",
+    "name": "I8RJEIGBJ",
+    "description": "FHIR Imported I8RJEIGBJ",
+    "label": "I8RJEIGBJ",
+    "versions": [
+      {
+        "id": "StudyVersion_1",
+        "extensionAttributes": [],
+        "versionIdentifier": "(a)",
+        "rationale": "Not set",
+        "documentVersionIds": [
+          "StudyDefinitionDocumentVersion_1"
+        ],
+        "dateValues": [
+          {
+            "id": "GovernanceDate_1",
+            "extensionAttributes": [],
+            "name": "Approval Date",
+            "label": null,
+            "description": null,
+            "type": {
+              "id": "Code_4",
+              "extensionAttributes": [],
+              "code": "C132352",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Protocol Approval by Sponsor Date",
+              "instanceType": "Code"
+            },
+            "dateValue": "2017-10-26",
+            "geographicScopes": [
+              {
+                "id": "GeographicScope_1",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_6",
+                  "extensionAttributes": [],
+                  "code": "C68846",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Global",
+                  "instanceType": "Code"
+                },
+                "code": null,
+                "instanceType": "GeographicScope"
+              }
+            ],
+            "instanceType": "GovernanceDate"
+          },
+          {
+            "id": "GovernanceDate_2",
+            "extensionAttributes": [],
+            "name": "Protocol Date",
+            "label": null,
+            "description": null,
+            "type": {
+              "id": "Code_5",
+              "extensionAttributes": [],
+              "code": "C207598",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Protocol Effective Date",
+              "instanceType": "Code"
+            },
+            "dateValue": "2017-12-05",
+            "geographicScopes": [
+              {
+                "id": "GeographicScope_1",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_6",
+                  "extensionAttributes": [],
+                  "code": "C68846",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Global",
+                  "instanceType": "Code"
+                },
+                "code": null,
+                "instanceType": "GeographicScope"
+              }
+            ],
+            "instanceType": "GovernanceDate"
+          }
+        ],
+        "amendments": [],
+        "businessTherapeuticAreas": [],
+        "studyIdentifiers": [
+          {
+            "id": "StudyIdentifier_1",
+            "extensionAttributes": [],
+            "text": "I8R-JE-IGBJ",
+            "scopeId": "Organization_1",
+            "instanceType": "StudyIdentifier"
+          }
+        ],
+        "referenceIdentifiers": [],
+        "studyDesigns": [
+          {
+            "id": "InterventionalStudyDesign_1",
+            "extensionAttributes": [],
+            "name": "Study Design",
+            "label": "",
+            "description": "",
+            "studyType": null,
+            "studyPhase": {
+              "id": "AliasCode_1",
+              "extensionAttributes": [],
+              "standardCode": {
+                "id": "Code_12",
+                "extensionAttributes": [],
+                "code": "C15602",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2025-03-28",
+                "decode": "Phase III Trial",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
+            },
+            "therapeuticAreas": [],
+            "characteristics": [],
+            "encounters": [],
+            "activities": [],
+            "arms": [],
+            "studyCells": [],
+            "rationale": "[Not Found]",
+            "epochs": [],
+            "elements": [],
+            "estimands": [],
+            "indications": [],
+            "studyInterventionIds": [],
+            "objectives": [],
+            "population": {
+              "id": "StudyDesignPopulation_1",
+              "extensionAttributes": [],
+              "name": "Study Design Population",
+              "label": "Study Population",
+              "description": "Empty population details",
+              "includesHealthySubjects": true,
+              "plannedEnrollmentNumber": null,
+              "plannedCompletionNumber": null,
+              "plannedSex": [],
+              "criterionIds": [],
+              "plannedAge": null,
+              "notes": [],
+              "instanceType": "StudyDesignPopulation",
+              "cohorts": []
+            },
+            "scheduleTimelines": [],
+            "biospecimenRetentions": [],
+            "documentVersionIds": [],
+            "eligibilityCriteria": [],
+            "analysisPopulations": [],
+            "notes": [],
+            "instanceType": "InterventionalStudyDesign",
+            "subTypes": [],
+            "model": {
+              "id": "Code_10",
+              "extensionAttributes": [],
+              "code": "C82639",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-03-28",
+              "decode": "Parallel Study",
+              "instanceType": "Code"
+            },
+            "intentTypes": [],
+            "blindingSchema": null
+          }
+        ],
+        "titles": [
+          {
+            "id": "StudyTitle_1",
+            "extensionAttributes": [],
+            "text": "A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus ",
+            "type": {
+              "id": "Code_7",
+              "extensionAttributes": [],
+              "code": "C207616",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Official Study Title",
+              "instanceType": "Code"
+            },
+            "instanceType": "StudyTitle"
+          },
+          {
+            "id": "StudyTitle_2",
+            "extensionAttributes": [],
+            "text": "",
+            "type": {
+              "id": "Code_9",
+              "extensionAttributes": [],
+              "code": "C207646",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Study Acronym",
+              "instanceType": "Code"
+            },
+            "instanceType": "StudyTitle"
+          },
+          {
+            "id": "StudyTitle_3",
+            "extensionAttributes": [],
+            "text": "A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus",
+            "type": {
+              "id": "Code_8",
+              "extensionAttributes": [],
+              "code": "C207615",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Brief Study Title",
+              "instanceType": "Code"
+            },
+            "instanceType": "StudyTitle"
+          }
+        ],
+        "eligibilityCriterionItems": [],
+        "narrativeContentItems": [
+          {
+            "id": "NarrativeContentItem_1",
+            "extensionAttributes": [],
+            "name": "NCI-2",
+            "text": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>INTERNATIONAL COUNCIL FOR HARMONISATION OF TECHNICAL REQUIREMENTS FOR PHARMACEUTICALS FOR HUMAN USE</p><p>ICH HARMONISED GUIDELINE</p><p>Clinical electronic Structured Harmonised Protocol</p><p>(CeSHarP)</p><p>M11 IGBJ Example_Estimand Added</p><table class=\"ich-m11-title-page-table\"><tr><td><p>Full Title:  </p></td><td><p>A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus </p></td></tr><tr><td><p>Sponsor Protocol Identifier:</p></td><td><p>I8R-JE-IGBJ</p></td></tr><tr><td><p>Original Protocol: </p></td><td><p>No</p></td></tr><tr><td><p>Version Number:</p></td><td><p>(a)</p></td></tr><tr><td><p>Version Date:</p></td><td><p>05-Dec-2017</p></td></tr><tr><td><p>Amendment Identifier:</p></td><td><p>I8R-JE-IGBJ(a)</p></td></tr><tr><td><p>Amendment Scope:</p></td><td><p>Global</p></td></tr><tr><td><p>Compound Code(s): </p></td><td><p>LY900018</p></td></tr><tr><td><p>Compound Name(s):</p></td><td><p>Glucagon</p></td></tr><tr><td><p>Trial Phase: </p></td><td><p>Phase 3</p></td></tr><tr><td><p>Short Title: </p></td><td><p>A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus</p></td></tr><tr><td><p>Sponsor Name and Address: </p></td><td><p>Eli Lilly Japan K.K</p><p>Japan</p></td></tr><tr><td><p>Manufacturer Name and Address: </p></td><td><p>On file with sponsor.</p></td></tr><tr><td><p>Regulatory Agency Identifier Number(s):</p></td><td><p>NCT03421379</p></td></tr><tr><td><p>Sponsor Approval Date: </p></td><td><p>26-Oct-2017</p></td></tr></table><p>Sponsor Signatory:   Signature block and date on file at Eli Lilly and Company</p><p>Medical Expert Contact:    Medical Expert details on file at Eli Lilly and Company</p><p>SAE Reporting Method: Report Serious Adverse Events to the sponsor by phone. Refer to Section 9.4 for detailed reporting instructions. </p><p>Amendment Details:  This protocol has not been amended previously.</p><p>Overall Rationale for the Amendment:</p><p>The overall rationale (one primary driver) for the changes implemented in the protocol amendment should be provided. In addition, provide a high-level description of the change(s) and a brief scientific rationale for specific items outlined in the table provided (eg, changes to individual inclusion/exclusion criteria). See Appendix 9, Protocol Amendment History for examples of format and green text for sample content. </p><p>Updates to address safety concern &amp; align with product guidelines.</p><p>The table below describes the current amendment.</p><table class=\"ich-m11-table\"><tr><td><p>Approximate ??%% Enrolled at time of Sponsor Approval:</p></td><td colspan=\"3\"><p>Approximate ??% enrolled Globally. (not known for creating sample protocol)</p></td></tr><tr><td><p>Reason(s) for Amendment:</p></td><td colspan=\"2\"><p>Primary: Safety</p></td><td><p>Secondary: NA</p></td></tr><tr><td><p>Amendment Summary:</p></td><td colspan=\"3\"><p>Protocol I8R-JE-IGBJ A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus has been amended. The new protocol is indicated by Amendment (a) and will be used to conduct the study in place of any preceding version of the protocol. The overall changes and rationale for the changes made to this protocol are as follows: </p><ul><li>An exclusion criterion for patients with retinopathy or maculopathy was added due to the potential risk of fundal hemorrhage induced by hypoglycemia. </li><li>The GlucaGen reconstitution volume was changed from 1.0 mL to 1.1 mL in accordance with instructions in the Summary of Product Characteristics (2015). Protocol I8R-JE-IGBJ A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus has been amended. The new protocol is indicated by Amendment (a) and will be used to conduct the study in place of any preceding version of the protocol. The overall changes and rationale for the changes made to this protocol are as follows: \u2022 An exclusion criterion for patients with retinopathy or maculopathy was added due to the potential risk of fundal hemorrhage induced by hypoglycemia. \u2022 The GlucaGen reconstitution volume was changed from 1.0 mL to 1.1 mL in accordance with instructions in the Summary of Product Characteristics (2015). Protocol I8R-JE-IGBJ A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus has been amended. The new protocol is indicated by Amendment (a) and will be used to conduct the study in place of any preceding version of the protocol. The overall changes and rationale for the changes made to this protocol are as follows: \u2022 An exclusion criterion for patients with retinopathy or maculopathy was added due to the potential risk of fundal hemorrhage induced by hypoglycemia. \u2022 The GlucaGen reconstitution volume was changed from 1.0 mL to 1.1 mL in accordance with instructions in the Summary of Product Characteristics (2015).</li></ul></td></tr><tr><td colspan=\"2\"><p>Is this amendment likely to have a substantial impact on the safety or rights of the participants?</p></td><td colspan=\"2\"><p>Yes</p><p>Specifically implemented to decrease safety risks.</p></td></tr><tr><td colspan=\"2\"><p>Is this amendment likely to have a substantial impact on the reliability and robustness of the data generated in the clinical trial?</p></td><td colspan=\"2\"><p>No</p></td></tr></table><p>Overview of Changes in the Current Amendment:</p><table class=\"ich-m11-table\"><tr><td><p>Description of Change</p></td><td><p>Brief Rationale for Change</p></td><td><p>Section # and Name</p></td></tr><tr><td><p>An exclusion criterion for patients with retinopathy or maculopathy was added due to the potential risk of fundal hemorrhage induced by hypoglycemia. </p></td><td><p>Mitigate risk of fundal hemorrhage induced by hypoglycemia.</p></td><td><p>Section 6.2 Exclusions Criteria</p></td></tr><tr><td><p>The GlucaGen reconstitution volume was changed from 1.0 mL to 1.1 mL in accordance with instructions in the Summary of Product Characteristics (2015).</p></td><td><p>Ensure alignment with Summary of Product Characteristics (2015)</p></td><td><p>9.2.2 Intramuscular Glucagon Administration</p></td></tr></table><p>Table of Contents</p></div>",
+            "instanceType": "NarrativeContentItem"
+          }
+        ],
+        "abbreviations": [],
+        "roles": [],
+        "organizations": [
+          {
+            "id": "Organization_1",
+            "extensionAttributes": [],
+            "name": "Eli Lilly Japan K.K",
+            "label": "Eli Lilly Japan K.K",
+            "type": {
+              "id": "Code_11",
+              "extensionAttributes": [],
+              "code": "C54149",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-03-28",
+              "decode": "Pharmaceutical Company",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "UNKNOWN",
+            "identifier": "UNKNOWN",
+            "legalAddress": {
+              "id": "Address_1",
+              "extensionAttributes": [],
+              "text": "Japan",
+              "lines": [],
+              "city": "",
+              "district": "",
+              "state": "",
+              "postalCode": "",
+              "country": {
+                "id": "Code_13",
+                "extensionAttributes": [],
+                "code": "JPN",
+                "codeSystem": "ISO 3166 1 alpha3",
+                "codeSystemVersion": "2020-08",
+                "decode": "Japan",
+                "instanceType": "Code"
+              },
+              "instanceType": "Address"
+            },
+            "managedSites": [],
+            "instanceType": "Organization"
+          }
+        ],
+        "studyInterventions": [],
+        "administrableProducts": [],
+        "medicalDevices": [],
+        "productOrganizationRoles": [],
+        "biomedicalConcepts": [],
+        "bcCategories": [],
+        "bcSurrogates": [],
+        "dictionaries": [],
+        "conditions": [],
+        "notes": [],
+        "instanceType": "StudyVersion"
+      }
+    ],
+    "documentedBy": [
+      {
+        "id": "StudyDefinitionDocument_1",
+        "extensionAttributes": [],
+        "name": "PROTOCOL V1",
+        "label": "M11 Protocol",
+        "description": "M11 Protocol Document",
+        "language": {
+          "id": "Code_2",
+          "extensionAttributes": [],
+          "code": "en",
+          "codeSystem": "ISO 639-1",
+          "codeSystemVersion": "2007",
+          "decode": "English",
+          "instanceType": "Code"
+        },
+        "type": {
+          "id": "Code_3",
+          "extensionAttributes": [],
+          "code": "C70817",
+          "codeSystem": "http://www.cdisc.org",
+          "codeSystemVersion": "2025-03-28",
+          "decode": "Protocol",
+          "instanceType": "Code"
+        },
+        "templateName": "M11",
+        "versions": [
+          {
+            "id": "StudyDefinitionDocumentVersion_1",
+            "extensionAttributes": [],
+            "version": "1",
+            "status": {
+              "id": "Code_1",
+              "extensionAttributes": [],
+              "code": "C85255",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Draft",
+              "instanceType": "Code"
+            },
+            "dateValues": [],
+            "contents": [
+              {
+                "id": "NarrativeContent_1",
+                "extensionAttributes": [],
+                "name": "NC-2",
+                "sectionNumber": "",
+                "sectionTitle": "-",
+                "displaySectionNumber": false,
+                "displaySectionTitle": true,
+                "childIds": [],
+                "previousId": null,
+                "nextId": null,
+                "contentItemId": "NarrativeContentItem_1",
+                "instanceType": "NarrativeContent"
+              }
+            ],
+            "notes": [],
+            "instanceType": "StudyDefinitionDocumentVersion"
+          }
+        ],
+        "childIds": [],
+        "notes": [],
+        "instanceType": "StudyDefinitionDocument"
+      }
+    ],
+    "instanceType": "Study"
+  },
+  "usdmVersion": "4.0.0",
+  "systemName": "USDM4 FHIR Package",
+  "systemVersion": "0.4.0"
+}

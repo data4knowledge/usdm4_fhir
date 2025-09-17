@@ -117,6 +117,7 @@ class ImportPRISM3:
     def _study(self, research_study: ResearchStudy) -> dict:
         try:
             acronym = self._extract_acronym(research_study.label)
+            sponsor_identifier = self._extract_sponsor_identifier()
             result = {
                 "identification": {
                     "titles": {
@@ -126,7 +127,7 @@ class ImportPRISM3:
                     },
                     "identifiers": [
                         {
-                            "identifier": "12345", # "identifier", <<<<<
+                            "identifier": sponsor_identifier,
                             "scope": {
                                 "non_standard": {
                                     "type": "pharma",
@@ -161,7 +162,7 @@ class ImportPRISM3:
                     "rationale": "Not set",
                     "name": {
                         "acronym": acronym,
-                        "identifier": "12345", # "identifier", <<<<<
+                        "identifier": sponsor_identifier,
                         "compound_code": "", # "compund code", <<<<<
                     },
                 },
@@ -204,7 +205,18 @@ class ImportPRISM3:
             return coding.display
         self._errors.warning("Failed ot detect phase in ResearchStudy resource", KlassMethodLocation(self.MODULE, "_extract_phase"))
         return ""
-    
+
+    def _extract_sponsor_identifier(self, identifiers: list) -> str:
+        return self._extract_identifier(identifiers, "Pharmaceutical Company", "text")
+
+    def _extract_identifier(self, identifiers: list, type: str, attribute_name: str) -> str:
+        if identifiers:
+            identifier: CodeableConcept
+            for item in identifiers:
+                if getattr(item.type.coding[0], attribute_name) == type:
+                    return item.value
+        return ""
+
     def _extract_acronym(self, labels) -> str:
         return self._extract_label(labels, "C207646")
     

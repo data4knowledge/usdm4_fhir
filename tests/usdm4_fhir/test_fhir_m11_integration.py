@@ -119,6 +119,10 @@ def test_to_fhir_madrid_pilot():
 def test_to_fhir_prism3_asp8062():
     run_test_to_prism3("ASP8062", SAVE)
 
+
+def test_to_fhir_prism3_igbj():
+    run_test_to_prism3("IGBJ", SAVE)
+
 @pytest.mark.anyio
 async def test_from_fhir_prism2_asp8062():
     await _run_test_from_prism2("ASP8062", SAVE)

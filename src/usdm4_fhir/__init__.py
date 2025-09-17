@@ -7,6 +7,7 @@ from usdm4_fhir.m11.export.export_madrid import ExportMadrid
 from usdm4_fhir.m11.export.export_prism2 import ExportPRISM2
 from usdm4_fhir.m11.export.export_prism3 import ExportPRISM3
 from usdm4_fhir.m11.import_.import_prism2 import ImportPRISM2
+from usdm4_fhir.m11.import_.import_prism3 import ImportPRISM3
 
 
 class FHIRBase:
@@ -46,6 +47,8 @@ class M11(FHIRBase):
         match version:
             case self.PRISM2:
                 self._import = ImportPRISM2()
+            case self.PRISM3:
+                self._import = ImportPRISM3()
             case _:
                 raise Exception(f"Version parameter '{version}' not recognized")
         self._errors = self._import.errors

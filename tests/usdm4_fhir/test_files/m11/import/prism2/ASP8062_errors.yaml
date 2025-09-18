@@ -1,5 +1,10 @@
 - level: Info
   location: {}
+  message: Importing FHIR PRISM2
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
   message: Decoded M11 FHIR message Full Title = A Phase 1 Randomized, Placebo-controlled
     Study to Assess the Safety, Tolerability and Pharmacokinetics of Multiple Doses
     of ASP8062 with a Single Dose of Morphine in Recreational Opioid Using Participants

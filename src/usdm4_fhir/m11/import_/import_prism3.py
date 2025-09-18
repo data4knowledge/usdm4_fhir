@@ -1,10 +1,12 @@
 from simple_error_log.errors import Errors
 from simple_error_log.error_location import KlassMethodLocation
 from usdm4.api.wrapper import Wrapper
+from fhir.resources.resource import Resource
 from fhir.resources.bundle import Bundle, BundleEntry
 from fhir.resources.codeableconcept import CodeableConcept
 from fhir.resources.coding import Coding
 from fhir.resources.researchstudy import ResearchStudy, ResearchStudyLabel
+from fhir.resources.organization import Organization
 from fhir.resources.extension import Extension
 from fhir.resources.identifier import Identifier
 from usdm4 import USDM4
@@ -86,11 +88,11 @@ class ImportPRISM3:
         try:
             study = None
             bundle = Bundle.parse_raw(data)
-            research_study: ResearchStudy = self._extract_from_bundle(
+            research_study: ResearchStudy = self._extract_from_bundle_type(
                 bundle, ResearchStudy.__name__, first=True
             )
             if research_study:
-                study = self._study(research_study)
+                study = self._study(research_study, bundle)
             else:
                 self._errors.warning(
                     "Failed to find ResearchStudy resource in the bundle.",
@@ -105,17 +107,17 @@ class ImportPRISM3:
             )
             return None
 
-    def _extract_from_bundle(
+    def _extract_from_bundle_type(
         self, bundle: Bundle, resource_type: str, first=False
     ) -> list:
         try:
             results = []
             entry: BundleEntry
             for entry in bundle.entry:
-                resource = entry.resource
-                print(f"RESOURCE: {resource.resource_type} == {resource_type}")
+                resource: Resource = entry.resource
                 if resource.resource_type == resource_type:
                     return resource if first else results.append(resource)
+            self._errors.warning("Unable to extract '{resource_type}' by type from the bundle")
             return None if first else results
         except Exception as e:
             self._errors.exception(
@@ -125,12 +127,33 @@ class ImportPRISM3:
             )
             return None
 
-    def _study(self, research_study: ResearchStudy) -> dict:
+    def _extract_from_bundle_id(
+        self, bundle: Bundle, resource_type: str, id: str
+    ) -> list:
+        try:
+            entry: BundleEntry
+            for entry in bundle.entry:
+                resource: Resource = entry.resource
+                if (resource.resource_type == resource_type) and (resource.id == f"{resource_type}/{id}"):
+                    return resource 
+            self._errors.warning("Unable to extract '{resource_type}/{id}' by id from the bundle")
+            return None 
+        except Exception as e:
+            self._errors.exception(
+                "Exception raised extracting from Bundle",
+                e,
+                KlassMethodLocation(self.MODULE, "_extract_from_bundle"),
+            )
+            return None
+
+
+    def _study(self, research_study: ResearchStudy, bundle: Bundle) -> dict:
         try:
             acronym = self._extract_acronym(research_study.label)
             sponsor_identifier = self._extract_sponsor_identifier(
                 research_study.identifier
             )
+            sponsor = self._extract_sponsor(research_study.associatedParty, bundle)
             result = {
                 "identification": {
                     "titles": {
@@ -141,16 +164,7 @@ class ImportPRISM3:
                     "identifiers": [
                         {
                             "identifier": sponsor_identifier,
-                            "scope": {
-                                "non_standard": {
-                                    "type": "pharma",
-                                    "description": "The sponsor organization",
-                                    "label": "sponsor",  # sponsor, <<<<<
-                                    "identifier": "UNKNOWN",
-                                    "identifierScheme": "UNKNOWN",
-                                    "legalAddress": None,  # address, <<<<<
-                                }
-                            },
+                            "scope": sponsor,
                         }
                     ],
                 },
@@ -214,6 +228,39 @@ class ImportPRISM3:
             )
             return None
 
+    def _extract_sponsor(self, assciated_parties: list, bundle: Bundle) -> dict:
+        for party in assciated_parties:
+            if "role" in party and self._is_sponsor(party["role"]):
+                organization: Organization = self._extract_from_bundle_id(bundle, party["party"]["reference"])
+                if organization:
+                    return {
+                        "non_standard": {
+                            "type": "pharma",
+                            "description": "The sponsor organization",
+                            "label": organization.name,
+                            "identifier": "UNKNOWN",
+                            "identifierScheme": "UNKNOWN",
+                            "legalAddress": organization.contact[0].address
+                        }
+                    }
+        self._errors.warning("Unable to extract sponsor details from associated parties")
+        return {
+            "non_standard": {
+                "type": "pharma",
+                "description": "The sponsor organization",
+                "label": "Unknown",
+                "identifier": "UNKNOWN",
+                "identifierScheme": "UNKNOWN",
+                "legalAddress": None
+            }
+        }
+
+    def _is_sponsor(self, role: dict) -> bool:
+        try:
+            return role["coding"]["code"] == "sponsor" if "coding" in role else False
+        except Exception:
+            return False
+    
     def _extract_phase(self, phase: CodeableConcept) -> str:
         if phase.coding:
             coding: Coding = phase.coding[0]

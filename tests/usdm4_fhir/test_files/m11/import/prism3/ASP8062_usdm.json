@@ -1,9 +1,9 @@
 {
   "study": {
     "id": "FAKE-UUID",
-    "name": "I8RJEIGBJ",
+    "name": "8062CL2002",
     "description": "The top-level study container",
-    "label": "I8R-JE-IGBJ",
+    "label": "8062-CL-2002",
     "versions": [
       {
         "id": "StudyVersion_1",
@@ -18,7 +18,7 @@
           {
             "id": "StudyIdentifier_1",
             "extensionAttributes": [],
-            "text": "I8R-JE-IGBJ",
+            "text": "8062-CL-2002",
             "scopeId": "Organization_1",
             "instanceType": "StudyIdentifier"
           }
@@ -38,10 +38,10 @@
               "standardCode": {
                 "id": "Code_6",
                 "extensionAttributes": [],
-                "code": "C15602",
+                "code": "C15600",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2025-03-28",
-                "decode": "Phase III Trial",
+                "decode": "Phase I Trial",
                 "instanceType": "Code"
               },
               "standardCodeAliases": [],
@@ -101,7 +101,7 @@
           {
             "id": "StudyTitle_1",
             "extensionAttributes": [],
-            "text": "A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus",
+            "text": "A Phase 1 Randomized, Placebo-controlled Study to Assess the Safety, Tolerability and Pharmacokinetics of Multiple Doses of ASP8062 with a Single Dose of Morphine in Recreational Opioid Using Participants",
             "type": {
               "id": "Code_1",
               "extensionAttributes": [],
@@ -131,7 +131,7 @@
           {
             "id": "StudyTitle_3",
             "extensionAttributes": [],
-            "text": "A Phase 3 Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced Hypoglycemia in Japanese Patients with Diabetes Mellitus",
+            "text": "",
             "type": {
               "id": "Code_3",
               "extensionAttributes": [],

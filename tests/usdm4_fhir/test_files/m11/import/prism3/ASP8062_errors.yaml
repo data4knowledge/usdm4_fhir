@@ -19,7 +19,7 @@
   location:
     class_name: usdm4.encoder.encoder.Encoder
     method_name: phase
-  message: Trial phase 'III' decoded as 'C15602', 'Phase III Trial'
+  message: Trial phase 'I' decoded as 'C15600', 'Phase I Trial'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Warning
@@ -33,6 +33,6 @@
   location:
     class_name: usdm4.assembler.study_assembler.StudyAssembler
     method_name: _get_study_name_label
-  message: Study name set to 'I8RJEIGBJ'
+  message: Study name set to '8062CL2002'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''

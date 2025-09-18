@@ -1,5 +1,10 @@
 - level: Info
   location: {}
+  message: Importing FHIR PRISM2
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
   message: Decoded M11 FHIR message Full Title = Proof of concept study (multicenter,
     phase II) on the efficacy of the selective TYK2 inhibitor Deucravacitinib in Lichen
     planus patients (DEUCRALIP)

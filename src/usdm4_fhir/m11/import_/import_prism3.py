@@ -5,7 +5,7 @@ from fhir.resources.resource import Resource
 from fhir.resources.bundle import Bundle, BundleEntry
 from fhir.resources.codeableconcept import CodeableConcept
 from fhir.resources.coding import Coding
-from fhir.resources.researchstudy import ResearchStudy, ResearchStudyLabel
+from fhir.resources.researchstudy import ResearchStudy, ResearchStudyLabel, ResearchStudyAssociatedParty
 from fhir.resources.organization import Organization
 from fhir.resources.extension import Extension
 from fhir.resources.identifier import Identifier
@@ -134,9 +134,9 @@ class ImportPRISM3:
             entry: BundleEntry
             for entry in bundle.entry:
                 resource: Resource = entry.resource
-                if (resource.resource_type == resource_type) and (resource.id == f"{resource_type}/{id}"):
+                if (resource.resource_type == resource_type) and (f"{resource_type}/{resource.id}" == id):
                     return resource 
-            self._errors.warning("Unable to extract '{resource_type}/{id}' by id from the bundle")
+            self._errors.warning(f"Unable to extract '{resource_type}/{id}' by id from the bundle")
             return None 
         except Exception as e:
             self._errors.exception(
@@ -229,9 +229,12 @@ class ImportPRISM3:
             return None
 
     def _extract_sponsor(self, assciated_parties: list, bundle: Bundle) -> dict:
+        party: ResearchStudyAssociatedParty
         for party in assciated_parties:
-            if "role" in party and self._is_sponsor(party["role"]):
-                organization: Organization = self._extract_from_bundle_id(bundle, party["party"]["reference"])
+            print(f"PARTY: {party}")
+            if self._is_sponsor(party.role):
+                print(f"SPONSOR")
+                organization: Organization = self._extract_from_bundle_id(bundle, "Organization", party.party.reference)
                 if organization:
                     return {
                         "non_standard": {
@@ -255,10 +258,14 @@ class ImportPRISM3:
             }
         }
 
-    def _is_sponsor(self, role: dict) -> bool:
+    def _is_sponsor(self, role: CodeableConcept) -> bool:
         try:
-            return role["coding"]["code"] == "sponsor" if "coding" in role else False
-        except Exception:
+            print(f"IS SPONSOR: {role}")
+            code: Coding = role.coding
+            print(f"IS SPONSOR CODE: {code[0].code}, {code[0].code == "sponsor"}")
+            return code[0].code == "sponsor" 
+        except Exception as e:
+            print(f"IS SPONSOR EXP: {e}")
             return False
     
     def _extract_phase(self, phase: CodeableConcept) -> str:

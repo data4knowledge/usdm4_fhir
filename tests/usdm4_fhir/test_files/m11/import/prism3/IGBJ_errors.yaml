@@ -3,9 +3,15 @@
   message: Importing FHIR PRISM3
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
-- level: Warning
-  location: {}
-  message: Unable to extract sponsor details from associated parties
+- level: Error
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: "Failed to create address object\n\nDetails\n'Address' object does not\
+    \ support item assignment\n\nTraceback\nTraceback (most recent call last):\n \
+    \ File \"src/usdm4/assembler/identification_assembler.py\", line 265, in _create_address\n\
+    \    address[\"country\"] = None\n    ~~~~~~~^^^^^^^^^^^\nTypeError: 'Address'\
+    \ object does not support item assignment\n"
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
@@ -20,13 +26,6 @@
     class_name: usdm4.encoder.encoder.Encoder
     method_name: phase
   message: Trial phase 'III' decoded as 'C15602', 'Phase III Trial'
-  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
-  type: ''
-- level: Warning
-  location:
-    class_name: usdm4.assembler.study_assembler.StudyAssembler
-    method_name: _create_date
-  message: No sponsor approval date detected
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info

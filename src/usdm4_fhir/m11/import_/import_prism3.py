@@ -5,7 +5,11 @@ from fhir.resources.resource import Resource
 from fhir.resources.bundle import Bundle, BundleEntry
 from fhir.resources.codeableconcept import CodeableConcept
 from fhir.resources.coding import Coding
-from fhir.resources.researchstudy import ResearchStudy, ResearchStudyLabel, ResearchStudyAssociatedParty
+from fhir.resources.researchstudy import (
+    ResearchStudy,
+    ResearchStudyLabel,
+    ResearchStudyAssociatedParty,
+)
 from fhir.resources.organization import Organization
 from fhir.resources.extension import Extension
 from fhir.resources.identifier import Identifier
@@ -117,7 +121,9 @@ class ImportPRISM3:
                 resource: Resource = entry.resource
                 if resource.resource_type == resource_type:
                     return resource if first else results.append(resource)
-            self._errors.warning("Unable to extract '{resource_type}' by type from the bundle")
+            self._errors.warning(
+                "Unable to extract '{resource_type}' by type from the bundle"
+            )
             return None if first else results
         except Exception as e:
             self._errors.exception(
@@ -134,10 +140,14 @@ class ImportPRISM3:
             entry: BundleEntry
             for entry in bundle.entry:
                 resource: Resource = entry.resource
-                if (resource.resource_type == resource_type) and (f"{resource_type}/{resource.id}" == id):
-                    return resource 
-            self._errors.warning(f"Unable to extract '{resource_type}/{id}' by id from the bundle")
-            return None 
+                if (resource.resource_type == resource_type) and (
+                    f"{resource_type}/{resource.id}" == id
+                ):
+                    return resource
+            self._errors.warning(
+                f"Unable to extract '{resource_type}/{id}' by id from the bundle"
+            )
+            return None
         except Exception as e:
             self._errors.exception(
                 "Exception raised extracting from Bundle",
@@ -145,7 +155,6 @@ class ImportPRISM3:
                 KlassMethodLocation(self.MODULE, "_extract_from_bundle"),
             )
             return None
-
 
     def _study(self, research_study: ResearchStudy, bundle: Bundle) -> dict:
         try:
@@ -233,8 +242,10 @@ class ImportPRISM3:
         for party in assciated_parties:
             print(f"PARTY: {party}")
             if self._is_sponsor(party.role):
-                print(f"SPONSOR")
-                organization: Organization = self._extract_from_bundle_id(bundle, "Organization", party.party.reference)
+                print("SPONSOR")
+                organization: Organization = self._extract_from_bundle_id(
+                    bundle, "Organization", party.party.reference
+                )
                 if organization:
                     return {
                         "non_standard": {
@@ -243,10 +254,12 @@ class ImportPRISM3:
                             "label": organization.name,
                             "identifier": "UNKNOWN",
                             "identifierScheme": "UNKNOWN",
-                            "legalAddress": organization.contact[0].address
+                            "legalAddress": organization.contact[0].address,
                         }
                     }
-        self._errors.warning("Unable to extract sponsor details from associated parties")
+        self._errors.warning(
+            "Unable to extract sponsor details from associated parties"
+        )
         return {
             "non_standard": {
                 "type": "pharma",
@@ -254,7 +267,7 @@ class ImportPRISM3:
                 "label": "Unknown",
                 "identifier": "UNKNOWN",
                 "identifierScheme": "UNKNOWN",
-                "legalAddress": None
+                "legalAddress": None,
             }
         }
 
@@ -263,11 +276,11 @@ class ImportPRISM3:
             # print(f"IS SPONSOR: {role}")
             code: Coding = role.coding
             # print(f"IS SPONSOR CODE: {code[0].code}, {code[0].code == "sponsor"}")
-            return code[0].code == "sponsor" 
+            return code[0].code == "sponsor"
         except Exception as e:
             print(f"IS SPONSOR EXP: {e}")
             return False
-    
+
     def _extract_phase(self, phase: CodeableConcept) -> str:
         if phase.coding:
             coding: Coding = phase.coding[0]

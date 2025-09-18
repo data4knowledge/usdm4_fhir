@@ -28,13 +28,6 @@
   message: Trial phase 'I' decoded as 'C15600', 'Phase I Trial'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
-- level: Warning
-  location:
-    class_name: usdm4.assembler.study_assembler.StudyAssembler
-    method_name: _create_date
-  message: No sponsor approval date detected
-  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
-  type: ''
 - level: Info
   location:
     class_name: usdm4.assembler.study_assembler.StudyAssembler

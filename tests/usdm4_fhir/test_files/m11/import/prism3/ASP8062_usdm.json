@@ -8,10 +8,46 @@
       {
         "id": "StudyVersion_1",
         "extensionAttributes": [],
-        "versionIdentifier": "1",
+        "versionIdentifier": "1.1",
         "rationale": "Not set",
         "documentVersionIds": [],
-        "dateValues": [],
+        "dateValues": [
+          {
+            "id": "GovernanceDate_1",
+            "extensionAttributes": [],
+            "name": "SPONSOR-APPORVAL-DATE",
+            "label": null,
+            "description": null,
+            "type": {
+              "id": "Code_7",
+              "extensionAttributes": [],
+              "code": "C132352",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Protocol Approval by Sponsor Date",
+              "instanceType": "Code"
+            },
+            "dateValue": "2020-07-30",
+            "geographicScopes": [
+              {
+                "id": "GeographicScope_1",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_8",
+                  "extensionAttributes": [],
+                  "code": "C68846",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Global",
+                  "instanceType": "Code"
+                },
+                "code": null,
+                "instanceType": "GeographicScope"
+              }
+            ],
+            "instanceType": "GovernanceDate"
+          }
+        ],
         "amendments": [],
         "businessTherapeuticAreas": [],
         "studyIdentifiers": [

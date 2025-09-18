@@ -183,9 +183,9 @@ class ImportPRISM3:
                     "trial_phase": self._extract_phase(research_study.phase),
                 },
                 "study": {
-                    "sponsor_approval_date": "",  # <<<<<
+                    "sponsor_approval_date": research_study.date.isoformat(),
                     "version_date": "",  # <<<<<
-                    "version": "1",  # <<<<<
+                    "version": research_study.version,
                     "rationale": "Not set",
                     "name": {
                         "acronym": acronym,
@@ -260,9 +260,9 @@ class ImportPRISM3:
 
     def _is_sponsor(self, role: CodeableConcept) -> bool:
         try:
-            print(f"IS SPONSOR: {role}")
+            # print(f"IS SPONSOR: {role}")
             code: Coding = role.coding
-            print(f"IS SPONSOR CODE: {code[0].code}, {code[0].code == "sponsor"}")
+            # print(f"IS SPONSOR CODE: {code[0].code}, {code[0].code == "sponsor"}")
             return code[0].code == "sponsor" 
         except Exception as e:
             print(f"IS SPONSOR EXP: {e}")

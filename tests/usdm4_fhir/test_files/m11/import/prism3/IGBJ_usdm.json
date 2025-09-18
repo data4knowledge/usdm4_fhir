@@ -218,7 +218,20 @@
             },
             "identifierScheme": "UNKNOWN",
             "identifier": "UNKNOWN",
-            "legalAddress": null,
+            "legalAddress": {
+              "id": "Address_1",
+              "extensionAttributes": [],
+              "text": "Japan",
+              "lines": [
+                "Japan"
+              ],
+              "city": null,
+              "district": null,
+              "state": null,
+              "postalCode": null,
+              "country": null,
+              "instanceType": "Address"
+            },
             "managedSites": [],
             "instanceType": "Organization"
           }

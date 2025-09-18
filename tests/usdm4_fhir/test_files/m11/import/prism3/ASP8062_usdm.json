@@ -253,7 +253,21 @@
             },
             "identifierScheme": "UNKNOWN",
             "identifier": "UNKNOWN",
-            "legalAddress": null,
+            "legalAddress": {
+              "id": "Address_1",
+              "extensionAttributes": [],
+              "text": "Global Development Inc., 1 Astellas Way Northbrook, IL 60062, US",
+              "lines": [
+                "Global Development Inc.",
+                "1 Astellas Way Northbrook, IL 60062, US"
+              ],
+              "city": null,
+              "district": null,
+              "state": null,
+              "postalCode": null,
+              "country": null,
+              "instanceType": "Address"
+            },
             "managedSites": [],
             "instanceType": "Organization"
           }

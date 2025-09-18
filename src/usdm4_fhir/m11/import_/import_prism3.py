@@ -14,6 +14,7 @@ from fhir.resources.organization import Organization
 from fhir.resources.extension import Extension
 from fhir.resources.identifier import Identifier
 from fhir.resources.composition import Composition, CompositionSection
+from fhir.resources.extendedcontactdetail import ExtendedContactDetail
 from usdm4 import USDM4
 from usdm4_fhir.__info__ import (
     __system_name__ as SYSTEM_NAME,
@@ -249,6 +250,9 @@ class ImportPRISM3:
                     bundle, "Organization", party.party.reference
                 )
                 if organization:
+                    extended_contact: ExtendedContactDetail = organization.contact[0]
+                    address = self._to_address(extended_contact.address.__dict__)
+                    self._errors.debug(f"Address dict: {address}")
                     return {
                         "non_standard": {
                             "type": "pharma",
@@ -256,7 +260,7 @@ class ImportPRISM3:
                             "label": organization.name,
                             "identifier": "UNKNOWN",
                             "identifierScheme": "UNKNOWN",
-                            "legalAddress": organization.contact[0].address,
+                            "legalAddress": address,
                         }
                     }
         self._errors.warning(
@@ -272,6 +276,22 @@ class ImportPRISM3:
                 "legalAddress": None,
             }
         }
+
+    def _to_address(self, address: dict):
+        keys = [
+            ('city', 'city'),
+            ('country', 'country'),
+            ('district', 'district'),
+            ('line', 'lines'),
+            ('postalCode', 'postalCode'),
+            ('state', 'state'),
+            ('text', 'text'),
+        ]
+        result = {}
+        for k in keys:
+            if address[k[0]]:
+                result[k[1]] = address[k[0]]
+        return result
 
     def _is_sponsor(self, role: CodeableConcept) -> bool:
         try:

@@ -218,7 +218,7 @@ class ImportPRISM3:
                         "template": "M11",
                         "version_date": "",
                     },
-                    "sections": sections
+                    "sections": sections,
                 },
                 "population": {
                     "label": "Default population",
@@ -331,7 +331,9 @@ class ImportPRISM3:
         results = []
         references = self._extract_narrative_references(extensions)
         for reference in references:
-            composition: Composition = self._extract_from_bundle_id(bundle, "Composition", reference)
+            composition: Composition = self._extract_from_bundle_id(
+                bundle, "Composition", reference
+            )
             results += self._extract_section(composition.section)
         return results
 
@@ -353,12 +355,15 @@ class ImportPRISM3:
     def _get_section_number(self, text):
         parts: list[str] = text.split("-")
         return parts[0].replace("section", "") if len(parts) >= 2 else ""
-    
+
     def _extract_narrative_references(self, extensions: list) -> list:
         results = []
         item: Extension
         for item in extensions:
-            if item.url == "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements":
+            if (
+                item.url
+                == "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements"
+            ):
                 results.append(item.valueReference.reference)
         return results
 

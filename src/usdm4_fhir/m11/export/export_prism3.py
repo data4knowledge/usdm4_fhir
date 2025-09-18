@@ -83,9 +83,9 @@ class ExportPRISM3(ExportBase):
         return rs
 
     def _create_compositions(self):
-        # For debug purposes, limit number of sections added
-        count = 3
-        index = 1
+        # # For debug purposes, limit number of sections added
+        # count = 100
+        # index = 1
 
         # Normal processing
         processed_map = {}
@@ -98,10 +98,10 @@ class ExportPRISM3(ExportBase):
                 composition.item.id = str(uuid4())
                 compositions.append(composition)
 
-            # Debug
-            index += 1
-            if index >= count:
-                break
+            # # Debug
+            # index += 1
+            # if index >= count:
+            #     break
         return compositions
 
     def _content_to_composition_entry(

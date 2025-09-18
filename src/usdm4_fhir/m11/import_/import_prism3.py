@@ -43,7 +43,6 @@ class ImportPRISM3:
             self._errors.info("Importing FHIR PRISM3")
             data = self._read_file(filepath)
             self._source_data = self._from_fhir(data)
-            print(f"ASSEMBLER DICT: {self._source_data}")
             self._assembler.execute(self._source_data)
             return self._assembler.wrapper(SYSTEM_NAME, VERSION)
         except Exception as e:
@@ -243,9 +242,7 @@ class ImportPRISM3:
     def _extract_sponsor(self, assciated_parties: list, bundle: Bundle) -> dict:
         party: ResearchStudyAssociatedParty
         for party in assciated_parties:
-            print(f"PARTY: {party}")
             if self._is_sponsor(party.role):
-                print("SPONSOR")
                 organization: Organization = self._extract_from_bundle_id(
                     bundle, "Organization", party.party.reference
                 )
@@ -279,13 +276,13 @@ class ImportPRISM3:
 
     def _to_address(self, address: dict):
         keys = [
-            ('city', 'city'),
-            ('country', 'country'),
-            ('district', 'district'),
-            ('line', 'lines'),
-            ('postalCode', 'postalCode'),
-            ('state', 'state'),
-            ('text', 'text'),
+            ("city", "city"),
+            ("country", "country"),
+            ("district", "district"),
+            ("line", "lines"),
+            ("postalCode", "postalCode"),
+            ("state", "state"),
+            ("text", "text"),
         ]
         result = {}
         for k in keys:
@@ -318,7 +315,6 @@ class ImportPRISM3:
             item: Identifier
             for item in identifiers:
                 cc: CodeableConcept = item.type
-                print(f"CC: {cc}")
                 if hasattr(cc, "text") and cc.text == "Pharmaceutical Company":
                     return item.value
         return ""

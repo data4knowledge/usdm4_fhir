@@ -3,22 +3,40 @@
   message: Importing FHIR PRISM3
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
+- level: Debug
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: 'Creating address, source data: resource_type=''Address'' fhir_comments=None
+    extension=None id=''Address_1'' city=None city__ext=None country=None country__ext=None
+    district=None district__ext=None line=[''Japan''] line__ext=None period=None postalCode=None
+    postalCode__ext=None state=None state__ext=None text=''Japan'' text__ext=None
+    type=None type__ext=None use=None use__ext=None'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
 - level: Error
   location:
     class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
     method_name: _create_address
   message: "Failed to create address object\n\nDetails\n'Address' object does not\
     \ support item assignment\n\nTraceback\nTraceback (most recent call last):\n \
-    \ File \"src/usdm4/assembler/identification_assembler.py\", line 265, in _create_address\n\
+    \ File \"src/usdm4/assembler/identification_assembler.py\", line 268, in _create_address\n\
     \    address[\"country\"] = None\n    ~~~~~~~^^^^^^^^^^^\nTypeError: 'Address'\
     \ object does not support item assignment\n"
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
-- level: Info
+- level: Warning
   location:
     class_name: usdm4.assembler.document_assembler.DocumentAssembler
-    method_name: execute
-  message: No document to build, no data
+    method_name: _create_date
+  message: No sponsor approval date detected
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.encoder.encoder.Encoder
+    method_name: document_status
+  message: Document status 'FINAL' decoded as 'C25508', 'Final'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info

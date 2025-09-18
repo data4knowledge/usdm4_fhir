@@ -13,6 +13,7 @@ from fhir.resources.researchstudy import (
 from fhir.resources.organization import Organization
 from fhir.resources.extension import Extension
 from fhir.resources.identifier import Identifier
+from fhir.resources.composition import Composition, CompositionSection
 from usdm4 import USDM4
 from usdm4_fhir.__info__ import (
     __system_name__ as SYSTEM_NAME,
@@ -163,6 +164,7 @@ class ImportPRISM3:
                 research_study.identifier
             )
             sponsor = self._extract_sponsor(research_study.associatedParty, bundle)
+            sections = self._extract_sections(research_study.extension, bundle)
             result = {
                 "identification": {
                     "titles": {
@@ -208,16 +210,16 @@ class ImportPRISM3:
                     ),
                     "regulatory_agency_identifiers": "",  # <<<<<
                 },
-                "document": {},
-                #     "document": {
-                #         "label": "Protocol Document",
-                #         "version": "",  # @todo
-                #         "status": "Final",  # @todo
-                #         "template": "Legacy",
-                #         "version_date": "",
-                #     },
-                #     "sections": []
-                # },
+                "document": {
+                    "document": {
+                        "label": "Protocol Document",
+                        "version": "",  # @todo
+                        "status": "Final",  # @todo
+                        "template": "M11",
+                        "version_date": "",
+                    },
+                    "sections": sections
+                },
                 "population": {
                     "label": "Default population",
                     "inclusion_exclusion": {
@@ -325,6 +327,41 @@ class ImportPRISM3:
                     return label.value
         return ""
 
+    def _extract_sections(self, extensions: list, bundle: Bundle) -> dict:
+        results = []
+        references = self._extract_narrative_references(extensions)
+        for reference in references:
+            composition: Composition = self._extract_from_bundle_id(bundle, "Composition", reference)
+            results += self._extract_section(composition.section)
+        return results
+
+    def _extract_section(self, sections: list[CompositionSection]):
+        results = []
+        section: CompositionSection
+        for section in sections:
+            results.append(
+                {
+                    "section_number": self._get_section_number(section.code.text),
+                    "section_title": section.title,
+                    "text": section.text.div if section.text else "",
+                }
+            )
+            if section.section:
+                results += self._extract_section(section.section)
+        return results
+
+    def _get_section_number(self, text):
+        parts: list[str] = text.split("-")
+        return parts[0].replace("section", "") if len(parts) >= 2 else ""
+    
+    def _extract_narrative_references(self, extensions: list) -> list:
+        results = []
+        item: Extension
+        for item in extensions:
+            if item.url == "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements":
+                results.append(item.valueReference.reference)
+        return results
+
     def _extract_confidentiality_statement(self, extensions: list) -> str:
         ext = self._extract_extension(
             extensions,
@@ -333,7 +370,7 @@ class ImportPRISM3:
         return ext.valueString if ext else ""
 
     def _extract_extension(self, extensions: list, url: str) -> Extension:
-        item: ResearchStudyLabel
+        item: Extension
         for item in extensions:
             if item.url == url:
                 return item

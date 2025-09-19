@@ -149,3 +149,8 @@ async def test_from_fhir_prism2_igbj():
 @pytest.mark.anyio
 async def test_from_fhir_prism3_igbj():
     await _run_test_from_prism3("IGBJ", SAVE)
+
+
+@pytest.mark.anyio
+async def test_from_fhir_prism3_asp8062():
+    await _run_test_from_prism3("ASP8062", SAVE)

@@ -1,0 +1,187 @@
+Sponsor Confidentiality Statement:
+  ordinal: 1
+  status:
+    value: Extra
+    notes: Need a full USDM mechanism for this
+Full Title:
+  ordinal: 2
+  status:
+    value: Full
+    notes: ''
+Trial Acronym:
+  ordinal: 3
+  status:
+    value: Full
+    notes: ''
+Sponsor Protocol Identifier:
+  ordinal: 4
+  status:
+    value: Full
+    notes: ''
+Original Protocol Indicator:
+  ordinal: 5
+  status:
+    value: Extra
+    notes: Fix when amendments fully merged in
+Version Number:
+  ordinal: 6
+  status:
+    value: Full
+    notes: ''
+Version Date:
+  ordinal: 7
+  status:
+    value: Full
+    notes: ''
+Amendment Identifier:
+  ordinal: 8
+  status:
+    value: Extra
+    notes: Using extra until we implement amendments. The sponsor 'System URL for
+      a sponsor's amendment identifier system' will not be able to be determined from
+      a document import.
+Amendment Scope:
+  ordinal: 9
+  status:
+    value: ''
+    notes: ''
+Country Identifier:
+  ordinal: 10
+  status:
+    value: Other
+    notes: Part of amendments
+Region Identifier:
+  ordinal: 11
+  status:
+    value: Other
+    notes: Part of amendments
+Site Identifier:
+  ordinal: 12
+  status:
+    value: Other
+    notes: Part of amendments
+Sponsors Investigational Product Codes:
+  ordinal: 13
+  status:
+    value: Extra
+    notes: Something simple so far, FHIR mapping looks weird
+Nonproprietary Names:
+  ordinal: 14
+  status:
+    value: Other
+    notes: Check this, part of compund codes
+Proprietary Names:
+  ordinal: 15
+  status:
+    value: Other
+    notes: Check this, part of compund codes
+Trial Phase:
+  ordinal: 16
+  status:
+    value: Full
+    notes: ''
+Trial Short Title:
+  ordinal: 17
+  status:
+    value: ''
+    notes: ''
+Sponsor Name:
+  ordinal: 18
+  status:
+    value: Full
+    notes: ''
+Sponsor Legal Address:
+  ordinal: 19
+  status:
+    value: Full
+    notes: ''
+Co-Sponsor Name:
+  ordinal: 20
+  status:
+    value: None
+    notes: Not needed yet
+Co-Sponsor Legal Address:
+  ordinal: 21
+  status:
+    value: None
+    notes: Not needed yet
+Local Sponsor Name:
+  ordinal: 22
+  status:
+    value: None
+    notes: Not needed yet
+Local Sponsor Address:
+  ordinal: 23
+  status:
+    value: None
+    notes: Not needed yet
+Device Manufacturer Name:
+  ordinal: 24
+  status:
+    value: None
+    notes: Not needed yet
+Device Manufacturer Address:
+  ordinal: 25
+  status:
+    value: None
+    notes: Not needed yet
+EU CT Number:
+  ordinal: 26
+  status:
+    value: Full
+    notes: Needs testing to make sure works
+FDA IND Number:
+  ordinal: 27
+  status:
+    value: Full
+    notes: Needs testing to make sure works
+IDE Number:
+  ordinal: 28
+  status:
+    value: None
+    notes: Need to check this
+jRCT Number:
+  ordinal: 29
+  status:
+    value: Full
+    notes: Needs testing to make sure works
+NCT Number:
+  ordinal: 30
+  status:
+    value: Full
+    notes: ''
+NMPA IND Number:
+  ordinal: 31
+  status:
+    value: Full
+    notes: ''
+WHO-UTN Number:
+  ordinal: 32
+  status:
+    value: Full
+    notes: ''
+Other Regulatory or Clinical Trial Identifier:
+  ordinal: 33
+  status:
+    value: None
+    notes: Need to look at this
+Approval Date:
+  ordinal: 34
+  status:
+    value: ''
+    notes: ''
+State location where Information can be found:
+  ordinal: 35
+  status:
+    value: ''
+    notes: ''
+Sponsor signatory:
+  ordinal: 36
+  status:
+    value: ''
+    notes: ''
+'Medical expert contatc:':
+  ordinal: 37
+  status:
+    value: ''
+    notes: ''

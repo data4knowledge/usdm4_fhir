@@ -1,0 +1,57 @@
+- level: Info
+  location: {}
+  message: Importing FHIR PRISM3
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location: {}
+  message: 'Address dict: {''lines'': [''Global Development Inc.'', ''1 Astellas Way
+    Northbrook, IL 60062, US''], ''text'': ''Global Development Inc., 1 Astellas Way
+    Northbrook, IL 60062, US''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: 'Creating address, source data: {''lines'': [''Global Development Inc.'',
+    ''1 Astellas Way Northbrook, IL 60062, US''], ''text'': ''Global Development Inc.,
+    1 Astellas Way Northbrook, IL 60062, US''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: Address set to Global Development Inc., 1 Astellas Way Northbrook, IL 60062,
+    US
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location:
+    class_name: usdm4.assembler.document_assembler.DocumentAssembler
+    method_name: _create_date
+  message: No sponsor approval date detected
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.encoder.encoder.Encoder
+    method_name: document_status
+  message: Document status 'FINAL' decoded as 'C25508', 'Final'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.encoder.encoder.Encoder
+    method_name: phase
+  message: Trial phase 'I' decoded as 'C15600', 'Phase I Trial'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.study_assembler.StudyAssembler
+    method_name: _get_study_name_label
+  message: Study name set to '8062CL2002'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''

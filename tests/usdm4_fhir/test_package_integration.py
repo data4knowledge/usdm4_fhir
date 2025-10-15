@@ -103,11 +103,11 @@ async def run_test_from_m11_prism3(name, save=False):
 # -----+-----
 
 def test_to_fhir_prism3_asp8062():
-    run_test_to_m11_prism3("ASP8062", SAVE)
+    run_test_to_m11_prism3("ASP8063", SAVE)
 
 @pytest.mark.anyio
 async def test_from_fhir_prism3_asp8062():
-    await run_test_from_m11_prism3("ASP8062", SAVE)
+    await run_test_from_m11_prism3("ASP8063", SAVE)
 
 def test_to_fhir_soa_pilot():
-    run_test_to_soa("pilot", SAVE)
+    run_test_to_soa("pilot1", SAVE)

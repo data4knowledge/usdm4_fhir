@@ -65,8 +65,8 @@ class M11(FHIRBase):
 
 
 class SoA(FHIRBase):
-    def to_message(self, study: Study, extra: dict) -> str | None:
-        self._export = ExportSoA(study, extra)
+    def to_message(self, study: Study, timeline_id: str, uuid: str, extra: dict = {}) -> str | None:
+        self._export = ExportSoA(study, timeline_id, uuid, extra)
         return self._export.to_message()
 
     @property

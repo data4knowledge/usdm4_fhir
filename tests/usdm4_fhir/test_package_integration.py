@@ -74,7 +74,7 @@ def run_test_to_soa(name, save=False):
     study_version = study.first_version()
     study_design = study_version.studyDesigns[0]
     soa = SoA()
-    soa.to_message(
+    result = soa.to_message(
         study, study_design.main_timeline().id, "FAKE-UUID", extra
     )
     result = fix_iso_dates(result)

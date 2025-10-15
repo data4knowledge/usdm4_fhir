@@ -20,7 +20,7 @@ class TagReference:
                 instance = self._data_store.get(attributes["klass"], attributes["id"])
                 value = self._resolve_instance(instance, attributes["attribute"])
                 translated_text = self.translate(value)
-                print(f"TRANSLATED: {translated_text}")
+                # print(f"TRANSLATED: {translated_text}")
                 self._replace_and_highlight(ref, translated_text)
             except Exception as e:
                 location = KlassMethodLocation(self.MODULE, "translate")

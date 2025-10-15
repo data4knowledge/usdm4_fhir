@@ -3,7 +3,11 @@ import pytest
 from tests.usdm4_fhir.helpers.files import read_yaml, write_json, read_json, write_yaml
 from tests.usdm4_fhir.helpers.helpers import fix_uuid, fix_iso_dates
 from tests.usdm4_fhir.helpers.errors_clean import errors_clean_all
-from usdm4_fhir import M11
+from usdm4_fhir.m11.export.export_madrid import ExportMadrid
+from usdm4_fhir.m11.export.export_prism2 import ExportPRISM2
+from usdm4_fhir.m11.export.export_prism3 import ExportPRISM3
+from usdm4_fhir.m11.import_.import_prism2 import ImportPRISM2
+from usdm4_fhir.m11.import_.import_prism3 import ImportPRISM3
 from usdm4 import USDM4
 from usdm4.api.wrapper import Wrapper
 
@@ -34,6 +38,24 @@ def run_test_to_prism3(name, save=False):
     run_to_test(name, version, mode, save)
 
 
+def get_export_instance(study, extra, version):
+    if version == "madrid":
+        return ExportMadrid(study, extra)
+    elif version == "prism2":
+        return ExportPRISM2(study, extra)
+    elif version == "prism3":
+        return ExportPRISM3(study, extra)
+    else:
+        return None
+
+def get_import_instance(version):
+    if version == "prism2":
+        return ImportPRISM2()
+    elif version == "prism3":
+        return ImportPRISM3()
+    else:
+        return None
+
 def run_to_test(name, version, mode, save=False):
     filename = f"{name}_usdm.json"
     contents = json.loads(read_json(_full_path(filename, version, mode)))
@@ -41,8 +63,8 @@ def run_to_test(name, version, mode, save=False):
     wrapper = usdm.from_json(contents)
     study = wrapper.study
     extra = read_yaml(_full_path(f"{name}_extra.yaml", version, mode))
-    instance = M11()
-    result = instance.to_message(study, extra, version)
+    instance = get_export_instance(study, extra, version)
+    result = instance.to_message()
     print(f"ERRORS:\n{instance.errors.dump(0)}")
     result = fix_iso_dates(result)
     result = fix_uuid(result)
@@ -70,10 +92,8 @@ async def _run_test_from_prism3(name, save=False):
 
 async def _run_from_test(name: str, version: str, mode: str, save: bool = False):
     filename = f"{name}_fhir_m11.json"
-    instance = M11()
-    wrapper: Wrapper = await instance.from_message(
-        _full_path(filename, version, mode), version
-    )
+    instance = get_import_instance(version)
+    wrapper: Wrapper = await instance.from_message(_full_path(filename, version, mode), )
     print(f"ERRORS:\n{instance.errors.dump(0)}")
     result = wrapper.to_json()
     result = fix_uuid(result)

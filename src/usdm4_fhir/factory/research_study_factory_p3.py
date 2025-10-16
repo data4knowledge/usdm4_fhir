@@ -122,18 +122,19 @@ class ResearchStudyFactoryP3(BaseFactory):
                 self.item.date = date_value
 
             # Amendment Identifier
-            identifier_code = CodingFactory(
-                system=self.NCI_CODE_SYSTEM,
-                code="C218477",
-                display="Amendment Identifier",
-            )
-            self.item.identifier.append(
-                {
-                    "type": {"coding": [identifier_code.item]},
-                    "system": "https://example.org/amendment-identifier",
-                    "value": self._title_page["amendment_identifier"],
-                }
-            )
+            if self._title_page["amendment_identifier"]:
+                identifier_code = CodingFactory(
+                    system=self.NCI_CODE_SYSTEM,
+                    code="C218477",
+                    display="Amendment Identifier",
+                )
+                self.item.identifier.append(
+                    {
+                        "type": {"coding": [identifier_code.item]},
+                        "system": "https://example.org/amendment-identifier",
+                        "value": self._title_page["amendment_identifier"],
+                    }
+                )
 
             # Amendment Scope
             the_scope = (

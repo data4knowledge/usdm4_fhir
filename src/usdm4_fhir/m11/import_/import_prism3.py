@@ -203,6 +203,9 @@ class ImportPRISM3:
                         "identifier": sponsor_identifier,
                         "compound_code": "",  # "compund code", <<<<<
                     },
+                    "confidentiality": self._extract_confidentiality_statement(
+                        research_study.extension
+                    ),
                 },
                 "other": {
                     "confidentiality": self._extract_confidentiality_statement(

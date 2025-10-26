@@ -398,7 +398,7 @@ class ImportPRISM3:
             extensions,
             f"{self.UDP_BASE}/study-amendment",
         )
-        return ext.valueBoolean if ext else False
+        return ext.valueCoding.display if ext else False
 
     def _extract_extension(self, extensions: list, url: str) -> Extension:
         item: Extension

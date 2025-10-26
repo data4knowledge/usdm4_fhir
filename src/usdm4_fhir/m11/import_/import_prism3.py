@@ -194,7 +194,7 @@ class ImportPRISM3:
                     "trial_phase": self._extract_phase(research_study.phase),
                 },
                 "study": {
-                    "sponsor_approval_date": research_study.date.isoformat(),
+                    "sponsor_approval_date": research_study.date.isoformat() if research_study.date else "",
                     "version_date": "",  # <<<<<
                     "version": research_study.version,
                     "rationale": "Not set",
@@ -251,8 +251,9 @@ class ImportPRISM3:
                 )
                 if organization:
                     extended_contact: ExtendedContactDetail = organization.contact[0]
+                    # print(f"Address source: {extended_contact.address.__dict__}")
                     address = self._to_address(extended_contact.address.__dict__)
-                    self._errors.debug(f"Address dict: {address}")
+                    # print(f"Address dict: {address}")
                     return {
                         "non_standard": {
                             "type": "pharma",
@@ -277,7 +278,7 @@ class ImportPRISM3:
             }
         }
 
-    def _to_address(self, address: dict):
+    def _to_address(self, address: dict) -> dict | None:
         keys = [
             ("city", "city"),
             ("country", "country"),
@@ -288,16 +289,18 @@ class ImportPRISM3:
             ("text", "text"),
         ]
         result = {}
+        valid = False
         for k in keys:
             if address[k[0]]:
+                # print(f"KEY: {k}")
                 result[k[1]] = address[k[0]]
-        return result
+                valid = True
+        # print(f"ADDR: {valid}, {result}")
+        return result if valid else None
 
     def _is_sponsor(self, role: CodeableConcept) -> bool:
         try:
-            # print(f"IS SPONSOR: {role}")
             code: Coding = role.coding
-            # print(f"IS SPONSOR CODE: {code[0].code}, {code[0].code == "sponsor"}")
             return code[0].code == "sponsor"
         except Exception as e:
             print(f"IS SPONSOR EXP: {e}")
@@ -314,22 +317,21 @@ class ImportPRISM3:
         return ""
 
     def _extract_sponsor_identifier(self, identifiers: list) -> str:
-        if identifiers:
-            item: Identifier
-            for item in identifiers:
-                cc: CodeableConcept = item.type
-                if hasattr(cc, "text") and cc.text == "Pharmaceutical Company":
-                    return item.value
-        return ""
+        return self._extract_identifier(identifiers, "C132351", "code")
 
     def _extract_identifier(
         self, identifiers: list, type: str, attribute_name: str
     ) -> str:
         if identifiers:
-            item: CodeableConcept
+            item: Identifier
             for item in identifiers:
-                if getattr(item.type.coding[0], attribute_name) == type:
-                    return item.value
+                coding: CodeableConcept
+                if coding := item.type.coding[0]:
+                    value = getattr(coding, attribute_name)
+                    if value == type:
+                        self._errors.info(f"Extracted identifier of type '{coding.display}': '{item.value}'")
+                        return item.value
+        self._errors.warning(f"Failed to extract identifier of type '{type}'")
         return ""
 
     def _extract_acronym(self, labels) -> str:

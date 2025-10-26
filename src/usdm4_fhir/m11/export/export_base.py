@@ -116,6 +116,7 @@ class ExportBase:
             narrative.div = self.EMPTY_DIV
         narrative.div = self._clean_tags(narrative.div)
         if narrative.div == self.EMPTY_DIV:
+            title = title if title else "-"
             return CompositionSection(title=f"{title}", code=code, section=[])
         else:
             title = title if title else "-"

@@ -52,6 +52,7 @@ class ResearchStudyFactoryP3(BaseFactory):
             )
 
             # Sponsor Confidentiality Statememt
+            # if self._version.confidentiality_statement(): <<< NEW 
             if self._title_page["sponsor_confidentiality"]:
                 ext = ExtensionFactory(
                     **{
@@ -81,15 +82,22 @@ class ResearchStudyFactoryP3(BaseFactory):
             # Sponsor Identifier
             identifier = self._version.sponsor_identifier()
             if identifier:
-                org = identifier.scoped_by(self._organizations)
-                identifier_type = CodeableConceptFactory(text=org.type.decode)
+                # org = identifier.scoped_by(self._organizations)
+                # identifier_type = CodeableConceptFactory(text=org.type.decode)
+                identifier_type = CodingFactory(
+                    system=self.NCI_CODE_SYSTEM,
+                    code="C132351",
+                    display="Sponsor Protocol Identifier",
+                )
                 self.item.identifier.append(
                     {
-                        "type": identifier_type.item,
+                        # "type": identifier_type.item,
+                        "type": {"coding": [identifier_type.item]},
                         "system": "https://example.org/sponsor-identifier",
                         "value": identifier.text,
                     }
                 )
+                # print(f"IDENTIFIER: {self.item.identifier}")
 
             # Original Protocol - No implementation details currently
             original = self._title_page["original_protocol"]

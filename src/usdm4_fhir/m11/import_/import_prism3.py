@@ -24,6 +24,7 @@ from usdm4_fhir.__info__ import (
 
 class ImportPRISM3:
     MODULE = "usdm4_fhir.m11.import_.import_prism2.ImportPRISM3"
+    UDP_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocol"
 
     class LogicError(Exception):
         pass
@@ -60,9 +61,6 @@ class ImportPRISM3:
                 "compound_codes": "",
                 "compound_names": "",
                 "amendment_identifier": "",
-                "sponsor_confidentiality": self._source_data["other"][
-                    "confidentiality"
-                ],
                 "regulatory_agency_identifiers": "",
                 # Those below not used?
                 "amendment_details": "",
@@ -206,11 +204,11 @@ class ImportPRISM3:
                     "confidentiality": self._extract_confidentiality_statement(
                         research_study.extension
                     ),
-                },
-                "other": {
-                    "confidentiality": self._extract_confidentiality_statement(
+                    "original_protocol": self._extract_original_protocol(
                         research_study.extension
                     ),
+                },
+                "other": {
                     "regulatory_agency_identifiers": "",  # <<<<<
                 },
                 "document": {
@@ -394,6 +392,13 @@ class ImportPRISM3:
             "http://hl7.org/fhir/uv/ebm/StructureDefinition/research-study-sponsor-confidentiality-statement",
         )
         return ext.valueString if ext else ""
+
+    def _extract_original_protocol(self, extensions: list) -> bool:
+        ext = self._extract_extension(
+            extensions,
+            f"{self.UDP_BASE}/study-amendment",
+        )
+        return ext.valueBoolean if ext else False
 
     def _extract_extension(self, extensions: list, url: str) -> Extension:
         item: Extension

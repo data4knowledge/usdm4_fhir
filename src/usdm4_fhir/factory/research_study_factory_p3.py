@@ -101,15 +101,14 @@ class ResearchStudyFactoryP3(BaseFactory):
                 # print(f"IDENTIFIER: {self.item.identifier}")
 
             # Original Protocol - No implementation details currently
-            original = self._title_page["original_protocol"]
             original_code = CodingFactory(
                 system=self.NCI_CODE_SYSTEM,
-                code="C49488",
-                display="Yes",
+                code="C49487",
+                display="No"
             )
-            if original.upper == "NO":
-                original_code.code = "C49487"
-                original_code.display = "No"
+            if self._version.original_version():
+                original_code.code="C49488"
+                original_code.display="Yes"
             ext = ExtensionFactory(
                 **{
                     "url": f"{self.UDP_BASE}/study-amendment",

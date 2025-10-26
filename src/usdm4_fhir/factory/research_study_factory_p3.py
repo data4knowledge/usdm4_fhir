@@ -107,8 +107,8 @@ class ResearchStudyFactoryP3(BaseFactory):
                 display="No"
             )
             if self._version.original_version():
-                original_code.code="C49488"
-                original_code.display="Yes"
+                original_code.item.code="C49488"
+                original_code.item.display="Yes"
             ext = ExtensionFactory(
                 **{
                     "url": f"{self.UDP_BASE}/study-amendment",

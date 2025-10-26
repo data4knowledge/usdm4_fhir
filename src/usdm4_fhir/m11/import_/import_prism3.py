@@ -393,12 +393,12 @@ class ImportPRISM3:
         )
         return ext.valueString if ext else ""
 
-    def _extract_original_protocol(self, extensions: list) -> bool:
+    def _extract_original_protocol(self, extensions: list) -> str:
         ext = self._extract_extension(
             extensions,
             f"{self.UDP_BASE}/study-amendment",
         )
-        return ext.valueCoding.display if ext else False
+        return ext.valueCoding.display if ext else "NO"
 
     def _extract_extension(self, extensions: list, url: str) -> Extension:
         item: Extension

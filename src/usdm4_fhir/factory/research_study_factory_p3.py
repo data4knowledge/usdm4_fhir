@@ -52,12 +52,13 @@ class ResearchStudyFactoryP3(BaseFactory):
             )
 
             # Sponsor Confidentiality Statememt
-            # if self._version.confidentiality_statement(): <<< NEW 
-            if self._title_page["sponsor_confidentiality"]:
+            if cs := self._version.confidentiality_statement():
+            #if self._title_page["sponsor_confidentiality"]:
                 ext = ExtensionFactory(
                     **{
                         "url": "http://hl7.org/fhir/uv/ebm/StructureDefinition/research-study-sponsor-confidentiality-statement",
-                        "valueString": self._title_page["sponsor_confidentiality"],
+#                        "valueString": self._title_page["sponsor_confidentiality"],
+                        "valueString": cs,
                     }
                 )
                 self.item.extension.append(ext.item)

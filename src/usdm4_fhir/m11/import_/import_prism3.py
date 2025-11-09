@@ -192,7 +192,9 @@ class ImportPRISM3:
                     "trial_phase": self._extract_phase(research_study.phase),
                 },
                 "study": {
-                    "sponsor_approval_date": research_study.date.isoformat() if research_study.date else "",
+                    "sponsor_approval_date": research_study.date.isoformat()
+                    if research_study.date
+                    else "",
                     "version_date": "",  # <<<<<
                     "version": research_study.version,
                     "rationale": "Not set",
@@ -327,7 +329,9 @@ class ImportPRISM3:
                 if coding := item.type.coding[0]:
                     value = getattr(coding, attribute_name)
                     if value == type:
-                        self._errors.info(f"Extracted identifier of type '{coding.display}': '{item.value}'")
+                        self._errors.info(
+                            f"Extracted identifier of type '{coding.display}': '{item.value}'"
+                        )
                         return item.value
         self._errors.warning(f"Failed to extract identifier of type '{type}'")
         return ""

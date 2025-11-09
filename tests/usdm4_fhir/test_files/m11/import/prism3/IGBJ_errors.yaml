@@ -3,9 +3,9 @@
   message: Importing FHIR PRISM3
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
-- level: Debug
+- level: Info
   location: {}
-  message: 'Address dict: {''lines'': [''Japan''], ''text'': ''Japan''}'
+  message: 'Extracted identifier of type ''Sponsor Protocol Identifier'': ''I8R-JE-IGBJ'''
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Debug

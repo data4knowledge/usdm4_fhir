@@ -48,6 +48,7 @@ def get_export_instance(study, extra, version):
     else:
         return None
 
+
 def get_import_instance(version):
     if version == "prism2":
         return ImportPRISM2()
@@ -55,6 +56,7 @@ def get_import_instance(version):
         return ImportPRISM3()
     else:
         return None
+
 
 def run_to_test(name, version, mode, save=False):
     filename = f"{name}_usdm.json"
@@ -93,7 +95,9 @@ async def _run_test_from_prism3(name, save=False):
 async def _run_from_test(name: str, version: str, mode: str, save: bool = False):
     filename = f"{name}_fhir_m11.json"
     instance = get_import_instance(version)
-    wrapper: Wrapper = await instance.from_message(_full_path(filename, version, mode), )
+    wrapper: Wrapper = await instance.from_message(
+        _full_path(filename, version, mode),
+    )
     print(f"ERRORS:\n{instance.errors.dump(0)}")
     result = wrapper.to_json()
     result = fix_uuid(result)

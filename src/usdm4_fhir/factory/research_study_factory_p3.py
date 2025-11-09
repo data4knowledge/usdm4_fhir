@@ -53,11 +53,11 @@ class ResearchStudyFactoryP3(BaseFactory):
 
             # Sponsor Confidentiality Statememt
             if cs := self._version.confidentiality_statement():
-            #if self._title_page["sponsor_confidentiality"]:
+                # if self._title_page["sponsor_confidentiality"]:
                 ext = ExtensionFactory(
                     **{
                         "url": "http://hl7.org/fhir/uv/ebm/StructureDefinition/research-study-sponsor-confidentiality-statement",
-#                        "valueString": self._title_page["sponsor_confidentiality"],
+                        #                        "valueString": self._title_page["sponsor_confidentiality"],
                         "valueString": cs,
                     }
                 )
@@ -102,13 +102,11 @@ class ResearchStudyFactoryP3(BaseFactory):
 
             # Original Protocol - No implementation details currently
             original_code = CodingFactory(
-                system=self.NCI_CODE_SYSTEM,
-                code="C49487",
-                display="No"
+                system=self.NCI_CODE_SYSTEM, code="C49487", display="No"
             )
             if self._version.original_version():
-                original_code.item.code="C49488"
-                original_code.item.display="Yes"
+                original_code.item.code = "C49488"
+                original_code.item.display = "Yes"
             ext = ExtensionFactory(
                 **{
                     "url": f"{self.UDP_BASE}/study-amendment",

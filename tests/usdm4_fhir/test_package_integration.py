@@ -7,6 +7,7 @@ from usdm4_fhir import M11, SoA
 from usdm4 import USDM4
 from usdm4.api.wrapper import Wrapper
 
+
 @pytest.fixture
 def anyio_backend():
     return "asyncio"
@@ -33,12 +34,14 @@ def run_to_m11_test(name, version, mode, save=False):
     if save:
         write_json(_full_m11_path(result_filename, version, mode), result)
         write_yaml(
-            _full_m11_path(error_filename, version, mode), errors_clean_all(instance.errors)
+            _full_m11_path(error_filename, version, mode),
+            errors_clean_all(instance.errors),
         )
     expected = read_json(_full_m11_path(result_filename, version, mode))
     assert pretty_result == expected
     error_expected = read_yaml(_full_m11_path(error_filename, version, mode))
     assert errors_clean_all(instance.errors) == error_expected
+
 
 async def run_from_m11_test(name: str, version: str, mode: str, save: bool = False):
     filename = f"{name}_fhir_m11.json"
@@ -55,12 +58,14 @@ async def run_from_m11_test(name: str, version: str, mode: str, save: bool = Fal
     if save:
         write_json(_full_m11_path(result_filename, version, mode), result)
         write_yaml(
-            _full_m11_path(error_filename, version, mode), errors_clean_all(instance.errors)
+            _full_m11_path(error_filename, version, mode),
+            errors_clean_all(instance.errors),
         )
     expected = read_json(_full_m11_path(result_filename, version, mode))
     assert pretty_result == expected
     error_expected = read_yaml(_full_m11_path(error_filename, version, mode))
     assert errors_clean_all(instance.errors) == error_expected
+
 
 def run_test_to_soa(name, save=False):
     version = ""
@@ -74,9 +79,7 @@ def run_test_to_soa(name, save=False):
     study_version = study.first_version()
     study_design = study_version.studyDesigns[0]
     soa = SoA()
-    result = soa.to_message(
-        study, study_design.main_timeline().id, "FAKE-UUID", extra
-    )
+    result = soa.to_message(study, study_design.main_timeline().id, "FAKE-UUID", extra)
     result = fix_iso_dates(result)
     result = fix_uuid(result)
     pretty_result = json.dumps(json.loads(result), indent=2)
@@ -86,28 +89,36 @@ def run_test_to_soa(name, save=False):
     expected = read_json(_full_soa_path(result_filename, version, mode))
     assert pretty_result == expected
 
+
 def _full_soa_path(filename, version, mode):
     return f"tests/usdm4_fhir/test_files/soa/{mode}/{filename}"
 
+
 def _full_m11_path(filename, version, mode):
     return f"tests/usdm4_fhir/test_files/m11/{mode}/{version}/{filename}"
+
 
 def run_test_to_m11_prism3(name, save=False):
     version = "prism3"
     mode = "export"
     run_to_m11_test(name, version, mode, save)
 
+
 async def run_test_from_m11_prism3(name, save=False):
     await run_from_m11_test(name, "prism3", "import", save)
 
+
 # -----+-----
+
 
 def test_to_fhir_prism3_asp8062():
     run_test_to_m11_prism3("ASP8063", SAVE)
 
+
 @pytest.mark.anyio
 async def test_from_fhir_prism3_asp8062():
     await run_test_from_m11_prism3("ASP8063", SAVE)
+
 
 def test_to_fhir_soa_pilot():
     run_test_to_soa("pilot1", SAVE)

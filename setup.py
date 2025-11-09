@@ -18,9 +18,7 @@ setuptools.setup(
     install_requires=["usdm4>=0.13.0", "d4k_ms_base>=0.3.0", "openpyxl"],
     packages=setuptools.find_packages(where="src"),
     package_dir={"": "src"},
-    package_data={
-        "usdm4_fhir": []
-    },    
+    package_data={"usdm4_fhir": []},
     tests_require=["pytest", "pytest-cov", "pytest-mock", "python-dotenv"],
     classifiers=[
         "Intended Audience :: Developers",

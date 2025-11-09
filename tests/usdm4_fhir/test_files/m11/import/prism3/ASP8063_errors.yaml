@@ -3,11 +3,9 @@
   message: Importing FHIR PRISM3
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
-- level: Debug
+- level: Info
   location: {}
-  message: 'Address dict: {''lines'': [''Global Development Inc.'', ''1 Astellas Way
-    Northbrook, IL 60062, US''], ''text'': ''Global Development Inc., 1 Astellas Way
-    Northbrook, IL 60062, US''}'
+  message: 'Extracted identifier of type ''Sponsor Protocol Identifier'': ''8062-CL-2002'''
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Debug

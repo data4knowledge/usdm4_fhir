@@ -1,6 +1,6 @@
 import datetime
 from usdm4.api.study import Study
-from usdm4.api.narrative_content import NarrativeContent
+from usdm4.api.narrative_content import NarrativeContent, NarrativeContentItem
 from usdm4.api.study_version import StudyVersion
 from usdm4_fhir.utility.data_store import DataStore
 from usdm4_fhir.m11.utility.tag_reference import TagReference
@@ -72,9 +72,10 @@ class ExportBase:
     ) -> CompositionSection:
         # print(f"CONTENT: {content}")
         processed_map[content.id] = True
-        content_text = self._narrative_content_item(content)
-        div = self.tag_ref.translate(content_text)
+        # content_text = self._narrative_content_item(content)
+        # div = self.tag_ref.translate(content_text)
         # print(f"DIV: {div}")
+        div = self._narrative_content_item(content)
         text = str(div)
         text = self._remove_line_feeds(text)
         narrative = Narrative(status="generated", div=text)
@@ -93,8 +94,8 @@ class ExportBase:
         return section
 
     def _narrative_content_item(self, content: NarrativeContent) -> str:
-        nci = self._nci_map[content.contentItemId]
-        return nci.text if nci else ""
+        nci: NarrativeContentItem = self._nci_map[content.contentItemId]
+        return self.tag_ref.translate(nci, nci.text) if nci else ""
 
     def _format_section_title(self, title: str) -> str:
         return title.lower().strip().replace(" ", "-")

@@ -1,7 +1,8 @@
 from bs4 import BeautifulSoup
-from usdm3.data_store.data_store import DataStore
+from usdm4_fhir.utility.data_store import DataStore
 from simple_error_log.errors import Errors
 from simple_error_log.error_location import KlassMethodLocation
+from usdm4.api.syntax_template_dictionary import SyntaxTemplateDictionary, ParameterMap
 from usdm4_fhir.m11.utility.soup import get_soup
 
 
@@ -10,88 +11,48 @@ class TagReference:
 
     def __init__(self, data_store: DataStore, errors: Errors):
         self._data_store = data_store
-        self.errors = errors
+        self._errors = errors
 
-    def translate(self, text: str):
-        soup = get_soup(text, self.errors)
-        for ref in soup(["usdm:ref"]):
-            try:
-                attributes = ref.attrs
-                instance = self._data_store.get(attributes["klass"], attributes["id"])
-                value = self._resolve_instance(instance, attributes["attribute"])
-                translated_text = self.translate(value)
-                # print(f"TRANSLATED: {translated_text}")
-                self._replace_and_highlight(ref, translated_text)
-            except Exception as e:
-                location = KlassMethodLocation(self.MODULE, "translate")
-                self.errors.exception(
-                    f"Exception raised while attempting to translate reference '{attributes}'",
-                    e,
-                    location,
-                )
-                self._replace_and_highlight(
-                    ref, get_soup("Missing content: exception", self.errors)
-                )
-        return get_soup(str(soup), self.errors)
+    def translate(self, instance: object, text: str) -> str:
+        return self._translate_references(instance, text)
 
-    def _resolve_instance(self, instance, attribute):
-        dictionary = self._get_dictionary(instance)
-        value = str(getattr(instance, attribute))
-        soup = get_soup(value, self.errors)
-        for ref in soup(["usdm:tag"]):
+    def _translate_references(self, instance: object, text: str) -> str:
+        soup = get_soup(text, self._errors)
+        ref: BeautifulSoup
+        for ref in soup(["usdm:ref", "usdm:tag"]):
             try:
-                attributes = ref.attrs
-                if dictionary:
-                    entry = next(
-                        (
-                            item
-                            for item in dictionary.parameterMaps
-                            if item.tag == attributes["name"]
-                        ),
-                        None,
-                    )
-                    if entry:
-                        self._replace_and_highlight(
-                            ref, get_soup(entry.reference, self.errors)
-                        )
-                    else:
-                        self.errors.error(
-                            f"Missing dictionary entry while attempting to resolve reference '{attributes}'",
-                            KlassMethodLocation(self.MODULE, "_resolve_instance"),
-                        )
-                        self._replace_and_highlight(
-                            ref,
-                            get_soup(
-                                "Missing content: missing dictionary entry", self.errors
-                            ),
-                        )
-                else:
-                    self.errors.error(
-                        f"Missing dictionary while attempting to resolve reference '{attributes}'",
-                        KlassMethodLocation(self.MODULE, "_resolve_instance"),
-                    )
-                    self._replace_and_highlight(
-                        ref,
-                        get_soup("Missing content: missing dictionary", self.errors),
-                    )
+                if ref.name == "usdm:ref":
+                    instance, text = self._resolve_usdm_ref(instance, ref)
+                    ref.replace_with(self._translate_references(instance, text))
+                if ref.name == "usdm:tag":
+                    instance, text = self._resolve_usdm_tag(instance, ref)
+                    ref.replace_with(self._translate_references(instance, text))
             except Exception as e:
-                self.errors.exception(
-                    f"Failed to resolve reference '{attributes} while generating the FHIR message",
+                print(f"TEXT: {text}, {instance.model_dump()}")
+                self._errors.exception(
+                    f"Exception raised while attempting to translate '{ref}' in instance '{instance.id}'",
                     e,
-                    KlassMethodLocation(self.MODULE, "_resolve_instance"),
-                )
-                self._replace_and_highlight(
-                    ref, get_soup("Missing content: exception", self.errors)
+                    KlassMethodLocation(self.MODULE, "_translate_references")
                 )
         return str(soup)
 
-    def _replace_and_highlight(self, ref, text: BeautifulSoup) -> None:
-        ref.replace_with(text)
+    def _resolve_usdm_ref(self, instance: object, ref: BeautifulSoup) -> tuple[object, str]:
+        attributes = ref.attrs
+        instance = self._data_store.get(attributes["klass"], attributes["id"])
+        value = str(getattr(instance, attributes["attribute"]))
+        return instance, value
 
-    def _get_dictionary(self, instance):
-        try:
-            return self._data_store.get(
-                "SyntaxTemplateDictionary", instance.dictionaryId
-            )
-        except Exception:
-            return None
+    def _resolve_usdm_tag(self, instance: object, ref: BeautifulSoup) -> tuple[object, str]:
+        attributes = ref.attrs
+        dictionary: SyntaxTemplateDictionary = self._data_store.get("SyntaxTemplateDictionary", instance.dictionaryId)
+        if dictionary:
+            p_map: ParameterMap
+            for p_map in dictionary.parameterMaps:
+                if p_map.tag == attributes["name"]:
+                    return instance, p_map.reference
+        error_text = f"tag '{attributes["name"]}' not found" if dictionary else "no dictionary found"
+        self._errors.error(
+            f"Error translating tag '{ref}' in instance '{instance.id}, {error_text}",
+            KlassMethodLocation(self.MODULE, "_resolve_usdm_tag")
+        )
+        return instance, f"<i>{error_text}</i>"

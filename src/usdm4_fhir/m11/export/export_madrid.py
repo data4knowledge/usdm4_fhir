@@ -2,7 +2,6 @@ import datetime
 from uuid import uuid4
 from usdm4.api.eligibility_criterion import EligibilityCriterion
 from usdm4_fhir.m11.export.export_base import ExportBase
-from usdm4_fhir.m11.utility.soup import get_soup
 from simple_error_log.error_location import KlassMethodLocation
 
 from usdm4_fhir.factory.base_factory import BaseFactory

@@ -17,7 +17,9 @@ class TagReference:
         soup = get_soup(text, self._errors)
         return str(self._translate_references(instance, soup))
 
-    def _translate_references(self, instance: object, soup: BeautifulSoup) -> BeautifulSoup:
+    def _translate_references(
+        self, instance: object, soup: BeautifulSoup
+    ) -> BeautifulSoup:
         ref: BeautifulSoup
         for ref in soup(["usdm:ref", "usdm:tag"]):
             try:
@@ -32,27 +34,37 @@ class TagReference:
                 self._errors.exception(
                     f"Exception raised while attempting to translate '{ref}' in instance '{instance.id}'",
                     e,
-                    KlassMethodLocation(self.MODULE, "_translate_references")
+                    KlassMethodLocation(self.MODULE, "_translate_references"),
                 )
         return soup
 
-    def _resolve_usdm_ref(self, instance: object, ref: BeautifulSoup) -> tuple[object, BeautifulSoup]:
+    def _resolve_usdm_ref(
+        self, instance: object, ref: BeautifulSoup
+    ) -> tuple[object, BeautifulSoup]:
         attributes = ref.attrs
         instance = self._data_store.get(attributes["klass"], attributes["id"])
         value = str(getattr(instance, attributes["attribute"]))
         return instance, get_soup(value, self._errors)
 
-    def _resolve_usdm_tag(self, instance: object, ref: BeautifulSoup) -> tuple[object, BeautifulSoup]:
+    def _resolve_usdm_tag(
+        self, instance: object, ref: BeautifulSoup
+    ) -> tuple[object, BeautifulSoup]:
         attributes = ref.attrs
-        dictionary: SyntaxTemplateDictionary = self._data_store.get("SyntaxTemplateDictionary", instance.dictionaryId)
+        dictionary: SyntaxTemplateDictionary = self._data_store.get(
+            "SyntaxTemplateDictionary", instance.dictionaryId
+        )
         if dictionary:
             p_map: ParameterMap
             for p_map in dictionary.parameterMaps:
                 if p_map.tag == attributes["name"]:
                     return instance, get_soup(p_map.reference, self._errors)
-        error_text = f"tag '{attributes["name"]}' not found" if dictionary else "no dictionary found"
+        error_text = (
+            f"tag '{attributes['name']}' not found"
+            if dictionary
+            else "no dictionary found"
+        )
         self._errors.error(
             f"Error translating tag '{ref}' in instance '{instance.id}, {error_text}",
-            KlassMethodLocation(self.MODULE, "_resolve_usdm_tag")
+            KlassMethodLocation(self.MODULE, "_resolve_usdm_tag"),
         )
         return instance, get_soup(f"<i>{error_text}</i>", self._errors)

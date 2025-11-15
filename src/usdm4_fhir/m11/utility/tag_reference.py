@@ -19,7 +19,7 @@ class TagReference:
             return str(self._translate_references(instance, soup))
         else:
             return ""
-        
+
     def _translate_references(
         self, instance: object, soup: BeautifulSoup
     ) -> BeautifulSoup:

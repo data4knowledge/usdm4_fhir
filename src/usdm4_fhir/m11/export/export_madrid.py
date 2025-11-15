@@ -139,7 +139,9 @@ class ExportMadrid(ExportBase):
                     }
                 )
             else:
-                self._errors.warning(f"Criterion item with id '{criterion_item.id}' caused an error, text '{criterion_item.text}' -translated-> '{text}'")
+                self._errors.warning(
+                    f"Criterion item with id '{criterion_item.id}' caused an error, text '{criterion_item.text}' -translated-> '{text}'"
+                )
 
     # def _recruitment(self, research_study: ResearchStudy, group_id):
     #     research_study.recruitment = {"eligibility": {"reference": f"Group/{group_id}"}}

@@ -14,9 +14,12 @@ class TagReference:
         self._errors = errors
 
     def translate(self, instance: object, text: str) -> str:
-        soup = get_soup(text, self._errors)
-        return str(self._translate_references(instance, soup))
-
+        if text:
+            soup = get_soup(text, self._errors)
+            return str(self._translate_references(instance, soup))
+        else:
+            return ""
+        
     def _translate_references(
         self, instance: object, soup: BeautifulSoup
     ) -> BeautifulSoup:

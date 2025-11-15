@@ -121,22 +121,25 @@ class ExportMadrid(ExportBase):
         )
         criterion_item = version.criterion_item(criterion.criterionItemId)
         if criterion_item:
-            # soup = get_soup(criterion_item.text, self._errors)
             text = self.tag_ref.translate(criterion_item, criterion_item.text)
             outer = self._extension_string(
                 "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.characteristic.description",
-                # soup.get_text(),
                 str(text),
             )
-            exclude = True if criterion.category.code == "C25370" else False
-            collection.append(
-                {
-                    "extension": outer.item,
-                    "code": na.item,
-                    "valueCodeableConcept": na.item,
-                    "exclude": exclude,
-                }
-            )
+            # if not outer:
+            #     print(f"OUTER: {criterion_item.id}: {criterion_item.text} -> {text}")
+            if outer:
+                exclude = True if criterion.category.code == "C25370" else False
+                collection.append(
+                    {
+                        "extension": outer.item,
+                        "code": na.item,
+                        "valueCodeableConcept": na.item,
+                        "exclude": exclude,
+                    }
+                )
+            else:
+                self._errors.warning(f"Criterion item with id '{criterion_item.id}' caused an error, text '{criterion_item.text}' -translated-> '{text}'")
 
     # def _recruitment(self, research_study: ResearchStudy, group_id):
     #     research_study.recruitment = {"eligibility": {"reference": f"Group/{group_id}"}}

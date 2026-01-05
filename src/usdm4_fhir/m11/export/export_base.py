@@ -34,7 +34,7 @@ class ExportBase:
         self.study_design = self.study_version.studyDesigns[0]
         self.protocol_document_version = self.study.documentedBy[0].versions[0]
         self.tag_ref = TagReference(self._data_store, self._errors)
-        self._nc_map = self.protocol_document_version.narraitve_content_map()
+        self._nc_map = self.protocol_document_version.narrative_content_map()
         self._nci_map = self.study_version.narrative_content_item_map()
 
     @property

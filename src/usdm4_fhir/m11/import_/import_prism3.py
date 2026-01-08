@@ -216,10 +216,10 @@ class ImportPRISM3:
                 "document": {
                     "document": {
                         "label": "Protocol Document",
-                        "version": "",  # @todo
+                        "version": research_study.version,
                         "status": "Final",  # @todo
                         "template": "M11",
-                        "version_date": "",
+                        "version_date": research_study.date.isoformat() if research_study.date else "",
                     },
                     "sections": sections,
                 },

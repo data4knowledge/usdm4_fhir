@@ -114,7 +114,7 @@
                 "code": "C15601",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2025-03-28",
-                "decode": "Phase II Trial",
+                "decode": "Phase 2",
                 "instanceType": "Code"
               },
               "standardCodeAliases": [],

@@ -36,7 +36,7 @@
   location:
     class_name: usdm4.encoder.encoder.Encoder
     method_name: phase
-  message: Trial phase 'I' decoded as 'C15600', 'Phase I Trial'
+  message: Trial phase 'I' decoded as 'C15600', 'Phase 1', using M11 decode
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info

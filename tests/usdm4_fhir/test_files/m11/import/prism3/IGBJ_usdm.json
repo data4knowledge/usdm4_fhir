@@ -145,7 +145,7 @@
                 "code": "C15602",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2025-03-28",
-                "decode": "Phase III Trial",
+                "decode": "Phase 3",
                 "instanceType": "Code"
               },
               "standardCodeAliases": [],

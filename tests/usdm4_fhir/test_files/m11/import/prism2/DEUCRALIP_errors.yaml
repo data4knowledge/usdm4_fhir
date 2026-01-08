@@ -202,6 +202,6 @@
   location:
     class_name: usdm4.encoder.encoder.Encoder
     method_name: phase
-  message: Trial phase 'II' decoded as 'C15601', 'Phase II Trial'
+  message: Trial phase 'II' decoded as 'C15601', 'Phase 2', using M11 decode
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''

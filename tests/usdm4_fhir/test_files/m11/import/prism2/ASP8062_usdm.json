@@ -114,7 +114,7 @@
                 "code": "C15600",
                 "codeSystem": "http://www.cdisc.org",
                 "codeSystemVersion": "2025-03-28",
-                "decode": "Phase I Trial",
+                "decode": "Phase 1",
                 "instanceType": "Code"
               },
               "standardCodeAliases": [],

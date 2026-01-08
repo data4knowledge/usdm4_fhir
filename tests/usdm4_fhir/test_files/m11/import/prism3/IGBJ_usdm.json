@@ -46,13 +46,13 @@
         ],
         "dateValues": [
           {
-            "id": "GovernanceDate_1",
+            "id": "GovernanceDate_2",
             "extensionAttributes": [],
             "name": "SPONSOR-APPORVAL-DATE",
             "label": null,
             "description": null,
             "type": {
-              "id": "Code_10",
+              "id": "Code_12",
               "extensionAttributes": [],
               "code": "C132352",
               "codeSystem": "http://www.cdisc.org",
@@ -63,10 +63,45 @@
             "dateValue": "2017-10-26",
             "geographicScopes": [
               {
+                "id": "GeographicScope_2",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_13",
+                  "extensionAttributes": [],
+                  "code": "C68846",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2024-09-27",
+                  "decode": "Global",
+                  "instanceType": "Code"
+                },
+                "code": null,
+                "instanceType": "GeographicScope"
+              }
+            ],
+            "instanceType": "GovernanceDate"
+          },
+          {
+            "id": "GovernanceDate_1",
+            "extensionAttributes": [],
+            "name": "PROTOCOL-DATE",
+            "label": null,
+            "description": null,
+            "type": {
+              "id": "Code_5",
+              "extensionAttributes": [],
+              "code": "C207598",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Protocol Effective Date",
+              "instanceType": "Code"
+            },
+            "dateValue": "2017-10-26",
+            "geographicScopes": [
+              {
                 "id": "GeographicScope_1",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_11",
+                  "id": "Code_6",
                   "extensionAttributes": [],
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
@@ -105,7 +140,7 @@
               "id": "AliasCode_1",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_9",
+                "id": "Code_11",
                 "extensionAttributes": [],
                 "code": "C15602",
                 "codeSystem": "http://www.cdisc.org",
@@ -154,7 +189,7 @@
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [],
             "model": {
-              "id": "Code_8",
+              "id": "Code_10",
               "extensionAttributes": [],
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",
@@ -1429,7 +1464,7 @@
         "label": "Protocol Document",
         "description": "Protocol Document",
         "language": {
-          "id": "Code_6",
+          "id": "Code_8",
           "extensionAttributes": [],
           "code": "en",
           "codeSystem": "ISO 639-1",
@@ -1438,7 +1473,7 @@
           "instanceType": "Code"
         },
         "type": {
-          "id": "Code_7",
+          "id": "Code_9",
           "extensionAttributes": [],
           "code": "C70817",
           "codeSystem": "http://www.cdisc.org",
@@ -1451,9 +1486,9 @@
           {
             "id": "StudyDefinitionDocumentVersion_1",
             "extensionAttributes": [],
-            "version": "",
+            "version": "(a)",
             "status": {
-              "id": "Code_5",
+              "id": "Code_7",
               "extensionAttributes": [],
               "code": "C25508",
               "codeSystem": "http://www.cdisc.org",
@@ -3787,5 +3822,5 @@
   },
   "usdmVersion": "4.0.0",
   "systemName": "USDM4 FHIR Package",
-  "systemVersion": "0.6.3"
+  "systemVersion": "0.7.0"
 }

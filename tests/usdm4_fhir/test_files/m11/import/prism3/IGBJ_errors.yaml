@@ -22,13 +22,6 @@
   message: Address set to Japan
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
-- level: Warning
-  location:
-    class_name: usdm4.assembler.document_assembler.DocumentAssembler
-    method_name: _create_date
-  message: No sponsor approval date detected
-  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
-  type: ''
 - level: Info
   location:
     class_name: usdm4.encoder.encoder.Encoder

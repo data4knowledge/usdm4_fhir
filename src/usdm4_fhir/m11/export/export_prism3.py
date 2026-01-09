@@ -21,7 +21,6 @@ class ExportPRISM3(ExportBase):
     def to_message(self) -> str | None:
         try:
             ie = self._create_ie_critieria()
-            print(f"IE: {ie}")
             compositions = self._create_compositions()
             rs: ResearchStudyFactoryP3 = self._research_study(compositions, ie)
             bundle: Bundle = self._bundle(rs, compositions, ie)
@@ -130,7 +129,6 @@ class ExportPRISM3(ExportBase):
             return None
 
     def _create_ie_critieria(self):
-        print(f"CREATE IE CRITERIA")
         design = self.study_design
         criteria = design.criterion_map()
         # all_of = self._extension_string(

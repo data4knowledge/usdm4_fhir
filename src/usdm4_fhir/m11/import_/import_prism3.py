@@ -378,13 +378,20 @@ class ImportPRISM3:
         return ""
 
     def _extract_ie(self, id: str, bundle: Bundle) -> dict:
+        inclusion = []
+        exclusion = []
         group: Group = self._extract_from_bundle_id(
                 bundle, "Group", id
             )
         if group:
             for ie in group.characteristic:
-                print(f"IE Entry")
-        return {"inclusion": [], "exclusion": []}
+                text = ie.extension[0].valueString
+                if ie.exclude:
+                    exclusion.append(text)
+                else:
+                    inclusion.append(text)
+        result = {"inclusion": inclusion, "exclusion": exclusion}
+        return result
     
     def _extract_sections(self, extensions: list, bundle: Bundle) -> dict:
         results = []

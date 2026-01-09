@@ -164,7 +164,7 @@ class ImportPRISM3:
             )
             sponsor = self._extract_sponsor(research_study.associatedParty, bundle)
             sections = self._extract_sections(research_study.extension, bundle)
-            ie = self._extract_ie(research_study.recruitment.eligibility.reference, bundle)
+            ie = self._extract_ie(research_study, bundle)
             result = {
                 "identification": {
                     "titles": {
@@ -377,20 +377,23 @@ class ImportPRISM3:
                     return label.value
         return ""
 
-    def _extract_ie(self, id: str, bundle: Bundle) -> dict:
+    def _extract_ie(self, rs: ResearchStudy, bundle: Bundle) -> dict:
         inclusion = []
         exclusion = []
-        group: Group = self._extract_from_bundle_id(
-                bundle, "Group", id
-            )
-        if group:
-            if group.characteristic:
-                for ie in group.characteristic:
-                    text = ie.extension[0].valueString
-                    if ie.exclude:
-                        exclusion.append(text)
-                    else:
-                        inclusion.append(text)
+        if rs.recruitment:
+            id = rs.recruitment.eligibility.reference
+            if id:
+                group: Group = self._extract_from_bundle_id(
+                        bundle, "Group", id
+                    )
+                if group:
+                    if group.characteristic:
+                        for ie in group.characteristic:
+                            text = ie.extension[0].valueString
+                            if ie.exclude:
+                                exclusion.append(text)
+                            else:
+                                inclusion.append(text)
         result = {"inclusion": inclusion, "exclusion": exclusion}
         return result
     

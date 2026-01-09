@@ -52,7 +52,7 @@
             "label": null,
             "description": null,
             "type": {
-              "id": "Code_12",
+              "id": "Code_14",
               "extensionAttributes": [],
               "code": "C132352",
               "codeSystem": "http://www.cdisc.org",
@@ -66,7 +66,7 @@
                 "id": "GeographicScope_2",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_13",
+                  "id": "Code_15",
                   "extensionAttributes": [],
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
@@ -87,7 +87,7 @@
             "label": null,
             "description": null,
             "type": {
-              "id": "Code_5",
+              "id": "Code_7",
               "extensionAttributes": [],
               "code": "C207598",
               "codeSystem": "http://www.cdisc.org",
@@ -101,7 +101,7 @@
                 "id": "GeographicScope_1",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_6",
+                  "id": "Code_8",
                   "extensionAttributes": [],
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
@@ -125,6 +125,13 @@
             "text": "I8R-JE-IGBJ",
             "scopeId": "Organization_1",
             "instanceType": "StudyIdentifier"
+          },
+          {
+            "id": "StudyIdentifier_2",
+            "extensionAttributes": [],
+            "text": "NCT03421379",
+            "scopeId": "Organization_2",
+            "instanceType": "StudyIdentifier"
           }
         ],
         "referenceIdentifiers": [],
@@ -140,7 +147,7 @@
               "id": "AliasCode_1",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_11",
+                "id": "Code_13",
                 "extensionAttributes": [],
                 "code": "C15602",
                 "codeSystem": "http://www.cdisc.org",
@@ -189,7 +196,7 @@
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [],
             "model": {
-              "id": "Code_10",
+              "id": "Code_12",
               "extensionAttributes": [],
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",
@@ -1441,6 +1448,48 @@
             },
             "managedSites": [],
             "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_2",
+            "extensionAttributes": [],
+            "name": "CT.GOV",
+            "label": "ClinicalTrials.gov",
+            "type": {
+              "id": "Code_6",
+              "extensionAttributes": [],
+              "code": "C93453",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2024-09-27",
+              "decode": "Clinical Study Registry",
+              "instanceType": "Code"
+            },
+            "identifierScheme": "National Institute of Health, US Government",
+            "identifier": "ClinicalTrials.gov",
+            "legalAddress": {
+              "id": "Address_2",
+              "extensionAttributes": [],
+              "text": "National Library of Medicine, 8600 Rockville Pike, Bethesda, MD, 20894, United States of America",
+              "lines": [
+                "National Library of Medicine",
+                "8600 Rockville Pike"
+              ],
+              "city": "Bethesda",
+              "district": "",
+              "state": "MD",
+              "postalCode": "20894",
+              "country": {
+                "id": "Code_5",
+                "extensionAttributes": [],
+                "code": "USA",
+                "codeSystem": "ISO 3166 1 alpha3",
+                "codeSystemVersion": "2020-08",
+                "decode": "United States of America",
+                "instanceType": "Code"
+              },
+              "instanceType": "Address"
+            },
+            "managedSites": [],
+            "instanceType": "Organization"
           }
         ],
         "studyInterventions": [],
@@ -1464,7 +1513,7 @@
         "label": "Protocol Document",
         "description": "Protocol Document",
         "language": {
-          "id": "Code_8",
+          "id": "Code_10",
           "extensionAttributes": [],
           "code": "en",
           "codeSystem": "ISO 639-1",
@@ -1473,7 +1522,7 @@
           "instanceType": "Code"
         },
         "type": {
-          "id": "Code_9",
+          "id": "Code_11",
           "extensionAttributes": [],
           "code": "C70817",
           "codeSystem": "http://www.cdisc.org",
@@ -1488,7 +1537,7 @@
             "extensionAttributes": [],
             "version": "(a)",
             "status": {
-              "id": "Code_7",
+              "id": "Code_9",
               "extensionAttributes": [],
               "code": "C25508",
               "codeSystem": "http://www.cdisc.org",

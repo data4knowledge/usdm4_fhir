@@ -8,6 +8,21 @@
   message: 'Extracted identifier of type ''Sponsor Protocol Identifier'': ''I8R-JE-IGBJ'''
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
+- level: Warning
+  location: {}
+  message: Failed to extract identifier of type 'C218685'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Failed to extract identifier of type 'C218684'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Extracted identifier of type ''NCT Number'': ''NCT03421379'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
 - level: Debug
   location:
     class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
@@ -20,6 +35,23 @@
     class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
     method_name: _create_address
   message: Address set to Japan
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: 'Creating address, source data: {''lines'': [''National Library of Medicine'',
+    ''8600 Rockville Pike''], ''city'': ''Bethesda'', ''district'': '''', ''state'':
+    ''MD'', ''postalCode'': ''20894'', ''country'': ''USA''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: Address set to National Library of Medicine, 8600 Rockville Pike, Bethesda,
+    MD, 20894, United States of America
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info

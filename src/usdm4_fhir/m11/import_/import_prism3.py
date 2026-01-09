@@ -344,19 +344,23 @@ class ImportPRISM3:
     def _extract_identifier(
         self, identifiers: list, type: str, attribute_name: str
     ) -> str | None:
-        if identifiers:
-            item: Identifier
-            for item in identifiers:
-                coding: CodeableConcept
-                if coding := item.type.coding[0]:
-                    value = getattr(coding, attribute_name)
-                    if value == type:
-                        self._errors.info(
-                            f"Extracted identifier of type '{coding.display}': '{item.value}'"
-                        )
-                        return item.value
-        self._errors.warning(f"Failed to extract identifier of type '{type}'")
-        return None
+        try:
+            if identifiers:
+                item: Identifier
+                for item in identifiers:
+                    coding: CodeableConcept
+                    if coding := item.type.coding[0]:
+                        value = getattr(coding, attribute_name)
+                        if value == type:
+                            self._errors.info(
+                                f"Extracted identifier of type '{coding.display}': '{item.value}'"
+                            )
+                            return item.value
+            self._errors.warning(f"Failed to extract identifier of type '{type}'")
+            return None
+        except Exception as e:
+            self._errors.exception(f"Exception, failed to extract identifier of type '{type}'", e)
+            return None
 
     def _extract_acronym(self, labels) -> str:
         return self._extract_label(labels, "C207646")

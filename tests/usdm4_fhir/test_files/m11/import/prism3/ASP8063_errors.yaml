@@ -8,6 +8,21 @@
   message: 'Extracted identifier of type ''Sponsor Protocol Identifier'': ''8062-CL-2002'''
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
+- level: Warning
+  location: {}
+  message: Failed to extract identifier of type 'C218685'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Failed to extract identifier of type 'C218684'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Failed to extract identifier of type 'C172240'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
 - level: Debug
   location:
     class_name: usdm4.assembler.identification_assembler.IdentificationAssembler

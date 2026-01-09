@@ -235,7 +235,6 @@ class ImportPRISM3:
             self._add_regualtory_identifer(self._extract_fda_ind_identifier(research_study.identifier), "fda", result)
             self._add_regualtory_identifer(self._extract_ema_identifier(research_study.identifier), "ema", result)
             self._add_regualtory_identifer(self._extract_nct_identifier(research_study.identifier), "ct.gov", result)
-            print(f"FHIR IDs: {result["identification"]["identifiers"]}")
             return result
         except Exception as e:
             self._errors.exception(

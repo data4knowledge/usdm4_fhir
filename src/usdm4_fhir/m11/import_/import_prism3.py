@@ -15,6 +15,7 @@ from fhir.resources.extension import Extension
 from fhir.resources.identifier import Identifier
 from fhir.resources.composition import Composition, CompositionSection
 from fhir.resources.extendedcontactdetail import ExtendedContactDetail
+from fhir.resources.group import Group
 from usdm4 import USDM4
 from usdm4_fhir.__info__ import (
     __system_name__ as SYSTEM_NAME,
@@ -163,6 +164,7 @@ class ImportPRISM3:
             )
             sponsor = self._extract_sponsor(research_study.associatedParty, bundle)
             sections = self._extract_sections(research_study.extension, bundle)
+            ie = self._extract_ie(research_study.recruitment, bundle)
             result = {
                 "identification": {
                     "titles": {
@@ -226,8 +228,8 @@ class ImportPRISM3:
                 "population": {
                     "label": "Default population",
                     "inclusion_exclusion": {
-                        "inclusion": [],
-                        "exclusion": [],
+                        "inclusion": ie["inclusion"],
+                        "exclusion": ie["exclusion"],
                     },
                 },
                 "amendments": [],
@@ -375,6 +377,15 @@ class ImportPRISM3:
                     return label.value
         return ""
 
+    def _extract_ie(self, id: str, bundle: Bundle) -> dict:
+        group: Group = self._extract_from_bundle_id(
+                bundle, "Group", id
+            )
+        if group:
+            for ie in group.characteristic:
+                print(f"IE Entry")
+        return {"inclusion": [], "exclusion": []}
+    
     def _extract_sections(self, extensions: list, bundle: Bundle) -> dict:
         results = []
         references = self._extract_narrative_references(extensions)

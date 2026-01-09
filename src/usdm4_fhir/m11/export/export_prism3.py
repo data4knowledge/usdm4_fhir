@@ -13,7 +13,7 @@ from usdm4_fhir.factory.group_factory import GroupFactory
 
 
 class ExportPRISM3(ExportBase):
-    MODULE = "usdm4_fhir.m11.export.ExportPRISM3"
+    MODULE = "usdm4_fhir.m11.export.export_prism3.ExportPRISM3"
 
     class LogicError(Exception):
         pass

@@ -24,7 +24,7 @@ from usdm4_fhir.__info__ import (
 
 
 class ImportPRISM3:
-    MODULE = "usdm4_fhir.m11.import_.import_prism2.ImportPRISM3"
+    MODULE = "usdm4_fhir.m11.import_.import_prism3.ImportPRISM3"
     UDP_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocol"
 
     class LogicError(Exception):
@@ -384,12 +384,13 @@ class ImportPRISM3:
                 bundle, "Group", id
             )
         if group:
-            for ie in group.characteristic:
-                text = ie.extension[0].valueString
-                if ie.exclude:
-                    exclusion.append(text)
-                else:
-                    inclusion.append(text)
+            if group.characteristic:
+                for ie in group.characteristic:
+                    text = ie.extension[0].valueString
+                    if ie.exclude:
+                        exclusion.append(text)
+                    else:
+                        inclusion.append(text)
         result = {"inclusion": inclusion, "exclusion": exclusion}
         return result
     

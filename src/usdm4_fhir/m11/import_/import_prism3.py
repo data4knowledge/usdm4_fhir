@@ -164,7 +164,7 @@ class ImportPRISM3:
             )
             sponsor = self._extract_sponsor(research_study.associatedParty, bundle)
             sections = self._extract_sections(research_study.extension, bundle)
-            ie = self._extract_ie(research_study.recruitment, bundle)
+            ie = self._extract_ie(research_study.recruitment.eligibility.reference, bundle)
             result = {
                 "identification": {
                     "titles": {

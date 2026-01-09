@@ -232,7 +232,10 @@ class ImportPRISM3:
                 },
                 "amendments": [],
             }
-
+            self._add_regualtory_identifer(self._extract_fda_ind_identifier(research_study.identifier), "fda", result)
+            self._add_regualtory_identifer(self._extract_ema_identifier(research_study.identifier), "ema", result)
+            self._add_regualtory_identifer(self._extract_nct_identifier(research_study.identifier), "ct.gov", result)
+            print(f"FHIR IDs: {result["identification"]["identifiers"]}")
             return result
         except Exception as e:
             self._errors.exception(
@@ -241,6 +244,16 @@ class ImportPRISM3:
                 KlassMethodLocation(self.MODULE, "__study"),
             )
             return None
+
+    def _add_regualtory_identifer(self, identifier: str, type: str, result) -> None:
+        if identifier:
+            params = {
+                "identifier": identifier,
+                "scope": {
+                    "standard": type,
+                }
+            }
+            result["identification"]["identifiers"].append(params)
 
     def _extract_sponsor(self, assciated_parties: list, bundle: Bundle) -> dict:
         party: ResearchStudyAssociatedParty
@@ -319,9 +332,18 @@ class ImportPRISM3:
     def _extract_sponsor_identifier(self, identifiers: list) -> str:
         return self._extract_identifier(identifiers, "C132351", "code")
 
+    def _extract_fda_ind_identifier(self, identifiers: list) -> str:
+        return self._extract_identifier(identifiers, "C218685", "code")
+
+    def _extract_ema_identifier(self, identifiers: list) -> str:
+        return self._extract_identifier(identifiers, "C218684", "code")
+
+    def _extract_nct_identifier(self, identifiers: list) -> str:
+        return self._extract_identifier(identifiers, "C172240", "code")
+
     def _extract_identifier(
         self, identifiers: list, type: str, attribute_name: str
-    ) -> str:
+    ) -> str | None:
         if identifiers:
             item: Identifier
             for item in identifiers:
@@ -334,7 +356,7 @@ class ImportPRISM3:
                         )
                         return item.value
         self._errors.warning(f"Failed to extract identifier of type '{type}'")
-        return ""
+        return None
 
     def _extract_acronym(self, labels) -> str:
         return self._extract_label(labels, "C207646")

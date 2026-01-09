@@ -213,14 +213,48 @@ class ResearchStudyFactoryP3(BaseFactory):
             identifiers += self._version.registry_identifiers()
             for identifier in identifiers:
                 org = identifier.scoped_by(self._organizations)
-                identifier_type = CodeableConceptFactory(text=org.type.decode)
-                self.item.identifier.append(
-                    {
-                        "type": identifier_type.item,
-                        "system": "https://example.org/sponsor-identifier",
-                        "value": identifier.text,
-                    }
-                )
+                if org.name == "FDA":
+                    identifier_type = CodingFactory(
+                        system=self.NCI_CODE_SYSTEM,
+                        code="C218685",
+                        display="FDA IND Number",
+                    )
+                    self.item.identifier.append(
+                        {
+                            "type": {"coding": [identifier_type.item]},
+                            "system": "https://example.org/fda-ind-identifier",
+                            "value": identifier.text,
+                        }
+                    )
+                elif org.name == "CT.GOV":
+                    identifier_type = CodingFactory(
+                        system=self.NCI_CODE_SYSTEM,
+                        code="C172240",
+                        display="NCT Number",
+                    )
+                    self.item.identifier.append(
+                        {
+                            "type": {"coding": [identifier_type.item]},
+                            "system": "https://example.org/fda-ind-identifier",
+                            "value": identifier.text,
+                        }
+                    )
+                elif org.name == "EMA":
+                    identifier_type = CodingFactory(
+                        system=self.NCI_CODE_SYSTEM,
+                        code="C218684",
+                        display="EU CT Number",
+                    )
+                    self.item.identifier.append(
+                        {
+                            "type": {"coding": [identifier_type.item]},
+                            "system": "https://example.org/fda-ind-identifier",
+                            "value": identifier.text,
+                        }
+                    )
+                else:
+                    # Ignore for the moment
+                    pass
 
             # # Sponsor Approval
             # g_date: GovernanceDate = self._version.approval_date()

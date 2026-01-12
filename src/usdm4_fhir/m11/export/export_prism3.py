@@ -166,27 +166,28 @@ class ExportPRISM3(ExportBase):
         criterion_item = version.criterion_item(criterion.criterionItemId)
         if criterion_item:
             text = self.tag_ref.translate(criterion_item, criterion_item.text)
-            # outer = self._extension_string(
-            #     "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.characteristic.description",
-            #     str(text),
-            # )
-            outer: ExtensionFactory = ExtensionFactory(
-                **{
-                    "url": "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.characteristic.description",
-                    "valueString": str(text),
-                }
-            )
-            if outer:
-                exclude = True if criterion.category.code == "C25370" else False
-                collection.append(
-                    {
-                        "extension": [outer.item],
-                        "code": na.item,
-                        "valueCodeableConcept": na.item,
-                        "exclude": exclude,
+            if text:
+                outer: ExtensionFactory = ExtensionFactory(
+                    **{
+                        "url": "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.characteristic.description",
+                        "valueString": str(text),
                     }
                 )
+                if outer:
+                    exclude = True if criterion.category.code == "C25370" else False
+                    collection.append(
+                        {
+                            "extension": [outer.item],
+                            "code": na.item,
+                            "valueCodeableConcept": na.item,
+                            "exclude": exclude,
+                        }
+                    )
+                else:
+                    self._errors.warning(
+                        f"Criterion item with id '{criterion_item.id}' failed to create extension, text '{criterion_item.text}' -translated-> '{text}'"
+                    )
             else:
                 self._errors.warning(
-                    f"Criterion item with id '{criterion_item.id}' caused an error, text '{criterion_item.text}' -translated-> '{text}'"
+                    f"Criterion item with id '{criterion_item.id}' has empty text, text '{criterion_item.text}' -translated-> '{text}'"
                 )

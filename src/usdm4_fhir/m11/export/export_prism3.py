@@ -22,6 +22,7 @@ class ExportPRISM3(ExportBase):
         try:
             ie = self._create_ie_critieria()
             compositions = self._create_compositions()
+            #compositions = []
             rs: ResearchStudyFactoryP3 = self._research_study(compositions, ie)
             bundle: Bundle = self._bundle(rs, compositions, ie)
             return bundle.json()
@@ -71,6 +72,7 @@ class ExportPRISM3(ExportBase):
         )
         entries.append(entry)
 
+        # Overall bundle
         bundle = Bundle(
             id=None,
             entry=entries,

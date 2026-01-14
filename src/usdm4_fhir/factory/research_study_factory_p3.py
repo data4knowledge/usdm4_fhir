@@ -15,7 +15,7 @@ from usdm4_fhir.factory.associated_party_factory import AssociatedPartyFactory
 class ResearchStudyFactoryP3(BaseFactory):
     NCI_CODE_SYSTEM = "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
     UDP_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocol"
-    PROTOCOL_AMENDMENT_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocolStructureDefinition/protocol-amendment"
+    PROTOCOL_AMENDMENT_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/protocol-amendment"
 
     def __init__(self, study: USDMStudy, extra: dict = {}):
         try:

@@ -133,13 +133,9 @@ class ExportPRISM3(ExportBase):
     def _create_ie_critieria(self):
         design = self.study_design
         criteria = design.criterion_map()
-        # all_of = self._extension_string(
-        #     "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.combinationMethod",
-        #     "all-of",
-        # )
         all_of: ExtensionFactory = ExtensionFactory(
             **{
-                "url": "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.characteristic.description",
+                "url": "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.description",
                 "valueString": "all-of",
             }
         )
@@ -171,7 +167,7 @@ class ExportPRISM3(ExportBase):
             if text:
                 outer: ExtensionFactory = ExtensionFactory(
                     **{
-                        "url": "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.characteristic.description",
+                        "url": "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.description",
                         "valueString": str(text),
                     }
                 )

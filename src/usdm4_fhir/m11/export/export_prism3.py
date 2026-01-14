@@ -129,7 +129,7 @@ class ExportPRISM3(ExportBase):
             return CompositionFactory(
                 title=section.title,
                 date=self._now,
-                type=type_code,
+                type=type_code.item,
                 section=[section],
                 status="preliminary",
                 author=[author],

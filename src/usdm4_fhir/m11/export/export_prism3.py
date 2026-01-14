@@ -15,6 +15,7 @@ from usdm4_fhir.factory.coding_factory import CodingFactory
 
 class ExportPRISM3(ExportBase):
     MODULE = "usdm4_fhir.m11.export.export_prism3.ExportPRISM3"
+    IGNORE_LIST = ["", "5.2", "5.3"]
 
     class LogicError(Exception):
         pass
@@ -116,9 +117,8 @@ class ExportPRISM3(ExportBase):
     def _content_to_composition_entry(
         self, content: NarrativeContent, processed_map: dict
     ):
-        section = self._content_to_section(content, processed_map)
+        section = self._content_to_section(content, processed_map, self.IGNORE_LIST)
         if section:
-            # type_code = CodeableConceptFactory(text="EvidenceReport").item
             code = CodingFactory(
                 system="http://hl7.org/fhir/research-study-party-role",
                 code="b001",

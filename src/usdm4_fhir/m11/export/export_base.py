@@ -68,13 +68,12 @@ class ExportBase:
         return None
 
     def _content_to_section(
-        self, content: NarrativeContent, processed_map: dict
+        self, content: NarrativeContent, processed_map: dict, ignore_list: list[str] = []
     ) -> CompositionSection:
-        # print(f"CONTENT: {content}")
+        # print(f"IGNORE: '{content.sectionNumber}' in {ignore_list}?")
+        if content.sectionNumber in ignore_list:
+            return None
         processed_map[content.id] = True
-        # content_text = self._narrative_content_item(content)
-        # div = self.tag_ref.translate(content_text)
-        # print(f"DIV: {div}")
         div = self._narrative_content_item(content)
         text = str(div)
         text = self._remove_line_feeds(text)
@@ -88,10 +87,11 @@ class ExportBase:
         else:
             for id in content.childIds:
                 content = self._nc_map[id]
-                child = self._content_to_section(content, processed_map)
+                child = self._content_to_section(content, processed_map, ignore_list)
                 if child:
                     section.section.append(child)
-        return section
+        # print(f"IGNORE2: '{content.sectionNumber}' in {text} {len(section.section)}?")
+        return section if text != self.EMPTY_DIV or section.section else None
 
     def _narrative_content_item(self, content: NarrativeContent) -> str:
         nci: NarrativeContentItem = self._nci_map[content.contentItemId]

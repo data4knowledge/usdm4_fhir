@@ -193,3 +193,64 @@ class ExportPRISM3(ExportBase):
                 self._errors.warning(
                     f"Criterion item with id '{criterion_item.id}' has empty text, text '{criterion_item.text}' -translated-> '{text}'"
                 )
+
+    # # First cut of amendment code
+    # def _amendment_ext(self):
+    #     if len(self.study_version.amendments) == 0:
+    #         return None
+    #     source = self.study_version.amendments[0]
+    #     amendment: ExtensionFactory = ExtensionFactory(
+    #         url="http://example.org/fhir/extension/studyAmendment", extension=[]
+    #     )
+    #     ext: ExtensionFactory = ExtensionFactory(
+    #         "amendmentNumber", valueString=self._title_page["amendment_identifier"]
+    #     )
+    #     if ext:
+    #         amendment.extension.append(ext)
+    #     ext: ExtensionFactory = ExtensionFactory("scope", valueString=self._title_page["amendment_scope"])
+    #     if ext:
+    #         amendment.extension.append(ext)
+    #     ext: ExtensionFactory = ExtensionFactory(
+    #         "details", value=self._title_page["amendment_details"]
+    #     )
+    #     if ext:
+    #         amendment.extension.append(ext)
+    #     ext: ExtensionFactory = ExtensionFactory(
+    #         "substantialImpactSafety", valueString=self._amendment["safety_impact"]
+    #     )
+    #     if ext:
+    #         amendment.extension.append(ext)
+    #     ext: ExtensionFactory = ExtensionFactory(
+    #         "substantialImpactSafety", valueString=self._amendment["safety_impact_reason"]
+    #     )
+    #     if ext:
+    #         amendment.extension.append(ext)
+    #     ext: ExtensionFactory = ExtensionFactory(
+    #         "substantialImpactSafety", valueBoolean=self._amendment["robustness_impact"]
+    #     )
+    #     if ext:
+    #         amendment.extension.append(ext)
+    #     ext: ExtensionFactory = ExtensionFactory(
+    #         "substantialImpactSafety", valueString=self._amendment["robustness_impact_reason"]
+    #     )
+    #     if ext:
+    #         amendment.extension.append(ext)
+    #     primary = self._codeable_concept(
+    #         self._coding_from_code(source.primaryReason.code)
+    #     )
+    #     ext: ExtensionFactory = ExtensionFactory(
+    #         "http://hl7.org/fhir/uv/ebm/StructureDefinition/primaryReason",
+    #         value=primary,
+    #     )
+    #     if ext:
+    #         amendment.extension.append(ext)
+    #         secondary = self._codeable_concept(
+    #             self._coding_from_code(source.secondaryReasons[0].code)
+    #         )
+    #         ext = self._extension_codeable(
+    #             "http://hl7.org/fhir/uv/ebm/StructureDefinition/secondaryReason",
+    #             value=secondary,
+    #         )
+    #         if ext:
+    #             amendment.extension.append(ext)
+    #     return amendment

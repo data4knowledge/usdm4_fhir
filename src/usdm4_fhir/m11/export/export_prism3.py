@@ -2,12 +2,13 @@ from uuid import uuid4
 from usdm4_fhir.m11.export.export_base import ExportBase
 from simple_error_log.error_location import KlassMethodLocation
 from usdm4.api.narrative_content import NarrativeContent
+from usdm4.api.study_amendment import StudyAmendment
 from usdm4.api.eligibility_criterion import EligibilityCriterion
 from usdm4_fhir.factory.research_study_factory_p3 import ResearchStudyFactoryP3
 from usdm4_fhir.factory.codeable_concept_factory import CodeableConceptFactory
 from usdm4_fhir.factory.reference_factory import ReferenceFactory
 from usdm4_fhir.factory.composition_factory import CompositionFactory
-from usdm4_fhir.factory.extension_factory import ExtensionFactory
+from usdm4_fhir.factory.extension_factory import ExtensionFactory, Extension
 from fhir.resources.bundle import Bundle, BundleEntry
 from usdm4_fhir.factory.group_factory import GroupFactory
 from usdm4_fhir.factory.coding_factory import CodingFactory
@@ -24,8 +25,9 @@ class ExportPRISM3(ExportBase):
         try:
             ie = self._create_ie_critieria()
             compositions = self._create_compositions()
+            amendment = self._create_amendment()
             #compositions = []
-            rs: ResearchStudyFactoryP3 = self._research_study(compositions, ie)
+            rs: ResearchStudyFactoryP3 = self._research_study(compositions, ie, amendment)
             bundle: Bundle = self._bundle(rs, compositions, ie)
             return bundle.json()
         except Exception as e:
@@ -85,7 +87,9 @@ class ExportPRISM3(ExportBase):
         return bundle
 
     def _research_study(
-        self, compositions: list[CompositionFactory], ie: GroupFactory
+        self, compositions: list[CompositionFactory], 
+        ie: GroupFactory,
+        amendment: ExtensionFactory
     ) -> ResearchStudyFactoryP3:
         rs: ResearchStudyFactoryP3 = ResearchStudyFactoryP3(self.study, self._extra)
         composition: CompositionFactory
@@ -99,7 +103,8 @@ class ExportPRISM3(ExportBase):
                 }
             )
             rs.item.extension.append(ext.item)
-        rs.item.recruitment = {"eligibility": {"reference": f"Group/{ie.item.id}"}}    
+        rs.item.recruitment = {"eligibility": {"reference": f"Group/{ie.item.id}"}}
+        rs.item.extension.append(amendment.item) 
         return rs
 
     def _create_compositions(self):
@@ -197,6 +202,70 @@ class ExportPRISM3(ExportBase):
                     f"Criterion item with id '{criterion_item.id}' has empty text, text '{criterion_item.text}' -translated-> '{text}'"
                 )
 
+    
+    def _create_amendment(self) -> ExtensionFactory:
+        if len(self.study_version.amendments) == 0:
+            return None
+        
+        # Get source amendment and create the overall FHIR extension
+        source_amendment: StudyAmendment = self.study_version.amendments[0]
+        amendment_factory: ExtensionFactory = ExtensionFactory(
+            url="http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/protocol-amendment", extension=[]
+        )
+        amendment: Extension = amendment_factory.item
+        
+        # Rationale
+        self._add_amendment_extension(amendment, "rationale", source_amendment.summary)
+
+        # Identifier / Number
+        self._add_amendment_extension(amendment, "amendmentNumber", source_amendment.number)
+
+        # Primary and secondary reasons
+        self._add_primary_and_secondary(amendment, source_amendment)
+        
+        # Return extension
+        return amendment_factory
+    
+    def _add_primary_and_secondary(self, amendment: Extension, source_amendment: StudyAmendment) -> None:
+        code = CodingFactory(
+            system="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+            code=source_amendment.primaryReason.code.code,
+            display=source_amendment.primaryReason.code.decode,
+        )
+        primary = CodeableConceptFactory(coding=[code.item])
+        ext: ExtensionFactory = ExtensionFactory(
+            url="primaryReason",
+            valueCodeableConcept=primary.item
+        )
+        if ext:
+            amendment.extension.append(ext.item)
+            code = CodingFactory(
+                system="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                code=source_amendment.secondaryReasons[0].code.code,
+                display=source_amendment.secondaryReasons[0].code.decode,
+            )
+            secondary = CodeableConceptFactory(coding=[code.item])
+            ext: ExtensionFactory = ExtensionFactory(
+                url="secondaryReason",
+                valueCodeableConcept=secondary.item,
+            )
+            if ext:
+                amendment.extension.append(ext.item)
+            else:
+                self._errors.error(f"Failed to create 'secondaryReason' extension with value '{source_amendment.secondaryReasons[0]}'")
+        else:
+            self._errors.error(f"Failed to create 'primaryReason' extension with value '{source_amendment.primaryReason}'")
+
+    def _add_amendment_extension(self, amendment: Extension, url: str, value: str) -> None:
+        ext: ExtensionFactory = ExtensionFactory(
+            url=url, valueString=value
+        )
+        if ext:
+            amendment.extension.append(ext.item)
+        else:
+            self._errors.error(f"Failed to create amendment extension '{url}' with value '{value}'")
+
+
     # First cut of amendment code. Example structure
     # ==============================================
     #
@@ -270,49 +339,25 @@ class ExportPRISM3(ExportBase):
     #       "url" : "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/ResearchStudyStudyAmendmentScopeImpact"
     #     },
         # {
-        #   "url" : "primaryReason",
-        #   "valueCodeableConcept" : {
-        #     "coding" : [
-        #       {
-        #         "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-        #         "code" : "C218490",
-        #         "display" : "Regulatory Agency Request To Amend"
-        #       }
-        #     ]
-        #   }
-        # },
-        # {
-        #   "url" : "secondaryReason",
-        #   "valueCodeableConcept" : {
-        #     "coding" : [
-        #       {
-        #         "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-        #         "code" : "C218494",
-        #         "display" : "Manufacturing Change"
-        #       }
-        #     ]
-        #   }
-        # },
-        # {
-        #   "url" : "summary",
-        #   "valueString" : "Regulator required manufacturing chanage."
-        # },
-        # {
         #   "url" : "substantialImpactSafety",
         #   "valueCode" : "C49488"
         # },
+
         # {
         #   "url" : "substantialImpactSafetyComment",
         #   "valueString" : "Specifically implemented to decrease safety risks."
         # },
+
         # {
         #   "url" : "substantialImpactReliability",
         #   "valueCode" : "C17998"
         # },
+
         # {
         #   "url" : "substantialImpactReliabilityComment",
         #   "valueString" : "ccc"
         # },
+
         # {
         #   "extension" : [
         #     {
@@ -338,28 +383,17 @@ class ExportPRISM3(ExportBase):
         #   ],
         #   "url" : "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/protocol-amendment-detail"
         # },
-    
-    def _amendment_ext(self):
-        if len(self.study_version.amendments) == 0:
-            return None
-        source = self.study_version.amendments[0]
 
-    #     amendment: ExtensionFactory = ExtensionFactory(
-    #         url="http://example.org/fhir/extension/studyAmendment", extension=[]
-    #     )
-    #     ext: ExtensionFactory = ExtensionFactory(
-    #         "amendmentNumber", valueString=self._title_page["amendment_identifier"]
-    #     )
-    #     if ext:
-    #         amendment.extension.append(ext)
     #     ext: ExtensionFactory = ExtensionFactory("scope", valueString=self._title_page["amendment_scope"])
     #     if ext:
     #         amendment.extension.append(ext)
+    
     #     ext: ExtensionFactory = ExtensionFactory(
     #         "details", value=self._title_page["amendment_details"]
     #     )
     #     if ext:
     #         amendment.extension.append(ext)
+    
     #     ext: ExtensionFactory = ExtensionFactory(
     #         "substantialImpactSafety", valueString=self._amendment["safety_impact"]
     #     )
@@ -380,22 +414,5 @@ class ExportPRISM3(ExportBase):
     #     )
     #     if ext:
     #         amendment.extension.append(ext)
-    #     primary = self._codeable_concept(
-    #         self._coding_from_code(source.primaryReason.code)
-    #     )
-    #     ext: ExtensionFactory = ExtensionFactory(
-    #         "http://hl7.org/fhir/uv/ebm/StructureDefinition/primaryReason",
-    #         value=primary,
-    #     )
-    #     if ext:
-    #         amendment.extension.append(ext)
-    #         secondary = self._codeable_concept(
-    #             self._coding_from_code(source.secondaryReasons[0].code)
-    #         )
-    #         ext = self._extension_codeable(
-    #             "http://hl7.org/fhir/uv/ebm/StructureDefinition/secondaryReason",
-    #             value=secondary,
-    #         )
-    #         if ext:
-    #             amendment.extension.append(ext)
     #     return amendment
+    

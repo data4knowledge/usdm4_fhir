@@ -23,10 +23,10 @@
             "type": {
               "id": "Code_4",
               "extensionAttributes": [],
-              "code": "C132352",
+              "code": "C71476",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
-              "decode": "Protocol Approval by Sponsor Date",
+              "decode": "Approval Date",
               "instanceType": "Code"
             },
             "dateValue": "2020-07-30",

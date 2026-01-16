@@ -181,10 +181,10 @@ class ImportPRISM2:
 
         # Dates
         sponsor_approval_date_code = self._builder.cdisc_code(
-            "C132352", "Protocol Approval by Sponsor Date"
+            "C71476", "Approval Date"
         )
         protocol_date_code: Code = self._builder.cdisc_code(
-            "C207598", "Protocol Effective Date"
+            "C215663", "Effective Date"
         )
         global_code: Code = self._builder.cdisc_code("C68846", "Global")
         global_scope: GeographicScope = self._builder.create(

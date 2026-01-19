@@ -1,1 +1,10 @@
-[]
+- level: Info
+  location: {}
+  message: Amendment present based on original protocol value
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: First amendment detected '1'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''

@@ -188,10 +188,10 @@ class ImportPRISM3:
                     "compound_names": "",  # <<<<<
                 },
                 "amendments_summary": {
-                    "identifier": self._extract_amendment_identifier()
-                    if is_original_protocol
+                    "identifier": self._extract_amendment_identifier(research_study.identifier)
+                    if not is_original_protocol
                     else "",
-                    "scope": "TO DO" if is_original_protocol else "",
+                    "scope": "TO DO" if not is_original_protocol else "",
                     # "amendment_details": "TO DO" if is_original_protocol else "",
                 },
                 "study_design": {

@@ -8,6 +8,11 @@
   message: 'Extracted identifier of type ''Sponsor Protocol Identifier'': ''8062-CL-2002'''
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
+- level: Info
+  location: {}
+  message: 'Extracted identifier of type ''Amendment Identifier'': ''1.1'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
 - level: Warning
   location: {}
   message: Failed to extract identifier of type 'C218685'

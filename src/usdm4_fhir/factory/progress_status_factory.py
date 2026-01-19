@@ -6,17 +6,20 @@ from .codeable_concept_factory import CodeableConceptFactory
 
 
 class ProgressStatusFactory(BaseFactory):
+    MODULE = "usdm4_fhir.factory.progress_status_factory.ProgressStatusFactory"
+
     def __init__(self, errors: Errors, **kwargs):
         try:
-            super.__init__(errors, **kwargs)
+            super().__init__(errors, **kwargs)
             code = CodingFactory(
+                errors= self._errors, 
                 system="http://hl7.org/fhir/research-study-party-role",
                 code=kwargs["state_code"],
                 display=kwargs["state_display"],
             )
-            state = CodeableConceptFactory(coding=[code.item])
+            state = CodeableConceptFactory(errors= self._errors, coding=[code.item])
             self.item = ResearchStudyProgressStatus(
                 state=state.item, period={"start": kwargs["value"]}
             )
         except Exception as e:
-            self.handle_exception(e)
+            self.handle_exception(self.MODULE, "__init__", e)

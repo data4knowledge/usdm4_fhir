@@ -24,9 +24,11 @@ from usdm4_fhir.factory.study_url import StudyUrl
 
 
 class TimelinePlanDefinitionFactory(BaseFactory):
+    MODULE = "usdm4_fhir.factory.timeline_plan_definition_factory.TimelinePlanDefinitionFactory"
+
     def __init__(self, study: Study, timeline: ScheduleTimeline):
         try:
-            super.__init__(errors, **{})
+            super().__init__(errors, **{})
             base_url = StudyUrl.generate(study)
             self.item = PlanDefinitionFactory(
                 id=self.fix_id(timeline.id),
@@ -45,7 +47,7 @@ class TimelinePlanDefinitionFactory(BaseFactory):
                 action=self._actions(timeline, base_url),
             ).item
         except Exception as e:
-            self.handle_exception(e)
+            self.handle_exception(self.MODULE, "__init__", e)
 
     def _identifier(self, timeline: ScheduleTimeline):
         plac = CodingFactory(

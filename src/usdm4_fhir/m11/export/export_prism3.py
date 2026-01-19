@@ -147,12 +147,12 @@ class ExportPRISM3(ExportBase):
         design = self.study_design
         criteria = design.criterion_map()
         all_of: ExtensionFactory = ExtensionFactory(
-            **{
-                "url": "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.description",
-                "valueString": "all-of",
-            }
+            errors=self._errors,
+            url= "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.description",
+            valueString= "all-of",
         )
         group = GroupFactory(
+            errors=self._errors,
             id=str(uuid4()),
             characteristic=[],
             type="person",

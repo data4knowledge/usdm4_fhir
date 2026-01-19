@@ -6,17 +6,20 @@ from .codeable_concept_factory import CodeableConceptFactory
 
 
 class AssociatedPartyFactory(BaseFactory):
+    MODULE = "usdm4_fhir.factory.associated_party_factory.AssociatedPartyFactory"
+
     def __init__(self, errors: Errors, **kwargs):
         try:
-            super.__init__(errors, **kwargs)
+            super().__init__(errors, **kwargs)
             code = CodingFactory(
+                errors= self._errors, 
                 system="http://hl7.org/fhir/research-study-party-role",
                 code=kwargs["role_code"],
                 display=kwargs["role_display"],
             )
-            role = CodeableConceptFactory(coding=[code.item])
+            role = CodeableConceptFactory(errors= self._errors, coding=[code.item])
             self.item = ResearchStudyAssociatedParty(
                 role=role.item, party=kwargs["party"]
             )
         except Exception as e:
-            self.handle_exception(e)
+            self.handle_exception(self.MODULE, "__init__", e)

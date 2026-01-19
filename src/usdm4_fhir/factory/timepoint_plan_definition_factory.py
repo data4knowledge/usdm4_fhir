@@ -16,6 +16,8 @@ from usdm4_fhir.factory.study_url import StudyUrl
 
 
 class TimepointPlanDefinitionFactory(BaseFactory):
+    MODULE = "usdm4_fhir.factory.timepoint_plan_definition_factory.TimepointPlanDefinitionFactory"
+
     def __init__(
         self,
         study: Study,
@@ -24,7 +26,7 @@ class TimepointPlanDefinitionFactory(BaseFactory):
         errors: Errors,
     ):
         try:
-            super.__init__(errors, **{})
+            super().__init__(errors, **{})
             base_url = StudyUrl.generate(study)
             self.item = PlanDefinitionFactory(
                 id=self.fix_id(timepoint.id),
@@ -45,7 +47,7 @@ class TimepointPlanDefinitionFactory(BaseFactory):
                 action=self._actions(study_design, timepoint, base_url),
             ).item
         except Exception as e:
-            self.handle_exception(e)
+            self.handle_exception(self.MODULE, "__init__", e)
 
     def _actions(
         self,

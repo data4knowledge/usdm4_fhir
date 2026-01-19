@@ -9,7 +9,7 @@ class BaseFactory:
 
     def handle_exception(self, module: str, method: str, e: Exception):
         self.item = None
-        self._errors.exception("Exception rasied in factory method.", e, KlassMethodLocation(module, method))
+        self._errors.exception("Exception raised in factory method", e, KlassMethodLocation(module, method))
 
     @staticmethod
     def fix_id(value: str) -> str:

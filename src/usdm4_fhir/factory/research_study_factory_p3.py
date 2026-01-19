@@ -17,13 +17,14 @@ from usdm4_fhir.factory.associated_party_factory import AssociatedPartyFactory
 
 
 class ResearchStudyFactoryP3(BaseFactory):
+    MODULE = "usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3"
     NCI_CODE_SYSTEM = "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
     UDP_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocol"
     PROTOCOL_AMENDMENT_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/protocol-amendment"
 
     def __init__(self, study: USDMStudy, errors: Errors, extra: dict = {}):
         try:
-            super.__init__(errors, **{})
+            super().__init__(errors, **{})
             self._title_page = extra["title_page"]
             self._version: USDMStudyVersion = study.first_version()
             self._first_amendment: StudyAmendment = self._version.first_amendment()
@@ -277,7 +278,7 @@ class ResearchStudyFactoryP3(BaseFactory):
             # self.item.associatedParty.append(ap.item)
 
         except Exception as e:
-            self.handle_exception(e)
+            self.handle_exception(self.MODULE, "__init__", e)
 
     @property
     def resources(self) -> list[BaseFactory]:

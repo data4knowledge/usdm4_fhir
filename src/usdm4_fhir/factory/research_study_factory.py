@@ -15,9 +15,11 @@ from usdm4_fhir.factory.label_type_factory import LabelTypeFactory
 
 
 class ResearchStudyFactory(BaseFactory):
+    MODULE = "usdm4_fhir.factory.research_study_factory.ResearchStudyFactory"
+
     def __init__(self, study: USDMStudy, errors: Errors, extra: dict = {}):
+        super().__init__(errors, **{})
         try:
-            super.__init__(errors, **{})
             self._title_page = extra["title_page"]
             self._version: USDMStudyVersion = study.first_version()
             self._study_design = self._version.studyDesigns[0]
@@ -40,10 +42,9 @@ class ResearchStudyFactory(BaseFactory):
             # Sponsor Confidentiality Statememt
             if cs := self._version.confidentiality_statement():
                 ext = ExtensionFactory(
-                    **{
-                        "url": "http://hl7.org/fhir/uv/ebm/StructureDefinition/research-study-sponsor-confidentiality-statement",
-                        "valueString": cs,
-                    }
+                    errors=self._errors,
+                    url="http://hl7.org/fhir/uv/ebm/StructureDefinition/research-study-sponsor-confidentiality-statement",
+                    valueString=cs,
                 )
                 self.item.extension.append(ext.item)
 
@@ -56,13 +57,13 @@ class ResearchStudyFactory(BaseFactory):
             acronym = self._version.acronym()  # self._get_title('Study Acronym')
             if acronym:
                 self.item.label.append(
-                    LabelTypeFactory(usdm_code=acronym.type, text=acronym.text).item
+                    LabelTypeFactory(errors=self._errors, usdm_code=acronym.type, text=acronym.text).item
                 )
 
             # Sponsor Protocol Identifier
             for identifier in self._version.studyIdentifiers:
                 org = identifier.scoped_by(self._organizations)
-                identifier_cc = CodeableConceptFactory(text=org.type.decode)
+                identifier_cc = CodeableConceptFactory(errors= self._errors, text=org.type.decode)
                 self.item.identifier.append(
                     {
                         "type": identifier_cc.item,
@@ -87,7 +88,7 @@ class ResearchStudyFactory(BaseFactory):
                 self.item.date = date_value
 
             # Amendment Identifier
-            identifier_code = CodeableConceptFactory(text="Amendment Identifier")
+            identifier_code = CodeableConceptFactory(errors= self._errors, text="Amendment Identifier")
             self.item.identifier.append(
                 {
                     "type": identifier_code.item,
@@ -107,26 +108,29 @@ class ResearchStudyFactory(BaseFactory):
             # Trial Phase
             phase = self._study_design.phase()
             phase_code = CodingFactory(
+                errors= self._errors, 
                 system=phase.codeSystem,
                 version=phase.codeSystemVersion,
                 code=phase.code,
                 display=phase.decode,
             )
             self.item.phase = CodeableConceptFactory(
+                errors= self._errors, 
                 coding=[phase_code.item], text=phase.decode
             ).item
 
             # Short Title
             title = self._version.short_title()  # self._get_title('Brief Study Title')
             self.item.label.append(
-                LabelTypeFactory(usdm_code=title.type, text=title.text).item
+                LabelTypeFactory(errors= self._errors, usdm_code=title.type, text=title.text).item
             )
 
             # Sponsor Name and Address
             sponsor = self._version.sponsor()
-            org = OrganizationFactory(sponsor)
+            org = OrganizationFactory(errors= self._errors, organization=sponsor)
             # self._entries.append({'item': org.item, 'url': 'https://www.example.com/Composition/1234D'})
             ap = AssociatedPartyFactory(
+                errors= self._errors, 
                 party={"reference": f"Organization/{self.fix_id(org.item.id)}"},
                 role_code="sponsor",
                 role_display="sponsor",
@@ -147,6 +151,7 @@ class ResearchStudyFactory(BaseFactory):
                 else datetime.datetime.now(tz=datetime.timezone.utc).isoformat()
             )
             status = ProgressStatusFactory(
+                errors= self._errors, 
                 value=date_str,
                 state_code="sponsor-approved",
                 state_display="sponsor apporval date",
@@ -162,4 +167,4 @@ class ResearchStudyFactory(BaseFactory):
             # self.item.associatedParty.append(ap.item)
 
         except Exception as e:
-            self.handle_exception(e)
+            self.handle_exception(self.MODULE, "__init__", e)

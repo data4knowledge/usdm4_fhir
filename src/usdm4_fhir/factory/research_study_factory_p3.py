@@ -2,6 +2,7 @@ from uuid import uuid4
 from usdm4.api.study import Study as USDMStudy
 from usdm4.api.study_version import StudyVersion as USDMStudyVersion
 from usdm4.api.study_title import StudyTitle
+from usdm4.api.study_amendment import StudyAmendment
 from fhir.resources.researchstudy import ResearchStudy
 from usdm4_fhir.factory.base_factory import BaseFactory
 from usdm4_fhir.factory.extension_factory import ExtensionFactory
@@ -21,6 +22,7 @@ class ResearchStudyFactoryP3(BaseFactory):
         try:
             self._title_page = extra["title_page"]
             self._version: USDMStudyVersion = study.first_version()
+            self._first_amendment: StudyAmendment = self._version.first_amendment()
             self._study_design = self._version.studyDesigns[0]
             self._document = study.documentedBy[0].versions[0]
             self._organizations: dict = self._version.organization_map()
@@ -90,7 +92,7 @@ class ResearchStudyFactoryP3(BaseFactory):
                     }
                 )
 
-            # Original Protocol - No implementation details currently
+            # Original Protocol
             original_code = CodingFactory(
                 system=self.NCI_CODE_SYSTEM, code="C49487", display="No"
             )
@@ -98,10 +100,8 @@ class ResearchStudyFactoryP3(BaseFactory):
                 original_code.item.code = "C49488"
                 original_code.item.display = "Yes"
             ext = ExtensionFactory(
-                **{
-                    "url": f"{self.UDP_BASE}/study-amendment",
-                    "valueCoding": original_code.item,
-                }
+                url=f"{self.UDP_BASE}/study-amendment",
+                valueCoding=original_code.item,
             )
             self.item.extension.append(ext.item)
 
@@ -117,40 +117,42 @@ class ResearchStudyFactoryP3(BaseFactory):
             if date_value:
                 self.item.date = date_value
 
-            # Amendment Identifier
-            if self._title_page["amendment_identifier"]:
-                identifier_code = CodingFactory(
-                    system=self.NCI_CODE_SYSTEM,
-                    code="C218477",
-                    display="Amendment Identifier",
+            # Amendment Identifier and Scope
+            if not self._version.original_version():
+                if self._title_page["amendment_identifier"]:
+                    identifier_code = CodingFactory(
+                        system=self.NCI_CODE_SYSTEM,
+                        code="C218477",
+                        display="Amendment Identifier",
+                    )
+                    self.item.identifier.append(
+                        {
+                            "type": {"coding": [identifier_code.item]},
+                            "system": "https://d4k.dk/amendment-identifier",
+                            "value": self._first_amendment.number,
+                        }
+                    )
+
+                # Amendment Scope
+                # <<<HERE>>>
+                the_scope = (
+                    self._title_page["amendment_scope"]
+                    if self._title_page["amendment_scope"]
+                    else "Global"
                 )
-                self.item.identifier.append(
-                    {
-                        "type": {"coding": [identifier_code.item]},
-                        "system": "https://example.org/amendment-identifier",
-                        "value": self._title_page["amendment_identifier"],
+                scope = ExtensionFactory(
+                    **{
+                        "url": "scope",
+                        "valueCode": the_scope,
                     }
                 )
-
-            # Amendment Scope
-            the_scope = (
-                self._title_page["amendment_scope"]
-                if self._title_page["amendment_scope"]
-                else "Global"
-            )
-            scope = ExtensionFactory(
-                **{
-                    "url": "scope",
-                    "valueCode": the_scope,
-                }
-            )
-            ext = ExtensionFactory(
-                **{
-                    "url": f"{self.PROTOCOL_AMENDMENT_BASE}",
-                    "extension": [scope.item],
-                }
-            )
-            self.item.extension.append(ext.item)
+                ext = ExtensionFactory(
+                    **{
+                        "url": f"{self.PROTOCOL_AMENDMENT_BASE}",
+                        "extension": [scope.item],
+                    }
+                )
+                self.item.extension.append(ext.item)
 
             # Compound Codes - No implementation details currently
             # if self._title_page["compound_codes"]:

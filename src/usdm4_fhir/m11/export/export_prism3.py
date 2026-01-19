@@ -104,7 +104,8 @@ class ExportPRISM3(ExportBase):
             )
             rs.item.extension.append(ext.item)
         rs.item.recruitment = {"eligibility": {"reference": f"Group/{ie.item.id}"}}
-        rs.item.extension.append(amendment.item) 
+        if amendment:
+            rs.item.extension.append(amendment.item) 
         return rs
 
     def _create_compositions(self):

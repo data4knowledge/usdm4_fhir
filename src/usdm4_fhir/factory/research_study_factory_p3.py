@@ -20,13 +20,12 @@ class ResearchStudyFactoryP3(BaseFactory):
     def __init__(self, study: USDMStudy, extra: dict = {}):
         try:
             self._title_page = extra["title_page"]
-            # self._miscellaneous = extra['miscellaneous']
-            # self._amendment = extra['amendment']
             self._version: USDMStudyVersion = study.first_version()
             self._study_design = self._version.studyDesigns[0]
             self._document = study.documentedBy[0].versions[0]
             self._organizations: dict = self._version.organization_map()
             self._resources: list[BaseFactory] = []
+
             # Set Profile meta data
             meta = {
                 "profile": [
@@ -36,7 +35,6 @@ class ResearchStudyFactoryP3(BaseFactory):
 
             # Base instance
             self.item = ResearchStudy(
-                # id=f"{self._version.sponsor_identifier_text()}-ResearchStudy",
                 id=str(uuid4()),
                 meta=meta,
                 status="active",
@@ -53,13 +51,9 @@ class ResearchStudyFactoryP3(BaseFactory):
 
             # Sponsor Confidentiality Statememt
             if cs := self._version.confidentiality_statement():
-                # if self._title_page["sponsor_confidentiality"]:
                 ext = ExtensionFactory(
-                    **{
-                        "url": "http://hl7.org/fhir/uv/ebm/StructureDefinition/research-study-sponsor-confidentiality-statement",
-                        #                        "valueString": self._title_page["sponsor_confidentiality"],
-                        "valueString": cs,
-                    }
+                    url="http://hl7.org/fhir/uv/ebm/StructureDefinition/research-study-sponsor-confidentiality-statement",
+                    valueString=cs
                 )
                 self.item.extension.append(ext.item)
 
@@ -83,8 +77,6 @@ class ResearchStudyFactoryP3(BaseFactory):
             # Sponsor Identifier
             identifier = self._version.sponsor_identifier()
             if identifier:
-                # org = identifier.scoped_by(self._organizations)
-                # identifier_type = CodeableConceptFactory(text=org.type.decode)
                 identifier_type = CodingFactory(
                     system=self.NCI_CODE_SYSTEM,
                     code="C132351",
@@ -92,13 +84,11 @@ class ResearchStudyFactoryP3(BaseFactory):
                 )
                 self.item.identifier.append(
                     {
-                        # "type": identifier_type.item,
                         "type": {"coding": [identifier_type.item]},
-                        "system": "https://example.org/sponsor-identifier",
+                        "system": "https://d4k.dk/sponsor-identifier",
                         "value": identifier.text,
                     }
                 )
-                # print(f"IDENTIFIER: {self.item.identifier}")
 
             # Original Protocol - No implementation details currently
             original_code = CodingFactory(

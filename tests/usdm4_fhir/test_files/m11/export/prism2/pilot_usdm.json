@@ -4947,7 +4947,7 @@
             "type": {
               "id": "Code_10",
               "extensionAttributes": [],
-              "code": "C99905x2",
+              "code": "C207616",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2024-09-27",
               "decode": "Official Study Title",

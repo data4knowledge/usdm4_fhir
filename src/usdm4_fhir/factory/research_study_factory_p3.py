@@ -1,4 +1,6 @@
 from uuid import uuid4
+from simple_error_log import Errors
+from simple_error_log.error_location import KlassMethodLocation
 from usdm4.api.study import Study as USDMStudy
 from usdm4.api.study_version import StudyVersion as USDMStudyVersion
 from usdm4.api.study_title import StudyTitle
@@ -18,8 +20,9 @@ class ResearchStudyFactoryP3(BaseFactory):
     UDP_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocol"
     PROTOCOL_AMENDMENT_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/protocol-amendment"
 
-    def __init__(self, study: USDMStudy, extra: dict = {}):
+    def __init__(self, study: USDMStudy, errors: Errors, extra: dict = {}):
         try:
+            self._errors = errors
             self._title_page = extra["title_page"]
             self._version: USDMStudyVersion = study.first_version()
             self._first_amendment: StudyAmendment = self._version.first_amendment()
@@ -119,7 +122,7 @@ class ResearchStudyFactoryP3(BaseFactory):
 
             # Amendment Identifier and Scope
             if not self._version.original_version():
-                if self._title_page["amendment_identifier"]:
+                if self._first_amendment:
                     identifier_code = CodingFactory(
                         system=self.NCI_CODE_SYSTEM,
                         code="C218477",
@@ -133,27 +136,29 @@ class ResearchStudyFactoryP3(BaseFactory):
                         }
                     )
 
-                # Amendment Scope
-                # <<<HERE>>>
-                the_scope = (
-                    self._title_page["amendment_scope"]
-                    if self._title_page["amendment_scope"]
-                    else "Global"
-                )
-                scope = ExtensionFactory(
-                    **{
-                        "url": "scope",
-                        "valueCode": the_scope,
-                    }
-                )
-                ext = ExtensionFactory(
-                    **{
-                        "url": f"{self.PROTOCOL_AMENDMENT_BASE}",
-                        "extension": [scope.item],
-                    }
-                )
-                self.item.extension.append(ext.item)
-
+                    # Amendment Scope
+                    # <<<HERE>>>
+                    the_scope = (
+                        self._title_page["amendment_scope"]
+                        if self._title_page["amendment_scope"]
+                        else "Global"
+                    )
+                    scope = ExtensionFactory(
+                        **{
+                            "url": "scope",
+                            "valueCode": the_scope,
+                        }
+                    )
+                    ext = ExtensionFactory(
+                        **{
+                            "url": f"{self.PROTOCOL_AMENDMENT_BASE}",
+                            "extension": [scope.item],
+                        }
+                    )
+                    self.item.extension.append(ext.item)
+                else:
+                    self._errors.error("Could not find first amendment.")
+                    
             # Compound Codes - No implementation details currently
             # if self._title_page["compound_codes"]:
             #     params = {

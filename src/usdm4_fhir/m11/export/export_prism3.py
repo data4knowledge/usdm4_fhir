@@ -91,7 +91,7 @@ class ExportPRISM3(ExportBase):
         ie: GroupFactory,
         amendment: ExtensionFactory
     ) -> ResearchStudyFactoryP3:
-        rs: ResearchStudyFactoryP3 = ResearchStudyFactoryP3(self.study, self._extra)
+        rs: ResearchStudyFactoryP3 = ResearchStudyFactoryP3(self.study, self._errors, self._extra)
         composition: CompositionFactory
         for composition in compositions:
             ext: ExtensionFactory = ExtensionFactory(

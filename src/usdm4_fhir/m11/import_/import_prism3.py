@@ -163,6 +163,8 @@ class ImportPRISM3:
                 research_study.identifier
             )
             sponsor = self._extract_sponsor(research_study.associatedParty, bundle)
+            original_protocol = self._extract_original_protocol(research_study.extension)
+            is_original_protocol = self._is_original_protocol(original_protocol)
             sections = self._extract_sections(research_study.extension, bundle)
             ie = self._extract_ie(research_study, bundle)
             result = {
@@ -184,9 +186,9 @@ class ImportPRISM3:
                     "compound_names": "",  # <<<<<
                 },
                 "amendments_summary": {
-                    "amendment_identifier": "",  # <<<<<
-                    "amendment_scope": "",  # <<<<<
-                    "amendment_details": "",  # <<<<<
+                    "amendment_identifier": self._extract_amendment_identifier() if is_original_protocol else "",
+                    "amendment_scope": "TO DO" if is_original_protocol else "",
+                    "amendment_details": "TO DO" if is_original_protocol else "",
                 },
                 "study_design": {
                     "label": "Study Design 1",
@@ -208,9 +210,7 @@ class ImportPRISM3:
                     "confidentiality": self._extract_confidentiality_statement(
                         research_study.extension
                     ),
-                    "original_protocol": self._extract_original_protocol(
-                        research_study.extension
-                    ),
+                    "original_protocol": original_protocol
                 },
                 "other": {
                     "regulatory_agency_identifiers": "",  # <<<<<
@@ -342,6 +342,9 @@ class ImportPRISM3:
     def _extract_nct_identifier(self, identifiers: list) -> str:
         return self._extract_identifier(identifiers, "C172240", "code")
 
+    def _extract_amendment_identifier(self, identifiers: list) -> str:
+        return self._extract_identifier(identifiers, "C218477", "code")
+
     def _extract_identifier(
         self, identifiers: list, type: str, attribute_name: str
     ) -> str | None:
@@ -444,6 +447,9 @@ class ImportPRISM3:
         )
         return ext.valueString if ext else ""
 
+    def _is_original_protocol(self, value: str) -> bool:
+        return value.upper == "YES"
+    
     def _extract_original_protocol(self, extensions: list) -> str:
         ext = self._extract_extension(
             extensions,

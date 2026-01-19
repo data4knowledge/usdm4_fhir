@@ -29,11 +29,14 @@ class TimepointPlanDefinitionFactory(BaseFactory):
             super().__init__(errors, **{})
             base_url = StudyUrl.generate(study)
             self.item = PlanDefinitionFactory(
+                errors=self._errors,
                 id=self.fix_id(timepoint.id),
                 title=timepoint.label_name(),
                 type=CodeableConceptFactory(
+                    errors=self._errors,
                     coding=[
                         CodingFactory(
+                            errors=self._errors,
                             code="clinical-protocol",
                             system="http://terminology.hl7.org/CodeSystem/plan-definition-type",
                         ).item
@@ -61,6 +64,7 @@ class TimepointPlanDefinitionFactory(BaseFactory):
         for id in timepoint.activityIds:
             activity = activities[id]
             action = PlanDefinitionActionFactory(
+                errors=self._errors,
                 id=self.fix_id(activity.id),
                 title=activity.label_name(),
                 definitionCanonical=f"{base_url}/ActivityDefinition/{self.fix_id(activity.name)}",

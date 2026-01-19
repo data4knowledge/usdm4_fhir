@@ -59,6 +59,7 @@ class ResearchStudyFactoryP3(BaseFactory):
             # Sponsor Confidentiality Statememt
             if cs := self._version.confidentiality_statement():
                 ext = ExtensionFactory(
+                    errors=self._errors,
                     url="http://hl7.org/fhir/uv/ebm/StructureDefinition/research-study-sponsor-confidentiality-statement",
                     valueString=cs
                 )
@@ -72,19 +73,20 @@ class ResearchStudyFactoryP3(BaseFactory):
             if acronym:
                 if acronym.text:
                     self.item.label.append(
-                        LabelTypeFactory(usdm_code=acronym.type, text=acronym.text).item
+                        LabelTypeFactory(errors=self._errors, usdm_code=acronym.type, text=acronym.text).item
                     )
             st: StudyTitle = self._version.short_title()
             if st:
                 if st.text:
                     self.item.label.append(
-                        LabelTypeFactory(usdm_code=st.type, text=st.text).item
+                        LabelTypeFactory(errors=self._errors, usdm_code=st.type, text=st.text).item
                     )
 
             # Sponsor Identifier
             identifier = self._version.sponsor_identifier()
             if identifier:
                 identifier_type = CodingFactory(
+                    errors=self._errors,
                     system=self.NCI_CODE_SYSTEM,
                     code="C132351",
                     display="Sponsor Protocol Identifier",
@@ -99,12 +101,14 @@ class ResearchStudyFactoryP3(BaseFactory):
 
             # Original Protocol
             original_code = CodingFactory(
+                errors=self._errors,
                 system=self.NCI_CODE_SYSTEM, code="C49487", display="No"
             )
             if self._version.original_version():
                 original_code.item.code = "C49488"
                 original_code.item.display = "Yes"
             ext = ExtensionFactory(
+                errors=self._errors,
                 url=f"{self.UDP_BASE}/study-amendment",
                 valueCoding=original_code.item,
             )
@@ -126,6 +130,7 @@ class ResearchStudyFactoryP3(BaseFactory):
             if not self._version.original_version():
                 if self._first_amendment:
                     identifier_code = CodingFactory(
+                        errors=self._errors,
                         system=self.NCI_CODE_SYSTEM,
                         code="C218477",
                         display="Amendment Identifier",
@@ -146,16 +151,14 @@ class ResearchStudyFactoryP3(BaseFactory):
                         else "Global"
                     )
                     scope = ExtensionFactory(
-                        **{
-                            "url": "scope",
-                            "valueCode": the_scope,
-                        }
+                        errors=self._errors,
+                        url="scope",
+                        valueCode=the_scope,
                     )
                     ext = ExtensionFactory(
-                        **{
-                            "url": f"{self.PROTOCOL_AMENDMENT_BASE}",
-                            "extension": [scope.item],
-                        }
+                        errors=self._errors,
+                        url=f"{self.PROTOCOL_AMENDMENT_BASE}",
+                        extension=[scope.item],
                     )
                     self.item.extension.append(ext.item)
                 else:
@@ -182,18 +185,21 @@ class ResearchStudyFactoryP3(BaseFactory):
             # Trial Phase
             phase = self._study_design.phase()
             phase_code = CodingFactory(
+                errors=self._errors,
                 system="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
                 code=phase.code,
                 display=phase.decode,
             )
             self.item.phase = CodeableConceptFactory(
+                errors=self._errors,
                 coding=[phase_code.item], text=phase.decode
             ).item
 
             # Sponsor Name and Address
             sponsor = self._version.sponsor()
-            org = OrganizationFactory(sponsor)
+            org = OrganizationFactory(errors=self._errors, organization=sponsor)
             ap = AssociatedPartyFactory(
+                errors=self._errors,
                 party={"reference": f"Organization/{org.item.id}"},
                 role_code="sponsor",
                 role_display="sponsor",
@@ -214,6 +220,7 @@ class ResearchStudyFactoryP3(BaseFactory):
                 org = identifier.scoped_by(self._organizations)
                 if org.name == "FDA":
                     identifier_type = CodingFactory(
+                        errors=self._errors,
                         system=self.NCI_CODE_SYSTEM,
                         code="C218685",
                         display="FDA IND Number",
@@ -227,6 +234,7 @@ class ResearchStudyFactoryP3(BaseFactory):
                     )
                 elif org.name == "CT.GOV":
                     identifier_type = CodingFactory(
+                        errors=self._errors,
                         system=self.NCI_CODE_SYSTEM,
                         code="C172240",
                         display="NCT Number",
@@ -240,6 +248,7 @@ class ResearchStudyFactoryP3(BaseFactory):
                     )
                 elif org.name == "EMA":
                     identifier_type = CodingFactory(
+                        errors=self._errors,
                         system=self.NCI_CODE_SYSTEM,
                         code="C218684",
                         display="EU CT Number",

@@ -95,12 +95,11 @@ class ExportPRISM3(ExportBase):
         composition: CompositionFactory
         for composition in compositions:
             ext: ExtensionFactory = ExtensionFactory(
-                **{
-                    "url": "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
-                    "valueReference": {
-                        "reference": f"Composition/{composition.item.id}"
-                    },
-                }
+                errors=self._errors,
+                url="http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/narrative-elements",
+                valueReference={
+                    "reference": f"Composition/{composition.item.id}"
+                },
             )
             rs.item.extension.append(ext.item)
         rs.item.recruitment = {"eligibility": {"reference": f"Group/{ie.item.id}"}}
@@ -126,13 +125,15 @@ class ExportPRISM3(ExportBase):
         section = self._content_to_section(content, processed_map, self.IGNORE_LIST)
         if section:
             code = CodingFactory(
+                errors=self._errors,
                 system="http://hl7.org/fhir/research-study-party-role",
                 code="b001",
                 display="Protocol narative",
             )
-            type_code = CodeableConceptFactory(coding=[code.item])
-            author = ReferenceFactory(display="USDM").item
+            type_code = CodeableConceptFactory(errors=self._errors, coding=[code.item])
+            author = ReferenceFactory(errors=self._errors, display="USDM").item
             return CompositionFactory(
+                errors=self._errors,
                 title=section.title,
                 date=self._now,
                 type=type_code.item,
@@ -167,6 +168,7 @@ class ExportPRISM3(ExportBase):
     def _criterion(self, criterion: EligibilityCriterion, collection: list):
         version = self.study_version
         na = CodeableConceptFactory(
+            errors=self._errors,
             extension=[
                 {
                     "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
@@ -179,10 +181,9 @@ class ExportPRISM3(ExportBase):
             text = self.tag_ref.translate(criterion_item, criterion_item.text)
             if text:
                 outer: ExtensionFactory = ExtensionFactory(
-                    **{
-                        "url": "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.characteristic.description",
-                        "valueString": str(text),
-                    }
+                    errors=self._errors,
+                    url="http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.characteristic.description",
+                    valueString=str(text),
                 )
                 if outer:
                     exclude = True if criterion.category.code == "C25370" else False
@@ -211,6 +212,7 @@ class ExportPRISM3(ExportBase):
         # Get source amendment and create the overall FHIR extension
         source_amendment: StudyAmendment = self.study_version.amendments[0]
         amendment_factory: ExtensionFactory = ExtensionFactory(
+            errors=self._errors,
             url="http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/protocol-amendment", extension=[]
         )
         amendment: Extension = amendment_factory.item
@@ -229,24 +231,28 @@ class ExportPRISM3(ExportBase):
     
     def _add_primary_and_secondary(self, amendment: Extension, source_amendment: StudyAmendment) -> None:
         code = CodingFactory(
+            errors=self._errors,
             system="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
             code=source_amendment.primaryReason.code.code,
             display=source_amendment.primaryReason.code.decode,
         )
-        primary = CodeableConceptFactory(coding=[code.item])
+        primary = CodeableConceptFactory(errors=self._errors, coding=[code.item])
         ext: ExtensionFactory = ExtensionFactory(
+            errors=self._errors,
             url="primaryReason",
             valueCodeableConcept=primary.item
         )
         if ext:
             amendment.extension.append(ext.item)
             code = CodingFactory(
+                errors=self._errors,
                 system="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
                 code=source_amendment.secondaryReasons[0].code.code,
                 display=source_amendment.secondaryReasons[0].code.decode,
             )
-            secondary = CodeableConceptFactory(coding=[code.item])
+            secondary = CodeableConceptFactory(errors=self._errors, coding=[code.item])
             ext: ExtensionFactory = ExtensionFactory(
+                errors=self._errors,
                 url="secondaryReason",
                 valueCodeableConcept=secondary.item,
             )
@@ -259,6 +265,7 @@ class ExportPRISM3(ExportBase):
 
     def _add_amendment_extension(self, amendment: Extension, url: str, value: str) -> None:
         ext: ExtensionFactory = ExtensionFactory(
+            errors=self._errors,
             url=url, valueString=value
         )
         if ext:

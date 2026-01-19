@@ -48,13 +48,15 @@ class ExportSoA:
             entries = []
             date = datetime.datetime.now(tz=datetime.timezone.utc).isoformat()
             identifier = IdentifierFactory(
+                errors=self._errors,
                 system="urn:ietf:rfc:3986", value=f"urn:uuid:{self._uuid}"
             )
 
             # Add research study
-            rs = ResearchStudyFactory(self._study, self._extra)
+            rs = ResearchStudyFactory(self._study, self._errors, self._extra)
             entries.append(
                 BundleEntryFactory(
+                    errors=self._errors,
                     request={
                         "method": "PUT",
                         "url": "ResearchStudy",
@@ -65,9 +67,10 @@ class ExportSoA:
             )
 
             # Add timeline plan definition, this is the overall timeline.
-            tlpd = TimelinePlanDefinitionFactory(self._study, self._timeline)
+            tlpd = TimelinePlanDefinitionFactory(self._study, self._timeline, self._errors)
             entries.append(
                 BundleEntryFactory(
+                    errors=self._errors,
                     request={
                         "method": "PUT",
                         "url": "PlanDefinition",
@@ -81,10 +84,11 @@ class ExportSoA:
             # Add timepoint plan definitions for the activities
             for index, tp in enumerate(self._timeline.instances):
                 tppd = TimepointPlanDefinitionFactory(
-                    self._study, self._study_design, tp
+                    self._study, self._study_design, tp, self._errors
                 )
                 entries.append(
                     BundleEntryFactory(
+                        errors=self._errors,
                         request={
                             "method": "PUT",
                             "url": "PlanDefinition",
@@ -98,6 +102,7 @@ class ExportSoA:
             activity_list = self._study_design.activity_list()
             for index, activity in enumerate(activity_list):
                 ad = ActivityDefinitionFactory(
+                    errors=self._errors,
                     id=f"{ActivityDefinitionFactory.fix_id(activity.id)}",
                     name=activity.name,
                     title=activity.label_name(),
@@ -107,6 +112,7 @@ class ExportSoA:
                 )
                 entries.append(
                     BundleEntryFactory(
+                        errors=self._errors,
                         request={
                             "method": "PUT",
                             "url": "ActivityDefinition",
@@ -118,6 +124,7 @@ class ExportSoA:
 
             # Build the final bundle
             bundle = BundleFactory(
+                errors=self._errors,
                 id=f"{BundleFactory.fix_id(self._study.name)}",
                 entry=entries,
                 type="transaction",

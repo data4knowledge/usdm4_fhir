@@ -26,16 +26,19 @@ from usdm4_fhir.factory.study_url import StudyUrl
 class TimelinePlanDefinitionFactory(BaseFactory):
     MODULE = "usdm4_fhir.factory.timeline_plan_definition_factory.TimelinePlanDefinitionFactory"
 
-    def __init__(self, study: Study, timeline: ScheduleTimeline):
+    def __init__(self, study: Study, timeline: ScheduleTimeline, errors: Errors):
         try:
             super().__init__(errors, **{})
             base_url = StudyUrl.generate(study)
             self.item = PlanDefinitionFactory(
+                errors=self._errors,
                 id=self.fix_id(timeline.id),
                 title=timeline.label_name(),
                 type=CodeableConceptFactory(
+                    errors=self._errors,
                     coding=[
                         CodingFactory(
+                            errors=self._errors,
                             code="clinical-protocol",
                             system="http://terminology.hl7.org/CodeSystem/plan-definition-type",
                         ).item
@@ -51,10 +54,11 @@ class TimelinePlanDefinitionFactory(BaseFactory):
 
     def _identifier(self, timeline: ScheduleTimeline):
         plac = CodingFactory(
+            errors=self._errors,
             code="PLAC", system="http://terminology.hl7.org/CodeSystem/v2-0203"
         )
-        type = CodeableConceptFactory(coding=[plac.item])
-        identifier = IdentifierFactory(value=timeline.name, use="usual", type=type.item)
+        type = CodeableConceptFactory(errors=self._errors, coding=[plac.item])
+        identifier = IdentifierFactory(errors=self._errors, value=timeline.name, use="usual", type=type.item)
         return identifier
 
     def _actions(self, timeline: ScheduleTimeline, base_url: str) -> list:
@@ -62,6 +66,7 @@ class TimelinePlanDefinitionFactory(BaseFactory):
         timepoints = timeline.timepoint_list()
         for timepoint in timepoints:
             action = PlanDefinitionActionFactory(
+                errors=self._errors,
                 id=self.fix_id(timepoint.id),
                 title=timepoint.label_name(),
                 # definitionUri=f"PlanDefinition-{self.fix_id(timepoint.name)}",
@@ -83,6 +88,7 @@ class TimelinePlanDefinitionFactory(BaseFactory):
             return None
         offset = ISO8601ToUCUM.convert(timing.value)
         related = PlanDefinitionRelatedActionFactory(
+            errors=self._errors,
             targetId=self.fix_id(timing.relativeToScheduledInstanceId),
             relationship=CDISCFHIR.from_c201264(timing.type),
             offsetDuration=offset,
@@ -90,13 +96,12 @@ class TimelinePlanDefinitionFactory(BaseFactory):
         )
         if timing.windowLower:
             window = ExtensionFactory(
-                **{
-                    "valueRange": {
-                        "low": ISO8601ToUCUM.convert(timing.windowLower),
-                        "high": ISO8601ToUCUM.convert(timing.windowUpper),
-                    },
-                    "url": "http://hl7.org/fhir/uv/vulcan-schedule/StructureDefinition/AcceptableOffsetRangeSoa",
-                }
+                errors=self._errors,
+                valueRange={
+                    "low": ISO8601ToUCUM.convert(timing.windowLower),
+                    "high": ISO8601ToUCUM.convert(timing.windowUpper),
+                },
+                url="http://hl7.org/fhir/uv/vulcan-schedule/StructureDefinition/AcceptableOffsetRangeSoa",
             )
             related.item.extension.append(window.item)
         return related.item

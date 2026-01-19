@@ -14,4 +14,5 @@ class ExtensionFactory(BaseFactory):
             )
             self.item = Extension(**kwargs)
         except Exception as e:
+            self._errors.info(f"Failed to create extension using kwarg '{kwargs}'")
             self.handle_exception(self.MODULE, "__init__", e)

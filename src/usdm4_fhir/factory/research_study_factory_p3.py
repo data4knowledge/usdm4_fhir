@@ -134,7 +134,9 @@ class ResearchStudyFactoryP3(BaseFactory):
 
             # Amendment Identifier and Scope
             if not self._version.original_version():
+                self._errors.info(f"Amendment present based on original protocol value")
                 if self._first_amendment:
+                    self._errors.info(f"First amendment detected '{self._first_amendment.number}'")
                     identifier_code = CodingFactory(
                         errors=self._errors,
                         system=self.NCI_CODE_SYSTEM,
@@ -161,14 +163,20 @@ class ResearchStudyFactoryP3(BaseFactory):
                         url="scope",
                         valueCode=the_scope,
                     )
-                    ext = ExtensionFactory(
-                        errors=self._errors,
-                        url=f"{self.PROTOCOL_AMENDMENT_BASE}",
-                        extension=[scope.item],
-                    )
-                    self.item.extension.append(ext.item)
+                    if scope:
+                        ext = ExtensionFactory(
+                            errors=self._errors,
+                            url=f"{self.PROTOCOL_AMENDMENT_BASE}",
+                            extension=[scope.item],
+                        )
+                        if ext:
+                            self.item.extension.append(ext.item)
+                        else:
+                            self._errors.error("Failed to create amendment extension.")
+                    else:
+                        self._errors.error("Failed to create amendment scope extension.")
                 else:
-                    self._errors.error("Could not find first amendment.")
+                    self._errors.error("Could not find first amendment")
 
             # Compound Codes - No implementation details currently
             # if self._title_page["compound_codes"]:

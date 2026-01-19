@@ -247,7 +247,7 @@ class ExportPRISM3(ExportBase):
         ext: ExtensionFactory = ExtensionFactory(
             errors=self._errors, url="primaryReason", valueCodeableConcept=primary.item
         )
-        if ext:
+        if ext.item:
             amendment.extension.append(ext.item)
             code = CodingFactory(
                 errors=self._errors,
@@ -261,7 +261,7 @@ class ExportPRISM3(ExportBase):
                 url="secondaryReason",
                 valueCodeableConcept=secondary.item,
             )
-            if ext:
+            if ext.item:
                 amendment.extension.append(ext.item)
             else:
                 self._errors.error(
@@ -275,14 +275,15 @@ class ExportPRISM3(ExportBase):
     def _add_amendment_extension(
         self, amendment: Extension, url: str, value: str
     ) -> None:
-        ext: ExtensionFactory = ExtensionFactory(
-            errors=self._errors, url=url, valueString=value
-        )
-        if ext:
-            amendment.extension.append(ext.item)
+        if value:
+            ext: ExtensionFactory = ExtensionFactory(
+                errors=self._errors, url=url, valueString=value
+            )
+            if ext.item:
+                amendment.extension.append(ext.item)
         else:
-            self._errors.error(
-                f"Failed to create amendment extension '{url}' with value '{value}'"
+            self._errors.warning(
+                f"Failed to create amendment extension '{url}' with empty value '{value}'"
             )
 
     # First cut of amendment code. Example structure

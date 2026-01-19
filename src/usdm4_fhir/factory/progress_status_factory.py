@@ -12,12 +12,12 @@ class ProgressStatusFactory(BaseFactory):
         try:
             super().__init__(errors, **kwargs)
             code = CodingFactory(
-                errors= self._errors, 
+                errors=self._errors,
                 system="http://hl7.org/fhir/research-study-party-role",
                 code=kwargs["state_code"],
                 display=kwargs["state_display"],
             )
-            state = CodeableConceptFactory(errors= self._errors, coding=[code.item])
+            state = CodeableConceptFactory(errors=self._errors, coding=[code.item])
             self.item = ResearchStudyProgressStatus(
                 state=state.item, period={"start": kwargs["value"]}
             )

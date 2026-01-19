@@ -180,12 +180,8 @@ class ImportPRISM2:
         await self._title_page.process()
 
         # Dates
-        sponsor_approval_date_code = self._builder.cdisc_code(
-            "C71476", "Approval Date"
-        )
-        protocol_date_code: Code = self._builder.cdisc_code(
-            "C215663", "Effective Date"
-        )
+        sponsor_approval_date_code = self._builder.cdisc_code("C71476", "Approval Date")
+        protocol_date_code: Code = self._builder.cdisc_code("C215663", "Effective Date")
         global_code: Code = self._builder.cdisc_code("C68846", "Global")
         global_scope: GeographicScope = self._builder.create(
             GeographicScope, {"type": global_code}

@@ -42,7 +42,7 @@ class TimelinePlanDefinitionFactory(BaseFactory):
                             code="clinical-protocol",
                             system="http://terminology.hl7.org/CodeSystem/plan-definition-type",
                         ).item
-                    ]
+                    ],
                 ).item,
                 purpose=timeline.description,
                 identifier=[self._identifier(timeline).item],
@@ -55,10 +55,13 @@ class TimelinePlanDefinitionFactory(BaseFactory):
     def _identifier(self, timeline: ScheduleTimeline):
         plac = CodingFactory(
             errors=self._errors,
-            code="PLAC", system="http://terminology.hl7.org/CodeSystem/v2-0203"
+            code="PLAC",
+            system="http://terminology.hl7.org/CodeSystem/v2-0203",
         )
         type = CodeableConceptFactory(errors=self._errors, coding=[plac.item])
-        identifier = IdentifierFactory(errors=self._errors, value=timeline.name, use="usual", type=type.item)
+        identifier = IdentifierFactory(
+            errors=self._errors, value=timeline.name, use="usual", type=type.item
+        )
         return identifier
 
     def _actions(self, timeline: ScheduleTimeline, base_url: str) -> list:

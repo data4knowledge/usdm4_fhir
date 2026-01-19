@@ -68,7 +68,10 @@ class ExportBase:
         return None
 
     def _content_to_section(
-        self, content: NarrativeContent, processed_map: dict, ignore_list: list[str] = []
+        self,
+        content: NarrativeContent,
+        processed_map: dict,
+        ignore_list: list[str] = [],
     ) -> CompositionSection:
         # print(f"IGNORE: '{content.sectionNumber}' in {ignore_list}?")
         if content.sectionNumber in ignore_list:

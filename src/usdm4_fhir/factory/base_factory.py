@@ -2,6 +2,7 @@ import re
 from simple_error_log import Errors
 from simple_error_log.error_location import KlassMethodLocation
 
+
 class BaseFactory:
     def __init__(self, errors: Errors, **kwargs):
         self._errors = errors
@@ -9,7 +10,9 @@ class BaseFactory:
 
     def handle_exception(self, module: str, method: str, e: Exception):
         self.item = None
-        self._errors.exception("Exception raised in factory method", e, KlassMethodLocation(module, method))
+        self._errors.exception(
+            "Exception raised in factory method", e, KlassMethodLocation(module, method)
+        )
 
     @staticmethod
     def fix_id(value: str) -> str:

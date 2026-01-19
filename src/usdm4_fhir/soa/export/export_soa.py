@@ -49,7 +49,8 @@ class ExportSoA:
             date = datetime.datetime.now(tz=datetime.timezone.utc).isoformat()
             identifier = IdentifierFactory(
                 errors=self._errors,
-                system="urn:ietf:rfc:3986", value=f"urn:uuid:{self._uuid}"
+                system="urn:ietf:rfc:3986",
+                value=f"urn:uuid:{self._uuid}",
             )
 
             # Add research study
@@ -67,7 +68,9 @@ class ExportSoA:
             )
 
             # Add timeline plan definition, this is the overall timeline.
-            tlpd = TimelinePlanDefinitionFactory(self._study, self._timeline, self._errors)
+            tlpd = TimelinePlanDefinitionFactory(
+                self._study, self._timeline, self._errors
+            )
             entries.append(
                 BundleEntryFactory(
                     errors=self._errors,

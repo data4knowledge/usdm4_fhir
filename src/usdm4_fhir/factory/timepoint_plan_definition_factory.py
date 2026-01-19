@@ -40,7 +40,7 @@ class TimepointPlanDefinitionFactory(BaseFactory):
                             code="clinical-protocol",
                             system="http://terminology.hl7.org/CodeSystem/plan-definition-type",
                         ).item
-                    ]
+                    ],
                 ).item,
                 #       date=
                 #       version=

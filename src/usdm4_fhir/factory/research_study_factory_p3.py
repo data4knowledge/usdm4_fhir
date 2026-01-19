@@ -1,12 +1,10 @@
 from uuid import uuid4
 from simple_error_log import Errors
-from simple_error_log.error_location import KlassMethodLocation
 from usdm4.api.study import Study as USDMStudy
 from usdm4.api.study_version import StudyVersion as USDMStudyVersion
 from usdm4.api.study_title import StudyTitle
 from usdm4.api.study_amendment import StudyAmendment
 from fhir.resources.researchstudy import ResearchStudy
-from simple_error_log import Errors
 from usdm4_fhir.factory.base_factory import BaseFactory
 from usdm4_fhir.factory.extension_factory import ExtensionFactory
 from usdm4_fhir.factory.codeable_concept_factory import CodeableConceptFactory
@@ -61,7 +59,7 @@ class ResearchStudyFactoryP3(BaseFactory):
                 ext = ExtensionFactory(
                     errors=self._errors,
                     url="http://hl7.org/fhir/uv/ebm/StructureDefinition/research-study-sponsor-confidentiality-statement",
-                    valueString=cs
+                    valueString=cs,
                 )
                 self.item.extension.append(ext.item)
 
@@ -73,13 +71,19 @@ class ResearchStudyFactoryP3(BaseFactory):
             if acronym:
                 if acronym.text:
                     self.item.label.append(
-                        LabelTypeFactory(errors=self._errors, usdm_code=acronym.type, text=acronym.text).item
+                        LabelTypeFactory(
+                            errors=self._errors,
+                            usdm_code=acronym.type,
+                            text=acronym.text,
+                        ).item
                     )
             st: StudyTitle = self._version.short_title()
             if st:
                 if st.text:
                     self.item.label.append(
-                        LabelTypeFactory(errors=self._errors, usdm_code=st.type, text=st.text).item
+                        LabelTypeFactory(
+                            errors=self._errors, usdm_code=st.type, text=st.text
+                        ).item
                     )
 
             # Sponsor Identifier
@@ -102,7 +106,9 @@ class ResearchStudyFactoryP3(BaseFactory):
             # Original Protocol
             original_code = CodingFactory(
                 errors=self._errors,
-                system=self.NCI_CODE_SYSTEM, code="C49487", display="No"
+                system=self.NCI_CODE_SYSTEM,
+                code="C49487",
+                display="No",
             )
             if self._version.original_version():
                 original_code.item.code = "C49488"
@@ -191,8 +197,7 @@ class ResearchStudyFactoryP3(BaseFactory):
                 display=phase.decode,
             )
             self.item.phase = CodeableConceptFactory(
-                errors=self._errors,
-                coding=[phase_code.item], text=phase.decode
+                errors=self._errors, coding=[phase_code.item], text=phase.decode
             ).item
 
             # Sponsor Name and Address

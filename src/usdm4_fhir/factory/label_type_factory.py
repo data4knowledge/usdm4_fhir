@@ -11,8 +11,8 @@ class LabelTypeFactory(BaseFactory):
     def __init__(self, errors: Errors, **kwargs):
         try:
             super().__init__(errors, **kwargs)
-            coding = CodingFactory(errors= self._errors, usdm_code=kwargs["usdm_code"])
-            type = CodeableConceptFactory(errors= self._errors, coding=[coding.item])
+            coding = CodingFactory(errors=self._errors, usdm_code=kwargs["usdm_code"])
+            type = CodeableConceptFactory(errors=self._errors, coding=[coding.item])
             self.item = ResearchStudyLabelType(type=type.item, value=kwargs["text"])
         except Exception as e:
             self.handle_exception(self.MODULE, "__init__", e)

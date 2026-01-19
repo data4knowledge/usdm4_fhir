@@ -163,7 +163,9 @@ class ImportPRISM3:
                 research_study.identifier
             )
             sponsor = self._extract_sponsor(research_study.associatedParty, bundle)
-            original_protocol = self._extract_original_protocol(research_study.extension)
+            original_protocol = self._extract_original_protocol(
+                research_study.extension
+            )
             is_original_protocol = self._is_original_protocol(original_protocol)
             sections = self._extract_sections(research_study.extension, bundle)
             ie = self._extract_ie(research_study, bundle)
@@ -186,7 +188,9 @@ class ImportPRISM3:
                     "compound_names": "",  # <<<<<
                 },
                 "amendments_summary": {
-                    "amendment_identifier": self._extract_amendment_identifier() if is_original_protocol else "",
+                    "amendment_identifier": self._extract_amendment_identifier()
+                    if is_original_protocol
+                    else "",
                     "amendment_scope": "TO DO" if is_original_protocol else "",
                     "amendment_details": "TO DO" if is_original_protocol else "",
                 },
@@ -210,7 +214,7 @@ class ImportPRISM3:
                     "confidentiality": self._extract_confidentiality_statement(
                         research_study.extension
                     ),
-                    "original_protocol": original_protocol
+                    "original_protocol": original_protocol,
                 },
                 "other": {
                     "regulatory_agency_identifiers": "",  # <<<<<
@@ -221,7 +225,9 @@ class ImportPRISM3:
                         "version": research_study.version,
                         "status": "Final",  # @todo
                         "template": "M11",
-                        "version_date": research_study.date.isoformat() if research_study.date else "",
+                        "version_date": research_study.date.isoformat()
+                        if research_study.date
+                        else "",
                     },
                     "sections": sections,
                 },
@@ -234,9 +240,19 @@ class ImportPRISM3:
                 },
                 "amendments": [],
             }
-            self._add_regualtory_identifer(self._extract_fda_ind_identifier(research_study.identifier), "fda", result)
-            self._add_regualtory_identifer(self._extract_ema_identifier(research_study.identifier), "ema", result)
-            self._add_regualtory_identifer(self._extract_nct_identifier(research_study.identifier), "ct.gov", result)
+            self._add_regualtory_identifer(
+                self._extract_fda_ind_identifier(research_study.identifier),
+                "fda",
+                result,
+            )
+            self._add_regualtory_identifer(
+                self._extract_ema_identifier(research_study.identifier), "ema", result
+            )
+            self._add_regualtory_identifer(
+                self._extract_nct_identifier(research_study.identifier),
+                "ct.gov",
+                result,
+            )
             return result
         except Exception as e:
             self._errors.exception(
@@ -252,7 +268,7 @@ class ImportPRISM3:
                 "identifier": identifier,
                 "scope": {
                     "standard": type,
-                }
+                },
             }
             result["identification"]["identifiers"].append(params)
 
@@ -363,7 +379,9 @@ class ImportPRISM3:
             self._errors.warning(f"Failed to extract identifier of type '{type}'")
             return None
         except Exception as e:
-            self._errors.exception(f"Exception, failed to extract identifier of type '{type}'", e)
+            self._errors.exception(
+                f"Exception, failed to extract identifier of type '{type}'", e
+            )
             return None
 
     def _extract_acronym(self, labels) -> str:
@@ -386,9 +404,7 @@ class ImportPRISM3:
         if rs.recruitment:
             id = rs.recruitment.eligibility.reference
             if id:
-                group: Group = self._extract_from_bundle_id(
-                        bundle, "Group", id
-                    )
+                group: Group = self._extract_from_bundle_id(bundle, "Group", id)
                 if group:
                     if group.characteristic:
                         for ie in group.characteristic:
@@ -399,7 +415,7 @@ class ImportPRISM3:
                                 inclusion.append(text)
         result = {"inclusion": inclusion, "exclusion": exclusion}
         return result
-    
+
     def _extract_sections(self, extensions: list, bundle: Bundle) -> dict:
         results = []
         references = self._extract_narrative_references(extensions)
@@ -449,7 +465,7 @@ class ImportPRISM3:
 
     def _is_original_protocol(self, value: str) -> bool:
         return value.upper == "YES"
-    
+
     def _extract_original_protocol(self, extensions: list) -> str:
         ext = self._extract_extension(
             extensions,

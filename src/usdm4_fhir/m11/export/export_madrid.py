@@ -46,12 +46,12 @@ class ExportMadrid(ExportBase):
 
             # Final bundle
             identifier = IdentifierFactory(
-                errors= self._errors, 
-                system="urn:ietf:rfc:3986", 
-                value=f"urn:uuid:{self.study.id}"
+                errors=self._errors,
+                system="urn:ietf:rfc:3986",
+                value=f"urn:uuid:{self.study.id}",
             )
             bundle = BundleFactory(
-                errors= self._errors, 
+                errors=self._errors,
                 id=None,
                 entry=self._entries,
                 # type="document", # With composition
@@ -69,13 +69,17 @@ class ExportMadrid(ExportBase):
             return None
 
     def _add_bundle_entry(self, factory_item: BaseFactory, url: str):
-        bundle_entry = BundleEntryFactory(errors=self._errors, resource=factory_item.item, fullUrl=url)
+        bundle_entry = BundleEntryFactory(
+            errors=self._errors, resource=factory_item.item, fullUrl=url
+        )
         self._entries.append(bundle_entry.item)
 
     def _composition_entry(self, date):
         sections = self._create_narrative_sections()
-        type_code = CodeableConceptFactory(errors=self._errors,text="EvidenceReport").item
-        author = ReferenceFactory(errors=self._errors,display="USDM").item
+        type_code = CodeableConceptFactory(
+            errors=self._errors, text="EvidenceReport"
+        ).item
+        author = ReferenceFactory(errors=self._errors, display="USDM").item
         return CompositionFactory(
             errors=self._errors,
             title=self.study_version.official_title_text(),
@@ -125,7 +129,7 @@ class ExportMadrid(ExportBase):
                     "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
                     "valueCode": "not-applicable",
                 }
-            ]
+            ],
         )
         criterion_item = version.criterion_item(criterion.criterionItemId)
         if criterion_item:
@@ -385,7 +389,11 @@ class ExportMadrid(ExportBase):
     #     return Extension(url=url, extension=[])
 
     def _extension_string(self, url: str, value: str):
-        return ExtensionFactory(errors=self._errors, url=url, valueString=value) if value else None
+        return (
+            ExtensionFactory(errors=self._errors, url=url, valueString=value)
+            if value
+            else None
+        )
         # return Extension(url=url, valueString=value) if value else None
 
     # def _extension_boolean(self, url: str, value: str):

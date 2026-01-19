@@ -4,7 +4,9 @@ from fhir.resources.plandefinition import PlanDefinitionAction
 
 
 class PlanDefinitionActionFactory(BaseFactory):
-    MODULE = "usdm4_fhir.factory.plan_definition_action_factory.PlanDefinitionActionFactory"
+    MODULE = (
+        "usdm4_fhir.factory.plan_definition_action_factory.PlanDefinitionActionFactory"
+    )
 
     def __init__(self, errors: Errors, **kwargs):
         try:

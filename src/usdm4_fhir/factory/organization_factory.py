@@ -12,7 +12,9 @@ class OrganizationFactory(BaseFactory):
     def __init__(self, errors: Errors, organization: USDMOrganization):
         try:
             super().__init__(errors, **{})
-            address = AddressFactory(errors= self._errors, address=organization.legalAddress)
+            address = AddressFactory(
+                errors=self._errors, address=organization.legalAddress
+            )
             name = organization.label if organization.label else organization.name
             self.item = FHIROrganization(
                 id=str(uuid4()), name=name, contact=[{"address": address.item}]

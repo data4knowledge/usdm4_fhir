@@ -12,12 +12,12 @@ class AssociatedPartyFactory(BaseFactory):
         try:
             super().__init__(errors, **kwargs)
             code = CodingFactory(
-                errors= self._errors, 
+                errors=self._errors,
                 system="http://hl7.org/fhir/research-study-party-role",
                 code=kwargs["role_code"],
                 display=kwargs["role_display"],
             )
-            role = CodeableConceptFactory(errors= self._errors, coding=[code.item])
+            role = CodeableConceptFactory(errors=self._errors, coding=[code.item])
             self.item = ResearchStudyAssociatedParty(
                 role=role.item, party=kwargs["party"]
             )

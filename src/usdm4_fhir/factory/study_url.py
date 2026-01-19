@@ -1,4 +1,5 @@
 from usdm4.api.study import Study
+from simple_error_log import Errors
 from usdm4_fhir.factory.base_factory import BaseFactory
 
 

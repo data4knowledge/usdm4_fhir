@@ -4,6 +4,7 @@ from usdm4.api.eligibility_criterion import EligibilityCriterion
 from usdm4_fhir.m11.export.export_base import ExportBase
 from simple_error_log.error_location import KlassMethodLocation
 
+from simple_error_log import Errors
 from usdm4_fhir.factory.base_factory import BaseFactory
 from usdm4_fhir.factory.research_study_factory import ResearchStudyFactory
 from usdm4_fhir.factory.codeable_concept_factory import CodeableConceptFactory

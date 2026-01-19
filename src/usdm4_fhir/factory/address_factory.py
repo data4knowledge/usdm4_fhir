@@ -1,11 +1,13 @@
+from simple_error_log import Errors
 from usdm4_fhir.factory.base_factory import BaseFactory
 from usdm4.api.address import Address as USDMAddress
 from fhir.resources.fhirtypes import AddressType
 
 
 class AddressFactory(BaseFactory):
-    def __init__(self, address: USDMAddress):
+    def __init__(self, errors: Errors, address: USDMAddress):
         try:
+            super.__init__(errors, **{})
             address_dict = dict(address)
             address_dict.pop("instanceType")
             result = {}
@@ -19,5 +21,4 @@ class AddressFactory(BaseFactory):
                 result["country"] = address.country.decode
             self.item = AddressType(**result)
         except Exception as e:
-            self.item = None
             self.handle_exception(e)

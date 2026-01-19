@@ -3,6 +3,7 @@ from usdm4.api.study import Study as USDMStudy
 from usdm4.api.study_version import StudyVersion as USDMStudyVersion
 from usdm4.api.governance_date import GovernanceDate
 from fhir.resources.researchstudy import ResearchStudy
+from simple_error_log import Errors
 from usdm4_fhir.factory.base_factory import BaseFactory
 from usdm4_fhir.factory.extension_factory import ExtensionFactory
 from usdm4_fhir.factory.codeable_concept_factory import CodeableConceptFactory
@@ -14,11 +15,10 @@ from usdm4_fhir.factory.label_type_factory import LabelTypeFactory
 
 
 class ResearchStudyFactory(BaseFactory):
-    def __init__(self, study: USDMStudy, extra: dict = {}):
+    def __init__(self, study: USDMStudy, errors: Errors, extra: dict = {}):
         try:
+            super.__init__(errors, **{})
             self._title_page = extra["title_page"]
-            # self._miscellaneous = extra['miscellaneous']
-            # self._amendment = extra['amendment']
             self._version: USDMStudyVersion = study.first_version()
             self._study_design = self._version.studyDesigns[0]
             self._organizations: dict = self._version.organization_map()
@@ -162,5 +162,4 @@ class ResearchStudyFactory(BaseFactory):
             # self.item.associatedParty.append(ap.item)
 
         except Exception as e:
-            self.item = None
             self.handle_exception(e)

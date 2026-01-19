@@ -6,6 +6,7 @@ from usdm4.api.study_version import StudyVersion as USDMStudyVersion
 from usdm4.api.study_title import StudyTitle
 from usdm4.api.study_amendment import StudyAmendment
 from fhir.resources.researchstudy import ResearchStudy
+from simple_error_log import Errors
 from usdm4_fhir.factory.base_factory import BaseFactory
 from usdm4_fhir.factory.extension_factory import ExtensionFactory
 from usdm4_fhir.factory.codeable_concept_factory import CodeableConceptFactory
@@ -22,7 +23,7 @@ class ResearchStudyFactoryP3(BaseFactory):
 
     def __init__(self, study: USDMStudy, errors: Errors, extra: dict = {}):
         try:
-            self._errors = errors
+            super.__init__(errors, **{})
             self._title_page = extra["title_page"]
             self._version: USDMStudyVersion = study.first_version()
             self._first_amendment: StudyAmendment = self._version.first_amendment()
@@ -158,7 +159,7 @@ class ResearchStudyFactoryP3(BaseFactory):
                     self.item.extension.append(ext.item)
                 else:
                     self._errors.error("Could not find first amendment.")
-                    
+
             # Compound Codes - No implementation details currently
             # if self._title_page["compound_codes"]:
             #     params = {
@@ -276,7 +277,6 @@ class ResearchStudyFactoryP3(BaseFactory):
             # self.item.associatedParty.append(ap.item)
 
         except Exception as e:
-            self.item = None
             self.handle_exception(e)
 
     @property

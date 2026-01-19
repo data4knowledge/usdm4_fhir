@@ -1,3 +1,4 @@
+from simple_error_log import Errors
 from usdm4_fhir.factory.base_factory import BaseFactory
 from usdm4_fhir.factory.plan_definition_factory import PlanDefinitionFactory
 from usdm4_fhir.factory.coding_factory import CodingFactory
@@ -20,8 +21,10 @@ class TimepointPlanDefinitionFactory(BaseFactory):
         study: Study,
         study_design: StudyDesign,
         timepoint: ScheduledDecisionInstance | ScheduledActivityInstance,
+        errors: Errors,
     ):
         try:
+            super.__init__(errors, **{})
             base_url = StudyUrl.generate(study)
             self.item = PlanDefinitionFactory(
                 id=self.fix_id(timepoint.id),
@@ -42,7 +45,6 @@ class TimepointPlanDefinitionFactory(BaseFactory):
                 action=self._actions(study_design, timepoint, base_url),
             ).item
         except Exception as e:
-            self.item = None
             self.handle_exception(e)
 
     def _actions(

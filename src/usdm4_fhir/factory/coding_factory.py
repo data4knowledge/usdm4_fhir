@@ -1,10 +1,12 @@
+from simple_error_log import Errors
 from usdm4_fhir.factory.base_factory import BaseFactory
 from fhir.resources.coding import Coding
 
 
 class CodingFactory(BaseFactory):
-    def __init__(self, **kwargs):
+    def __init__(self, errors: Errors, **kwargs):
         try:
+            super.__init__(errors, **kwargs)
             if "usdm_code" in kwargs:
                 kwargs["system"] = kwargs["usdm_code"].codeSystem
                 kwargs["version"] = kwargs["usdm_code"].codeSystemVersion
@@ -13,5 +15,4 @@ class CodingFactory(BaseFactory):
                 kwargs.pop("usdm_code")
             self.item = Coding(**kwargs)
         except Exception as e:
-            self.item = None
             self.handle_exception(e)

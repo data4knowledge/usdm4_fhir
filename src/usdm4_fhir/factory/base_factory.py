@@ -1,15 +1,15 @@
 import re
-
+from simple_error_log import Errors
+from simple_error_log.error_location import KlassMethodLocation
 
 class BaseFactory:
-    class FHIRError(Exception):
-        pass
-
-    def __init__(self, **kwargs):
+    def __init__(self, errors: Errors, **kwargs):
+        self._errors = errors
         self.item = None
 
-    def handle_exception(self, e: Exception):
-        raise BaseFactory.FHIRError
+    def handle_exception(self, module: str, method: str, e: Exception):
+        self.item = None
+        self._errors.exception("Exception rasied in factory method.", e, KlassMethodLocation(module, method))
 
     @staticmethod
     def fix_id(value: str) -> str:

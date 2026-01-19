@@ -167,6 +167,7 @@ class ImportPRISM3:
                 research_study.extension
             )
             is_original_protocol = self._is_original_protocol(original_protocol)
+            amendment_identifier = self._extract_amendment_identifier(research_study.identifier) if not is_original_protocol else ""
             sections = self._extract_sections(research_study.extension, bundle)
             ie = self._extract_ie(research_study, bundle)
             result = {
@@ -188,9 +189,7 @@ class ImportPRISM3:
                     "compound_names": "",  # <<<<<
                 },
                 "amendments_summary": {
-                    "identifier": self._extract_amendment_identifier(research_study.identifier)
-                    if not is_original_protocol
-                    else "",
+                    "identifier": amendment_identifier,
                     "scope": "TO DO" if not is_original_protocol else "",
                     # "amendment_details": "TO DO" if is_original_protocol else "",
                 },
@@ -238,7 +237,7 @@ class ImportPRISM3:
                         "exclusion": ie["exclusion"],
                     },
                 },
-                "amendments": [],
+                "amendments": self._extract_amendment(research_study, amendment_identifier),
             }
             self._add_regualtory_identifer(
                 self._extract_fda_ind_identifier(research_study.identifier),
@@ -397,6 +396,35 @@ class ImportPRISM3:
                 if label.type.coding[0].code == type:
                     return label.value
         return ""
+
+    def _extract_amendment(self, rs: ResearchStudy, identifier: str) -> dict:
+        result = {
+            "identifier": identifier,
+            "scope": "",
+            "enrollment": "",
+            "reasons": {
+                "primary": "",
+                "secondary": "",
+            },
+            "summary": "",
+            "impact": "",
+            "changes": ""
+        }
+        ext: Extension = self._extract_extension(
+            rs.extensions,
+            f"{self.UDP_BASE}/StructureDefinition/protocol-amendments",
+        )
+        if ext:
+            r_ext = self._extract_extension(ext.extension, "rationale")
+            if r_ext:
+                result["summary"] = r_ext.valueString
+            pr_ext = self._extract_extension(ext.extension, "primaryReason")
+            if pr_ext:
+                result["reasons"]["primary"] = r_ext.valueCodeableConcept.coding[0].display
+            sr_ext = self._extract_extension(ext.extension, "primaryReason")
+            if sr_ext:
+                result["reasons"]["secondary"] = r_ext.valueCodeableConcept.coding[0].display
+        return result
 
     def _extract_ie(self, rs: ResearchStudy, bundle: Bundle) -> dict:
         inclusion = []

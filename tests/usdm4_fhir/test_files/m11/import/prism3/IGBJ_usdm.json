@@ -129,7 +129,7 @@
               "id": "StudyAmendmentReason_1",
               "extensionAttributes": [],
               "code": {
-                "id": "Code_13",
+                "id": "Code_12",
                 "extensionAttributes": [],
                 "code": "C17649",
                 "codeSystem": "http://www.cdisc.org",
@@ -145,7 +145,7 @@
                 "id": "StudyAmendmentReason_2",
                 "extensionAttributes": [],
                 "code": {
-                  "id": "Code_14",
+                  "id": "Code_13",
                   "extensionAttributes": [],
                   "code": "C17649",
                   "codeSystem": "http://www.cdisc.org",
@@ -161,10 +161,10 @@
             "impacts": [],
             "geographicScopes": [
               {
-                "id": "GeographicScope_2",
+                "id": "GeographicScope_3",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_12",
+                  "id": "Code_15",
                   "extensionAttributes": [],
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
@@ -191,10 +191,10 @@
                   "instanceType": "Quantity"
                 },
                 "forGeographicScope": {
-                  "id": "GeographicScope_3",
+                  "id": "GeographicScope_2",
                   "extensionAttributes": [],
                   "type": {
-                    "id": "Code_15",
+                    "id": "Code_14",
                     "extensionAttributes": [],
                     "code": "C68846",
                     "codeSystem": "http://www.cdisc.org",

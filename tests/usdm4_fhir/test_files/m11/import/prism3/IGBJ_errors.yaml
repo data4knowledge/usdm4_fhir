@@ -98,6 +98,20 @@
   type: ''
 - level: Info
   location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _create_scope
+  message: Created scope of type Global
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Error
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _create_scopes
+  message: Empty scope found
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
     class_name: usdm4.encoder.encoder.Encoder
     method_name: phase
   message: Trial phase 'III' decoded as 'C15602', 'Phase 3', using M11 decode

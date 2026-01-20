@@ -2,13 +2,12 @@ from uuid import uuid4
 from usdm4_fhir.m11.export.export_base import ExportBase
 from simple_error_log.error_location import KlassMethodLocation
 from usdm4.api.narrative_content import NarrativeContent
-from usdm4.api.study_amendment import StudyAmendment
 from usdm4.api.eligibility_criterion import EligibilityCriterion
 from usdm4_fhir.factory.research_study_factory_p3 import ResearchStudyFactoryP3
 from usdm4_fhir.factory.codeable_concept_factory import CodeableConceptFactory
 from usdm4_fhir.factory.reference_factory import ReferenceFactory
 from usdm4_fhir.factory.composition_factory import CompositionFactory
-from usdm4_fhir.factory.extension_factory import ExtensionFactory, Extension
+from usdm4_fhir.factory.extension_factory import ExtensionFactory
 from fhir.resources.bundle import Bundle, BundleEntry
 from usdm4_fhir.factory.group_factory import GroupFactory
 from usdm4_fhir.factory.coding_factory import CodingFactory
@@ -25,9 +24,7 @@ class ExportPRISM3(ExportBase):
         try:
             ie = self._create_ie_critieria()
             compositions = self._create_compositions()
-            rs: ResearchStudyFactoryP3 = self._research_study(
-                compositions, ie
-            )
+            rs: ResearchStudyFactoryP3 = self._research_study(compositions, ie)
             bundle: Bundle = self._bundle(rs, compositions, ie)
             return bundle.json()
         except Exception as e:

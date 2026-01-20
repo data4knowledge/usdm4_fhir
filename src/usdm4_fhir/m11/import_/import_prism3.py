@@ -167,7 +167,11 @@ class ImportPRISM3:
                 research_study.extension
             )
             is_original_protocol = self._is_original_protocol(original_protocol)
-            amendment_identifier = self._extract_amendment_identifier(research_study.identifier) if not is_original_protocol else ""
+            amendment_identifier = (
+                self._extract_amendment_identifier(research_study.identifier)
+                if not is_original_protocol
+                else ""
+            )
             sections = self._extract_sections(research_study.extension, bundle)
             ie = self._extract_ie(research_study, bundle)
             result = {
@@ -237,7 +241,9 @@ class ImportPRISM3:
                         "exclusion": ie["exclusion"],
                     },
                 },
-                "amendments": self._extract_amendment(research_study, amendment_identifier),
+                "amendments": self._extract_amendment(
+                    research_study, amendment_identifier
+                ),
             }
             self._add_regualtory_identifer(
                 self._extract_fda_ind_identifier(research_study.identifier),
@@ -408,7 +414,7 @@ class ImportPRISM3:
             },
             "summary": "",
             "impact": {"safety": False, "reliability": False},
-            "changes": ""
+            "changes": "",
         }
         ext: Extension = self._extract_extension(
             rs.extension,
@@ -420,10 +426,14 @@ class ImportPRISM3:
                 result["summary"] = r_ext.valueString
             pr_ext = self._extract_extension(ext.extension, "primaryReason")
             if pr_ext:
-                result["reasons"]["primary"] = f"Primary: {pr_ext.valueCodeableConcept.coding[0].display}"
+                result["reasons"]["primary"] = (
+                    f"Primary: {pr_ext.valueCodeableConcept.coding[0].display}"
+                )
             sr_ext = self._extract_extension(ext.extension, "secondaryReason")
             if sr_ext:
-                result["reasons"]["secondary"] = f"Secondary: {sr_ext.valueCodeableConcept.coding[0].display}"
+                result["reasons"]["secondary"] = (
+                    f"Secondary: {sr_ext.valueCodeableConcept.coding[0].display}"
+                )
         self._errors.info(f"Amendment extract {result}")
         return result
 

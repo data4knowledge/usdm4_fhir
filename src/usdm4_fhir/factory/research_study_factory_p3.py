@@ -134,9 +134,11 @@ class ResearchStudyFactoryP3(BaseFactory):
 
             # Amendment Identifier and Scope
             if not self._version.original_version():
-                self._errors.info(f"Amendment present based on original protocol value")
+                self._errors.info("Amendment present based on original protocol value")
                 if self._first_amendment:
-                    self._errors.info(f"First amendment detected '{self._first_amendment.number}'")
+                    self._errors.info(
+                        f"First amendment detected '{self._first_amendment.number}'"
+                    )
                     identifier_code = CodingFactory(
                         errors=self._errors,
                         system=self.NCI_CODE_SYSTEM,
@@ -316,16 +318,15 @@ class ResearchStudyFactoryP3(BaseFactory):
         # Return extension
         return amendment_factory
 
-    def _add_scope(self, amendment: Extension, source_amendment: StudyAmendment) -> None:
+    def _add_scope(
+        self, amendment: Extension, source_amendment: StudyAmendment
+    ) -> None:
         the_scope = (
             self._title_page["amendment_scope"]
             if self._title_page["amendment_scope"]
             else "Global"
         )
-        scope = ExtensionFactory(
-            errors=self._errors,
-            url="scope",
-            valueCode=the_scope)
+        scope = ExtensionFactory(errors=self._errors, url="scope", valueCode=the_scope)
         if scope:
             amendment.extension.append(scope.item)
         else:

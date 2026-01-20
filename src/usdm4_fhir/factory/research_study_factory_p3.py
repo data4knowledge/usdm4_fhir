@@ -139,22 +139,25 @@ class ResearchStudyFactoryP3(BaseFactory):
                     self._errors.info(
                         f"First amendment detected '{self._first_amendment.number}'"
                     )
-                    identifier_code = CodingFactory(
-                        errors=self._errors,
-                        system=self.NCI_CODE_SYSTEM,
-                        code="C218477",
-                        display="Amendment Identifier",
-                    )
-                    self.item.identifier.append(
-                        {
-                            "type": {"coding": [identifier_code.item]},
-                            "system": "https://d4k.dk/amendment-identifier",
-                            "value": self._first_amendment.number,
-                        }
-                    )
-                    ext = self._create_amendment()
-                    if ext:
-                        self.item.extension.append(ext.item)
+                    if self._first_amendment.number:
+                        identifier_code = CodingFactory(
+                            errors=self._errors,
+                            system=self.NCI_CODE_SYSTEM,
+                            code="C218477",
+                            display="Amendment Identifier",
+                        )
+                        self.item.identifier.append(
+                            {
+                                "type": {"coding": [identifier_code.item]},
+                                "system": "https://d4k.dk/amendment-identifier",
+                                "value": self._first_amendment.number,
+                            }
+                        )
+                        ext = self._create_amendment()
+                        if ext:
+                            self.item.extension.append(ext.item)
+                    else:
+                        self._errors.error("Empty identifier for first amendment")
                 else:
                     self._errors.error("Could not find first amendment")
             else:

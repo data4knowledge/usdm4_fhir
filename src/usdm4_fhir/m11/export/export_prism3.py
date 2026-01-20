@@ -25,10 +25,8 @@ class ExportPRISM3(ExportBase):
         try:
             ie = self._create_ie_critieria()
             compositions = self._create_compositions()
-            amendment = self._create_amendment()
-            # compositions = []
             rs: ResearchStudyFactoryP3 = self._research_study(
-                compositions, ie, amendment
+                compositions, ie
             )
             bundle: Bundle = self._bundle(rs, compositions, ie)
             return bundle.json()
@@ -92,7 +90,6 @@ class ExportPRISM3(ExportBase):
         self,
         compositions: list[CompositionFactory],
         ie: GroupFactory,
-        amendment: ExtensionFactory,
     ) -> ResearchStudyFactoryP3:
         rs: ResearchStudyFactoryP3 = ResearchStudyFactoryP3(
             self.study, self._errors, self._extra
@@ -106,8 +103,6 @@ class ExportPRISM3(ExportBase):
             )
             rs.item.extension.append(ext.item)
         rs.item.recruitment = {"eligibility": {"reference": f"Group/{ie.item.id}"}}
-        if amendment:
-            rs.item.extension.append(amendment.item)
         return rs
 
     def _create_compositions(self):
@@ -206,232 +201,7 @@ class ExportPRISM3(ExportBase):
                 self._errors.warning(
                     f"Criterion item with id '{criterion_item.id}' has empty text, text '{criterion_item.text}' -translated-> '{text}'"
                 )
-
-    def _create_amendment(self) -> ExtensionFactory:
-        if len(self.study_version.amendments) == 0:
-            return None
-
-        # Get source amendment and create the overall FHIR extension
-        source_amendment: StudyAmendment = self.study_version.amendments[0]
-        amendment_factory: ExtensionFactory = ExtensionFactory(
-            errors=self._errors,
-            url="http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/protocol-amendment",
-            extension=[],
-        )
-        amendment: Extension = amendment_factory.item
-
-        # Rationale
-        self._add_amendment_extension(amendment, "rationale", source_amendment.summary)
-
-        # Identifier / Number
-        self._add_amendment_extension(
-            amendment, "amendmentNumber", source_amendment.number
-        )
-
-        # Primary and secondary reasons
-        self._add_primary_and_secondary(amendment, source_amendment)
-
-        # Return extension
-        return amendment_factory
-
-    def _add_primary_and_secondary(
-        self, amendment: Extension, source_amendment: StudyAmendment
-    ) -> None:
-        code = CodingFactory(
-            errors=self._errors,
-            system="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-            code=source_amendment.primaryReason.code.code,
-            display=source_amendment.primaryReason.code.decode,
-        )
-        primary = CodeableConceptFactory(errors=self._errors, coding=[code.item])
-        ext: ExtensionFactory = ExtensionFactory(
-            errors=self._errors, url="primaryReason", valueCodeableConcept=primary.item
-        )
-        if ext.item:
-            amendment.extension.append(ext.item)
-            code = CodingFactory(
-                errors=self._errors,
-                system="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-                code=source_amendment.secondaryReasons[0].code.code,
-                display=source_amendment.secondaryReasons[0].code.decode,
-            )
-            secondary = CodeableConceptFactory(errors=self._errors, coding=[code.item])
-            ext: ExtensionFactory = ExtensionFactory(
-                errors=self._errors,
-                url="secondaryReason",
-                valueCodeableConcept=secondary.item,
-            )
-            if ext.item:
-                amendment.extension.append(ext.item)
-            else:
-                self._errors.error(
-                    f"Failed to create 'secondaryReason' extension with value '{source_amendment.secondaryReasons[0]}'"
-                )
-        else:
-            self._errors.error(
-                f"Failed to create 'primaryReason' extension with value '{source_amendment.primaryReason}'"
-            )
-
-    def _add_amendment_extension(
-        self, amendment: Extension, url: str, value: str
-    ) -> None:
-        if value:
-            ext: ExtensionFactory = ExtensionFactory(
-                errors=self._errors, url=url, valueString=value
-            )
-            if ext.item:
-                amendment.extension.append(ext.item)
         else:
             self._errors.warning(
-                f"Failed to create amendment extension '{url}' with empty value '{value}'"
+                f"Failed to find criterion item with id '{criterion.criterionItemId}'"
             )
-
-    # First cut of amendment code. Example structure
-    # ==============================================
-    #
-    # {
-    #   "extension" : [
-    #     {
-    #       "url" : "scope",
-    #       "valueCode" : "C217026"
-    #     },
-    #     {
-    #       "url" : "country",
-    #       "valueCode" : "DE"
-    #     },
-    #     {
-    #       "url" : "country",
-    #       "valueCode" : "GB"
-    #     },
-    #     {
-    #       "url" : "region",
-    #       "valueCode" : "AU-NSW"
-    #     },
-    #     {
-    #       "url" : "site",
-    #       "valueIdentifier" : {
-    #         "system" : "https://example.org/site-identifier",
-    #         "value" : "sss"
-    #       }
-    #     },
-    #     {
-    #       "url" : "approvalDate",
-    #       "valueDate" : "2017-12-05"
-    #     },
-    #     {
-    #       "url" : "signature",
-    #       "valueSignature" : {
-    #         "data" : "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPEVudmVsb3BlIHhtbG5zPSJ1cm46ZW52ZWxvcGUiPgogIDxTaWduYXR1cmUgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyMiPgogICAgPFNpZ25lZEluZm8+CiAgICAgIDxDYW5vbmljYWxpemF0aW9uTWV0aG9kIAogICAgICAgICAgIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvVFIvMjAwMS9SRUMteG1sLWMxNG4tCjIwMDEwMzE1I1dpdGhDb21tZW50cyIvPgogICAgICA8U2lnbmF0dXJlTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS8KeG1sZHNpZyNkc2Etc2hhMSIvPgogICAgICA8UmVmZXJlbmNlIFVSST0iIj4KICAgICAgICA8VHJhbnNmb3Jtcz4KICAgICAgICAgIDxUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5Lwp4bWxkc2lnI2VudmVsb3BlZC1zaWduYXR1cmUiLz4KICAgICAgICA8L1RyYW5zZm9ybXM+CiAgICAgICAgPERpZ2VzdE1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkvCnhtbGRzaWcjc2hhMSIvPgogICAgICAgIDxEaWdlc3RWYWx1ZT51b29xYldZYTVWQ3FjSkNidXltQktxbTE3dlk9PC9EaWdlc3RWYWx1ZT4KICAgICAgPC9SZWZlcmVuY2U+CiAgICA8L1NpZ25lZEluZm8+CjxTaWduYXR1cmVWYWx1ZT4KS2VkSnVUb2I1Z3R2WXg5cU0zazNnbTdrYkxCd1ZiRVFSbDI2UzJ0bVhqcU5ORDdNUkd0b2V3PT0KICAgIDwvU2lnbmF0dXJlVmFsdWU+CiAgICA8S2V5SW5mbz4KICAgICAgPEtleVZhbHVlPgogICAgICAgIDxEU0FLZXlWYWx1ZT4KICAgICAgICAgIDxQPgovS2FDem80U3lyb203OHozRVE1U2JiQjRzRjdleTgwZXRLSUk4NjRXRjY0QjgxdVJwSDV0OWpRVHhlCkV1MEltYnpSTXF6VkRaa1ZHOXhEN25OMWt1Rnc9PQogICAgICAgICAgPC9QPgogICAgICAgICAgPFE+bGk3ZHpEYWN1bzY3Smc3bXRxRW0yVFJ1T01VPTwvUT4KICAgICAgICAgIDxHPlo0UnhzbnFjOUU3cEdrbkZGSDJ4cWFyeVJQQmFRMDFraHBNZExSUW5HNTQxQXd0eC8KWFBhRjVCcHN5NHBOV01PSENCaU5VME5vZ3BzUVc1UXZubE1wQT09CiAgICAgICAgICA8L0c+CiAgICAgICAgICA8WT5xVjM4SXFyV0pHMFYvCm1aUXZSVmkxT0h3OVpqODRuREM0ak84UDBheGkxZ2I2ZCs0NzV5aE1qU2MvCkJySVZDNThXM3lkYmtLK1JpNE9LYmFSWmxZZVJBPT0KICAgICAgICAgPC9ZPgogICAgICAgIDwvRFNBS2V5VmFsdWU+CiAgICAgIDwvS2V5VmFsdWU+CiAgICA8L0tleUluZm8+CiAgPC9TaWduYXR1cmU+CjwvRW52ZWxvcGU+IA=="
-    #       }
-    #     },
-    #     {
-    #       "url" : "signatureUrl",
-    #       "valueUrl" : "https://somelocation"
-    #     },
-    #     {
-    #       "url" : "signatureMethod",
-    #       "valueString" : "electronic and wet ink copy"
-    #     },
-    #     {
-    #       "extension" : [
-    #         {
-    #           "url" : "scope",
-    #           "valueCode" : "C41065"
-    #         },
-    #         {
-    #           "url" : "number",
-    #           "valuePositiveInt" : 234
-    #         }
-    #       ],
-    #       "url" : "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/ResearchStudyStudyAmendmentScopeImpact"
-    #     },
-    #     {
-    #       "extension" : [
-    #         {
-    #           "url" : "scope",
-    #           "valueCode" : "C68846"
-    #         },
-    #         {
-    #           "url" : "number",
-    #           "valuePositiveInt" : 983
-    #         }
-    #       ],
-    #       "url" : "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/ResearchStudyStudyAmendmentScopeImpact"
-    #     },
-    # {
-    #   "url" : "substantialImpactSafety",
-    #   "valueCode" : "C49488"
-    # },
-
-    # {
-    #   "url" : "substantialImpactSafetyComment",
-    #   "valueString" : "Specifically implemented to decrease safety risks."
-    # },
-
-    # {
-    #   "url" : "substantialImpactReliability",
-    #   "valueCode" : "C17998"
-    # },
-
-    # {
-    #   "url" : "substantialImpactReliabilityComment",
-    #   "valueString" : "ccc"
-    # },
-
-    # {
-    #   "extension" : [
-    #     {
-    #       "url" : "detail",
-    #       "valueString" : "amendment one"
-    #     },
-    #     {
-    #       "url" : "rationale",
-    #       "valueString" : "clarification"
-    #     },
-    #     {
-    #       "url" : "section",
-    #       "valueCodeableConcept" : {
-    #         "coding" : [
-    #           {
-    #             "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-    #             "code" : "C218515",
-    #             "display" : "1.1 Protocol Synopsis"
-    #           }
-    #         ]
-    #       }
-    #     }
-    #   ],
-    #   "url" : "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/protocol-amendment-detail"
-    # },
-
-    #     ext: ExtensionFactory = ExtensionFactory("scope", valueString=self._title_page["amendment_scope"])
-    #     if ext:
-    #         amendment.extension.append(ext)
-
-    #     ext: ExtensionFactory = ExtensionFactory(
-    #         "details", value=self._title_page["amendment_details"]
-    #     )
-    #     if ext:
-    #         amendment.extension.append(ext)
-
-    #     ext: ExtensionFactory = ExtensionFactory(
-    #         "substantialImpactSafety", valueString=self._amendment["safety_impact"]
-    #     )
-    #     if ext:
-    #         amendment.extension.append(ext)
-    #     ext: ExtensionFactory = ExtensionFactory(
-    #         "substantialImpactSafety", valueString=self._amendment["safety_impact_reason"]
-    #     )
-    #     if ext:
-    #         amendment.extension.append(ext)
-    #     ext: ExtensionFactory = ExtensionFactory(
-    #         "substantialImpactSafety", valueBoolean=self._amendment["robustness_impact"]
-    #     )
-    #     if ext:
-    #         amendment.extension.append(ext)
-    #     ext: ExtensionFactory = ExtensionFactory(
-    #         "substantialImpactSafety", valueString=self._amendment["robustness_impact_reason"]
-    #     )
-    #     if ext:
-    #         amendment.extension.append(ext)
-    #     return amendment

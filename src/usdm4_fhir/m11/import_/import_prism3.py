@@ -401,18 +401,18 @@ class ImportPRISM3:
         result = {
             "identifier": identifier,
             "scope": "",
-            "enrollment": "",
+            "enrollment": {"value": 0, "unit": ""},
             "reasons": {
                 "primary": "",
                 "secondary": "",
             },
             "summary": "",
-            "impact": "",
+            "impact": {"safety": False, "reliability": False},
             "changes": ""
         }
         ext: Extension = self._extract_extension(
-            rs.extensions,
-            f"{self.UDP_BASE}/StructureDefinition/protocol-amendments",
+            rs.extension,
+            f"{self.UDP_BASE}/StructureDefinition/protocol-amendment",
         )
         if ext:
             r_ext = self._extract_extension(ext.extension, "rationale")
@@ -420,10 +420,11 @@ class ImportPRISM3:
                 result["summary"] = r_ext.valueString
             pr_ext = self._extract_extension(ext.extension, "primaryReason")
             if pr_ext:
-                result["reasons"]["primary"] = r_ext.valueCodeableConcept.coding[0].display
-            sr_ext = self._extract_extension(ext.extension, "primaryReason")
+                result["reasons"]["primary"] = f"Primary: {pr_ext.valueCodeableConcept.coding[0].display}"
+            sr_ext = self._extract_extension(ext.extension, "secondaryReason")
             if sr_ext:
-                result["reasons"]["secondary"] = r_ext.valueCodeableConcept.coding[0].display
+                result["reasons"]["secondary"] = f"Secondary: {sr_ext.valueCodeableConcept.coding[0].display}"
+        self._errors.info(f"Amendment extract {result}")
         return result
 
     def _extract_ie(self, rs: ResearchStudy, bundle: Bundle) -> dict:

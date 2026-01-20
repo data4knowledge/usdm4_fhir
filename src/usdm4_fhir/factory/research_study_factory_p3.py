@@ -18,7 +18,6 @@ class ResearchStudyFactoryP3(BaseFactory):
     MODULE = "usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3"
     NCI_CODE_SYSTEM = "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
     UDP_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocol"
-    PROTOCOL_AMENDMENT_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/protocol-amendment"
 
     def __init__(self, study: USDMStudy, errors: Errors, extra: dict = {}):
         try:
@@ -34,7 +33,7 @@ class ResearchStudyFactoryP3(BaseFactory):
             # Set Profile meta data
             meta = {
                 "profile": [
-                    "http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/m11-research-study-profile"
+                    f"{self.UDP_BASE}/StructureDefinition/m11-research-study-profile"
                 ]
             }
 
@@ -118,7 +117,8 @@ class ResearchStudyFactoryP3(BaseFactory):
                 url=f"{self.UDP_BASE}/study-amendment",
                 valueCoding=original_code.item,
             )
-            self.item.extension.append(ext.item)
+            if ext.item:
+                self.item.extension.append(ext.item)
 
             # Version Number
             self.item.version = (
@@ -296,7 +296,7 @@ class ResearchStudyFactoryP3(BaseFactory):
         source_amendment: StudyAmendment = self._version.amendments[0]
         amendment_factory: ExtensionFactory = ExtensionFactory(
             errors=self._errors,
-            url="http://hl7.org/fhir/uv/pharmaceutical-research-protocol/StructureDefinition/protocol-amendment",
+            url=f"{self.UDP_BASE}/StructureDefinition/protocol-amendment",
             extension=[],
         )
         amendment: Extension = amendment_factory.item

@@ -52,7 +52,7 @@
             "label": null,
             "description": null,
             "type": {
-              "id": "Code_14",
+              "id": "Code_18",
               "extensionAttributes": [],
               "code": "C71476",
               "codeSystem": "http://www.cdisc.org",
@@ -63,10 +63,10 @@
             "dateValue": "2017-10-26",
             "geographicScopes": [
               {
-                "id": "GeographicScope_2",
+                "id": "GeographicScope_4",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_15",
+                  "id": "Code_19",
                   "extensionAttributes": [],
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
@@ -116,7 +116,106 @@
             "instanceType": "GovernanceDate"
           }
         ],
-        "amendments": [],
+        "amendments": [
+          {
+            "id": "StudyAmendment_1",
+            "extensionAttributes": [],
+            "name": "AMENDMENT 1",
+            "label": null,
+            "description": null,
+            "number": "I8R-JE-IGBJ(a)",
+            "summary": "",
+            "primaryReason": {
+              "id": "StudyAmendmentReason_1",
+              "extensionAttributes": [],
+              "code": {
+                "id": "Code_13",
+                "extensionAttributes": [],
+                "code": "C17649",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2025-09-26",
+                "decode": "Other",
+                "instanceType": "Code"
+              },
+              "otherReason": null,
+              "instanceType": "StudyAmendmentReason"
+            },
+            "secondaryReasons": [
+              {
+                "id": "StudyAmendmentReason_2",
+                "extensionAttributes": [],
+                "code": {
+                  "id": "Code_14",
+                  "extensionAttributes": [],
+                  "code": "C17649",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Other",
+                  "instanceType": "Code"
+                },
+                "otherReason": null,
+                "instanceType": "StudyAmendmentReason"
+              }
+            ],
+            "changes": [],
+            "impacts": [],
+            "geographicScopes": [
+              {
+                "id": "GeographicScope_2",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_12",
+                  "extensionAttributes": [],
+                  "code": "C68846",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Global",
+                  "instanceType": "Code"
+                },
+                "code": null,
+                "instanceType": "GeographicScope"
+              }
+            ],
+            "enrollments": [
+              {
+                "id": "SubjectEnrollment_1",
+                "extensionAttributes": [],
+                "name": "ENROLLMENT",
+                "label": null,
+                "description": null,
+                "quantity": {
+                  "id": "Quantity_1",
+                  "extensionAttributes": [],
+                  "value": 0.0,
+                  "unit": null,
+                  "instanceType": "Quantity"
+                },
+                "forGeographicScope": {
+                  "id": "GeographicScope_3",
+                  "extensionAttributes": [],
+                  "type": {
+                    "id": "Code_15",
+                    "extensionAttributes": [],
+                    "code": "C68846",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2025-09-26",
+                    "decode": "Global",
+                    "instanceType": "Code"
+                  },
+                  "code": null,
+                  "instanceType": "GeographicScope"
+                },
+                "forStudyCohortId": null,
+                "forStudySiteId": null,
+                "instanceType": "SubjectEnrollment"
+              }
+            ],
+            "dateValues": [],
+            "previousId": null,
+            "notes": [],
+            "instanceType": "StudyAmendment"
+          }
+        ],
         "businessTherapeuticAreas": [],
         "studyIdentifiers": [
           {
@@ -147,7 +246,7 @@
               "id": "AliasCode_1",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_13",
+                "id": "Code_17",
                 "extensionAttributes": [],
                 "code": "C15602",
                 "codeSystem": "http://www.cdisc.org",
@@ -196,7 +295,7 @@
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [],
             "model": {
-              "id": "Code_12",
+              "id": "Code_16",
               "extensionAttributes": [],
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",

@@ -13,6 +13,14 @@
   message: 'Extracted identifier of type ''Amendment Identifier'': ''I8R-JE-IGBJ(a)'''
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
+- level: Info
+  location: {}
+  message: 'Amendment extract {''identifier'': ''I8R-JE-IGBJ(a)'', ''scope'': '''',
+    ''enrollment'': {''value'': 0, ''unit'': ''''}, ''reasons'': {''primary'': '''',
+    ''secondary'': ''''}, ''summary'': '''', ''impact'': {''safety'': False, ''reliability'':
+    False}, ''changes'': ''''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
 - level: Warning
   location: {}
   message: Failed to extract identifier of type 'C218685'
@@ -64,6 +72,28 @@
     class_name: usdm4.encoder.encoder.Encoder
     method_name: document_status
   message: Document status 'FINAL' decoded as 'C25508', 'Final'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Amendment assembler source data {''identifier'': ''I8R-JE-IGBJ(a)'', ''scope'':
+    '''', ''enrollment'': {''value'': 0, ''unit'': ''''}, ''reasons'': {''primary'':
+    '''', ''secondary'': ''''}, ''summary'': '''', ''impact'': {''safety'': False,
+    ''reliability'': False}, ''changes'': ''''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location:
+    class_name: usdm4.encoder.encoder.Encoder
+    method_name: amendment_reason
+  message: Amendment reason not decoded, missing text
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location:
+    class_name: usdm4.encoder.encoder.Encoder
+    method_name: amendment_reason
+  message: Amendment reason not decoded, missing text
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info

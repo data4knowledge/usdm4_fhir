@@ -413,7 +413,28 @@ class ImportPRISM3:
                 "secondary": "",
             },
             "summary": "",
-            "impact": {"safety": False, "reliability": False},
+            "impact": {
+                "safety_and_rights": {
+                    "safety": {
+                        "substantial": False, 
+                        "reason": ""
+                    }, 
+                    "rights": {
+                        "substantial": False, 
+                        "reason": ""
+                    }
+                }, 
+                "reliability_and_robustness": {
+                    "reliability": {
+                        "substantial": False, 
+                        "reason": ""
+                    }, 
+                    "robustness": {
+                        "substantial": False, 
+                        "reason": ""
+                    }
+                }
+            },
             "changes": "",
         }
         ext: Extension = self._extract_extension(

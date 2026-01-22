@@ -4,6 +4,7 @@ from usdm4.api.study import Study as USDMStudy
 from usdm4.api.study_version import StudyVersion as USDMStudyVersion
 from usdm4.api.study_title import StudyTitle
 from usdm4.api.study_amendment import StudyAmendment
+from usdm4.api.study_amendment_impact import StudyAmendmentImpact
 from fhir.resources.researchstudy import ResearchStudy
 from usdm4_fhir.factory.base_factory import BaseFactory
 from usdm4_fhir.factory.extension_factory import ExtensionFactory, Extension
@@ -318,8 +319,27 @@ class ResearchStudyFactoryP3(BaseFactory):
         # Primary and secondary reasons
         self._add_primary_and_secondary(amendment, source_amendment)
 
+        # Impacts
+        self._add_impacts(amendment, source_amendment)
+
         # Return extension
         return amendment_factory
+
+    def _add_impacts(self, amendment: Extension, source_amendment: StudyAmendment) -> None:
+        impact: StudyAmendmentImpact = next((x for x in source_amendment.impacts if x.type.code == "C123456"), None)
+        if impact and impact.isSubstantial:
+            sis = ExtensionFactory(errors=self._errors, url="substantialImpactSafety", valueCode="C49488")
+            sisc = ExtensionFactory(errors=self._errors, url="substantialImpactSafetyComment", valueString=impact.text)
+            if sis and sisc:
+                amendment.append(sis)
+                amendment.append(sisc)
+        impact: StudyAmendmentImpact = next((x for x in source_amendment.impacts if x.type.code == "C123456"), None)
+        if impact and impact.isSubstantial:
+            sir = ExtensionFactory(errors=self._errors, url="substantialImpactReliability", valueCode="C49488")
+            sirc = ExtensionFactory(errors=self._errors, url="ubstantialImpactReliabilityComment", valueString=impact.text)
+            if sir and sirc:
+                amendment.append(sir)
+                amendment.append(sirc)
 
     def _add_scope(
         self, amendment: Extension, source_amendment: StudyAmendment
@@ -461,25 +481,6 @@ class ResearchStudyFactoryP3(BaseFactory):
     #       ],
     #       "url" : "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/ResearchStudyStudyAmendmentScopeImpact"
     #     },
-    # {
-    #   "url" : "substantialImpactSafety",
-    #   "valueCode" : "C49488"
-    # },
-
-    # {
-    #   "url" : "substantialImpactSafetyComment",
-    #   "valueString" : "Specifically implemented to decrease safety risks."
-    # },
-
-    # {
-    #   "url" : "substantialImpactReliability",
-    #   "valueCode" : "C17998"
-    # },
-
-    # {
-    #   "url" : "substantialImpactReliabilityComment",
-    #   "valueString" : "ccc"
-    # },
 
     # {
     #   "extension" : [

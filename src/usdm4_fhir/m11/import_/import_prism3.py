@@ -415,25 +415,13 @@ class ImportPRISM3:
             "summary": "",
             "impact": {
                 "safety_and_rights": {
-                    "safety": {
-                        "substantial": False, 
-                        "reason": ""
-                    }, 
-                    "rights": {
-                        "substantial": False, 
-                        "reason": ""
-                    }
-                }, 
+                    "safety": {"substantial": False, "reason": ""},
+                    "rights": {"substantial": False, "reason": ""},
+                },
                 "reliability_and_robustness": {
-                    "reliability": {
-                        "substantial": False, 
-                        "reason": ""
-                    }, 
-                    "robustness": {
-                        "substantial": False, 
-                        "reason": ""
-                    }
-                }
+                    "reliability": {"substantial": False, "reason": ""},
+                    "robustness": {"substantial": False, "reason": ""},
+                },
             },
             "changes": [],
         }
@@ -455,8 +443,11 @@ class ImportPRISM3:
                 result["reasons"]["secondary"] = (
                     f"Secondary: {sr_ext.valueCodeableConcept.coding[0].display}"
                 )
-            d_exts = self._extract_extensions(ext.extension, "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/protocol-amendment-detail")
-            result["changes"] = self.extract_changes(d_exts)
+            d_exts = self._extract_extensions(
+                ext.extension,
+                "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/protocol-amendment-detail",
+            )
+            result["changes"] = self._extract_changes(d_exts)
         self._errors.info(f"Amendment extract {result}")
         return result
 
@@ -470,10 +461,12 @@ class ImportPRISM3:
             rationale = self._extract_extension(extension.extension, "rationale")
             change["rationale"] = rationale.valueString if detail else ""
             section = self._extract_extension(extension.extension, "section")
-            change["section"] = section.valueCodeableConcept.coding[0].display if section else ""
+            change["section"] = (
+                section.valueCodeableConcept.coding[0].display if section else ""
+            )
             results.append(change)
         return results
-    
+
     def _extract_ie(self, rs: ResearchStudy, bundle: Bundle) -> dict:
         inclusion = []
         exclusion = []

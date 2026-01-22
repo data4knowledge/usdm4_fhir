@@ -1,5 +1,6 @@
 from uuid import uuid4
 from simple_error_log import Errors
+from simple_error_log.error_location import KlassMethodLocation
 from usdm4.api.study import Study as USDMStudy
 from usdm4.api.study_version import StudyVersion as USDMStudyVersion
 from usdm4.api.study_title import StudyTitle
@@ -158,12 +159,20 @@ class ResearchStudyFactoryP3(BaseFactory):
                         if ext:
                             self.item.extension.append(ext.item)
                     else:
-                        self._errors.error("Empty identifier for first amendment")
+                        self._errors.error(
+                            "Empty identifier for first amendment",
+                            KlassMethodLocation(self.MODULE, "__init__"),
+                        )
                 else:
-                    self._errors.error("Could not find first amendment")
+                    self._errors.error(
+                        "Could not find first amendment",
+                        KlassMethodLocation(self.MODULE, "__init__"),
+                    )
             else:
-                self._errors.error("No amendment, original protocol")
-
+                self._errors.error(
+                    "No amendment, original protocol",
+                    KlassMethodLocation(self.MODULE, "__init__"),
+                )
             # Compound Codes - No implementation details currently
             # if self._title_page["compound_codes"]:
             #     params = {
@@ -328,40 +337,75 @@ class ResearchStudyFactoryP3(BaseFactory):
         # Return extension
         return amendment_factory
 
-    def _add_impacts(self, amendment: Extension, source_amendment: StudyAmendment) -> None:
-        impact: StudyAmendmentImpact = next((x for x in source_amendment.impacts if x.type.code == "C123456"), None)
+    def _add_impacts(
+        self, amendment: Extension, source_amendment: StudyAmendment
+    ) -> None:
+        impact: StudyAmendmentImpact = next(
+            (x for x in source_amendment.impacts if x.type.code == "C123456"), None
+        )
         if impact and impact.isSubstantial:
-            sis = ExtensionFactory(errors=self._errors, url="substantialImpactSafety", valueCode="C49488")
-            sisc = ExtensionFactory(errors=self._errors, url="substantialImpactSafetyComment", valueString=impact.text)
+            sis = ExtensionFactory(
+                errors=self._errors, url="substantialImpactSafety", valueCode="C49488"
+            )
+            sisc = ExtensionFactory(
+                errors=self._errors,
+                url="substantialImpactSafetyComment",
+                valueString=impact.text,
+            )
             if sis and sisc:
                 amendment.append(sis)
                 amendment.append(sisc)
-        impact: StudyAmendmentImpact = next((x for x in source_amendment.impacts if x.type.code == "C123456"), None)
+        impact: StudyAmendmentImpact = next(
+            (x for x in source_amendment.impacts if x.type.code == "C123456"), None
+        )
         if impact and impact.isSubstantial:
-            sir = ExtensionFactory(errors=self._errors, url="substantialImpactReliability", valueCode="C49488")
-            sirc = ExtensionFactory(errors=self._errors, url="ubstantialImpactReliabilityComment", valueString=impact.text)
+            sir = ExtensionFactory(
+                errors=self._errors,
+                url="substantialImpactReliability",
+                valueCode="C49488",
+            )
+            sirc = ExtensionFactory(
+                errors=self._errors,
+                url="ubstantialImpactReliabilityComment",
+                valueString=impact.text,
+            )
             if sir and sirc:
                 amendment.append(sir)
                 amendment.append(sirc)
 
-    def _add_changes(self, amendment: Extension, source_amendment: StudyAmendment) -> None:
+    def _add_changes(
+        self, amendment: Extension, source_amendment: StudyAmendment
+    ) -> None:
         for change in source_amendment.changes:
             change_ext = ExtensionFactory(
-                errors=self._errors, 
-                url = "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/protocol-amendment-detail",
-                extension=[]
-            )    
-            self._add_amendment_extension(change_ext, "detail", change.summary)
-            self._add_amendment_extension(change_ext, "rationale", change.rationale)
-            c_code, display = self.section_map(change.changedSections[0])
-            code = CodingFactory(
                 errors=self._errors,
-                system="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-                code=c_code,
-                display=display,
+                url="http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/protocol-amendment-detail",
+                extension=[],
             )
-            cc = CodeableConceptFactory(errors=self._errors, coding=[code.item])
-            change_ext.item.extension.append(cc)
+            self._add_amendment_extension(change_ext.item, "detail", change.summary)
+            self._add_amendment_extension(
+                change_ext.item, "rationale", change.rationale
+            )
+            if change.changedSections:
+                c_code, display = self._section_map(
+                    change.changedSections[0].sectionNumber
+                )
+                code = CodingFactory(
+                    errors=self._errors,
+                    system="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                    code=c_code,
+                    display=display,
+                )
+                cc = CodeableConceptFactory(errors=self._errors, coding=[code.item])
+                ext: ExtensionFactory = ExtensionFactory(
+                    errors=self._errors, url="section", valueCodeableConcept=cc.item
+                )
+                change_ext.item.extension.append(ext.item)
+            else:
+                self._errors.warning(
+                    f"No changed sections for change '{change.summary}'",
+                    KlassMethodLocation(self.MODULE, "_add_changes"),
+                )
             amendment.extension.append(change_ext.item)
 
     def _section_map(self, section_number: str) -> tuple[str, str]:
@@ -381,11 +425,23 @@ class ResearchStudyFactoryP3(BaseFactory):
             "13": {"code": "C217354", "display": "Section 13"},
             "14": {"code": "C217355", "display": "Section 14"},
             "Title Page": {"code": "C217356", "display": "Section Title Page"},
-            "Amendment Details": {"code": "C217357", "display": "Section Amendment Details"},
+            "Amendment Details": {
+                "code": "C217357",
+                "display": "Section Amendment Details",
+            },
         }
         parts = section_number.split(".")
         key = parts[0]
-        return ct_map[key]["code"], ct_map[key]["display"] if key in ct_map else "Uknown", "Unknown"
+        result = (
+            (ct_map[key]["code"], ct_map[key]["display"])
+            if key in ct_map
+            else ("Uknown", "Unknown")
+        )
+        self._errors.info(
+            f"Secton map result '{section_number}' -> {result}",
+            KlassMethodLocation(self.MODULE, "_section_map"),
+        )
+        return result
 
     def _add_scope(
         self, amendment: Extension, source_amendment: StudyAmendment
@@ -400,7 +456,8 @@ class ResearchStudyFactoryP3(BaseFactory):
             amendment.extension.append(scope.item)
         else:
             self._errors.error(
-                f"Failed to create 'scope' extension with value '{the_scope}'"
+                f"Failed to create 'scope' extension with value '{the_scope}'",
+                KlassMethodLocation(self.MODULE, "_add_scope"),
             )
 
     def _add_primary_and_secondary(
@@ -434,11 +491,13 @@ class ResearchStudyFactoryP3(BaseFactory):
                 amendment.extension.append(ext.item)
             else:
                 self._errors.error(
-                    f"Failed to create 'secondaryReason' extension with value '{source_amendment.secondaryReasons[0]}'"
+                    f"Failed to create 'secondaryReason' extension with value '{source_amendment.secondaryReasons[0]}'",
+                    KlassMethodLocation(self.MODULE, "_add_primary_and_secondary"),
                 )
         else:
             self._errors.error(
-                f"Failed to create 'primaryReason' extension with value '{source_amendment.primaryReason}'"
+                f"Failed to create 'primaryReason' extension with value '{source_amendment.primaryReason}'",
+                KlassMethodLocation(self.MODULE, "_add_primary_and_secondary"),
             )
 
     def _add_amendment_extension(
@@ -452,12 +511,13 @@ class ResearchStudyFactoryP3(BaseFactory):
                 amendment.extension.append(ext.item)
         else:
             self._errors.warning(
-                f"Failed to create amendment extension '{url}' with empty value '{value}'"
+                f"Failed to create amendment extension '{url}' with empty value '{value}'",
+                KlassMethodLocation(self.MODULE, "_add_amendment_extension"),
             )
 
     # First cut of amendment code. Example structure
     # ==============================================
-    
+
     # AMENDMENT ENROLLMENT
     # {
     #   "extension" : [
@@ -528,6 +588,3 @@ class ResearchStudyFactoryP3(BaseFactory):
     #       ],
     #       "url" : "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/ResearchStudyStudyAmendmentScopeImpact"
     #     },
-
-
-

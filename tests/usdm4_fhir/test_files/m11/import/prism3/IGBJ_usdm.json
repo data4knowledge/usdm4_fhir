@@ -52,7 +52,7 @@
             "label": null,
             "description": null,
             "type": {
-              "id": "Code_18",
+              "id": "Code_22",
               "extensionAttributes": [],
               "code": "C71476",
               "codeSystem": "http://www.cdisc.org",
@@ -66,7 +66,7 @@
                 "id": "GeographicScope_4",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_19",
+                  "id": "Code_23",
                   "extensionAttributes": [],
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
@@ -158,13 +158,82 @@
               }
             ],
             "changes": [],
-            "impacts": [],
+            "impacts": [
+              {
+                "id": "StudyAmendmentImpact_1",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_14",
+                  "extensionAttributes": [],
+                  "code": "C215665",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Study Subject Safety",
+                  "instanceType": "Code"
+                },
+                "text": "",
+                "isSubstantial": false,
+                "notes": [],
+                "instanceType": "StudyAmendmentImpact"
+              },
+              {
+                "id": "StudyAmendmentImpact_2",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_15",
+                  "extensionAttributes": [],
+                  "code": "C215666",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Study Subject Rights",
+                  "instanceType": "Code"
+                },
+                "text": "",
+                "isSubstantial": false,
+                "notes": [],
+                "instanceType": "StudyAmendmentImpact"
+              },
+              {
+                "id": "StudyAmendmentImpact_3",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_16",
+                  "extensionAttributes": [],
+                  "code": "C215667",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Study Data Reliability",
+                  "instanceType": "Code"
+                },
+                "text": "",
+                "isSubstantial": false,
+                "notes": [],
+                "instanceType": "StudyAmendmentImpact"
+              },
+              {
+                "id": "StudyAmendmentImpact_4",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_17",
+                  "extensionAttributes": [],
+                  "code": "C215668",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Study Data Robustness",
+                  "instanceType": "Code"
+                },
+                "text": "",
+                "isSubstantial": false,
+                "notes": [],
+                "instanceType": "StudyAmendmentImpact"
+              }
+            ],
             "geographicScopes": [
               {
                 "id": "GeographicScope_3",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_15",
+                  "id": "Code_19",
                   "extensionAttributes": [],
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
@@ -194,7 +263,7 @@
                   "id": "GeographicScope_2",
                   "extensionAttributes": [],
                   "type": {
-                    "id": "Code_14",
+                    "id": "Code_18",
                     "extensionAttributes": [],
                     "code": "C68846",
                     "codeSystem": "http://www.cdisc.org",
@@ -246,7 +315,7 @@
               "id": "AliasCode_1",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_17",
+                "id": "Code_21",
                 "extensionAttributes": [],
                 "code": "C15602",
                 "codeSystem": "http://www.cdisc.org",
@@ -295,7 +364,7 @@
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [],
             "model": {
-              "id": "Code_16",
+              "id": "Code_20",
               "extensionAttributes": [],
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",

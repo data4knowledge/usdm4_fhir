@@ -137,7 +137,7 @@
                 "decode": "Other",
                 "instanceType": "Code"
               },
-              "otherReason": null,
+              "otherReason": "No reason text found",
               "instanceType": "StudyAmendmentReason"
             },
             "secondaryReasons": [
@@ -153,7 +153,7 @@
                   "decode": "Other",
                   "instanceType": "Code"
                 },
-                "otherReason": null,
+                "otherReason": "No reason text found",
                 "instanceType": "StudyAmendmentReason"
               }
             ],

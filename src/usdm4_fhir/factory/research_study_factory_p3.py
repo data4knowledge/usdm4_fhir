@@ -411,7 +411,8 @@ class ResearchStudyFactoryP3(BaseFactory):
 
     # First cut of amendment code. Example structure
     # ==============================================
-    #
+    
+    # AMENDMENT ENROLLMENT
     # {
     #   "extension" : [
     #     {
@@ -482,6 +483,8 @@ class ResearchStudyFactoryP3(BaseFactory):
     #       "url" : "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/ResearchStudyStudyAmendmentScopeImpact"
     #     },
 
+
+    # SECTION AMENDMENT
     # {
     #   "extension" : [
     #     {
@@ -507,35 +510,3 @@ class ResearchStudyFactoryP3(BaseFactory):
     #   ],
     #   "url" : "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/protocol-amendment-detail"
     # },
-
-    #     ext: ExtensionFactory = ExtensionFactory("scope", valueString=self._title_page["amendment_scope"])
-    #     if ext:
-    #         amendment.extension.append(ext)
-
-    #     ext: ExtensionFactory = ExtensionFactory(
-    #         "details", value=self._title_page["amendment_details"]
-    #     )
-    #     if ext:
-    #         amendment.extension.append(ext)
-
-    #     ext: ExtensionFactory = ExtensionFactory(
-    #         "substantialImpactSafety", valueString=self._amendment["safety_impact"]
-    #     )
-    #     if ext:
-    #         amendment.extension.append(ext)
-    #     ext: ExtensionFactory = ExtensionFactory(
-    #         "substantialImpactSafety", valueString=self._amendment["safety_impact_reason"]
-    #     )
-    #     if ext:
-    #         amendment.extension.append(ext)
-    #     ext: ExtensionFactory = ExtensionFactory(
-    #         "substantialImpactSafety", valueBoolean=self._amendment["robustness_impact"]
-    #     )
-    #     if ext:
-    #         amendment.extension.append(ext)
-    #     ext: ExtensionFactory = ExtensionFactory(
-    #         "substantialImpactSafety", valueString=self._amendment["robustness_impact_reason"]
-    #     )
-    #     if ext:
-    #         amendment.extension.append(ext)
-    #     return amendment

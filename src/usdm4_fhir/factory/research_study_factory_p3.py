@@ -322,6 +322,9 @@ class ResearchStudyFactoryP3(BaseFactory):
         # Impacts
         self._add_impacts(amendment, source_amendment)
 
+        # Changes
+        self._add_changes(amendment, source_amendment)
+
         # Return extension
         return amendment_factory
 
@@ -340,6 +343,49 @@ class ResearchStudyFactoryP3(BaseFactory):
             if sir and sirc:
                 amendment.append(sir)
                 amendment.append(sirc)
+
+    def _add_changes(self, amendment: Extension, source_amendment: StudyAmendment) -> None:
+        for change in source_amendment.changes:
+            change_ext = ExtensionFactory(
+                errors=self._errors, 
+                url = "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/protocol-amendment-detail",
+                extension=[]
+            )    
+            self._add_amendment_extension(change_ext, "detail", change.summary)
+            self._add_amendment_extension(change_ext, "rationale", change.rationale)
+            c_code, display = self.section_map(change.changedSections[0])
+            code = CodingFactory(
+                errors=self._errors,
+                system="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                code=c_code,
+                display=display,
+            )
+            cc = CodeableConceptFactory(errors=self._errors, coding=[code.item])
+            change_ext.item.extension.append(cc)
+            amendment.extension.append(change_ext.item)
+
+    def _section_map(self, section_number: str) -> tuple[str, str]:
+        ct_map = {
+            "1": {"code": "C217342", "display": "Section 1"},
+            "2": {"code": "C217343", "display": "Section 2"},
+            "3": {"code": "C217344", "display": "Section 3"},
+            "4": {"code": "C217345", "display": "Section 4"},
+            "5": {"code": "C217346", "display": "Section 5"},
+            "6": {"code": "C217347", "display": "Section 6"},
+            "7": {"code": "C217348", "display": "Section 7"},
+            "8": {"code": "C217349", "display": "Section 8"},
+            "9": {"code": "C217350", "display": "Section 9"},
+            "10": {"code": "C217351", "display": "Section 10"},
+            "11": {"code": "C217352", "display": "Section 11"},
+            "12": {"code": "C217353", "display": "Section 12"},
+            "13": {"code": "C217354", "display": "Section 13"},
+            "14": {"code": "C217355", "display": "Section 14"},
+            "Title Page": {"code": "C217356", "display": "Section Title Page"},
+            "Amendment Details": {"code": "C217357", "display": "Section Amendment Details"},
+        }
+        parts = section_number.split(".")
+        key = parts[0]
+        return ct_map[key]["code"], ct_map[key]["display"] if key in ct_map else "Uknown", "Unknown"
 
     def _add_scope(
         self, amendment: Extension, source_amendment: StudyAmendment
@@ -484,29 +530,4 @@ class ResearchStudyFactoryP3(BaseFactory):
     #     },
 
 
-    # SECTION AMENDMENT
-    # {
-    #   "extension" : [
-    #     {
-    #       "url" : "detail",
-    #       "valueString" : "amendment one"
-    #     },
-    #     {
-    #       "url" : "rationale",
-    #       "valueString" : "clarification"
-    #     },
-    #     {
-    #       "url" : "section",
-    #       "valueCodeableConcept" : {
-    #         "coding" : [
-    #           {
-    #             "system" : "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-    #             "code" : "C218515",
-    #             "display" : "1.1 Protocol Synopsis"
-    #           }
-    #         ]
-    #       }
-    #     }
-    #   ],
-    #   "url" : "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/protocol-amendment-detail"
-    # },
+

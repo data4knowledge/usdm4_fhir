@@ -455,9 +455,25 @@ class ImportPRISM3:
                 result["reasons"]["secondary"] = (
                     f"Secondary: {sr_ext.valueCodeableConcept.coding[0].display}"
                 )
+            d_exts = self._extract_extensions(ext.extension, "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/protocol-amendment-detail")
+            result["changes"] = self.extract_changes(d_exts)
         self._errors.info(f"Amendment extract {result}")
         return result
 
+    def _extract_changes(self, extensions: list[Extension]) -> list[dict]:
+        results = []
+        extension: Extension
+        for extension in extensions:
+            change = {}
+            detail = self._extract_extension(extension.extension, "detail")
+            change["description"] = detail.valueString if detail else ""
+            rationale = self._extract_extension(extension.extension, "rationale")
+            change["rationale"] = rationale.valueString if detail else ""
+            section = self._extract_extension(extension.extension, "section")
+            change["section"] = section.valueCodeableConcept.coding[0].display if section else ""
+            results.append(change)
+        return results
+    
     def _extract_ie(self, rs: ResearchStudy, bundle: Bundle) -> dict:
         inclusion = []
         exclusion = []
@@ -539,6 +555,14 @@ class ImportPRISM3:
             if item.url == url:
                 return item
         return None
+
+    def _extract_extensions(self, extensions: list, url: str) -> list[Extension]:
+        results = []
+        item: Extension
+        for item in extensions:
+            if item.url == url:
+                results.append(item)
+        return results
 
     def _read_file(self, full_path: str) -> dict:
         try:

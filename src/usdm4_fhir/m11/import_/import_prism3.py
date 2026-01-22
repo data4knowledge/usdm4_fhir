@@ -435,7 +435,7 @@ class ImportPRISM3:
                     }
                 }
             },
-            "changes": "",
+            "changes": [],
         }
         ext: Extension = self._extract_extension(
             rs.extension,

@@ -6,6 +6,7 @@ from usdm4.api.study_version import StudyVersion as USDMStudyVersion
 from usdm4.api.study_title import StudyTitle
 from usdm4.api.study_amendment import StudyAmendment
 from usdm4.api.study_amendment_impact import StudyAmendmentImpact
+from usdm4.api.subject_enrollment import SubjectEnrollment
 from fhir.resources.researchstudy import ResearchStudy
 from usdm4_fhir.factory.base_factory import BaseFactory
 from usdm4_fhir.factory.extension_factory import ExtensionFactory, Extension
@@ -446,20 +447,55 @@ class ResearchStudyFactoryP3(BaseFactory):
     def _add_scope(
         self, amendment: Extension, source_amendment: StudyAmendment
     ) -> None:
-        the_scope = (
-            self._title_page["amendment_scope"]
-            if self._title_page["amendment_scope"]
-            else "Global"
-        )
-        scope = ExtensionFactory(errors=self._errors, url="scope", valueCode=the_scope)
-        if scope:
-            amendment.extension.append(scope.item)
-        else:
-            self._errors.error(
-                f"Failed to create 'scope' extension with value '{the_scope}'",
-                KlassMethodLocation(self.MODULE, "_add_scope"),
-            )
+        is_global = source_amendment.is_global() 
+        the_scope = ExtensionFactory(errors=self._errors, url="scope", valueCode="C68846" if is_global else "C217026")
+        if the_scope.item:
+            amendment.extension.append(the_scope.item)        
+        if not is_global:
+            for scope in source_amendment.geographicScopes:
+                the_scope = ExtensionFactory(errors=self._errors, url="scope", valueCode=scope.code)
+                if the_scope.item:
+                    amendment.extension.append(the_scope.item)        
 
+    def _add_enrollments(
+        self, amendment: Extension, source_amendment: StudyAmendment
+    ) -> None:
+        change: SubjectEnrollment
+        for change in source_amendment.enrollments:
+            value = change.quantity.value
+            unit = change.quantity.unit.standardCode.code if change.quantity.unit else None
+            scope = "C68846" # Globally
+            if change.forGeographicScope:
+                if change.forGeographicScope.type.code == "C68846":
+                    scope = "C68846" # Globally
+                else:
+                    scope = "C41065" # Locally
+            elif change.forStudySiteId:
+                scope = "C41065" # Locally
+            elif change.forStudyCohortId:
+                scope = "C218489" # By Cohort
+            else:
+                continue
+            change_ext = ExtensionFactory(
+                errors=self._errors,
+                url="http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/ResearchStudyStudyAmendmentScopeImpact",
+                extension=[],
+            )
+            scope_ext = ExtensionFactory(
+                errors=self._errors,
+                url="scope",
+                valueCode=scope,
+            )
+            number_ext = ExtensionFactory(
+                errors=self._errors,
+                url="number",
+                valuePositiveInt=str(value),
+            )
+            if change_ext.item and scope_ext.item and number_ext.item:
+                change_ext.item.extension.append(scope_ext.item)
+                change_ext.item.extension.append(number_ext.item)
+                amendment.extension.append(change_ext.item)
+        
     def _add_primary_and_secondary(
         self, amendment: Extension, source_amendment: StudyAmendment
     ) -> None:
@@ -518,32 +554,8 @@ class ResearchStudyFactoryP3(BaseFactory):
     # First cut of amendment code. Example structure
     # ==============================================
 
-    # AMENDMENT ENROLLMENT
-    # {
-    #   "extension" : [
-    #     {
-    #       "url" : "scope",
-    #       "valueCode" : "C217026"
-    #     },
-    #     {
-    #       "url" : "country",
-    #       "valueCode" : "DE"
-    #     },
-    #     {
-    #       "url" : "country",
-    #       "valueCode" : "GB"
-    #     },
-    #     {
-    #       "url" : "region",
-    #       "valueCode" : "AU-NSW"
-    #     },
-    #     {
-    #       "url" : "site",
-    #       "valueIdentifier" : {
-    #         "system" : "https://example.org/site-identifier",
-    #         "value" : "sss"
-    #       }
-    #     },
+    
+    # OTHER
     #     {
     #       "url" : "approvalDate",
     #       "valueDate" : "2017-12-05"
@@ -562,29 +574,4 @@ class ResearchStudyFactoryP3(BaseFactory):
     #       "url" : "signatureMethod",
     #       "valueString" : "electronic and wet ink copy"
     #     },
-    #     {
-    #       "extension" : [
-    #         {
-    #           "url" : "scope",
-    #           "valueCode" : "C41065"
-    #         },
-    #         {
-    #           "url" : "number",
-    #           "valuePositiveInt" : 234
-    #         }
-    #       ],
-    #       "url" : "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/ResearchStudyStudyAmendmentScopeImpact"
-    #     },
-    #     {
-    #       "extension" : [
-    #         {
-    #           "url" : "scope",
-    #           "valueCode" : "C68846"
-    #         },
-    #         {
-    #           "url" : "number",
-    #           "valuePositiveInt" : 983
-    #         }
-    #       ],
-    #       "url" : "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/ResearchStudyStudyAmendmentScopeImpact"
-    #     },
+

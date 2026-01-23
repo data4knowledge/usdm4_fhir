@@ -435,20 +435,6 @@ class ImportPRISM3:
                 result["summary"] = r_ext.valueString
             result["reasons"] = self._extract_primary_and_secondary(ext.extension)
             result["scope"] = self._extract_scope(ext.extension)
-            # pr_ext = self._extract_extension(ext.extension, "primaryReason")
-            # if pr_ext:
-            #     result["reasons"]["primary"] = (
-            #         f"Primary: {pr_ext.valueCodeableConcept.coding[0].display}"
-            #     )
-            # sr_ext = self._extract_extension(ext.extension, "secondaryReason")
-            # if sr_ext:
-            #     result["reasons"]["secondary"] = (
-            #         f"Secondary: {sr_ext.valueCodeableConcept.coding[0].display}"
-            #     )
-            # d_exts = self._extract_extensions(
-            #     ext.extension,
-            #     "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/protocol-amendment-detail",
-            # )
             result["changes"] = self._extract_changes(ext.extension)
         self._errors.info(f"Amendment extract {result}")
         return result

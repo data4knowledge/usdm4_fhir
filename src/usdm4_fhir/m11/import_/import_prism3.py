@@ -433,28 +433,61 @@ class ImportPRISM3:
             r_ext = self._extract_extension(ext.extension, "rationale")
             if r_ext:
                 result["summary"] = r_ext.valueString
-            pr_ext = self._extract_extension(ext.extension, "primaryReason")
-            if pr_ext:
-                result["reasons"]["primary"] = (
-                    f"Primary: {pr_ext.valueCodeableConcept.coding[0].display}"
-                )
-            sr_ext = self._extract_extension(ext.extension, "secondaryReason")
-            if sr_ext:
-                result["reasons"]["secondary"] = (
-                    f"Secondary: {sr_ext.valueCodeableConcept.coding[0].display}"
-                )
-            d_exts = self._extract_extensions(
-                ext.extension,
-                "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/protocol-amendment-detail",
-            )
-            result["changes"] = self._extract_changes(d_exts)
+            result["reasons"] = self._extract_primary_and_secondary(ext.extension)
+            result["scope"] = self._extract_scope(ext.extension)
+            # pr_ext = self._extract_extension(ext.extension, "primaryReason")
+            # if pr_ext:
+            #     result["reasons"]["primary"] = (
+            #         f"Primary: {pr_ext.valueCodeableConcept.coding[0].display}"
+            #     )
+            # sr_ext = self._extract_extension(ext.extension, "secondaryReason")
+            # if sr_ext:
+            #     result["reasons"]["secondary"] = (
+            #         f"Secondary: {sr_ext.valueCodeableConcept.coding[0].display}"
+            #     )
+            # d_exts = self._extract_extensions(
+            #     ext.extension,
+            #     "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/protocol-amendment-detail",
+            # )
+            result["changes"] = self._extract_changes(ext.extension)
         self._errors.info(f"Amendment extract {result}")
         return result
 
+    def _extract_primary_and_secondary(self, extensions: list[Extension]) -> dict:
+        result = {
+            "primary": "",
+            "secondary": "",
+        }
+        pr_ext = self._extract_extension(extensions, "primaryReason")
+        if pr_ext:
+            result["primary"] = (
+                f"Primary: {pr_ext.valueCodeableConcept.coding[0].display}"
+            )
+        sr_ext = self._extract_extension(extensions, "secondaryReason")
+        if sr_ext:
+            result["secondary"] = (
+                f"Secondary: {sr_ext.valueCodeableConcept.coding[0].display}"
+            )
+        return result
+
+    def _extract_scope(self, extensions: list[Extension]) -> dict:
+        result = {"global": True, "countries": [], "regions": [], "sites": [], "unknown": []}
+        scope = self._extract_extension(extensions,"scope")
+        if scope.valueCode != "C68846":
+            result["countries"] = [x.valueCode for x in self._extract_extensions(extensions,"country")]
+            result["regions"] = [x.valueCode for x in self._extract_extensions(extensions,"region")]
+            result["sites"] = [x.valueIdentifier.value for x in self._extract_extensions(extensions,"site")]
+        self._errors.info(f"Scope extracted {result}")
+        return result
+    
     def _extract_changes(self, extensions: list[Extension]) -> list[dict]:
         results = []
+        change_extensions = self._extract_extensions(
+            extensions,
+            "http://hl7.org/fhir/uv/clinical-study-protocol/StructureDefinition/protocol-amendment-detail",
+        )
         extension: Extension
-        for extension in extensions:
+        for extension in change_extensions:
             change = {}
             detail = self._extract_extension(extension.extension, "detail")
             change["description"] = detail.valueString if detail else ""
@@ -533,7 +566,7 @@ class ImportPRISM3:
         return ext.valueString if ext else ""
 
     def _is_original_protocol(self, value: str) -> bool:
-        return value.upper == "YES"
+        return value.upper() == "YES"
 
     def _extract_original_protocol(self, extensions: list) -> str:
         ext = self._extract_extension(

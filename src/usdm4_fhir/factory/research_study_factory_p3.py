@@ -453,7 +453,7 @@ class ResearchStudyFactoryP3(BaseFactory):
             amendment.extension.append(the_scope.item)        
         if not is_global:
             for scope in source_amendment.geographicScopes:
-                the_scope = ExtensionFactory(errors=self._errors, url="scope", valueCode=scope.code)
+                the_scope = ExtensionFactory(errors=self._errors, url="scope", valueCode=scope.code.standardCode.code)
                 if the_scope.item:
                     amendment.extension.append(the_scope.item)        
 

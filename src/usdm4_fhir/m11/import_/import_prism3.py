@@ -174,6 +174,7 @@ class ImportPRISM3:
             )
             sections = self._extract_sections(research_study.extension, bundle)
             ie = self._extract_ie(research_study, bundle)
+            rs_date = research_study.date.isoformat() if research_study.date else ""
             result = {
                 "identification": {
                     "titles": {
@@ -203,10 +204,8 @@ class ImportPRISM3:
                     "trial_phase": self._extract_phase(research_study.phase),
                 },
                 "study": {
-                    "sponsor_approval_date": research_study.date.isoformat()
-                    if research_study.date
-                    else "",
-                    "version_date": "",  # <<<<<
+                    "sponsor_approval_date": rs_date,
+                    "version_date": rs_date,
                     "version": research_study.version,
                     "rationale": "Not set",
                     "name": {
@@ -228,9 +227,7 @@ class ImportPRISM3:
                         "version": research_study.version,
                         "status": "Final",  # @todo
                         "template": "M11",
-                        "version_date": research_study.date.isoformat()
-                        if research_study.date
-                        else "",
+                        "version_date": rs_date,
                     },
                     "sections": sections,
                 },

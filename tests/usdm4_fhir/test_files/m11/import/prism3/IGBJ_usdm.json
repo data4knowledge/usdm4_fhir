@@ -52,7 +52,7 @@
             "label": null,
             "description": null,
             "type": {
-              "id": "Code_22",
+              "id": "Code_23",
               "extensionAttributes": [],
               "code": "C71476",
               "codeSystem": "http://www.cdisc.org",
@@ -66,7 +66,7 @@
                 "id": "GeographicScope_4",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_23",
+                  "id": "Code_24",
                   "extensionAttributes": [],
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
@@ -87,7 +87,7 @@
             "label": null,
             "description": null,
             "type": {
-              "id": "Code_7",
+              "id": "Code_8",
               "extensionAttributes": [],
               "code": "C71476",
               "codeSystem": "http://www.cdisc.org",
@@ -101,7 +101,7 @@
                 "id": "GeographicScope_1",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_8",
+                  "id": "Code_9",
                   "extensionAttributes": [],
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
@@ -129,7 +129,7 @@
               "id": "StudyAmendmentReason_1",
               "extensionAttributes": [],
               "code": {
-                "id": "Code_12",
+                "id": "Code_13",
                 "extensionAttributes": [],
                 "code": "C17649",
                 "codeSystem": "http://www.cdisc.org",
@@ -145,7 +145,7 @@
                 "id": "StudyAmendmentReason_2",
                 "extensionAttributes": [],
                 "code": {
-                  "id": "Code_13",
+                  "id": "Code_14",
                   "extensionAttributes": [],
                   "code": "C17649",
                   "codeSystem": "http://www.cdisc.org",
@@ -163,7 +163,7 @@
                 "id": "StudyAmendmentImpact_1",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_14",
+                  "id": "Code_15",
                   "extensionAttributes": [],
                   "code": "C215665",
                   "codeSystem": "http://www.cdisc.org",
@@ -180,7 +180,7 @@
                 "id": "StudyAmendmentImpact_2",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_15",
+                  "id": "Code_16",
                   "extensionAttributes": [],
                   "code": "C215666",
                   "codeSystem": "http://www.cdisc.org",
@@ -197,7 +197,7 @@
                 "id": "StudyAmendmentImpact_3",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_16",
+                  "id": "Code_17",
                   "extensionAttributes": [],
                   "code": "C215667",
                   "codeSystem": "http://www.cdisc.org",
@@ -214,7 +214,7 @@
                 "id": "StudyAmendmentImpact_4",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_17",
+                  "id": "Code_18",
                   "extensionAttributes": [],
                   "code": "C215668",
                   "codeSystem": "http://www.cdisc.org",
@@ -233,7 +233,7 @@
                 "id": "GeographicScope_3",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_19",
+                  "id": "Code_20",
                   "extensionAttributes": [],
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
@@ -263,7 +263,7 @@
                   "id": "GeographicScope_2",
                   "extensionAttributes": [],
                   "type": {
-                    "id": "Code_18",
+                    "id": "Code_19",
                     "extensionAttributes": [],
                     "code": "C68846",
                     "codeSystem": "http://www.cdisc.org",
@@ -315,7 +315,7 @@
               "id": "AliasCode_1",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_21",
+                "id": "Code_22",
                 "extensionAttributes": [],
                 "code": "C15602",
                 "codeSystem": "http://www.cdisc.org",
@@ -364,7 +364,7 @@
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [],
             "model": {
-              "id": "Code_20",
+              "id": "Code_21",
               "extensionAttributes": [],
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",
@@ -1582,7 +1582,32 @@
           }
         ],
         "abbreviations": [],
-        "roles": [],
+        "roles": [
+          {
+            "id": "StudyRole_1",
+            "extensionAttributes": [],
+            "name": "ROLE_1",
+            "label": null,
+            "description": null,
+            "code": {
+              "id": "Code_4",
+              "extensionAttributes": [],
+              "code": "C70793",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "decode": "Sponsor",
+              "instanceType": "Code"
+            },
+            "appliesToIds": [],
+            "assignedPersons": [],
+            "organizationIds": [
+              "Organization_1"
+            ],
+            "masking": null,
+            "notes": [],
+            "instanceType": "StudyRole"
+          }
+        ],
         "organizations": [
           {
             "id": "Organization_1",
@@ -1590,7 +1615,7 @@
             "name": "ELI-LILLY-JAPAN-K.K",
             "label": "Eli Lilly Japan K.K",
             "type": {
-              "id": "Code_4",
+              "id": "Code_5",
               "extensionAttributes": [],
               "code": "C54149",
               "codeSystem": "http://www.cdisc.org",
@@ -1623,7 +1648,7 @@
             "name": "CT.GOV",
             "label": "ClinicalTrials.gov",
             "type": {
-              "id": "Code_6",
+              "id": "Code_7",
               "extensionAttributes": [],
               "code": "C93453",
               "codeSystem": "http://www.cdisc.org",
@@ -1646,7 +1671,7 @@
               "state": "MD",
               "postalCode": "20894",
               "country": {
-                "id": "Code_5",
+                "id": "Code_6",
                 "extensionAttributes": [],
                 "code": "USA",
                 "codeSystem": "ISO 3166 1 alpha3",
@@ -1681,7 +1706,7 @@
         "label": "Protocol Document",
         "description": "Protocol Document",
         "language": {
-          "id": "Code_10",
+          "id": "Code_11",
           "extensionAttributes": [],
           "code": "en",
           "codeSystem": "ISO 639-1",
@@ -1690,7 +1715,7 @@
           "instanceType": "Code"
         },
         "type": {
-          "id": "Code_11",
+          "id": "Code_12",
           "extensionAttributes": [],
           "code": "C70817",
           "codeSystem": "http://www.cdisc.org",
@@ -1705,7 +1730,7 @@
             "extensionAttributes": [],
             "version": "(a)",
             "status": {
-              "id": "Code_9",
+              "id": "Code_10",
               "extensionAttributes": [],
               "code": "C25508",
               "codeSystem": "http://www.cdisc.org",
@@ -1713,7 +1738,43 @@
               "decode": "Final",
               "instanceType": "Code"
             },
-            "dateValues": [],
+            "dateValues": [
+              {
+                "id": "GovernanceDate_1",
+                "extensionAttributes": [],
+                "name": "PROTOCOL-DATE",
+                "label": null,
+                "description": null,
+                "type": {
+                  "id": "Code_8",
+                  "extensionAttributes": [],
+                  "code": "C71476",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Approval Date",
+                  "instanceType": "Code"
+                },
+                "dateValue": "2017-10-26",
+                "geographicScopes": [
+                  {
+                    "id": "GeographicScope_1",
+                    "extensionAttributes": [],
+                    "type": {
+                      "id": "Code_9",
+                      "extensionAttributes": [],
+                      "code": "C68846",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2025-09-26",
+                      "decode": "Global",
+                      "instanceType": "Code"
+                    },
+                    "code": null,
+                    "instanceType": "GeographicScope"
+                  }
+                ],
+                "instanceType": "GovernanceDate"
+              }
+            ],
             "contents": [
               {
                 "id": "NarrativeContent_1",

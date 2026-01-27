@@ -258,6 +258,7 @@ class ImportPRISM3:
                 "ct.gov",
                 result,
             )
+            print(f"IMPORT: {result["document"]["document"]}")
             return result
         except Exception as e:
             self._errors.exception(
@@ -292,6 +293,7 @@ class ImportPRISM3:
                     return {
                         "non_standard": {
                             "type": "pharma",
+                            "role": "sponsor",
                             "description": "The sponsor organization",
                             "label": organization.name,
                             "identifier": "UNKNOWN",

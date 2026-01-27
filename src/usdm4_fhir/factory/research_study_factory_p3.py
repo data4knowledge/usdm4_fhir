@@ -100,10 +100,13 @@ class ResearchStudyFactoryP3(BaseFactory):
                 self.item.identifier.append(
                     {
                         "type": {"coding": [identifier_type.item]},
-                        "system": "https://d4k.dk/sponsor-identifier",
+                        # "system": "https://d4k.dk/sponsor-identifier",
+                        "system": "https://example.org/sponsor-identifier",
                         "value": identifier.text,
                     }
                 )
+            else:
+                self._errors.error(f"Failed to set sponsor identifier in export")
 
             # Original Protocol
             original_code = CodingFactory(
@@ -131,7 +134,7 @@ class ResearchStudyFactoryP3(BaseFactory):
             )
 
             # Version Date
-            date_value = self._version.approval_date_value()
+            date_value = self._document.approval_date_text()
             if date_value:
                 self.item.date = date_value
 

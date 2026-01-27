@@ -258,7 +258,6 @@ class ImportPRISM3:
                 "ct.gov",
                 result,
             )
-            print(f"IMPORT: {result["document"]["document"]}")
             return result
         except Exception as e:
             self._errors.exception(

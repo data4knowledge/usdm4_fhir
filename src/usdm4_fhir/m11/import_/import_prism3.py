@@ -405,12 +405,9 @@ class ImportPRISM3:
             "identifier": identifier,
             "scope": "",
             "enrollment": {"value": 0, "unit": ""},
-            "reasons": {
-                "primary": "",
-                "secondary": "",
-            },
+            "reasons": self._empty_reasons(),
             "summary": "",
-            "impact": {},
+            "impact": self._empty_impact(),
             "changes": [],
         }
         ext: Extension = self._extract_extension(
@@ -429,10 +426,7 @@ class ImportPRISM3:
         return result
 
     def _extract_primary_and_secondary(self, extensions: list[Extension]) -> dict:
-        result = {
-            "primary": "",
-            "secondary": "",
-        }
+        result = self._empty_reasons()
         pr_ext = self._extract_extension(extensions, "primaryReason")
         if pr_ext:
             result["primary"] = (
@@ -445,6 +439,12 @@ class ImportPRISM3:
             )
         return result
 
+    def _empty_reasons(self) -> dict:
+        return {
+            "primary": "",
+            "secondary": "",
+        }     
+       
     def _extract_scope(self, extensions: list[Extension]) -> dict:
         result = {
             "global": True,
@@ -469,16 +469,7 @@ class ImportPRISM3:
         return result
 
     def _extract_impact(self, extensions: list[Extension]) -> dict:
-        result = {
-            "safety_and_rights": {
-                "safety": {"substantial": False, "reason": ""},
-                "rights": {"substantial": False, "reason": ""},
-            },
-            "reliability_and_robustness": {
-                "reliability": {"substantial": False, "reason": ""},
-                "robustness": {"substantial": False, "reason": ""},
-            },
-        }
+        result = self._empty_impact()
         safety = self._extract_extension(extensions, "substantialImpactSafety")
         safety_comment = self._extract_extension(
             extensions, "substantialImpactSafetyComment"
@@ -503,6 +494,18 @@ class ImportPRISM3:
             }
         self._errors.info(f"Impact extracted {result}")
         return result
+
+    def _empty_impact(self) -> dict:
+        return {
+            "safety_and_rights": {
+                "safety": {"substantial": False, "reason": ""},
+                "rights": {"substantial": False, "reason": ""},
+            },
+            "reliability_and_robustness": {
+                "reliability": {"substantial": False, "reason": ""},
+                "robustness": {"substantial": False, "reason": ""},
+            },
+        }
 
     def _extract_changes(self, extensions: list[Extension]) -> list[dict]:
         results = []

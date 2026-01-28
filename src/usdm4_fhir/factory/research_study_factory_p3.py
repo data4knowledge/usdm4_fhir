@@ -450,15 +450,23 @@ class ResearchStudyFactoryP3(BaseFactory):
     def _add_scope(
         self, amendment: Extension, source_amendment: StudyAmendment
     ) -> None:
-        is_global = source_amendment.is_global() 
-        the_scope = ExtensionFactory(errors=self._errors, url="scope", valueCode="C68846" if is_global else "C217026")
+        is_global = source_amendment.is_global()
+        the_scope = ExtensionFactory(
+            errors=self._errors,
+            url="scope",
+            valueCode="C68846" if is_global else "C217026",
+        )
         if the_scope.item:
-            amendment.extension.append(the_scope.item)        
+            amendment.extension.append(the_scope.item)
         if not is_global:
             for scope in source_amendment.geographicScopes:
-                the_scope = ExtensionFactory(errors=self._errors, url="scope", valueCode=scope.code.standardCode.code)
+                the_scope = ExtensionFactory(
+                    errors=self._errors,
+                    url="scope",
+                    valueCode=scope.code.standardCode.code,
+                )
                 if the_scope.item:
-                    amendment.extension.append(the_scope.item)        
+                    amendment.extension.append(the_scope.item)
 
     def _add_enrollments(
         self, amendment: Extension, source_amendment: StudyAmendment
@@ -466,17 +474,19 @@ class ResearchStudyFactoryP3(BaseFactory):
         change: SubjectEnrollment
         for change in source_amendment.enrollments:
             value = change.quantity.value
-            unit = change.quantity.unit.standardCode.code if change.quantity.unit else None
-            scope = "C68846" # Globally
+            unit = (
+                change.quantity.unit.standardCode.code if change.quantity.unit else None
+            )
+            scope = "C68846"  # Globally
             if change.forGeographicScope:
                 if change.forGeographicScope.type.code == "C68846":
-                    scope = "C68846" # Globally
+                    scope = "C68846"  # Globally
                 else:
-                    scope = "C41065" # Locally
+                    scope = "C41065"  # Locally
             elif change.forStudySiteId:
-                scope = "C41065" # Locally
+                scope = "C41065"  # Locally
             elif change.forStudyCohortId:
-                scope = "C218489" # By Cohort
+                scope = "C218489"  # By Cohort
             else:
                 continue
             change_ext = ExtensionFactory(
@@ -498,7 +508,7 @@ class ResearchStudyFactoryP3(BaseFactory):
                 change_ext.item.extension.append(scope_ext.item)
                 change_ext.item.extension.append(number_ext.item)
                 amendment.extension.append(change_ext.item)
-        
+
     def _add_primary_and_secondary(
         self, amendment: Extension, source_amendment: StudyAmendment
     ) -> None:
@@ -557,7 +567,6 @@ class ResearchStudyFactoryP3(BaseFactory):
     # First cut of amendment code. Example structure
     # ==============================================
 
-    
     # OTHER
     #     {
     #       "url" : "approvalDate",
@@ -577,4 +586,3 @@ class ResearchStudyFactoryP3(BaseFactory):
     #       "url" : "signatureMethod",
     #       "valueString" : "electronic and wet ink copy"
     #     },
-

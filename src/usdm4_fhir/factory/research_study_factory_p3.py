@@ -106,7 +106,7 @@ class ResearchStudyFactoryP3(BaseFactory):
                     }
                 )
             else:
-                self._errors.error(f"Failed to set sponsor identifier in export")
+                self._errors.error("Failed to set sponsor identifier in export")
 
             # Original Protocol
             original_code = CodingFactory(

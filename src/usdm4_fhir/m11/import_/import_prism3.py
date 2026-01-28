@@ -410,16 +410,7 @@ class ImportPRISM3:
                 "secondary": "",
             },
             "summary": "",
-            "impact": {
-                "safety_and_rights": {
-                    "safety": {"substantial": False, "reason": ""},
-                    "rights": {"substantial": False, "reason": ""},
-                },
-                "reliability_and_robustness": {
-                    "reliability": {"substantial": False, "reason": ""},
-                    "robustness": {"substantial": False, "reason": ""},
-                },
-            },
+            "impact": {},
             "changes": [],
         }
         ext: Extension = self._extract_extension(
@@ -432,6 +423,7 @@ class ImportPRISM3:
                 result["summary"] = r_ext.valueString
             result["reasons"] = self._extract_primary_and_secondary(ext.extension)
             result["scope"] = self._extract_scope(ext.extension)
+            result["impact"] = self._extract_impact(ext.extension)
             result["changes"] = self._extract_changes(ext.extension)
         self._errors.info(f"Amendment extract {result}")
         return result
@@ -474,6 +466,42 @@ class ImportPRISM3:
                 for x in self._extract_extensions(extensions, "site")
             ]
         self._errors.info(f"Scope extracted {result}")
+        return result
+
+    def _extract_impact(self, extensions: list[Extension]) -> dict:
+        result = {
+            "safety_and_rights": {
+                "safety": {"substantial": False, "reason": ""},
+                "rights": {"substantial": False, "reason": ""},
+            },
+            "reliability_and_robustness": {
+                "reliability": {"substantial": False, "reason": ""},
+                "robustness": {"substantial": False, "reason": ""},
+            },
+        }
+        safety = self._extract_extension(extensions, "substantialImpactSafety")
+        safety_comment = self._extract_extension(
+            extensions, "substantialImpactSafetyComment"
+        )
+        if safety and safety.valueCode == "C49488":
+            comment = safety_comment.valueString if safety_comment else ""
+            result["safety_and_rights"] = {
+                "safety": {"substantial": True, "reason": comment},
+                "rights": {"substantial": True, "reason": comment},
+            }
+        reliability = self._extract_extension(
+            extensions, "substantialImpactReliability"
+        )
+        reliability_comment = self._extract_extension(
+            extensions, "substantialImpactReliabilityComment"
+        )
+        if reliability and reliability.valueCode == "C49488":
+            comment = reliability_comment.valueString if reliability_comment else ""
+            result["reliability_and_robustness"] = {
+                "reliability": {"substantial": True, "reason": comment},
+                "robustness": {"substantial": True, "reason": comment},
+            }
+        self._errors.info(f"Impact extracted {result}")
         return result
 
     def _extract_changes(self, extensions: list[Extension]) -> list[dict]:

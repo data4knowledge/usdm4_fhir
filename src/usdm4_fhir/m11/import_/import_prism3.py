@@ -196,7 +196,6 @@ class ImportPRISM3:
                 "amendments_summary": {
                     "identifier": amendment_identifier,
                     "scope": "TO DO" if not is_original_protocol else "",
-                    # "amendment_details": "TO DO" if is_original_protocol else "",
                 },
                 "study_design": {
                     "label": "Study Design 1",
@@ -238,9 +237,9 @@ class ImportPRISM3:
                         "exclusion": ie["exclusion"],
                     },
                 },
-                "amendments": self._extract_amendment(
-                    research_study, amendment_identifier
-                ),
+                "amendments": None
+                if is_original_protocol
+                else self._extract_amendment(research_study, amendment_identifier),
             }
             self._add_regualtory_identifer(
                 self._extract_fda_ind_identifier(research_study.identifier),
@@ -455,15 +454,28 @@ class ImportPRISM3:
         return result
 
     def _extract_scope(self, extensions: list[Extension]) -> dict:
-        result = {"global": True, "countries": [], "regions": [], "sites": [], "unknown": []}
-        scope = self._extract_extension(extensions,"scope")
+        result = {
+            "global": True,
+            "countries": [],
+            "regions": [],
+            "sites": [],
+            "unknown": [],
+        }
+        scope = self._extract_extension(extensions, "scope")
         if scope.valueCode != "C68846":
-            result["countries"] = [x.valueCode for x in self._extract_extensions(extensions,"country")]
-            result["regions"] = [x.valueCode for x in self._extract_extensions(extensions,"region")]
-            result["sites"] = [x.valueIdentifier.value for x in self._extract_extensions(extensions,"site")]
+            result["countries"] = [
+                x.valueCode for x in self._extract_extensions(extensions, "country")
+            ]
+            result["regions"] = [
+                x.valueCode for x in self._extract_extensions(extensions, "region")
+            ]
+            result["sites"] = [
+                x.valueIdentifier.value
+                for x in self._extract_extensions(extensions, "site")
+            ]
         self._errors.info(f"Scope extracted {result}")
         return result
-    
+
     def _extract_changes(self, extensions: list[Extension]) -> list[dict]:
         results = []
         change_extensions = self._extract_extensions(

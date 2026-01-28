@@ -345,7 +345,7 @@ class ResearchStudyFactoryP3(BaseFactory):
         self, amendment: Extension, source_amendment: StudyAmendment
     ) -> None:
         impact: StudyAmendmentImpact = next(
-            (x for x in source_amendment.impacts if x.type.code == "C123456"), None
+            (x for x in source_amendment.impacts if x.type.code == "C215665"), None
         )
         if impact and impact.isSubstantial:
             sis = ExtensionFactory(
@@ -357,10 +357,10 @@ class ResearchStudyFactoryP3(BaseFactory):
                 valueString=impact.text,
             )
             if sis and sisc:
-                amendment.append(sis)
-                amendment.append(sisc)
+                amendment.extension.append(sis.item)
+                amendment.extension.append(sisc.item)
         impact: StudyAmendmentImpact = next(
-            (x for x in source_amendment.impacts if x.type.code == "C123456"), None
+            (x for x in source_amendment.impacts if x.type.code == "C215667"), None
         )
         if impact and impact.isSubstantial:
             sir = ExtensionFactory(

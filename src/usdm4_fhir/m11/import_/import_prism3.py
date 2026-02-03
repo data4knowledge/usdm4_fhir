@@ -443,8 +443,8 @@ class ImportPRISM3:
         return {
             "primary": "",
             "secondary": "",
-        }     
-       
+        }
+
     def _extract_scope(self, extensions: list[Extension]) -> dict:
         result = {
             "global": True,

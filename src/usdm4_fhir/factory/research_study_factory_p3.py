@@ -7,6 +7,8 @@ from usdm4.api.study_title import StudyTitle
 from usdm4.api.study_amendment import StudyAmendment
 from usdm4.api.study_amendment_impact import StudyAmendmentImpact
 from usdm4.api.subject_enrollment import SubjectEnrollment
+from usdm4.api.geographic_scope import GeographicScope
+from usdm4.api.extension import ExtensionAttribute
 from fhir.resources.researchstudy import ResearchStudy
 from usdm4_fhir.factory.base_factory import BaseFactory
 from usdm4_fhir.factory.extension_factory import ExtensionFactory, Extension
@@ -15,6 +17,7 @@ from usdm4_fhir.factory.coding_factory import CodingFactory
 from usdm4_fhir.factory.label_type_factory import LabelTypeFactory
 from usdm4_fhir.factory.organization_factory import OrganizationFactory
 from usdm4_fhir.factory.associated_party_factory import AssociatedPartyFactory
+from usdm4_fhir.factory.identifier_factory import IdentifierFactory
 
 
 class ResearchStudyFactoryP3(BaseFactory):
@@ -458,15 +461,65 @@ class ResearchStudyFactoryP3(BaseFactory):
         )
         if the_scope.item:
             amendment.extension.append(the_scope.item)
-        if not is_global:
-            for scope in source_amendment.geographicScopes:
-                the_scope = ExtensionFactory(
-                    errors=self._errors,
-                    url="scope",
-                    valueCode=scope.code.standardCode.code,
-                )
-                if the_scope.item:
-                    amendment.extension.append(the_scope.item)
+            if not is_global:
+                if len(source_amendment.geographicScopes) > 0:
+                    the_scope = None
+                    scope: GeographicScope = source_amendment.geographicScopes[0]
+                    if scope.type.code == "C41129":
+                        code = CodingFactory(
+                            errors=self._errors,
+                            system="urn:iso:std:iso:3166:-2",
+                            code=scope.code.standardCode.code,
+                            display=scope.code.standardCode.decode,
+                        )
+                        cc = CodeableConceptFactory(
+                            errors=self._errors, coding=[code.item]
+                        )
+                        the_scope = ExtensionFactory(
+                            errors=self._errors,
+                            url="region",
+                            valueCodeableConcept=cc,
+                        )
+                    elif scope.type.code == "C25464":
+                        code = CodingFactory(
+                            errors=self._errors,
+                            system="urn:iso:std:iso:3166",
+                            code=scope.code.standardCode.code,
+                            display=scope.code.standardCode.decode,
+                        )
+                        cc = CodeableConceptFactory(
+                            errors=self._errors, coding=[code.item]
+                        )
+                        the_scope = ExtensionFactory(
+                            errors=self._errors,
+                            url="country",
+                            valueCodableConcept=cc,
+                        )
+                    if the_scope and the_scope.item:
+                        amendment.extension.append(the_scope.item)
+                sites = source_amendment.site_identifier_scopes()
+                if len(sites) > 0:
+                    site: ExtensionAttribute = sites[0]
+                    identifier_type = CodingFactory(
+                        errors=self._errors,
+                        system=self.NCI_CODE_SYSTEM,
+                        code="Cnnnnn",
+                        display="Site Identifier",
+                    )
+                    identifier = IdentifierFactory(
+                        self._errors,
+                        {
+                            "type": {"coding": [identifier_type.item]},
+                            "system": "https://d4k.dk/site-identifier",
+                            # "system": "https://example.org/sponsor-identifier",
+                            "value": site.valueString,
+                        },
+                    )
+                    the_scope = ExtensionFactory(
+                        errors=self._errors,
+                        url="site",
+                        valueIdentifier=identifier.item,
+                    )
 
     def _add_enrollments(
         self, amendment: Extension, source_amendment: StudyAmendment

@@ -455,11 +455,12 @@ class ImportPRISM3:
         }
         scope = self._extract_extension(extensions, "scope")
         if scope.valueCode != "C68846":
+            result["global"] = False
             result["countries"] = [
-                x.valueCode for x in self._extract_extensions(extensions, "country")
+                x.valueCodeableConcept.coding[0].code for x in self._extract_extensions(extensions, "country")
             ]
             result["regions"] = [
-                x.valueCode for x in self._extract_extensions(extensions, "region")
+                x.valueCodeableConcept.coding[0].code for x in self._extract_extensions(extensions, "region")
             ]
             result["sites"] = [
                 x.valueIdentifier.value

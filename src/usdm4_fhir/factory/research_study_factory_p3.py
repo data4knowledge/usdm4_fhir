@@ -478,7 +478,7 @@ class ResearchStudyFactoryP3(BaseFactory):
                         the_scope = ExtensionFactory(
                             errors=self._errors,
                             url="region",
-                            valueCodeableConcept=cc,
+                            valueCodeableConcept=cc.item,
                         )
                     elif scope.type.code == "C25464":
                         code = CodingFactory(
@@ -493,33 +493,25 @@ class ResearchStudyFactoryP3(BaseFactory):
                         the_scope = ExtensionFactory(
                             errors=self._errors,
                             url="country",
-                            valueCodableConcept=cc,
+                            valueCodeableConcept=cc.item,
                         )
                     if the_scope and the_scope.item:
                         amendment.extension.append(the_scope.item)
                 sites = source_amendment.site_identifier_scopes()
                 if len(sites) > 0:
                     site: ExtensionAttribute = sites[0]
-                    identifier_type = CodingFactory(
-                        errors=self._errors,
-                        system=self.NCI_CODE_SYSTEM,
-                        code="Cnnnnn",
-                        display="Site Identifier",
-                    )
                     identifier = IdentifierFactory(
-                        self._errors,
-                        {
-                            "type": {"coding": [identifier_type.item]},
-                            "system": "https://d4k.dk/site-identifier",
-                            # "system": "https://example.org/sponsor-identifier",
-                            "value": site.valueString,
-                        },
+                        errors=self._errors,
+                        system="https://d4k.dk/site-identifier",
+                        value=site,
                     )
                     the_scope = ExtensionFactory(
                         errors=self._errors,
                         url="site",
                         valueIdentifier=identifier.item,
                     )
+                    if the_scope.item:
+                        amendment.extension.append(the_scope.item)
 
     def _add_enrollments(
         self, amendment: Extension, source_amendment: StudyAmendment

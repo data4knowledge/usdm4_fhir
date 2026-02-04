@@ -211,22 +211,55 @@ class ResearchStudyFactoryP3(BaseFactory):
             ).item
 
             # Sponsor Name and Address
-            sponsor = self._version.sponsor()
+            sponsor = self._version.sponsor_organization()
             org = OrganizationFactory(errors=self._errors, organization=sponsor)
             ap = AssociatedPartyFactory(
                 errors=self._errors,
                 party={"reference": f"Organization/{org.item.id}"},
-                role_code="sponsor",
-                role_display="sponsor",
+                role_code="C70793",
+                role_display="Clinical Study Sponsor",
             )
             self.item.associatedParty.append(ap.item)
             self._resources.append(org)
 
             # Co-sponsor Name and Address
+            co_sponsor = self._version.co_sponsor_organization()
+            if co_sponsor:
+                org = OrganizationFactory(errors=self._errors, organization=co_sponsor)
+                ap = AssociatedPartyFactory(
+                    errors=self._errors,
+                    party={"reference": f"Organization/{org.item.id}"},
+                    role_code="C215669",
+                    role_display="Study Co-Sponsor",
+                )
+                self.item.associatedParty.append(ap.item)
+                self._resources.append(org)
 
             # Local-sponsor Name and Address
+            local_sponsor = self._version.local_sponsor_organization()
+            if local_sponsor:
+                org = OrganizationFactory(errors=self._errors, organization=local_sponsor)
+                ap = AssociatedPartyFactory(
+                    errors=self._errors,
+                    party={"reference": f"Organization/{org.item.id}"},
+                    role_code="C215670",
+                    role_display="Local Sponsor",
+                )
+                self.item.associatedParty.append(ap.item)
+                self._resources.append(org)
 
             # Device Manufacturer Name and Address
+            dm = self._version.device_manufacturer_organization()
+            if dm:
+                org = OrganizationFactory(errors=self._errors, organization=dm)
+                ap = AssociatedPartyFactory(
+                    errors=self._errors,
+                    party={"reference": f"Organization/{org.item.id}"},
+                    role_code="Cnnnnn",
+                    role_display="Medical Device Manufacturer",
+                )
+                self.item.associatedParty.append(ap.item)
+                self._resources.append(org)
 
             # Regulatory Agency and CT Registry Identifiers
             identifiers = self._version.regulatory_identifiers()

@@ -55,39 +55,6 @@ class ImportPRISM3:
             )
             return None
 
-    @property
-    def extra(self):
-        return {
-            "title_page": {
-                "compound_codes": "",
-                "compound_names": "",
-                "amendment_identifier": "",
-                "regulatory_agency_identifiers": "",
-                # Those below not used?
-                "amendment_details": "",
-                "amendment_scope": "",
-                "manufacturer_name_and_address": "",
-                "medical_expert_contact": "",
-                "original_protocol": "",
-                "sae_reporting_method": "",
-                "sponsor_approval_date": "",
-                "sponsor_name_and_address": "",
-                "sponsor_signatory": "",
-            },
-            "amendment": {
-                "amendment_details": "",
-                "robustness_impact": False,
-                "robustness_impact_reason": "",
-                "safety_impact": False,
-                "safety_impact_reason": "",
-            },
-            "miscellaneous": {
-                "medical_expert_contact": "",
-                "sae_reporting_method": "",
-                "sponsor_signatory": "",
-            },
-        }
-
     def _from_fhir(self, data: str) -> Wrapper:
         try:
             study = None
@@ -188,10 +155,18 @@ class ImportPRISM3:
                             "scope": sponsor,
                         }
                     ],
-                },
-                "compounds": {
-                    "compound_codes": "",  # <<<<<
-                    "compound_names": "",  # <<<<<
+                    "roles": {
+                        "co_sponsor": self._extract_co_sponsor(research_study.associatedParty, bundle),
+                        "local_sponsor": self._extract_local_sponsor(research_study.associatedParty, bundle),
+                        "device_manufacturer": self._extract_device_manufacturer(research_study.associatedParty, bundle),
+                    },
+                    "other": {
+                        "regulatory_agency_identifiers": "",    # <<<<<
+                        "sponsor_signatory": "",                # <<<<<
+                        "medical_expert": "",                   # <<<<<
+                        "compound_codes": "",                   # <<<<<
+                        "compound_names": "",                   # <<<<<
+                    },
                 },
                 "amendments_summary": {
                     "identifier": amendment_identifier,
@@ -216,9 +191,6 @@ class ImportPRISM3:
                         research_study.extension
                     ),
                     "original_protocol": original_protocol,
-                },
-                "other": {
-                    "regulatory_agency_identifiers": "",  # <<<<<
                 },
                 "document": {
                     "document": {
@@ -310,6 +282,69 @@ class ImportPRISM3:
             }
         }
 
+    def _extract_co_sponsor(self, assciated_parties: list, bundle: Bundle) -> dict | None:
+        party: ResearchStudyAssociatedParty
+        for party in assciated_parties:
+            if self._is_co_sponsor(party.role):
+                organization: Organization = self._extract_from_bundle_id(
+                    bundle, "Organization", party.party.reference
+                )
+                if organization:
+                    extended_contact: ExtendedContactDetail = organization.contact[0]
+                    # print(f"Address source: {extended_contact.address.__dict__}")
+                    address = self._to_address(extended_contact.address.__dict__)
+                    # print(f"Address dict: {address}")
+                    return {
+                        "name": organization.name,
+                        "legalAddress": address,
+                    }
+        self._errors.warning(
+            "Unable to extract co-sponsor details from associated parties"
+        )
+        return None
+
+    def _extract_local_sponsor(self, assciated_parties: list, bundle: Bundle) -> dict:
+        party: ResearchStudyAssociatedParty
+        for party in assciated_parties:
+            if self._is_local_sponsor(party.role):
+                organization: Organization = self._extract_from_bundle_id(
+                    bundle, "Organization", party.party.reference
+                )
+                if organization:
+                    extended_contact: ExtendedContactDetail = organization.contact[0]
+                    # print(f"Address source: {extended_contact.address.__dict__}")
+                    address = self._to_address(extended_contact.address.__dict__)
+                    # print(f"Address dict: {address}")
+                    return {
+                        "name": organization.name,
+                        "legalAddress": address,
+                    }
+        self._errors.warning(
+            "Unable to extract local sponsor details from associated parties"
+        )
+        return None
+
+    def _extract_device_manufacturer(self, assciated_parties: list, bundle: Bundle) -> dict:
+        party: ResearchStudyAssociatedParty
+        for party in assciated_parties:
+            if self._is_device_manufacturer(party.role):
+                organization: Organization = self._extract_from_bundle_id(
+                    bundle, "Organization", party.party.reference
+                )
+                if organization:
+                    extended_contact: ExtendedContactDetail = organization.contact[0]
+                    # print(f"Address source: {extended_contact.address.__dict__}")
+                    address = self._to_address(extended_contact.address.__dict__)
+                    # print(f"Address dict: {address}")
+                    return {
+                        "name": organization.name,
+                        "legalAddress": address,
+                    }
+        self._errors.warning(
+            "Unable to extract device manufacturer details from associated parties"
+        )
+        return None
+
     def _to_address(self, address: dict) -> dict | None:
         keys = [
             ("city", "city"),
@@ -331,11 +366,31 @@ class ImportPRISM3:
         return result if valid else None
 
     def _is_sponsor(self, role: CodeableConcept) -> bool:
+        found = self._is_org_role(role, "C70793")
+        self._errors.info(f"Sponsor org {"found" if found else "not found"}")
+        return found
+
+    def _is_co_sponsor(self, role: CodeableConcept) -> bool:
+        found = self._is_org_role(role, "C215669")
+        self._errors.info(f"Co sponsor org {"found" if found else "not found"}")
+        return found
+
+    def _is_local_sponsor(self, role: CodeableConcept) -> bool:
+        found = self._is_org_role(role, "C215670")
+        self._errors.info(f"Local sponsor org {"found" if found else "not found"}")
+        return found
+
+    def _is_device_manufacturer(self, role: CodeableConcept) -> bool:
+        found = self._is_org_role(role, "Cnnnnn")
+        self._errors.info(f"Device manufacturer sponsor org {"found" if found else "not found"}")
+        return found
+
+    def _is_org_role(self, role: CodeableConcept, desired_role: str) -> bool:
         try:
             code: Coding = role.coding
-            return code[0].code == "sponsor"
+            return code[0].code == desired_role
         except Exception as e:
-            print(f"IS SPONSOR EXP: {e}")
+            self._errors.exception(f"Exception raised detecting sponsor organization in {role}", e, KlassMethodLocation(self.MODULE, "_is_org_role"))
             return False
 
     def _extract_phase(self, phase: CodeableConcept) -> str:

@@ -1,3 +1,51 @@
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: 'Warning raised within Soup package, processing ''Participant has a body
+    mass index (BMI) range of 18 to 36 kg/m2 , inclusive and weighs at least 50 kg
+    at screening.''
+
+    Message returned ''The input looks more like a filename than markup. You may want
+    to open this file and pass the filehandle into Beautiful Soup.'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: 'Warning raised within Soup package, processing ''Participant has a known
+    or suspected hypersensitivity to ASP8062 or morphine and/or other opioids, or
+    any components of the formulations used.''
+
+    Message returned ''The input looks more like a filename than markup. You may want
+    to open this file and pass the filehandle into Beautiful Soup.'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: 'Warning raised within Soup package, processing ''Participant has/had febrile
+    illness or symptomatic, viral, bacterial (including upper respiratory infection)
+    or fungal (noncutaneous) infection within 1 week prior to day -1.''
+
+    Message returned ''The input looks more like a filename than markup. You may want
+    to open this file and pass the filehandle into Beautiful Soup.'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: 'Warning raised within Soup package, processing ''Participant has a positive
+    serology test for hepatitis B surface antigen, hepatitis C virus antibodies or
+    antibodies to HIV type 1 and/or type 2 at screening.''
+
+    Message returned ''The input looks more like a filename than markup. You may want
+    to open this file and pass the filehandle into Beautiful Soup.'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
 - level: Info
   location: {}
   message: Amendment present based on original protocol value
@@ -5,6 +53,41 @@
   type: ''
 - level: Info
   location: {}
-  message: First amendment detected '1'
+  message: First amendment detected '1.1'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _section_map
+  message: Secton map result '5.4.1' -> ('C217346', 'Section 5')
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _section_map
+  message: Secton map result '5.2' -> ('C217346', 'Section 5')
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _section_map
+  message: Secton map result '7.2.8' -> ('C217348', 'Section 7')
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _section_map
+  message: Secton map result '7.2.8' -> ('C217348', 'Section 7')
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _section_map
+  message: Secton map result '9.4.3.3' -> ('C217350', 'Section 9')
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''

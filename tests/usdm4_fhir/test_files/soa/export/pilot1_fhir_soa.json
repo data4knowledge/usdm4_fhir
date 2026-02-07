@@ -9,7 +9,7 @@
   "timestamp": "2024-12-25T00:00:00.000000+00:00",
   "entry": [
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000001",
       "resource": {
         "resourceType": "ResearchStudy",
         "identifier": [
@@ -95,7 +95,7 @@
               ]
             },
             "party": {
-              "reference": "Organization/FAKE-UUID"
+              "reference": "Organization/00000000-0000-4000-0000-000000000002"
             }
           }
         ],
@@ -122,7 +122,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000003",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduletimeline-4",
@@ -575,7 +575,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000004",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-9",
@@ -715,7 +715,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000005",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-10",
@@ -750,7 +750,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000006",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-11",
@@ -825,7 +825,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000007",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-12",
@@ -900,7 +900,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000008",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-13",
@@ -965,7 +965,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000009",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-14",
@@ -1030,7 +1030,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000010",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-15",
@@ -1105,7 +1105,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000011",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-16",
@@ -1135,7 +1135,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000012",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-17",
@@ -1205,7 +1205,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000013",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-18",
@@ -1235,7 +1235,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000014",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-19",
@@ -1310,7 +1310,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000015",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-20",
@@ -1340,7 +1340,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000016",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-21",
@@ -1405,7 +1405,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000017",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-22",
@@ -1435,7 +1435,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000018",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-23",
@@ -1515,7 +1515,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000019",
       "resource": {
         "resourceType": "PlanDefinition",
         "id": "scheduledactivityinstance-24",
@@ -1585,7 +1585,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000020",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-1",
@@ -1601,7 +1601,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000021",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-2",
@@ -1617,7 +1617,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000022",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-3",
@@ -1633,7 +1633,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000023",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-4",
@@ -1649,7 +1649,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000024",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-5",
@@ -1665,7 +1665,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000025",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-6",
@@ -1681,7 +1681,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000026",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-7",
@@ -1697,7 +1697,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000027",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-8",
@@ -1713,7 +1713,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000028",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-9",
@@ -1729,7 +1729,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000029",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-10",
@@ -1745,7 +1745,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000030",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-11",
@@ -1761,7 +1761,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000031",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-12",
@@ -1777,7 +1777,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000032",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-13",
@@ -1793,7 +1793,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000033",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-14",
@@ -1809,7 +1809,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000034",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-15",
@@ -1825,7 +1825,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000035",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-16",
@@ -1841,7 +1841,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000036",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-17",
@@ -1857,7 +1857,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000037",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-18",
@@ -1873,7 +1873,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000038",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-19",
@@ -1889,7 +1889,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000039",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-20",
@@ -1905,7 +1905,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000040",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-21",
@@ -1921,7 +1921,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000041",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-22",
@@ -1937,7 +1937,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000042",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-23",
@@ -1953,7 +1953,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000043",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-24",
@@ -1969,7 +1969,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000044",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-25",
@@ -1985,7 +1985,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000045",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-26",
@@ -2001,7 +2001,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000046",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-27",
@@ -2017,7 +2017,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000047",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-28",
@@ -2033,7 +2033,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000048",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-29",
@@ -2049,7 +2049,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000049",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-30",
@@ -2065,7 +2065,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000050",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-31",
@@ -2081,7 +2081,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000051",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-32",
@@ -2097,7 +2097,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000052",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-33",
@@ -2113,7 +2113,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000053",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-34",
@@ -2129,7 +2129,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000054",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-35",
@@ -2145,7 +2145,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:FAKE-UUID",
+      "fullUrl": "urn:uuid:00000000-0000-4000-0000-000000000055",
       "resource": {
         "resourceType": "ActivityDefinition",
         "id": "activity-36",

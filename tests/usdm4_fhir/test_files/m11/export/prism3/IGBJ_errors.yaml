@@ -1,3 +1,93 @@
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: 'Warning raised within Soup package, processing ''have a body mass index
+    of 18.5 to 30.0 kg/m2 for T1DM, or 18.5 to 35.0 kg/m2 for T2DM at the time of
+    screening''
+
+    Message returned ''The input looks more like a filename than markup. You may want
+    to open this file and pass the filehandle into Beautiful Soup.'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: 'Warning raised within Soup package, processing ''any significant changes
+    in insulin regimen and/or unstable blood glucose control within the past 3 months
+    prior to screening as assessed by the investigator''
+
+    Message returned ''The input looks more like a filename than markup. You may want
+    to open this file and pass the filehandle into Beautiful Soup.'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: 'Warning raised within Soup package, processing ''have received a total
+    daily dose of insulin &gt;1.2 U/kg at the time of screening''
+
+    Message returned ''The input looks more like a filename than markup. You may want
+    to open this file and pass the filehandle into Beautiful Soup.'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: 'Warning raised within Soup package, processing ''regularly use known drugs
+    of abuse and/or show positive findings on urinary drug screening''
+
+    Message returned ''The input looks more like a filename than markup. You may want
+    to open this file and pass the filehandle into Beautiful Soup.'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: 'Warning raised within Soup package, processing ''show evidence of human
+    immunodeficiency virus (HIV) infection and/or positive HIV antibodies and/or antigen''
+
+    Message returned ''The input looks more like a filename than markup. You may want
+    to open this file and pass the filehandle into Beautiful Soup.'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: 'Warning raised within Soup package, processing ''show evidence of hepatitis
+    C and/or positive hepatitis C antibody''
+
+    Message returned ''The input looks more like a filename than markup. You may want
+    to open this file and pass the filehandle into Beautiful Soup.'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: 'Warning raised within Soup package, processing ''show evidence of hepatitis
+    B and/or positive hepatitis B surface antigen''
+
+    Message returned ''The input looks more like a filename than markup. You may want
+    to open this file and pass the filehandle into Beautiful Soup.'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: 'Warning raised within Soup package, processing ''show evidence of syphilis
+    and/or are positive for syphilis test''
+
+    Message returned ''The input looks more like a filename than markup. You may want
+    to open this file and pass the filehandle into Beautiful Soup.'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
 - level: Info
   location: {}
   message: Amendment present based on original protocol value
@@ -5,6 +95,20 @@
   type: ''
 - level: Info
   location: {}
-  message: First amendment detected '1'
+  message: First amendment detected 'I8R-JE-IGBJ(a)'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _section_map
+  message: Secton map result '6.2' -> ('C217347', 'Section 6')
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _section_map
+  message: Secton map result '9.2.2' -> ('C217350', 'Section 9')
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''

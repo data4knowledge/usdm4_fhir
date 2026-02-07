@@ -2,7 +2,7 @@
   "resourceType": "Bundle",
   "identifier": {
     "system": "urn:ietf:rfc:3986",
-    "value": "urn:uuid:FAKE-UUID"
+    "value": "urn:uuid:00000000-0000-4000-0000-000000000001"
   },
   "type": "collection",
   "timestamp": "2024-12-25T00:00:00.000000+00:00",
@@ -82,7 +82,7 @@
               ]
             },
             "party": {
-              "reference": "Organization/FAKE-UUID"
+              "reference": "Organization/00000000-0000-4000-0000-000000000002"
             }
           }
         ],
@@ -104,7 +104,7 @@
         ],
         "recruitment": {
           "eligibility": {
-            "reference": "Group/FAKE-UUID"
+            "reference": "Group/00000000-0000-4000-0000-000000000003"
           }
         }
       }
@@ -113,7 +113,7 @@
       "fullUrl": "https://www.example.com/Composition/1234X1",
       "resource": {
         "resourceType": "Group",
-        "id": "FAKE-UUID",
+        "id": "00000000-0000-4000-0000-000000000003",
         "extension": [
           {
             "url": "http://hl7.org/fhir/6.0/StructureDefinition/extension-Group.combinationMethod",

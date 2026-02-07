@@ -5,8 +5,14 @@ def fix_uuid(text):
     refs = re.findall(
         r"[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}", text
     )
+    seen = {}
+    counter = 0
     for ref in refs:
-        text = text.replace(ref, "FAKE-UUID")
+        if ref not in seen:
+            counter += 1
+            seen[ref] = f"00000000-0000-4000-0000-{counter:012d}"
+    for original, replacement in seen.items():
+        text = text.replace(original, replacement)
     return text
 
 

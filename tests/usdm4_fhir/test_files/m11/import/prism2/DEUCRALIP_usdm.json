@@ -1,6 +1,6 @@
 {
   "study": {
-    "id": "FAKE-UUID",
+    "id": "00000000-0000-4000-0000-000000000001",
     "name": "DEUCRALIP",
     "description": "FHIR Imported DEUCRALIP",
     "label": "DEUCRALIP",

@@ -10,23 +10,98 @@
   type: ''
 - level: Info
   location: {}
+  message: Sponsor org found
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
   message: 'Extracted identifier of type ''Amendment Identifier'': ''1.1'''
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location: {}
-  message: 'Amendment extract {''identifier'': ''1.1'', ''scope'': '''', ''enrollment'':
-    {''value'': 0, ''unit'': ''''}, ''reasons'': {''primary'': '''', ''secondary'':
-    ''''}, ''summary'': '''', ''impact'': {''safety_and_rights'': {''safety'': {''substantial'':
-    False, ''reason'': ''''}, ''rights'': {''substantial'': False, ''reason'': ''''}},
-    ''reliability_and_robustness'': {''reliability'': {''substantial'': False, ''reason'':
-    ''''}, ''robustness'': {''substantial'': False, ''reason'': ''''}}}, ''changes'':
-    []}'
+  message: Co sponsor org not found
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Warning
   location: {}
-  message: Failed to extract identifier of type 'C218685'
+  message: Unable to extract co-sponsor details from associated parties
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Local sponsor org not found
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Unable to extract local sponsor details from associated parties
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Device manufacturer sponsor org not found
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Unable to extract device manufacturer details from associated parties
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Scope extracted {''global'': False, ''countries'': [''USA''], ''regions'':
+    [], ''sites'': [], ''Not known'': []}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Impact extracted {''safety_and_rights'': {''safety'': {''substantial'':
+    False, ''reason'': ''''}, ''rights'': {''substantial'': False, ''reason'': ''''}},
+    ''reliability_and_robustness'': {''reliability'': {''substantial'': False, ''reason'':
+    ''''}, ''robustness'': {''substantial'': False, ''reason'': ''''}}}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Amendment extract {''identifier'': ''1.1'', ''scope'': {''global'': False,
+    ''countries'': [''USA''], ''regions'': [], ''sites'': [], ''Not known'': []},
+    ''enrollment'': {''value'': 0, ''unit'': ''''}, ''reasons'': {''primary'': ''Primary:
+    Other'', ''secondary'': ''Secondary: Not Applicable''}, ''summary'': ''This is
+    a nonsubstantial amendment.amuuuSummStnent ementmmdmentmddndndmendment Summary'',
+    ''impact'': {''safety_and_rights'': {''safety'': {''substantial'': False, ''reason'':
+    ''''}, ''rights'': {''substantial'': False, ''reason'': ''''}}, ''reliability_and_robustness'':
+    {''reliability'': {''substantial'': False, ''reason'': ''''}, ''robustness'':
+    {''substantial'': False, ''reason'': ''''}}}, ''changes'': [{''description'':
+    ''Update screening language: \nEdit the rescreening language'', ''rationale'':
+    ''To allow for the repeat of screening assessments within the screening window
+    or to allow a subject to rescreen once for the study. Due to the nature of the
+    participant population and the study design, subject safety and data integrity
+    will not be impacted'', ''section'': ''Section 5''}, {''description'': ''Clarify
+    inclusion and exclusion criteria: \nMove exclusion criterion 18 to the inclusion
+    criteria and clarify the CYP450 enzymes that are excluded for exclusion criterion
+    19.'', ''rationale'': ''Previous exclusion 18 should be answered affirmatively
+    in order for the subject to be eligible for participation; as a result, this exclusion
+    should be listed as an inclusion. Exclusion 19 excluded all inducers of metabolism;
+    however, after consideration, it is only necessary to exclude inducers of CYP3A4.'',
+    ''section'': ''Section 5''}, {''description'': ''Clarify procedure for continuous
+    end tidal CO2:\nAdd clarification that subjects may remove cannula to dose or
+    eat'', ''rationale'': ''The timepoints overlap for the collection of end tidal
+    CO2 and it would not be possible for the subject to dose or eat with the cannula
+    in place.'', ''section'': ''Section 7''}, {''description'': ''Lower the respiratory
+    rate alarm for continuous end tidal CO2 alarms: \nThe alarm for respiratory rate
+    low was 10 bpm and is now 6 bpm.'', ''rationale'': ''Generally, respiratory rates
+    between 6 and 10 are not clinically relevant. A low respiratory rate alarm of
+    6 will allow a more accurate clinical determination of a true signal.'', ''section'':
+    ''Section 7''}, {''description'': ''Edit Spot CO2 respiratory rate values: \nThe
+    spot values are lowered to start at > 24, and continue with increments of 4 bpm:
+    >28, >32, and >36.'', ''rationale'': ''This change is made to align with the protocol,
+    Table 7, alarm values.'', ''section'': ''Section 9''}]}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Extracted identifier of type ''FDA IND Number'': ''IND 146215'''
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Warning
@@ -43,17 +118,35 @@
   location:
     class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
     method_name: _create_address
-  message: 'Creating address, source data: {''lines'': [''Global Development Inc.'',
-    ''1 Astellas Way Northbrook, IL 60062, US''], ''text'': ''Global Development Inc.,
-    1 Astellas Way Northbrook, IL 60062, US''}'
+  message: 'Creating address, source data: {''city'': ''Northbrook'', ''country'':
+    ''United States of America'', ''lines'': [''1 Astellas Way''], ''postalCode'':
+    ''60062'', ''state'': ''IL'', ''text'': ''1 Astellas Way, Northbrook, IL, 60062,
+    United States of America''}'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location:
     class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
     method_name: _create_address
-  message: Address set to Global Development Inc., 1 Astellas Way Northbrook, IL 60062,
-    US
+  message: Address set to 1 Astellas Way, Northbrook, IL, 60062, United States of
+    America
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: 'Creating address, source data: {''lines'': [''10903 New Hampshire Ave''],
+    ''city'': ''Silver Spring'', ''district'': '''', ''state'': ''MD'', ''postalCode'':
+    ''20903'', ''country'': ''USA''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: Address set to 10903 New Hampshire Ave, Silver Spring, MD, 20903, United
+    States of America
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
@@ -65,59 +158,122 @@
   type: ''
 - level: Info
   location: {}
-  message: 'Amendment assembler source data {''identifier'': ''1.1'', ''scope'': '''',
-    ''enrollment'': {''value'': 0, ''unit'': ''''}, ''reasons'': {''primary'': '''',
-    ''secondary'': ''''}, ''summary'': '''', ''impact'': {''safety_and_rights'': {''safety'':
-    {''substantial'': False, ''reason'': ''''}, ''rights'': {''substantial'': False,
-    ''reason'': ''''}}, ''reliability_and_robustness'': {''reliability'': {''substantial'':
-    False, ''reason'': ''''}, ''robustness'': {''substantial'': False, ''reason'':
-    ''''}}}, ''changes'': []}'
-  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
-  type: ''
-- level: Warning
-  location:
-    class_name: usdm4.encoder.encoder.Encoder
-    method_name: amendment_reason
-  message: Amendment reason not decoded, missing text
-  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
-  type: ''
-- level: Warning
-  location:
-    class_name: usdm4.encoder.encoder.Encoder
-    method_name: amendment_reason
-  message: Amendment reason not decoded, missing text
+  message: 'Amendment assembler source data {''identifier'': ''1.1'', ''scope'': {''global'':
+    False, ''countries'': [''USA''], ''regions'': [], ''sites'': [], ''Not known'':
+    []}, ''enrollment'': {''value'': 0, ''unit'': ''''}, ''reasons'': {''primary'':
+    ''Primary: Other'', ''secondary'': ''Secondary: Not Applicable''}, ''summary'':
+    ''This is a nonsubstantial amendment.amuuuSummStnent ementmmdmentmddndndmendment
+    Summary'', ''impact'': {''safety_and_rights'': {''safety'': {''substantial'':
+    False, ''reason'': ''''}, ''rights'': {''substantial'': False, ''reason'': ''''}},
+    ''reliability_and_robustness'': {''reliability'': {''substantial'': False, ''reason'':
+    ''''}, ''robustness'': {''substantial'': False, ''reason'': ''''}}}, ''changes'':
+    [{''description'': ''Update screening language: \nEdit the rescreening language'',
+    ''rationale'': ''To allow for the repeat of screening assessments within the screening
+    window or to allow a subject to rescreen once for the study. Due to the nature
+    of the participant population and the study design, subject safety and data integrity
+    will not be impacted'', ''section'': ''Section 5''}, {''description'': ''Clarify
+    inclusion and exclusion criteria: \nMove exclusion criterion 18 to the inclusion
+    criteria and clarify the CYP450 enzymes that are excluded for exclusion criterion
+    19.'', ''rationale'': ''Previous exclusion 18 should be answered affirmatively
+    in order for the subject to be eligible for participation; as a result, this exclusion
+    should be listed as an inclusion. Exclusion 19 excluded all inducers of metabolism;
+    however, after consideration, it is only necessary to exclude inducers of CYP3A4.'',
+    ''section'': ''Section 5''}, {''description'': ''Clarify procedure for continuous
+    end tidal CO2:\nAdd clarification that subjects may remove cannula to dose or
+    eat'', ''rationale'': ''The timepoints overlap for the collection of end tidal
+    CO2 and it would not be possible for the subject to dose or eat with the cannula
+    in place.'', ''section'': ''Section 7''}, {''description'': ''Lower the respiratory
+    rate alarm for continuous end tidal CO2 alarms: \nThe alarm for respiratory rate
+    low was 10 bpm and is now 6 bpm.'', ''rationale'': ''Generally, respiratory rates
+    between 6 and 10 are not clinically relevant. A low respiratory rate alarm of
+    6 will allow a more accurate clinical determination of a true signal.'', ''section'':
+    ''Section 7''}, {''description'': ''Edit Spot CO2 respiratory rate values: \nThe
+    spot values are lowered to start at > 24, and continue with increments of 4 bpm:
+    >28, >32, and >36.'', ''rationale'': ''This change is made to align with the protocol,
+    Table 7, alarm values.'', ''section'': ''Section 9''}]}'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
-  location:
-    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
-    method_name: _create_amendment_impact
-  message: 'Creating amendment impacts using {''safety_and_rights'': {''safety'':
-    {''substantial'': False, ''reason'': ''''}, ''rights'': {''substantial'': False,
-    ''reason'': ''''}}, ''reliability_and_robustness'': {''reliability'': {''substantial'':
-    False, ''reason'': ''''}, ''robustness'': {''substantial'': False, ''reason'':
-    ''''}}}'
+  location: {}
+  message: Amendment reason 'Other' decoded as 'C17649', 'Other'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
-  location:
-    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
-    method_name: _create_scope
-  message: Created scope of type Global
+  location: {}
+  message: Amendment reason 'Not Applicable' decoded as 'C48660', 'Not Applicable'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Error
   location:
     class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
-    method_name: _create_scopes
-  message: Empty scope found
+    method_name: execute
+  message: "Failed during creation of amendments\n\nDetails\n'unknown'\n\nTraceback\n\
+    \  /Users/daveih/Documents/github/usdm4_fhir/.venv/bin/pytest, line 8, in <module>\n\
+    \    sys.exit(console_main())\n  _pytest/config/__init__.py, line 206, in console_main\n\
+    \    code = main()\n  _pytest/config/__init__.py, line 178, in main\n    ret:\
+    \ Union[ExitCode, int] = config.hook.pytest_cmdline_main(\n  pluggy/_hooks.py,\
+    \ line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(),\
+    \ kwargs, firstresult)\n  pluggy/_manager.py, line 120, in _hookexec\n    return\
+    \ self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  pluggy/_callers.py,\
+    \ line 121, in _multicall\n    res = hook_impl.function(*args)\n  _pytest/main.py,\
+    \ line 332, in pytest_cmdline_main\n    return wrap_session(config, _main)\n \
+    \ _pytest/main.py, line 285, in wrap_session\n    session.exitstatus = doit(config,\
+    \ session) or 0\n  _pytest/main.py, line 339, in _main\n    config.hook.pytest_runtestloop(session=session)\n\
+    \  pluggy/_hooks.py, line 512, in __call__\n    return self._hookexec(self.name,\
+    \ self._hookimpls.copy(), kwargs, firstresult)\n  pluggy/_manager.py, line 120,\
+    \ in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n\
+    \  pluggy/_callers.py, line 121, in _multicall\n    res = hook_impl.function(*args)\n\
+    \  _pytest/main.py, line 364, in pytest_runtestloop\n    item.config.hook.pytest_runtest_protocol(item=item,\
+    \ nextitem=nextitem)\n  pluggy/_hooks.py, line 512, in __call__\n    return self._hookexec(self.name,\
+    \ self._hookimpls.copy(), kwargs, firstresult)\n  pluggy/_manager.py, line 120,\
+    \ in _hookexec\n    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n\
+    \  pluggy/_callers.py, line 121, in _multicall\n    res = hook_impl.function(*args)\n\
+    \  _pytest/runner.py, line 116, in pytest_runtest_protocol\n    runtestprotocol(item,\
+    \ nextitem=nextitem)\n  _pytest/runner.py, line 135, in runtestprotocol\n    reports.append(call_and_report(item,\
+    \ \"call\", log))\n  _pytest/runner.py, line 240, in call_and_report\n    call\
+    \ = CallInfo.from_call(\n  _pytest/runner.py, line 341, in from_call\n    result:\
+    \ Optional[TResult] = func()\n  _pytest/runner.py, line 241, in <lambda>\n   \
+    \ lambda: runtest_hook(item=item, **kwds), when=when, reraise=reraise\n  pluggy/_hooks.py,\
+    \ line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(),\
+    \ kwargs, firstresult)\n  pluggy/_manager.py, line 120, in _hookexec\n    return\
+    \ self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  pluggy/_callers.py,\
+    \ line 121, in _multicall\n    res = hook_impl.function(*args)\n  _pytest/runner.py,\
+    \ line 173, in pytest_runtest_call\n    item.runtest()\n  _pytest/python.py, line\
+    \ 1632, in runtest\n    self.ihook.pytest_pyfunc_call(pyfuncitem=self)\n  pluggy/_hooks.py,\
+    \ line 512, in __call__\n    return self._hookexec(self.name, self._hookimpls.copy(),\
+    \ kwargs, firstresult)\n  pluggy/_manager.py, line 120, in _hookexec\n    return\
+    \ self._inner_hookexec(hook_name, methods, kwargs, firstresult)\n  pluggy/_callers.py,\
+    \ line 121, in _multicall\n    res = hook_impl.function(*args)\n  anyio/pytest_plugin.py,\
+    \ line 160, in pytest_pyfunc_call\n    runner.run_test(pyfuncitem.obj, testargs)\n\
+    \  anyio/_backends/_asyncio.py, line 2279, in run_test\n    self.get_loop().run_until_complete(\n\
+    \  /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py,\
+    \ line 674, in run_until_complete\n    self.run_forever()\n  /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py,\
+    \ line 641, in run_forever\n    self._run_once()\n  /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/base_events.py,\
+    \ line 1987, in _run_once\n    handle._run()\n  /Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/asyncio/events.py,\
+    \ line 88, in _run\n    self._context.run(self._callback, *self._args)\n  anyio/_backends/_asyncio.py,\
+    \ line 2206, in _run_tests_and_fixtures\n    retval = await coro\n  /Users/daveih/Documents/github/usdm4_fhir/tests/usdm4_fhir/m11/test_m11_integration.py,\
+    \ line 180, in test_from_fhir_prism3_asp8062\n    await _run_test_from_prism3(\"\
+    ASP8062\", SAVE)\n  /Users/daveih/Documents/github/usdm4_fhir/tests/usdm4_fhir/m11/test_m11_integration.py,\
+    \ line 92, in _run_test_from_prism3\n    await _run_from_test(name, \"prism3\"\
+    , \"import\", save)\n  /Users/daveih/Documents/github/usdm4_fhir/tests/usdm4_fhir/m11/test_m11_integration.py,\
+    \ line 98, in _run_from_test\n    wrapper: Wrapper = await instance.from_message(\n\
+    \  File \"src/usdm4_fhir/m11/import_/import_prism3.py\", line 48, in from_message\n\
+    \    self._assembler.execute(self._source_data)\n  usdm4/assembler/assembler.py,\
+    \ line 115, in execute\n    self._amendments_assembler.execute(\n  usdm4/assembler/amendments_assembler.py,\
+    \ line 68, in execute\n    self._amendment = self._create_amendment(data)\n  usdm4/assembler/amendments_assembler.py,\
+    \ line 116, in _create_amendment\n    self._errors.exception(\"Failed during creation\
+    \ of amendments\", e, location)\nTraceback (most recent call last):\n  usdm4/assembler/amendments_assembler.py,\
+    \ line 100, in _create_amendment\n    geo_scopes, site_scopes = self._create_scopes(data)\n\
+    \                              ^^^^^^^^^^^^^^^^^^^^^^^^^\n  usdm4/assembler/amendments_assembler.py,\
+    \ line 316, in _create_scopes\n    for part in scope[\"unknown\"]:\n         \
+    \       ~~~~~^^^^^^^^^^^\nKeyError: 'unknown'\n"
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
   location:
     class_name: usdm4.encoder.encoder.Encoder
     method_name: phase
-  message: Trial phase 'I' decoded as 'C15600', 'Phase 1', using M11 decode
+  message: Trial phase '1' decoded as 'C15600', 'Phase 1', using M11 decode
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info

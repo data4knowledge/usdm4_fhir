@@ -156,16 +156,22 @@ class ImportPRISM3:
                         }
                     ],
                     "roles": {
-                        "co_sponsor": self._extract_co_sponsor(research_study.associatedParty, bundle),
-                        "local_sponsor": self._extract_local_sponsor(research_study.associatedParty, bundle),
-                        "device_manufacturer": self._extract_device_manufacturer(research_study.associatedParty, bundle),
+                        "co_sponsor": self._extract_co_sponsor(
+                            research_study.associatedParty, bundle
+                        ),
+                        "local_sponsor": self._extract_local_sponsor(
+                            research_study.associatedParty, bundle
+                        ),
+                        "device_manufacturer": self._extract_device_manufacturer(
+                            research_study.associatedParty, bundle
+                        ),
                     },
                     "other": {
-                        "regulatory_agency_identifiers": "",    # <<<<<
-                        "sponsor_signatory": "",                # <<<<<
-                        "medical_expert": "",                   # <<<<<
-                        "compound_codes": "",                   # <<<<<
-                        "compound_names": "",                   # <<<<<
+                        "regulatory_agency_identifiers": "",  # <<<<<
+                        "sponsor_signatory": "",  # <<<<<
+                        "medical_expert": "",  # <<<<<
+                        "compound_codes": "",  # <<<<<
+                        "compound_names": "",  # <<<<<
                     },
                 },
                 "amendments_summary": {
@@ -263,8 +269,8 @@ class ImportPRISM3:
                             "role": "sponsor",
                             "description": "The sponsor organization",
                             "label": organization.name,
-                            "identifier": "UNKNOWN",
-                            "identifierScheme": "UNKNOWN",
+                            "identifier": "Not known",
+                            "identifierScheme": "Not known",
                             "legalAddress": address,
                         }
                     }
@@ -274,15 +280,18 @@ class ImportPRISM3:
         return {
             "non_standard": {
                 "type": "pharma",
+                "role": "sponsor",
                 "description": "The sponsor organization",
-                "label": "Unknown",
-                "identifier": "UNKNOWN",
-                "identifierScheme": "UNKNOWN",
+                "label": "Not known",
+                "identifier": "Not known",
+                "identifierScheme": "Not known",
                 "legalAddress": None,
             }
         }
 
-    def _extract_co_sponsor(self, assciated_parties: list, bundle: Bundle) -> dict | None:
+    def _extract_co_sponsor(
+        self, assciated_parties: list, bundle: Bundle
+    ) -> dict | None:
         party: ResearchStudyAssociatedParty
         for party in assciated_parties:
             if self._is_co_sponsor(party.role):
@@ -324,7 +333,9 @@ class ImportPRISM3:
         )
         return None
 
-    def _extract_device_manufacturer(self, assciated_parties: list, bundle: Bundle) -> dict:
+    def _extract_device_manufacturer(
+        self, assciated_parties: list, bundle: Bundle
+    ) -> dict:
         party: ResearchStudyAssociatedParty
         for party in assciated_parties:
             if self._is_device_manufacturer(party.role):
@@ -367,22 +378,24 @@ class ImportPRISM3:
 
     def _is_sponsor(self, role: CodeableConcept) -> bool:
         found = self._is_org_role(role, "C70793")
-        self._errors.info(f"Sponsor org {"found" if found else "not found"}")
+        self._errors.info(f"Sponsor org {'found' if found else 'not found'}")
         return found
 
     def _is_co_sponsor(self, role: CodeableConcept) -> bool:
         found = self._is_org_role(role, "C215669")
-        self._errors.info(f"Co sponsor org {"found" if found else "not found"}")
+        self._errors.info(f"Co sponsor org {'found' if found else 'not found'}")
         return found
 
     def _is_local_sponsor(self, role: CodeableConcept) -> bool:
         found = self._is_org_role(role, "C215670")
-        self._errors.info(f"Local sponsor org {"found" if found else "not found"}")
+        self._errors.info(f"Local sponsor org {'found' if found else 'not found'}")
         return found
 
     def _is_device_manufacturer(self, role: CodeableConcept) -> bool:
         found = self._is_org_role(role, "Cnnnnn")
-        self._errors.info(f"Device manufacturer sponsor org {"found" if found else "not found"}")
+        self._errors.info(
+            f"Device manufacturer sponsor org {'found' if found else 'not found'}"
+        )
         return found
 
     def _is_org_role(self, role: CodeableConcept, desired_role: str) -> bool:
@@ -390,7 +403,11 @@ class ImportPRISM3:
             code: Coding = role.coding
             return code[0].code == desired_role
         except Exception as e:
-            self._errors.exception(f"Exception raised detecting sponsor organization in {role}", e, KlassMethodLocation(self.MODULE, "_is_org_role"))
+            self._errors.exception(
+                f"Exception raised detecting sponsor organization in {role}",
+                e,
+                KlassMethodLocation(self.MODULE, "_is_org_role"),
+            )
             return False
 
     def _extract_phase(self, phase: CodeableConcept) -> str:
@@ -506,16 +523,18 @@ class ImportPRISM3:
             "countries": [],
             "regions": [],
             "sites": [],
-            "unknown": [],
+            "Not known": [],
         }
         scope = self._extract_extension(extensions, "scope")
         if scope.valueCode != "C68846":
             result["global"] = False
             result["countries"] = [
-                x.valueCodeableConcept.coding[0].code for x in self._extract_extensions(extensions, "country")
+                x.valueCodeableConcept.coding[0].code
+                for x in self._extract_extensions(extensions, "country")
             ]
             result["regions"] = [
-                x.valueCodeableConcept.coding[0].code for x in self._extract_extensions(extensions, "region")
+                x.valueCodeableConcept.coding[0].code
+                for x in self._extract_extensions(extensions, "region")
             ]
             result["sites"] = [
                 x.valueIdentifier.value
@@ -622,8 +641,6 @@ class ImportPRISM3:
                     "text": section.text.div if section.text else "",
                 }
             )
-            if section.section:
-                results += self._extract_section(section.section)
         return results
 
     def _get_section_number(self, text):

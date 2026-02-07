@@ -59,6 +59,7 @@ class M11(FHIRBase):
     def errors(self) -> Errors:
         return self._errors
 
+
 class SoA(FHIRBase):
     def to_message(
         self, study: Study, timeline_id: str, uuid: str, extra: dict = {}

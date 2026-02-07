@@ -238,7 +238,9 @@ class ResearchStudyFactoryP3(BaseFactory):
             # Local-sponsor Name and Address
             local_sponsor = self._version.local_sponsor_organization()
             if local_sponsor:
-                org = OrganizationFactory(errors=self._errors, organization=local_sponsor)
+                org = OrganizationFactory(
+                    errors=self._errors, organization=local_sponsor
+                )
                 ap = AssociatedPartyFactory(
                     errors=self._errors,
                     party={"reference": f"Organization/{org.item.id}"},
@@ -552,9 +554,6 @@ class ResearchStudyFactoryP3(BaseFactory):
         change: SubjectEnrollment
         for change in source_amendment.enrollments:
             value = change.quantity.value
-            unit = (
-                change.quantity.unit.standardCode.code if change.quantity.unit else None
-            )
             scope = "C68846"  # Globally
             if change.forGeographicScope:
                 if change.forGeographicScope.type.code == "C68846":

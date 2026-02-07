@@ -523,7 +523,7 @@ class ImportPRISM3:
             "countries": [],
             "regions": [],
             "sites": [],
-            "Not known": [],
+            "unknown": [],
         }
         scope = self._extract_extension(extensions, "scope")
         if scope.valueCode != "C68846":

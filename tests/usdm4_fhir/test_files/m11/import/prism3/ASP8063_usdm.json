@@ -36,7 +36,7 @@
             "label": null,
             "description": null,
             "type": {
-              "id": "Code_53",
+              "id": "Code_60",
               "extensionAttributes": [],
               "code": "C71476",
               "codeSystem": "http://www.cdisc.org",
@@ -47,10 +47,10 @@
             "dateValue": "2020-07-30",
             "geographicScopes": [
               {
-                "id": "GeographicScope_2",
+                "id": "GeographicScope_4",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_54",
+                  "id": "Code_61",
                   "extensionAttributes": [],
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
@@ -100,7 +100,290 @@
             "instanceType": "GovernanceDate"
           }
         ],
-        "amendments": [],
+        "amendments": [
+          {
+            "id": "StudyAmendment_1",
+            "extensionAttributes": [],
+            "name": "AMENDMENT 1",
+            "label": null,
+            "description": null,
+            "number": "1.1",
+            "summary": "This is a nonsubstantial amendment.amuuuSummStnent ementmmdmentmddndndmendment Summary",
+            "primaryReason": {
+              "id": "StudyAmendmentReason_1",
+              "extensionAttributes": [],
+              "code": {
+                "id": "Code_49",
+                "extensionAttributes": [],
+                "code": "C17649",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2025-09-26",
+                "decode": "Other",
+                "instanceType": "Code"
+              },
+              "otherReason": "",
+              "instanceType": "StudyAmendmentReason"
+            },
+            "secondaryReasons": [
+              {
+                "id": "StudyAmendmentReason_2",
+                "extensionAttributes": [],
+                "code": {
+                  "id": "Code_50",
+                  "extensionAttributes": [],
+                  "code": "C48660",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Not Applicable",
+                  "instanceType": "Code"
+                },
+                "otherReason": "",
+                "instanceType": "StudyAmendmentReason"
+              }
+            ],
+            "changes": [
+              {
+                "id": "StudyChange_1",
+                "extensionAttributes": [],
+                "name": "CHANGE_1",
+                "label": null,
+                "description": null,
+                "summary": "Update screening language: \nEdit the rescreening language",
+                "rationale": "To allow for the repeat of screening assessments within the screening window or to allow a subject to rescreen once for the study. Due to the nature of the participant population and the study design, subject safety and data integrity will not be impacted",
+                "changedSections": [
+                  {
+                    "id": "DocumentContentReference_1",
+                    "extensionAttributes": [],
+                    "sectionNumber": "5",
+                    "sectionTitle": "",
+                    "appliesToId": "StudyDefinitionDocument_1",
+                    "instanceType": "DocumentContentReference"
+                  }
+                ],
+                "instanceType": "StudyChange"
+              },
+              {
+                "id": "StudyChange_2",
+                "extensionAttributes": [],
+                "name": "CHANGE_2",
+                "label": null,
+                "description": null,
+                "summary": "Clarify inclusion and exclusion criteria: \nMove exclusion criterion 18 to the inclusion criteria and clarify the CYP450 enzymes that are excluded for exclusion criterion 19.",
+                "rationale": "Previous exclusion 18 should be answered affirmatively in order for the subject to be eligible for participation; as a result, this exclusion should be listed as an inclusion. Exclusion 19 excluded all inducers of metabolism; however, after consideration, it is only necessary to exclude inducers of CYP3A4.",
+                "changedSections": [
+                  {
+                    "id": "DocumentContentReference_2",
+                    "extensionAttributes": [],
+                    "sectionNumber": "5",
+                    "sectionTitle": "",
+                    "appliesToId": "StudyDefinitionDocument_1",
+                    "instanceType": "DocumentContentReference"
+                  }
+                ],
+                "instanceType": "StudyChange"
+              },
+              {
+                "id": "StudyChange_3",
+                "extensionAttributes": [],
+                "name": "CHANGE_3",
+                "label": null,
+                "description": null,
+                "summary": "Clarify procedure for continuous end tidal CO2:\nAdd clarification that subjects may remove cannula to dose or eat",
+                "rationale": "The timepoints overlap for the collection of end tidal CO2 and it would not be possible for the subject to dose or eat with the cannula in place.",
+                "changedSections": [
+                  {
+                    "id": "DocumentContentReference_3",
+                    "extensionAttributes": [],
+                    "sectionNumber": "7",
+                    "sectionTitle": "",
+                    "appliesToId": "StudyDefinitionDocument_1",
+                    "instanceType": "DocumentContentReference"
+                  }
+                ],
+                "instanceType": "StudyChange"
+              },
+              {
+                "id": "StudyChange_4",
+                "extensionAttributes": [],
+                "name": "CHANGE_4",
+                "label": null,
+                "description": null,
+                "summary": "Lower the respiratory rate alarm for continuous end tidal CO2 alarms: \nThe alarm for respiratory rate low was 10 bpm and is now 6 bpm.",
+                "rationale": "Generally, respiratory rates between 6 and 10 are not clinically relevant. A low respiratory rate alarm of 6 will allow a more accurate clinical determination of a true signal.",
+                "changedSections": [
+                  {
+                    "id": "DocumentContentReference_4",
+                    "extensionAttributes": [],
+                    "sectionNumber": "7",
+                    "sectionTitle": "",
+                    "appliesToId": "StudyDefinitionDocument_1",
+                    "instanceType": "DocumentContentReference"
+                  }
+                ],
+                "instanceType": "StudyChange"
+              },
+              {
+                "id": "StudyChange_5",
+                "extensionAttributes": [],
+                "name": "CHANGE_5",
+                "label": null,
+                "description": null,
+                "summary": "Edit Spot CO2 respiratory rate values: \nThe spot values are lowered to start at > 24, and continue with increments of 4 bpm: >28, >32, and >36.",
+                "rationale": "This change is made to align with the protocol, Table 7, alarm values.",
+                "changedSections": [
+                  {
+                    "id": "DocumentContentReference_5",
+                    "extensionAttributes": [],
+                    "sectionNumber": "9",
+                    "sectionTitle": "",
+                    "appliesToId": "StudyDefinitionDocument_1",
+                    "instanceType": "DocumentContentReference"
+                  }
+                ],
+                "instanceType": "StudyChange"
+              }
+            ],
+            "impacts": [
+              {
+                "id": "StudyAmendmentImpact_1",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_53",
+                  "extensionAttributes": [],
+                  "code": "C215665",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Study Subject Safety",
+                  "instanceType": "Code"
+                },
+                "text": "",
+                "isSubstantial": false,
+                "notes": [],
+                "instanceType": "StudyAmendmentImpact"
+              },
+              {
+                "id": "StudyAmendmentImpact_2",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_54",
+                  "extensionAttributes": [],
+                  "code": "C215666",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Study Subject Rights",
+                  "instanceType": "Code"
+                },
+                "text": "",
+                "isSubstantial": false,
+                "notes": [],
+                "instanceType": "StudyAmendmentImpact"
+              },
+              {
+                "id": "StudyAmendmentImpact_3",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_55",
+                  "extensionAttributes": [],
+                  "code": "C215667",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Study Data Reliability",
+                  "instanceType": "Code"
+                },
+                "text": "",
+                "isSubstantial": false,
+                "notes": [],
+                "instanceType": "StudyAmendmentImpact"
+              },
+              {
+                "id": "StudyAmendmentImpact_4",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_56",
+                  "extensionAttributes": [],
+                  "code": "C215668",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Study Data Robustness",
+                  "instanceType": "Code"
+                },
+                "text": "",
+                "isSubstantial": false,
+                "notes": [],
+                "instanceType": "StudyAmendmentImpact"
+              }
+            ],
+            "geographicScopes": [
+              {
+                "id": "GeographicScope_2",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_51",
+                  "extensionAttributes": [],
+                  "code": "C25464",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "decode": "Country",
+                  "instanceType": "Code"
+                },
+                "code": {
+                  "id": "AliasCode_1",
+                  "extensionAttributes": [],
+                  "standardCode": {
+                    "id": "Code_52",
+                    "extensionAttributes": [],
+                    "code": "USA",
+                    "codeSystem": "ISO 3166 1 alpha3",
+                    "codeSystemVersion": "2020-08",
+                    "decode": "United States of America",
+                    "instanceType": "Code"
+                  },
+                  "standardCodeAliases": [],
+                  "instanceType": "AliasCode"
+                },
+                "instanceType": "GeographicScope"
+              }
+            ],
+            "enrollments": [
+              {
+                "id": "SubjectEnrollment_1",
+                "extensionAttributes": [],
+                "name": "ENROLLMENT",
+                "label": null,
+                "description": null,
+                "quantity": {
+                  "id": "Quantity_1",
+                  "extensionAttributes": [],
+                  "value": 0.0,
+                  "unit": null,
+                  "instanceType": "Quantity"
+                },
+                "forGeographicScope": {
+                  "id": "GeographicScope_3",
+                  "extensionAttributes": [],
+                  "type": {
+                    "id": "Code_57",
+                    "extensionAttributes": [],
+                    "code": "C68846",
+                    "codeSystem": "http://www.cdisc.org",
+                    "codeSystemVersion": "2025-09-26",
+                    "decode": "Global",
+                    "instanceType": "Code"
+                  },
+                  "code": null,
+                  "instanceType": "GeographicScope"
+                },
+                "forStudyCohortId": null,
+                "forStudySiteId": null,
+                "instanceType": "SubjectEnrollment"
+              }
+            ],
+            "dateValues": [],
+            "previousId": null,
+            "notes": [],
+            "instanceType": "StudyAmendment"
+          }
+        ],
         "businessTherapeuticAreas": [],
         "studyIdentifiers": [
           {
@@ -128,10 +411,10 @@
             "description": "A study design",
             "studyType": null,
             "studyPhase": {
-              "id": "AliasCode_1",
+              "id": "AliasCode_2",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_52",
+                "id": "Code_59",
                 "extensionAttributes": [],
                 "code": "C15600",
                 "codeSystem": "http://www.cdisc.org",
@@ -964,7 +1247,7 @@
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [],
             "model": {
-              "id": "Code_51",
+              "id": "Code_58",
               "extensionAttributes": [],
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",

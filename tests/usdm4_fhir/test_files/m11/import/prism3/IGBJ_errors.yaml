@@ -51,7 +51,7 @@
 - level: Info
   location: {}
   message: 'Scope extracted {''global'': True, ''countries'': [], ''regions'': [],
-    ''sites'': [], ''Not known'': []}'
+    ''sites'': [], ''unknown'': []}'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
 - level: Info
@@ -67,7 +67,7 @@
 - level: Info
   location: {}
   message: "Amendment extract {'identifier': 'I8R-JE-IGBJ(a)', 'scope': {'global':\
-    \ True, 'countries': [], 'regions': [], 'sites': [], 'Not known': []}, 'enrollment':\
+    \ True, 'countries': [], 'regions': [], 'sites': [], 'unknown': []}, 'enrollment':\
     \ {'value': 0, 'unit': ''}, 'reasons': {'primary': 'Primary: Other', 'secondary':\
     \ 'Secondary: Other'}, 'summary': 'Protocol I8R-JE-IGBJ A Phase 3 Study of Nasal\
     \ Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment of Insulin-induced\
@@ -167,7 +167,7 @@
 - level: Info
   location: {}
   message: "Amendment assembler source data {'identifier': 'I8R-JE-IGBJ(a)', 'scope':\
-    \ {'global': True, 'countries': [], 'regions': [], 'sites': [], 'Not known': []},\
+    \ {'global': True, 'countries': [], 'regions': [], 'sites': [], 'unknown': []},\
     \ 'enrollment': {'value': 0, 'unit': ''}, 'reasons': {'primary': 'Primary: Other',\
     \ 'secondary': 'Secondary: Other'}, 'summary': 'Protocol I8R-JE-IGBJ A Phase 3\
     \ Study of Nasal Glucagon (LY900018) Compared to Intramuscular Glucagon for Treatment\

@@ -13,6 +13,13 @@
   message: Sponsor org found
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.import_.import_prism3.ImportPRISM3
+    method_name: _to_address
+  message: 'Address: is valid, {''country'': ''Japan'', ''text'': ''Japan''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
 - level: Info
   location: {}
   message: 'Extracted identifier of type ''Amendment Identifier'': ''I8R-JE-IGBJ(a)'''

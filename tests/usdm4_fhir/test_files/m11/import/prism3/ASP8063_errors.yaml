@@ -13,6 +13,15 @@
   message: Sponsor org found
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
   type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.import_.import_prism3.ImportPRISM3
+    method_name: _to_address
+  message: 'Address: is valid, {''city'': ''Northbrook'', ''country'': ''United States
+    of America'', ''lines'': [''1 Astellas Way''], ''postalCode'': ''60062'', ''state'':
+    ''IL'', ''text'': ''1 Astellas Way, Northbrook, IL, 60062, United States of America''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
 - level: Info
   location: {}
   message: 'Extracted identifier of type ''Amendment Identifier'': ''1.1'''

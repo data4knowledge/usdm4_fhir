@@ -1,1 +1,32 @@
-[]
+- level: Debug
+  location:
+    class_name: usdm4_fhir.factory.organization_factory.OrganizationFactory
+    method_name: __init__
+  message: 'Address created: <usdm4_fhir.factory.address_factory.AddressFactory object
+    at 0x115b74a40> from id=''Address_1'' extensionAttributes=[] text=''Lilly Corporate
+    Ctr, Indianapolis, , IN, 4628, United States of America'' lines=[''Lilly Corporate
+    Ctr''] city=''Indianapolis'' district='''' state=''IN'' postalCode=''4628'' country=Code(id=''Code_2'',
+    extensionAttributes=[], code=''USA'', codeSystem=''ISO 3166 1 alpha3'', codeSystemVersion=''2020-08'',
+    decode=''United States of America'', instanceType=''Code'') instanceType=''Address'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.factory.organization_factory.OrganizationFactory
+    method_name: __init__
+  message: 'Organization created: resource_type=''Organization'' fhir_comments=None
+    id=''2421c0ed-17d2-49af-aa92-d6e650949111'' implicitRules=None implicitRules__ext=None
+    language=None language__ext=None meta=None contained=None extension=None modifierExtension=None
+    text=None active=None active__ext=None alias=None alias__ext=None contact=[ExtendedContactDetail(resource_type=''ExtendedContactDetail'',
+    fhir_comments=None, extension=None, id=None, address=Address(resource_type=''Address'',
+    fhir_comments=None, extension=None, id=''Address_1'', city=''Indianapolis'', city__ext=None,
+    country=''United States of America'', country__ext=None, district=None, district__ext=None,
+    line=[''Lilly Corporate Ctr''], line__ext=None, period=None, postalCode=''4628'',
+    postalCode__ext=None, state=''IN'', state__ext=None, text=''Lilly Corporate Ctr,
+    Indianapolis, , IN, 4628, United States of America'', text__ext=None, type=None,
+    type__ext=None, use=None, use__ext=None), name=None, organization=None, period=None,
+    purpose=None, telecom=None)] description=None description__ext=None endpoint=None
+    identifier=None name=''Eli Lilly'' name__ext=None partOf=None qualification=None
+    type=None'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''

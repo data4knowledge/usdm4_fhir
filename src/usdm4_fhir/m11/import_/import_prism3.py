@@ -300,9 +300,11 @@ class ImportPRISM3:
                 )
                 if organization:
                     extended_contact: ExtendedContactDetail = organization.contact[0]
-                    # print(f"Address source: {extended_contact.address.__dict__}")
                     address = self._to_address(extended_contact.address.__dict__)
-                    # print(f"Address dict: {address}")
+                    self._errors.info(
+                        f"Extracted co-sponsor details, {organization.name}, {address}",
+                        KlassMethodLocation(self.MODULE, "_extract_local_sponsor"),
+                    )
                     return {
                         "name": organization.name,
                         "legalAddress": address,
@@ -321,9 +323,11 @@ class ImportPRISM3:
                 )
                 if organization:
                     extended_contact: ExtendedContactDetail = organization.contact[0]
-                    # print(f"Address source: {extended_contact.address.__dict__}")
                     address = self._to_address(extended_contact.address.__dict__)
-                    # print(f"Address dict: {address}")
+                    self._errors.info(
+                        f"Extracted local sponsor details, {organization.name}, {address}",
+                        KlassMethodLocation(self.MODULE, "_extract_local_sponsor"),
+                    )
                     return {
                         "name": organization.name,
                         "legalAddress": address,
@@ -344,12 +348,16 @@ class ImportPRISM3:
                 )
                 if organization:
                     extended_contact: ExtendedContactDetail = organization.contact[0]
-                    # print(f"Address source: {extended_contact.address.__dict__}")
                     address = self._to_address(extended_contact.address.__dict__)
-                    # print(f"Address dict: {address}")
+                    self._errors.info(
+                        f"Extracted device manufacturer details, {organization.name}, {address}",
+                        KlassMethodLocation(
+                            self.MODULE, "_extract_device_manufacturer"
+                        ),
+                    )
                     return {
                         "name": organization.name,
-                        "legalAddress": address,
+                        "address": address,
                     }
         self._errors.warning(
             "Unable to extract device manufacturer details from associated parties"
@@ -373,7 +381,10 @@ class ImportPRISM3:
                 # print(f"KEY: {k}")
                 result[k[1]] = address[k[0]]
                 valid = True
-        # print(f"ADDR: {valid}, {result}")
+        self._errors.debug(
+            f"Address: {'is valid' if valid else 'invalid'}, {result}",
+            KlassMethodLocation(self.MODULE, "_to_address"),
+        )
         return result if valid else None
 
     def _is_sponsor(self, role: CodeableConcept) -> bool:

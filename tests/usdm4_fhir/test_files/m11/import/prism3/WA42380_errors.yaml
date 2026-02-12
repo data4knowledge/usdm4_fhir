@@ -1,0 +1,341 @@
+- level: Info
+  location: {}
+  message: Importing FHIR PRISM3
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Extracted identifier of type ''Sponsor Protocol Identifier'': ''WA42380'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Sponsor org found
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Extracted identifier of type ''Amendment Identifier'': ''3'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Co sponsor org not found
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Unable to extract co-sponsor details from associated parties
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Local sponsor org not found
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Unable to extract local sponsor details from associated parties
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Device manufacturer sponsor org not found
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Unable to extract device manufacturer details from associated parties
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Scope extracted {''global'': True, ''countries'': [], ''regions'': [],
+    ''sites'': [], ''unknown'': []}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Impact extracted {''safety_and_rights'': {''safety'': {''substantial'':
+    False, ''reason'': ''''}, ''rights'': {''substantial'': False, ''reason'': ''''}},
+    ''reliability_and_robustness'': {''reliability'': {''substantial'': False, ''reason'':
+    ''''}, ''robustness'': {''substantial'': False, ''reason'': ''''}}}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Amendment extract {''identifier'': ''3'', ''scope'': {''global'': True,
+    ''countries'': [], ''regions'': [], ''sites'': [], ''unknown'': []}, ''enrollment'':
+    {''value'': 0, ''unit'': ''''}, ''reasons'': {''primary'': ''Primary: Other'',
+    ''secondary'': ''Secondary: Other''}, ''summary'': '''', ''impact'': {''safety_and_rights'':
+    {''safety'': {''substantial'': False, ''reason'': ''''}, ''rights'': {''substantial'':
+    False, ''reason'': ''''}}, ''reliability_and_robustness'': {''reliability'': {''substantial'':
+    False, ''reason'': ''''}, ''robustness'': {''substantial'': False, ''reason'':
+    ''''}}}, ''changes'': [{''description'': ''Additional secondary efficacy endpoint
+    of time to recovery was added'', ''rationale'': ''To facilitate comparison with
+    other trials of treatments for COVID-19'', ''section'': ''''}, {''description'':
+    ''Text on the sample size and power calculation was updated to incorporate the
+    increased enrollment target to maintain 90% power for the primary endpoint, as
+    described in the SAP'', ''rationale'': ''The potential for an increase in enrollment
+    was included in Version 2 of the protocol, and the confirmation of increased enrollment
+    was communicated to sites, Agencies, and ethics committees in the week of 4 May
+    2020.'', ''section'': ''''}, {''description'': ''Geographic stratification factors
+    were updated'', ''rationale'': ''To address the inclusion of only North American
+    and Europe because no sites outside of these regions were included in the study'',
+    ''section'': ''''}, {''description'': ''Text on the reporting of pregnancies in
+    partner of male patients was removed'', ''rationale'': ''To align with the informed
+    consent form and recommendations for tocilizumab in other indications'', ''section'':
+    ''Section 5''}, {''description'': ''The method of analysis for the primary endpoint
+    was updated'', ''rationale'': ''To utilize a non-parametric method that was determined
+    to be a more appropriate method, as described in the SAP'', ''section'': ''''},
+    {''description'': ''The method of analysis for the secondary endpoint of clinical
+    status at additional timepoints was updated'', ''rationale'': ''To utilize a non-parametric
+    method that was determined to be a more appropriate method, as described in the
+    SAP'', ''section'': ''Section 6''}, {''description'': ''Selected secondary efficacy
+    endpoints were specified as key secondary endpoints'', ''rationale'': ''To address
+    Type I error control, as described in the SAP'', ''section'': ''Section 6''},
+    {''description'': ''For clarity and as described in the SAP, language on the planned
+    interim analyses was updated'', ''rationale'': ''Updated to address the increased
+    enrollment target to maintain 90% power for the primary endpoint and the criteria
+    for not conducting the interim analyses'', ''section'': ''Section 6''}]}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Extracted identifier of type ''FDA IND Number'': ''IND 148225'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Extracted identifier of type ''EU CT Number'': ''2020-001154-22'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Extracted identifier of type ''NCT Number'': ''NCT04320615'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: 'Creating address, source data: {''lines'': [''10903 New Hampshire Ave''],
+    ''city'': ''Silver Spring'', ''district'': '''', ''state'': ''MD'', ''postalCode'':
+    ''20903'', ''country'': ''USA''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: Address set to 10903 New Hampshire Ave, Silver Spring, MD, 20903, United
+    States of America
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: 'Creating address, source data: {''lines'': [''Domenico Scarlattilaan 6''],
+    ''city'': ''Amsterdam'', ''district'': '''', ''state'': '''', ''postalCode'':
+    ''1083 HS'', ''country'': ''NL''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: Address set to Domenico Scarlattilaan 6, Amsterdam, 1083 HS, Netherlands
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: 'Creating address, source data: {''lines'': [''National Library of Medicine'',
+    ''8600 Rockville Pike''], ''city'': ''Bethesda'', ''district'': '''', ''state'':
+    ''MD'', ''postalCode'': ''20894'', ''country'': ''USA''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: Address set to National Library of Medicine, 8600 Rockville Pike, Bethesda,
+    MD, 20894, United States of America
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location:
+    class_name: usdm4.assembler.document_assembler.DocumentAssembler
+    method_name: _create_date
+  message: No document approval date detected
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.encoder.encoder.Encoder
+    method_name: document_status
+  message: Document status 'FINAL' decoded as 'C25508', 'Final'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Amendment assembler source data {''identifier'': ''3'', ''scope'': {''global'':
+    True, ''countries'': [], ''regions'': [], ''sites'': [], ''unknown'': []}, ''enrollment'':
+    {''value'': 0, ''unit'': ''''}, ''reasons'': {''primary'': ''Primary: Other'',
+    ''secondary'': ''Secondary: Other''}, ''summary'': '''', ''impact'': {''safety_and_rights'':
+    {''safety'': {''substantial'': False, ''reason'': ''''}, ''rights'': {''substantial'':
+    False, ''reason'': ''''}}, ''reliability_and_robustness'': {''reliability'': {''substantial'':
+    False, ''reason'': ''''}, ''robustness'': {''substantial'': False, ''reason'':
+    ''''}}}, ''changes'': [{''description'': ''Additional secondary efficacy endpoint
+    of time to recovery was added'', ''rationale'': ''To facilitate comparison with
+    other trials of treatments for COVID-19'', ''section'': ''''}, {''description'':
+    ''Text on the sample size and power calculation was updated to incorporate the
+    increased enrollment target to maintain 90% power for the primary endpoint, as
+    described in the SAP'', ''rationale'': ''The potential for an increase in enrollment
+    was included in Version 2 of the protocol, and the confirmation of increased enrollment
+    was communicated to sites, Agencies, and ethics committees in the week of 4 May
+    2020.'', ''section'': ''''}, {''description'': ''Geographic stratification factors
+    were updated'', ''rationale'': ''To address the inclusion of only North American
+    and Europe because no sites outside of these regions were included in the study'',
+    ''section'': ''''}, {''description'': ''Text on the reporting of pregnancies in
+    partner of male patients was removed'', ''rationale'': ''To align with the informed
+    consent form and recommendations for tocilizumab in other indications'', ''section'':
+    ''Section 5''}, {''description'': ''The method of analysis for the primary endpoint
+    was updated'', ''rationale'': ''To utilize a non-parametric method that was determined
+    to be a more appropriate method, as described in the SAP'', ''section'': ''''},
+    {''description'': ''The method of analysis for the secondary endpoint of clinical
+    status at additional timepoints was updated'', ''rationale'': ''To utilize a non-parametric
+    method that was determined to be a more appropriate method, as described in the
+    SAP'', ''section'': ''Section 6''}, {''description'': ''Selected secondary efficacy
+    endpoints were specified as key secondary endpoints'', ''rationale'': ''To address
+    Type I error control, as described in the SAP'', ''section'': ''Section 6''},
+    {''description'': ''For clarity and as described in the SAP, language on the planned
+    interim analyses was updated'', ''rationale'': ''Updated to address the increased
+    enrollment target to maintain 90% power for the primary endpoint and the criteria
+    for not conducting the interim analyses'', ''section'': ''Section 6''}]}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Amendment reason 'Other' decoded as 'C17649', 'Other'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Amendment reason 'Other' decoded as 'C17649', 'Other'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _create_scope
+  message: Created scope of type Global
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Scopes created in assembler, geo: [GeographicScope(id=''GeographicScope_1'',
+    extensionAttributes=[], type=Code(id=''Code_38'', extensionAttributes=[], code=''C68846'',
+    codeSystem=''http://www.cdisc.org'', codeSystemVersion=''2025-09-26'', decode=''Global'',
+    instanceType=''Code''), code=None, instanceType=''GeographicScope'')], sites:
+    None'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _create_amendment_impact
+  message: 'Creating amendment impacts using {''safety_and_rights'': {''safety'':
+    {''substantial'': False, ''reason'': ''''}, ''rights'': {''substantial'': False,
+    ''reason'': ''''}}, ''reliability_and_robustness'': {''reliability'': {''substantial'':
+    False, ''reason'': ''''}, ''robustness'': {''substantial'': False, ''reason'':
+    ''''}}}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Error
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _extract_section_numer_and_title
+  message: Failed to extract section ref from ''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Error
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _extract_section_numer_and_title
+  message: Failed to extract section ref from ''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Error
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _extract_section_numer_and_title
+  message: Failed to extract section ref from ''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _extract_section_numer_and_title
+  message: 'Extracted section ref from ''Section 5'' -> {''sectionNumber'': ''5'',
+    ''sectionTitle'': '''', ''appliesToId'': ''StudyDefinitionDocument_1'', ''id'':
+    ''DocumentContentReference_1'', ''instanceType'': ''DocumentContentReference''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Error
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _extract_section_numer_and_title
+  message: Failed to extract section ref from ''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _extract_section_numer_and_title
+  message: 'Extracted section ref from ''Section 6'' -> {''sectionNumber'': ''6'',
+    ''sectionTitle'': '''', ''appliesToId'': ''StudyDefinitionDocument_1'', ''id'':
+    ''DocumentContentReference_2'', ''instanceType'': ''DocumentContentReference''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _extract_section_numer_and_title
+  message: 'Extracted section ref from ''Section 6'' -> {''sectionNumber'': ''6'',
+    ''sectionTitle'': '''', ''appliesToId'': ''StudyDefinitionDocument_1'', ''id'':
+    ''DocumentContentReference_3'', ''instanceType'': ''DocumentContentReference''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _extract_section_numer_and_title
+  message: 'Extracted section ref from ''Section 6'' -> {''sectionNumber'': ''6'',
+    ''sectionTitle'': '''', ''appliesToId'': ''StudyDefinitionDocument_1'', ''id'':
+    ''DocumentContentReference_4'', ''instanceType'': ''DocumentContentReference''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.encoder.encoder.Encoder
+    method_name: phase
+  message: Trial phase '3' decoded as 'C15602', 'Phase 3', using M11 decode
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location:
+    class_name: usdm4.assembler.study_assembler.StudyAssembler
+    method_name: _create_date
+  message: No sponsor approval date detected
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.study_assembler.StudyAssembler
+    method_name: _get_study_name_label
+  message: Study name set to 'WA42380'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''

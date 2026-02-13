@@ -20,24 +20,6 @@ def anyio_backend():
 SAVE = True
 
 
-def run_test_to_madrid(name, save=False):
-    version = "madrid"
-    mode = "export"
-    run_to_test(name, version, mode, save)
-
-
-def run_test_to_prism2(name, save=False):
-    version = "prism2"
-    mode = "export"
-    run_to_test(name, version, mode, save)
-
-
-def run_test_to_prism3(name, save=False):
-    version = "prism3"
-    mode = "export"
-    run_to_test(name, version, mode, save)
-
-
 def get_export_instance(study, extra, version):
     if version == "madrid":
         return ExportMadrid(study, extra)
@@ -60,43 +42,35 @@ def get_import_instance(version):
 
 def run_to_test(name, version, mode, save=False):
     filename = f"{name}_usdm.json"
-    contents = json.loads(read_json(_full_path(filename, version, mode)))
+    contents = json.loads(read_json(full_path(filename, version, mode)))
     usdm = USDM4()
     wrapper = usdm.from_json(contents)
     study = wrapper.study
-    extra = read_yaml(_full_path(f"{name}_extra.yaml", version, mode))
+    extra = read_yaml(full_path(f"{name}_extra.yaml", version, mode))
     instance = get_export_instance(study, extra, version)
     result = instance.to_message()
     print(f"ERRORS:\n{instance.errors.dump(0)}")
     result = fix_iso_dates(result)
     result = fix_uuid(result)
     pretty_result = json.dumps(json.loads(result), indent=2)
-    result_filename = f"{name}_fhir_m11.json"
+    result_filename = f"{name}_fhir.json"
     error_filename = f"{name}_errors.yaml"
     if save:
-        write_json(_full_path(result_filename, version, mode), result)
+        write_json(full_path(result_filename, version, mode), result)
         write_yaml(
-            _full_path(error_filename, version, mode), errors_clean_all(instance.errors)
+            full_path(error_filename, version, mode), errors_clean_all(instance.errors)
         )
-    expected = read_json(_full_path(result_filename, version, mode))
+    expected = read_json(full_path(result_filename, version, mode))
     assert pretty_result == expected
-    error_expected = read_yaml(_full_path(error_filename, version, mode))
+    error_expected = read_yaml(full_path(error_filename, version, mode))
     assert errors_clean_all(instance.errors) == error_expected
 
 
-async def _run_test_from_prism2(name, save=False):
-    await _run_from_test(name, "prism2", "import", save)
-
-
-async def _run_test_from_prism3(name, save=False):
-    await _run_from_test(name, "prism3", "import", save)
-
-
-async def _run_from_test(name: str, version: str, mode: str, save: bool = False):
+async def run_from_test(name: str, version: str, mode: str, save: bool = False):
     filename = f"{name}_fhir_m11.json"
     instance = get_import_instance(version)
     wrapper: Wrapper = await instance.from_message(
-        _full_path(filename, version, mode),
+        full_path(filename, version, mode),
     )
     print(f"ERRORS:\n{instance.errors.dump(0)}")
     result = wrapper.to_json()
@@ -105,18 +79,48 @@ async def _run_from_test(name: str, version: str, mode: str, save: bool = False)
     result_filename = f"{name}_usdm.json"
     error_filename = f"{name}_errors.yaml"
     if save:
-        write_json(_full_path(result_filename, version, mode), result)
+        write_json(full_path(result_filename, version, mode), result)
         write_yaml(
-            _full_path(error_filename, version, mode), errors_clean_all(instance.errors)
+            full_path(error_filename, version, mode), errors_clean_all(instance.errors)
         )
-    expected = read_json(_full_path(result_filename, version, mode))
+    expected = read_json(full_path(result_filename, version, mode))
     assert pretty_result == expected
-    error_expected = read_yaml(_full_path(error_filename, version, mode))
+    error_expected = read_yaml(full_path(error_filename, version, mode))
     assert errors_clean_all(instance.errors) == error_expected
 
 
-def _full_path(filename, version, mode):
+def run_test_to_prism2(name, save=False):
+    version = "prism2"
+    mode = "export"
+    run_to_test(name, version, mode, save)
+
+
+def run_test_to_madrid(name, save=False):
+    version = "madrid"
+    mode = "export"
+    run_to_test(name, version, mode, save)
+
+
+def run_test_to_prism3(name, save=False):
+    version = "prism3"
+    mode = "export"
+    run_to_test(name, version, mode, save)
+
+
+async def run_test_from_prism2(name, save=False):
+    await run_from_test(name, "prism2", "import", save)
+
+
+async def run_test_from_prism3(name, save=False):
+    await run_from_test(name, "prism3", "import", save)
+
+
+def full_path(filename, version, mode):
     return f"tests/usdm4_fhir/test_files/m11/{mode}/{version}/{filename}"
+
+
+# TO FHIR TESTS
+# =============
 
 
 def test_to_fhir_prism2_asp8062():
@@ -155,30 +159,35 @@ def test_to_fhir_prism3_igbj():
     run_test_to_prism3("IGBJ", SAVE)
 
 
+# FROM FHIR TESTS
+# ===============
+
+
 @pytest.mark.anyio
 async def test_from_fhir_prism2_asp8062():
-    await _run_test_from_prism2("ASP8062", SAVE)
+    await run_test_from_prism2("ASP8062", SAVE)
 
 
 @pytest.mark.anyio
 async def test_from_fhir_prism2_deucralipP():
-    await _run_test_from_prism2("DEUCRALIP", SAVE)
+    await run_test_from_prism2("DEUCRALIP", SAVE)
 
 
 @pytest.mark.anyio
 async def test_from_fhir_prism2_igbj():
-    await _run_test_from_prism2("IGBJ", SAVE)
+    await run_test_from_prism2("IGBJ", SAVE)
 
 
 @pytest.mark.anyio
 async def test_from_fhir_prism3_igbj():
-    await _run_test_from_prism3("IGBJ", SAVE)
+    await run_test_from_prism3("IGBJ", SAVE)
 
 
 @pytest.mark.anyio
 async def test_from_fhir_prism3_asp8062():
-    await _run_test_from_prism3("ASP8062", SAVE)
+    await run_test_from_prism3("ASP8062", SAVE)
+
 
 @pytest.mark.anyio
 async def test_from_fhir_prism3_wa42380():
-    await _run_test_from_prism3("WA42380", SAVE)
+    await run_test_from_prism3("WA42380", SAVE)

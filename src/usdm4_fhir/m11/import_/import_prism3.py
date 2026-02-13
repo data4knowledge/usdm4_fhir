@@ -453,7 +453,7 @@ class ImportPRISM3:
 
     def _extract_nmpa_identifier(self, identifiers: list) -> str:
         return self._extract_identifier(identifiers, "C218690", "code")
-    
+
     def _extract_who_identifier(self, identifiers: list) -> str:
         return self._extract_identifier(identifiers, "C218689", "code")
 

@@ -277,12 +277,12 @@ class ResearchStudyFactoryP3(BaseFactory):
                     display=type_code.decode,
                 )
                 self.item.identifier.append(
-                        {
-                            "type": {"coding": [identifier_type.item]},
-                            "system": "https://example.org/fda-ind-identifier",
-                            "value": identifier.text,
-                        }
-                    )
+                    {
+                        "type": {"coding": [identifier_type.item]},
+                        "system": "https://example.org/fda-ind-identifier",
+                        "value": identifier.text,
+                    }
+                )
 
             # # Sponsor Approval
             # g_date: GovernanceDate = self._version.approval_date()

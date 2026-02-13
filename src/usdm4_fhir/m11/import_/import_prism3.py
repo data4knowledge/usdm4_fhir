@@ -26,6 +26,14 @@ from usdm4_fhir.__info__ import (
 class ImportPRISM3:
     MODULE = "usdm4_fhir.m11.import_.import_prism3.ImportPRISM3"
     UDP_BASE = "http://hl7.org/fhir/uv/pharmaceutical-research-protocol"
+    REG_IDENTIFIER_METHODS = {
+        "fda-ind": "_extract_fda_ind_identifier",
+        "ema": "_extract_ema_identifier",
+        "jrct": "_extract_jrct_identifier",
+        "nct": "_extract_nct_identifier",
+        "nmpa": "_extract_nmpa_identifier",
+        "who": "_extract_who_identifier",
+    }
 
     class LogicError(Exception):
         pass
@@ -219,19 +227,13 @@ class ImportPRISM3:
                 if is_original_protocol
                 else self._extract_amendment(research_study, amendment_identifier),
             }
-            self._add_regualtory_identifer(
-                self._extract_fda_ind_identifier(research_study.identifier),
-                "fda-ind",
-                result,
-            )
-            self._add_regualtory_identifer(
-                self._extract_ema_identifier(research_study.identifier), "ema", result
-            )
-            self._add_regualtory_identifer(
-                self._extract_nct_identifier(research_study.identifier),
-                "nct",
-                result,
-            )
+
+            # Extract regulatory identifiers
+            for key, method in self.REG_IDENTIFIER_METHODS.items():
+                value = getattr(self, method)(research_study.identifier)
+                self._add_regualtory_identifer(value, key, result)
+
+            # Finish
             return result
         except Exception as e:
             self._errors.exception(
@@ -437,11 +439,23 @@ class ImportPRISM3:
     def _extract_fda_ind_identifier(self, identifiers: list) -> str:
         return self._extract_identifier(identifiers, "C218685", "code")
 
+    def _extract_fda_ide_identifier(self, identifiers: list) -> str:
+        return self._extract_identifier(identifiers, "C218686", "code")
+
     def _extract_ema_identifier(self, identifiers: list) -> str:
         return self._extract_identifier(identifiers, "C218684", "code")
 
+    def _extract_jrct_identifier(self, identifiers: list) -> str:
+        return self._extract_identifier(identifiers, "C218687", "code")
+
     def _extract_nct_identifier(self, identifiers: list) -> str:
         return self._extract_identifier(identifiers, "C172240", "code")
+
+    def _extract_nmpa_identifier(self, identifiers: list) -> str:
+        return self._extract_identifier(identifiers, "C218690", "code")
+    
+    def _extract_who_identifier(self, identifiers: list) -> str:
+        return self._extract_identifier(identifiers, "C218689", "code")
 
     def _extract_amendment_identifier(self, identifiers: list) -> str:
         return self._extract_identifier(identifiers, "C218477", "code")

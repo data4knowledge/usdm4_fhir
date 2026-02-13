@@ -8,6 +8,7 @@ from usdm4.api.study_amendment import StudyAmendment
 from usdm4.api.study_amendment_impact import StudyAmendmentImpact
 from usdm4.api.subject_enrollment import SubjectEnrollment
 from usdm4.api.geographic_scope import GeographicScope
+from usdm4.api.identifier import StudyIdentifier
 from usdm4.api.extension import ExtensionAttribute
 from fhir.resources.researchstudy import ResearchStudy
 from usdm4_fhir.factory.base_factory import BaseFactory
@@ -266,53 +267,22 @@ class ResearchStudyFactoryP3(BaseFactory):
             # Regulatory Agency and CT Registry Identifiers
             identifiers = self._version.regulatory_identifiers()
             identifiers += self._version.registry_identifiers()
+            identifier: StudyIdentifier
             for identifier in identifiers:
-                org = identifier.scoped_by(self._organizations)
-                if org.name == "FDA":
-                    identifier_type = CodingFactory(
-                        errors=self._errors,
-                        system=self.NCI_CODE_SYSTEM,
-                        code="C218685",
-                        display="FDA IND Number",
-                    )
-                    self.item.identifier.append(
+                type_code = identifier.of_type()
+                identifier_type = CodingFactory(
+                    errors=self._errors,
+                    system=self.NCI_CODE_SYSTEM,
+                    code=type_code.code,
+                    display=type_code.decode,
+                )
+                self.item.identifier.append(
                         {
                             "type": {"coding": [identifier_type.item]},
                             "system": "https://example.org/fda-ind-identifier",
                             "value": identifier.text,
                         }
                     )
-                elif org.name == "CT.GOV":
-                    identifier_type = CodingFactory(
-                        errors=self._errors,
-                        system=self.NCI_CODE_SYSTEM,
-                        code="C172240",
-                        display="NCT Number",
-                    )
-                    self.item.identifier.append(
-                        {
-                            "type": {"coding": [identifier_type.item]},
-                            "system": "https://example.org/fda-ind-identifier",
-                            "value": identifier.text,
-                        }
-                    )
-                elif org.name == "EMA":
-                    identifier_type = CodingFactory(
-                        errors=self._errors,
-                        system=self.NCI_CODE_SYSTEM,
-                        code="C218684",
-                        display="EU CT Number",
-                    )
-                    self.item.identifier.append(
-                        {
-                            "type": {"coding": [identifier_type.item]},
-                            "system": "https://example.org/fda-ind-identifier",
-                            "value": identifier.text,
-                        }
-                    )
-                else:
-                    # Ignore for the moment
-                    pass
 
             # # Sponsor Approval
             # g_date: GovernanceDate = self._version.approval_date()

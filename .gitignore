@@ -127,10 +127,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Various files
 .DS_Store
 .vscode/settings.json
 .vscode
+
+# Env files
 .development_env
 .production_env
 .test_env
-test.py

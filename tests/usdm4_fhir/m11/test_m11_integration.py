@@ -123,6 +123,7 @@ def full_path(filename, version, mode):
 # =============
 
 
+# PRISM2
 def test_to_fhir_prism2_asp8062():
     run_test_to_prism2("ASP8062", SAVE)
 
@@ -139,6 +140,7 @@ def test_to_fhir_prism2_pilot():
     run_test_to_prism2("pilot", SAVE)
 
 
+# Madrid
 def test_to_fhir_madrid_asp8062():
     run_test_to_madrid("ASP8062", SAVE)
 
@@ -151,18 +153,32 @@ def test_to_fhir_madrid_pilot():
     run_test_to_madrid("pilot", SAVE)
 
 
+# PRISM3
 def test_to_fhir_prism3_asp8062():
     run_test_to_prism3("ASP8062", SAVE)
 
 
-def test_to_fhir_prism3_igbj():
-    run_test_to_prism3("IGBJ", SAVE)
+def test_to_fhir_prism3_tcbcpt_01():
+    run_test_to_prism3("TCBCPT_01", SAVE)
+
+
+def test_to_fhir_prism3_tcbcpt_02():
+    run_test_to_prism3("TCBCPT_02", SAVE)
+
+
+def test_to_fhir_prism3_tcbcpt_03():
+    run_test_to_prism3("TCBCPT_03", SAVE)
+
+
+def test_to_fhir_prism3_wa42380():
+    run_test_to_prism3("WA42380", SAVE)
 
 
 # FROM FHIR TESTS
 # ===============
 
 
+# PRISM2
 @pytest.mark.anyio
 async def test_from_fhir_prism2_asp8062():
     await run_test_from_prism2("ASP8062", SAVE)
@@ -178,11 +194,7 @@ async def test_from_fhir_prism2_igbj():
     await run_test_from_prism2("IGBJ", SAVE)
 
 
-@pytest.mark.anyio
-async def test_from_fhir_prism3_igbj():
-    await run_test_from_prism3("IGBJ", SAVE)
-
-
+# PRISM3
 @pytest.mark.anyio
 async def test_from_fhir_prism3_asp8062():
     await run_test_from_prism3("ASP8062", SAVE)

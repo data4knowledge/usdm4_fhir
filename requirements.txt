@@ -1,4 +1,4 @@
-usdm4>=0.17.0
+usdm4>=0.18.0
 d4k_ms_base>=0.3.0
 fhir.resources==7.1.0
 pytest==8.2.2

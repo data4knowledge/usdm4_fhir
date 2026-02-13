@@ -15,7 +15,7 @@ setuptools.setup(
     description="A python package for importing and exporting the CDISC TransCelerate USDM, version 4, using Excel",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    install_requires=["usdm4>=0.17.0", "d4k_ms_base>=0.3.0", "openpyxl"],
+    install_requires=["usdm4>=0.18.0", "d4k_ms_base>=0.3.0", "openpyxl"],
     packages=setuptools.find_packages(where="src"),
     package_dir={"": "src"},
     package_data={"usdm4_fhir": []},

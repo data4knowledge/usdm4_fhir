@@ -17,7 +17,7 @@ def anyio_backend():
     return "asyncio"
 
 
-SAVE = False
+SAVE = True
 
 
 def run_test_to_madrid(name, save=False):
@@ -178,3 +178,7 @@ async def test_from_fhir_prism3_igbj():
 @pytest.mark.anyio
 async def test_from_fhir_prism3_asp8062():
     await _run_test_from_prism3("ASP8062", SAVE)
+
+@pytest.mark.anyio
+async def test_from_fhir_prism3_wa42380():
+    await _run_test_from_prism3("WA42380", SAVE)

@@ -17,7 +17,7 @@ def anyio_backend():
     return "asyncio"
 
 
-SAVE = True
+SAVE = False
 
 
 def get_export_instance(study, extra, version):
@@ -67,7 +67,7 @@ def run_to_test(name, version, mode, save=False):
 
 
 async def run_from_test(name: str, version: str, mode: str, save: bool = False):
-    filename = f"{name}_fhir_m11.json"
+    filename = f"{name}_fhir.json"
     instance = get_import_instance(version)
     wrapper: Wrapper = await instance.from_message(
         full_path(filename, version, mode),

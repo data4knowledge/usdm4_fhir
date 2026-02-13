@@ -17,7 +17,7 @@ class AddressFactory(BaseFactory):
                 if v:
                     result[k] = v
             if "lines" in result:
-                result["line"] = result["lines"]
+                result["line"] = [x for x in result["lines"] if x]
                 result.pop("lines")
             if "country" in result:
                 result["country"] = address.country.decode

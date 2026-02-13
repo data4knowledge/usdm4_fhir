@@ -1,0 +1,19 @@
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: 'Warning raised within Soup package, processing ''List the criteria necessary
+    for participation in the trial. Ensure that each criterion can be easily assessed
+    on the basis of measurable data and answered with yes/no responses.''
+
+    Message returned ''The input looks more like a filename than markup. You may want
+    to open this file and pass the filehandle into Beautiful Soup.'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Error
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: __init__
+  message: No amendment, original protocol
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''

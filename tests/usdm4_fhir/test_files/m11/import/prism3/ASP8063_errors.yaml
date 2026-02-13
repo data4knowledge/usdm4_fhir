@@ -1,0 +1,339 @@
+- level: Info
+  location: {}
+  message: Importing FHIR PRISM3
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Extracted identifier of type ''Sponsor Protocol Identifier'': ''8062-CL-2002'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Sponsor org found
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.import_.import_prism3.ImportPRISM3
+    method_name: _to_address
+  message: 'Address: is valid, {''city'': ''Northbrook'', ''country'': ''United States
+    of America'', ''lines'': [''1 Astellas Way''], ''postalCode'': ''60062'', ''state'':
+    ''IL'', ''text'': ''1 Astellas Way, Northbrook, IL, 60062, United States of America''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Extracted identifier of type ''Amendment Identifier'': ''1.1'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Co sponsor org not found
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Unable to extract co-sponsor details from associated parties
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Local sponsor org not found
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Unable to extract local sponsor details from associated parties
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Device manufacturer sponsor org not found
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Unable to extract device manufacturer details from associated parties
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Scope extracted {''global'': False, ''countries'': [''USA''], ''regions'':
+    [], ''sites'': [], ''unknown'': []}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Impact extracted {''safety_and_rights'': {''safety'': {''substantial'':
+    False, ''reason'': ''''}, ''rights'': {''substantial'': False, ''reason'': ''''}},
+    ''reliability_and_robustness'': {''reliability'': {''substantial'': False, ''reason'':
+    ''''}, ''robustness'': {''substantial'': False, ''reason'': ''''}}}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Amendment extract {''identifier'': ''1.1'', ''scope'': {''global'': False,
+    ''countries'': [''USA''], ''regions'': [], ''sites'': [], ''unknown'': []}, ''enrollment'':
+    {''value'': 0, ''unit'': ''''}, ''reasons'': {''primary'': ''Primary: Other'',
+    ''secondary'': ''Secondary: Not Applicable''}, ''summary'': ''This is a nonsubstantial
+    amendment.amuuuSummStnent ementmmdmentmddndndmendment Summary'', ''impact'': {''safety_and_rights'':
+    {''safety'': {''substantial'': False, ''reason'': ''''}, ''rights'': {''substantial'':
+    False, ''reason'': ''''}}, ''reliability_and_robustness'': {''reliability'': {''substantial'':
+    False, ''reason'': ''''}, ''robustness'': {''substantial'': False, ''reason'':
+    ''''}}}, ''changes'': [{''description'': ''Update screening language: \nEdit the
+    rescreening language'', ''rationale'': ''To allow for the repeat of screening
+    assessments within the screening window or to allow a subject to rescreen once
+    for the study. Due to the nature of the participant population and the study design,
+    subject safety and data integrity will not be impacted'', ''section'': ''Section
+    5''}, {''description'': ''Clarify inclusion and exclusion criteria: \nMove exclusion
+    criterion 18 to the inclusion criteria and clarify the CYP450 enzymes that are
+    excluded for exclusion criterion 19.'', ''rationale'': ''Previous exclusion 18
+    should be answered affirmatively in order for the subject to be eligible for participation;
+    as a result, this exclusion should be listed as an inclusion. Exclusion 19 excluded
+    all inducers of metabolism; however, after consideration, it is only necessary
+    to exclude inducers of CYP3A4.'', ''section'': ''Section 5''}, {''description'':
+    ''Clarify procedure for continuous end tidal CO2:\nAdd clarification that subjects
+    may remove cannula to dose or eat'', ''rationale'': ''The timepoints overlap for
+    the collection of end tidal CO2 and it would not be possible for the subject to
+    dose or eat with the cannula in place.'', ''section'': ''Section 7''}, {''description'':
+    ''Lower the respiratory rate alarm for continuous end tidal CO2 alarms: \nThe
+    alarm for respiratory rate low was 10 bpm and is now 6 bpm.'', ''rationale'':
+    ''Generally, respiratory rates between 6 and 10 are not clinically relevant. A
+    low respiratory rate alarm of 6 will allow a more accurate clinical determination
+    of a true signal.'', ''section'': ''Section 7''}, {''description'': ''Edit Spot
+    CO2 respiratory rate values: \nThe spot values are lowered to start at > 24, and
+    continue with increments of 4 bpm: >28, >32, and >36.'', ''rationale'': ''This
+    change is made to align with the protocol, Table 7, alarm values.'', ''section'':
+    ''Section 9''}]}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Extracted identifier of type ''FDA IND Number'': ''IND 146215'''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Failed to extract identifier of type 'C218684'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Failed to extract identifier of type 'C218687'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Failed to extract identifier of type 'C172240'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Failed to extract identifier of type 'C218690'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Failed to extract identifier of type 'C218689'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: 'Creating address, source data: {''city'': ''Northbrook'', ''country'':
+    ''United States of America'', ''lines'': [''1 Astellas Way''], ''postalCode'':
+    ''60062'', ''state'': ''IL'', ''text'': ''1 Astellas Way, Northbrook, IL, 60062,
+    United States of America''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: Address set to 1 Astellas Way, Northbrook, IL, 60062, United States of
+    America
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: 'Creating address, source data: {''lines'': [''10903 New Hampshire Ave''],
+    ''city'': ''Silver Spring'', ''district'': '''', ''state'': ''MD'', ''postalCode'':
+    ''20903'', ''country'': ''USA''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: _create_address
+  message: Address set to 10903 New Hampshire Ave, Silver Spring, MD, 20903, United
+    States of America
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: execute
+  message: Processing co_sponsor, None
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: execute
+  message: Processing local_sponsor, None
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4.assembler.identification_assembler.IdentificationAssembler
+    method_name: execute
+  message: Processing device_manufacturer, None
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.encoder.encoder.Encoder
+    method_name: document_status
+  message: Document status 'FINAL' decoded as 'C25508', 'Final'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Amendment assembler source data {''identifier'': ''1.1'', ''scope'': {''global'':
+    False, ''countries'': [''USA''], ''regions'': [], ''sites'': [], ''unknown'':
+    []}, ''enrollment'': {''value'': 0, ''unit'': ''''}, ''reasons'': {''primary'':
+    ''Primary: Other'', ''secondary'': ''Secondary: Not Applicable''}, ''summary'':
+    ''This is a nonsubstantial amendment.amuuuSummStnent ementmmdmentmddndndmendment
+    Summary'', ''impact'': {''safety_and_rights'': {''safety'': {''substantial'':
+    False, ''reason'': ''''}, ''rights'': {''substantial'': False, ''reason'': ''''}},
+    ''reliability_and_robustness'': {''reliability'': {''substantial'': False, ''reason'':
+    ''''}, ''robustness'': {''substantial'': False, ''reason'': ''''}}}, ''changes'':
+    [{''description'': ''Update screening language: \nEdit the rescreening language'',
+    ''rationale'': ''To allow for the repeat of screening assessments within the screening
+    window or to allow a subject to rescreen once for the study. Due to the nature
+    of the participant population and the study design, subject safety and data integrity
+    will not be impacted'', ''section'': ''Section 5''}, {''description'': ''Clarify
+    inclusion and exclusion criteria: \nMove exclusion criterion 18 to the inclusion
+    criteria and clarify the CYP450 enzymes that are excluded for exclusion criterion
+    19.'', ''rationale'': ''Previous exclusion 18 should be answered affirmatively
+    in order for the subject to be eligible for participation; as a result, this exclusion
+    should be listed as an inclusion. Exclusion 19 excluded all inducers of metabolism;
+    however, after consideration, it is only necessary to exclude inducers of CYP3A4.'',
+    ''section'': ''Section 5''}, {''description'': ''Clarify procedure for continuous
+    end tidal CO2:\nAdd clarification that subjects may remove cannula to dose or
+    eat'', ''rationale'': ''The timepoints overlap for the collection of end tidal
+    CO2 and it would not be possible for the subject to dose or eat with the cannula
+    in place.'', ''section'': ''Section 7''}, {''description'': ''Lower the respiratory
+    rate alarm for continuous end tidal CO2 alarms: \nThe alarm for respiratory rate
+    low was 10 bpm and is now 6 bpm.'', ''rationale'': ''Generally, respiratory rates
+    between 6 and 10 are not clinically relevant. A low respiratory rate alarm of
+    6 will allow a more accurate clinical determination of a true signal.'', ''section'':
+    ''Section 7''}, {''description'': ''Edit Spot CO2 respiratory rate values: \nThe
+    spot values are lowered to start at > 24, and continue with increments of 4 bpm:
+    >28, >32, and >36.'', ''rationale'': ''This change is made to align with the protocol,
+    Table 7, alarm values.'', ''section'': ''Section 9''}]}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Amendment reason 'Other' decoded as 'C17649', 'Other'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Amendment reason 'Not Applicable' decoded as 'C48660', 'Not Applicable'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _create_scope
+  message: Created scope of type Country -> [USA, United States of America]
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: 'Scopes created in assembler, geo: [GeographicScope(id=''GeographicScope_2'',
+    extensionAttributes=[], type=Code(id=''Code_53'', extensionAttributes=[], code=''C25464'',
+    codeSystem=''http://www.cdisc.org'', codeSystemVersion=''2025-09-26'', decode=''Country'',
+    instanceType=''Code''), code=AliasCode(id=''AliasCode_1'', extensionAttributes=[],
+    standardCode=Code(id=''Code_54'', extensionAttributes=[], code=''USA'', codeSystem=''ISO
+    3166 1 alpha3'', codeSystemVersion=''2020-08'', decode=''United States of America'',
+    instanceType=''Code''), standardCodeAliases=[], instanceType=''AliasCode''), instanceType=''GeographicScope'')],
+    sites: None'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _create_amendment_impact
+  message: 'Creating amendment impacts using {''safety_and_rights'': {''safety'':
+    {''substantial'': False, ''reason'': ''''}, ''rights'': {''substantial'': False,
+    ''reason'': ''''}}, ''reliability_and_robustness'': {''reliability'': {''substantial'':
+    False, ''reason'': ''''}, ''robustness'': {''substantial'': False, ''reason'':
+    ''''}}}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _extract_section_numer_and_title
+  message: 'Extracted section ref from ''Section 5'' -> {''sectionNumber'': ''5'',
+    ''sectionTitle'': '''', ''appliesToId'': ''StudyDefinitionDocument_1'', ''id'':
+    ''DocumentContentReference_1'', ''instanceType'': ''DocumentContentReference''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _extract_section_numer_and_title
+  message: 'Extracted section ref from ''Section 5'' -> {''sectionNumber'': ''5'',
+    ''sectionTitle'': '''', ''appliesToId'': ''StudyDefinitionDocument_1'', ''id'':
+    ''DocumentContentReference_2'', ''instanceType'': ''DocumentContentReference''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _extract_section_numer_and_title
+  message: 'Extracted section ref from ''Section 7'' -> {''sectionNumber'': ''7'',
+    ''sectionTitle'': '''', ''appliesToId'': ''StudyDefinitionDocument_1'', ''id'':
+    ''DocumentContentReference_3'', ''instanceType'': ''DocumentContentReference''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _extract_section_numer_and_title
+  message: 'Extracted section ref from ''Section 7'' -> {''sectionNumber'': ''7'',
+    ''sectionTitle'': '''', ''appliesToId'': ''StudyDefinitionDocument_1'', ''id'':
+    ''DocumentContentReference_4'', ''instanceType'': ''DocumentContentReference''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.amendments_assembler.AmenementsAssembler
+    method_name: _extract_section_numer_and_title
+  message: 'Extracted section ref from ''Section 9'' -> {''sectionNumber'': ''9'',
+    ''sectionTitle'': '''', ''appliesToId'': ''StudyDefinitionDocument_1'', ''id'':
+    ''DocumentContentReference_5'', ''instanceType'': ''DocumentContentReference''}'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.encoder.encoder.Encoder
+    method_name: phase
+  message: Trial phase '1' decoded as 'C15600', 'Phase 1', using M11 decode
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4.assembler.study_assembler.StudyAssembler
+    method_name: _get_study_name_label
+  message: Study name set to '8062CL2002'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''

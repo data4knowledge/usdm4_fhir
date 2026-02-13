@@ -1,0 +1,7 @@
+- level: Error
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: __init__
+  message: No amendment, original protocol
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''

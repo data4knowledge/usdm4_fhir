@@ -1,0 +1,119 @@
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: "Warning raised within Soup package, processing '\u2022\tSigned Informed\
+    \ Consent Form by any patient capable of giving consent, or, when the patient\
+    \ is not capable of giving consent, by his or her legal/authorized representative'\n\
+    Message returned 'The input looks more like a filename than markup. You may want\
+    \ to open this file and pass the filehandle into Beautiful Soup.'"
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: "Warning raised within Soup package, processing '\u2022\tSpO2 \uF0A3 93%\
+    \ or PaO2/FiO2 \uF03C 300 mmHg'\nMessage returned 'The input looks more like a\
+    \ filename than markup. You may want to open this file and pass the filehandle\
+    \ into Beautiful Soup.'"
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: "Warning raised within Soup package, processing '\u2022\tANC &lt; 1000/\uF06D\
+    L at screening (according to local laboratory reference ranges)'\nMessage returned\
+    \ 'The input looks more like a filename than markup. You may want to open this\
+    \ file and pass the filehandle into Beautiful Soup.'"
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Debug
+  location:
+    class_name: usdm4_fhir.m11.soup.soup
+    method_name: get_soup
+  message: "Warning raised within Soup package, processing '\u2022\tPlatelet count\
+    \ \uF03C 50,000/\uF06DL at screening (according to local laboratory reference\
+    \ ranges)'\nMessage returned 'The input looks more like a filename than markup.\
+    \ You may want to open this file and pass the filehandle into Beautiful Soup.'"
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: Amendment present based on original protocol value
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: First amendment detected '3'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _add_amendment_extension
+  message: Failed to create amendment extension 'rationale' with empty value ''
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _add_changes
+  message: No changed sections for change 'Additional secondary efficacy endpoint
+    of time to recovery was added'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _add_changes
+  message: No changed sections for change 'Text on the sample size and power calculation
+    was updated to incorporate the increased enrollment target to maintain 90% power
+    for the primary endpoint, as described in the SAP'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _add_changes
+  message: No changed sections for change 'Geographic stratification factors were
+    updated'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _section_map
+  message: Secton map result '5.4.3' -> ('C217346', 'Section 5')
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _add_changes
+  message: No changed sections for change 'The method of analysis for the primary
+    endpoint was updated'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _section_map
+  message: Secton map result '6.4.2' -> ('C217347', 'Section 6')
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _section_map
+  message: Secton map result '6.4.2' -> ('C217347', 'Section 6')
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _section_map
+  message: Secton map result '6.9' -> ('C217347', 'Section 6')
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''

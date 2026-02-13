@@ -1,0 +1,24 @@
+- level: Info
+  location: {}
+  message: Amendment present based on original protocol value
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
+  message: First amendment detected 'Amedment-1-FR'
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _section_map
+  message: Secton map result '5.1' -> ('C217346', 'Section 5')
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location:
+    class_name: usdm4_fhir.factory.research_study_factory_p3.ResearchStudyFactoryP3
+    method_name: _section_map
+  message: Secton map result '5.2' -> ('C217346', 'Section 5')
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''

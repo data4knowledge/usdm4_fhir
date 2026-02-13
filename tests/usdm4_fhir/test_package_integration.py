@@ -29,7 +29,7 @@ def run_to_m11_test(name, version, mode, save=False):
     result = fix_iso_dates(result)
     result = fix_uuid(result)
     pretty_result = json.dumps(json.loads(result), indent=2)
-    result_filename = f"{name}_fhir_m11.json"
+    result_filename = f"{name}_fhir.json"
     error_filename = f"{name}_errors.yaml"
     if save:
         write_json(_full_m11_path(result_filename, version, mode), result)
@@ -44,7 +44,7 @@ def run_to_m11_test(name, version, mode, save=False):
 
 
 async def run_from_m11_test(name: str, version: str, mode: str, save: bool = False):
-    filename = f"{name}_fhir_m11.json"
+    filename = f"{name}_fhir.json"
     instance = M11()
     wrapper: Wrapper = await instance.from_message(
         _full_m11_path(filename, version, mode), version
@@ -111,12 +111,12 @@ async def run_test_from_m11_prism3(name, save=False):
 # -----+-----
 
 
-def test_to_fhir_prism3_asp8062():
+def test_to_fhir_prism3_asp8063():
     run_test_to_m11_prism3("ASP8063", SAVE)
 
 
 @pytest.mark.anyio
-async def test_from_fhir_prism3_asp8062():
+async def test_from_fhir_prism3_asp8063():
     await run_test_from_m11_prism3("ASP8063", SAVE)
 
 

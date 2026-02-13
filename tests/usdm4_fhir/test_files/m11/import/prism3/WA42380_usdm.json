@@ -49,7 +49,7 @@
               "id": "StudyAmendmentReason_1",
               "extensionAttributes": [],
               "code": {
-                "id": "Code_36",
+                "id": "Code_31",
                 "extensionAttributes": [],
                 "code": "C17649",
                 "codeSystem": "http://www.cdisc.org",
@@ -65,7 +65,7 @@
                 "id": "StudyAmendmentReason_2",
                 "extensionAttributes": [],
                 "code": {
-                  "id": "Code_37",
+                  "id": "Code_32",
                   "extensionAttributes": [],
                   "code": "C17649",
                   "codeSystem": "http://www.cdisc.org",
@@ -208,7 +208,7 @@
                 "id": "StudyAmendmentImpact_1",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_39",
+                  "id": "Code_34",
                   "extensionAttributes": [],
                   "code": "C215665",
                   "codeSystem": "http://www.cdisc.org",
@@ -225,7 +225,7 @@
                 "id": "StudyAmendmentImpact_2",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_40",
+                  "id": "Code_35",
                   "extensionAttributes": [],
                   "code": "C215666",
                   "codeSystem": "http://www.cdisc.org",
@@ -242,7 +242,7 @@
                 "id": "StudyAmendmentImpact_3",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_41",
+                  "id": "Code_36",
                   "extensionAttributes": [],
                   "code": "C215667",
                   "codeSystem": "http://www.cdisc.org",
@@ -259,7 +259,7 @@
                 "id": "StudyAmendmentImpact_4",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_42",
+                  "id": "Code_37",
                   "extensionAttributes": [],
                   "code": "C215668",
                   "codeSystem": "http://www.cdisc.org",
@@ -278,7 +278,7 @@
                 "id": "GeographicScope_1",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_38",
+                  "id": "Code_33",
                   "extensionAttributes": [],
                   "code": "C68846",
                   "codeSystem": "http://www.cdisc.org",
@@ -308,7 +308,7 @@
                   "id": "GeographicScope_2",
                   "extensionAttributes": [],
                   "type": {
-                    "id": "Code_43",
+                    "id": "Code_38",
                     "extensionAttributes": [],
                     "code": "C68846",
                     "codeSystem": "http://www.cdisc.org",
@@ -342,22 +342,8 @@
           {
             "id": "StudyIdentifier_2",
             "extensionAttributes": [],
-            "text": "IND 148225",
-            "scopeId": "Organization_2",
-            "instanceType": "StudyIdentifier"
-          },
-          {
-            "id": "StudyIdentifier_3",
-            "extensionAttributes": [],
             "text": "2020-001154-22",
-            "scopeId": "Organization_3",
-            "instanceType": "StudyIdentifier"
-          },
-          {
-            "id": "StudyIdentifier_4",
-            "extensionAttributes": [],
-            "text": "NCT04320615",
-            "scopeId": "Organization_4",
+            "scopeId": "Organization_2",
             "instanceType": "StudyIdentifier"
           }
         ],
@@ -374,7 +360,7 @@
               "id": "AliasCode_1",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_45",
+                "id": "Code_40",
                 "extensionAttributes": [],
                 "code": "C15602",
                 "codeSystem": "http://www.cdisc.org",
@@ -445,7 +431,7 @@
                 "label": "Inclusion criterion 1 ",
                 "description": "",
                 "category": {
-                  "id": "Code_17",
+                  "id": "Code_12",
                   "extensionAttributes": [],
                   "code": "C25532",
                   "codeSystem": "http://www.cdisc.org",
@@ -467,7 +453,7 @@
                 "label": "Inclusion criterion 2 ",
                 "description": "",
                 "category": {
-                  "id": "Code_18",
+                  "id": "Code_13",
                   "extensionAttributes": [],
                   "code": "C25532",
                   "codeSystem": "http://www.cdisc.org",
@@ -489,7 +475,7 @@
                 "label": "Inclusion criterion 3 ",
                 "description": "",
                 "category": {
-                  "id": "Code_19",
+                  "id": "Code_14",
                   "extensionAttributes": [],
                   "code": "C25532",
                   "codeSystem": "http://www.cdisc.org",
@@ -511,7 +497,7 @@
                 "label": "Inclusion criterion 4 ",
                 "description": "",
                 "category": {
-                  "id": "Code_20",
+                  "id": "Code_15",
                   "extensionAttributes": [],
                   "code": "C25532",
                   "codeSystem": "http://www.cdisc.org",
@@ -533,7 +519,7 @@
                 "label": "Inclusion criterion 5 ",
                 "description": "",
                 "category": {
-                  "id": "Code_21",
+                  "id": "Code_16",
                   "extensionAttributes": [],
                   "code": "C25532",
                   "codeSystem": "http://www.cdisc.org",
@@ -555,7 +541,7 @@
                 "label": "Inclusion criterion 6 ",
                 "description": "",
                 "category": {
-                  "id": "Code_22",
+                  "id": "Code_17",
                   "extensionAttributes": [],
                   "code": "C25532",
                   "codeSystem": "http://www.cdisc.org",
@@ -577,7 +563,7 @@
                 "label": "Inclusion criterion 7 ",
                 "description": "",
                 "category": {
-                  "id": "Code_23",
+                  "id": "Code_18",
                   "extensionAttributes": [],
                   "code": "C25532",
                   "codeSystem": "http://www.cdisc.org",
@@ -599,7 +585,7 @@
                 "label": "Exclusion criterion 1 ",
                 "description": "",
                 "category": {
-                  "id": "Code_24",
+                  "id": "Code_19",
                   "extensionAttributes": [],
                   "code": "C25370",
                   "codeSystem": "http://www.cdisc.org",
@@ -621,7 +607,7 @@
                 "label": "Exclusion criterion 2 ",
                 "description": "",
                 "category": {
-                  "id": "Code_25",
+                  "id": "Code_20",
                   "extensionAttributes": [],
                   "code": "C25370",
                   "codeSystem": "http://www.cdisc.org",
@@ -643,7 +629,7 @@
                 "label": "Exclusion criterion 3 ",
                 "description": "",
                 "category": {
-                  "id": "Code_26",
+                  "id": "Code_21",
                   "extensionAttributes": [],
                   "code": "C25370",
                   "codeSystem": "http://www.cdisc.org",
@@ -665,7 +651,7 @@
                 "label": "Exclusion criterion 4 ",
                 "description": "",
                 "category": {
-                  "id": "Code_27",
+                  "id": "Code_22",
                   "extensionAttributes": [],
                   "code": "C25370",
                   "codeSystem": "http://www.cdisc.org",
@@ -687,7 +673,7 @@
                 "label": "Exclusion criterion 5 ",
                 "description": "",
                 "category": {
-                  "id": "Code_28",
+                  "id": "Code_23",
                   "extensionAttributes": [],
                   "code": "C25370",
                   "codeSystem": "http://www.cdisc.org",
@@ -709,7 +695,7 @@
                 "label": "Exclusion criterion 6 ",
                 "description": "",
                 "category": {
-                  "id": "Code_29",
+                  "id": "Code_24",
                   "extensionAttributes": [],
                   "code": "C25370",
                   "codeSystem": "http://www.cdisc.org",
@@ -731,7 +717,7 @@
                 "label": "Exclusion criterion 7 ",
                 "description": "",
                 "category": {
-                  "id": "Code_30",
+                  "id": "Code_25",
                   "extensionAttributes": [],
                   "code": "C25370",
                   "codeSystem": "http://www.cdisc.org",
@@ -753,7 +739,7 @@
                 "label": "Exclusion criterion 8 ",
                 "description": "",
                 "category": {
-                  "id": "Code_31",
+                  "id": "Code_26",
                   "extensionAttributes": [],
                   "code": "C25370",
                   "codeSystem": "http://www.cdisc.org",
@@ -775,7 +761,7 @@
                 "label": "Exclusion criterion 9 ",
                 "description": "",
                 "category": {
-                  "id": "Code_32",
+                  "id": "Code_27",
                   "extensionAttributes": [],
                   "code": "C25370",
                   "codeSystem": "http://www.cdisc.org",
@@ -797,7 +783,7 @@
                 "label": "Exclusion criterion 10 ",
                 "description": "",
                 "category": {
-                  "id": "Code_33",
+                  "id": "Code_28",
                   "extensionAttributes": [],
                   "code": "C25370",
                   "codeSystem": "http://www.cdisc.org",
@@ -819,7 +805,7 @@
                 "label": "Exclusion criterion 11 ",
                 "description": "",
                 "category": {
-                  "id": "Code_34",
+                  "id": "Code_29",
                   "extensionAttributes": [],
                   "code": "C25370",
                   "codeSystem": "http://www.cdisc.org",
@@ -841,7 +827,7 @@
                 "label": "Exclusion criterion 12 ",
                 "description": "",
                 "category": {
-                  "id": "Code_35",
+                  "id": "Code_30",
                   "extensionAttributes": [],
                   "code": "C25370",
                   "codeSystem": "http://www.cdisc.org",
@@ -862,7 +848,7 @@
             "instanceType": "InterventionalStudyDesign",
             "subTypes": [],
             "model": {
-              "id": "Code_44",
+              "id": "Code_39",
               "extensionAttributes": [],
               "code": "C82639",
               "codeSystem": "http://www.cdisc.org",
@@ -2198,30 +2184,6 @@
             "masking": null,
             "notes": [],
             "instanceType": "StudyRole"
-          },
-          {
-            "id": "StudyRole_3",
-            "extensionAttributes": [],
-            "name": "ROLE_3",
-            "label": null,
-            "description": null,
-            "code": {
-              "id": "Code_10",
-              "extensionAttributes": [],
-              "code": "C188863",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2025-09-26",
-              "decode": "Regulatory Agency",
-              "instanceType": "Code"
-            },
-            "appliesToIds": [],
-            "assignedPersons": [],
-            "organizationIds": [
-              "Organization_3"
-            ],
-            "masking": null,
-            "notes": [],
-            "instanceType": "StudyRole"
           }
         ],
         "organizations": [
@@ -2248,51 +2210,10 @@
           {
             "id": "Organization_2",
             "extensionAttributes": [],
-            "name": "FDA",
-            "label": "Food and Drug Administration",
-            "type": {
-              "id": "Code_8",
-              "extensionAttributes": [],
-              "code": "C188863",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2025-09-26",
-              "decode": "Regulatory Agency",
-              "instanceType": "Code"
-            },
-            "identifierScheme": "Health and Human Services, US Government",
-            "identifier": "FDA",
-            "legalAddress": {
-              "id": "Address_1",
-              "extensionAttributes": [],
-              "text": "10903 New Hampshire Ave, Silver Spring, MD, 20903, United States of America",
-              "lines": [
-                "10903 New Hampshire Ave"
-              ],
-              "city": "Silver Spring",
-              "district": "",
-              "state": "MD",
-              "postalCode": "20903",
-              "country": {
-                "id": "Code_6",
-                "extensionAttributes": [],
-                "code": "USA",
-                "codeSystem": "ISO 3166 1 alpha3",
-                "codeSystemVersion": "2020-08",
-                "decode": "United States of America",
-                "instanceType": "Code"
-              },
-              "instanceType": "Address"
-            },
-            "managedSites": [],
-            "instanceType": "Organization"
-          },
-          {
-            "id": "Organization_3",
-            "extensionAttributes": [],
             "name": "EMA",
             "label": "European Medicines Agency",
             "type": {
-              "id": "Code_11",
+              "id": "Code_8",
               "extensionAttributes": [],
               "code": "C188863",
               "codeSystem": "http://www.cdisc.org",
@@ -2303,7 +2224,7 @@
             "identifierScheme": "European Union",
             "identifier": "EMA",
             "legalAddress": {
-              "id": "Address_2",
+              "id": "Address_1",
               "extensionAttributes": [],
               "text": "Domenico Scarlattilaan 6, Amsterdam, 1083 HS, Netherlands",
               "lines": [
@@ -2314,54 +2235,12 @@
               "state": "",
               "postalCode": "1083 HS",
               "country": {
-                "id": "Code_9",
+                "id": "Code_6",
                 "extensionAttributes": [],
                 "code": "NLD",
                 "codeSystem": "ISO 3166 1 alpha3",
                 "codeSystemVersion": "2020-08",
                 "decode": "Netherlands",
-                "instanceType": "Code"
-              },
-              "instanceType": "Address"
-            },
-            "managedSites": [],
-            "instanceType": "Organization"
-          },
-          {
-            "id": "Organization_4",
-            "extensionAttributes": [],
-            "name": "CT.GOV",
-            "label": "ClinicalTrials.gov",
-            "type": {
-              "id": "Code_13",
-              "extensionAttributes": [],
-              "code": "C93453",
-              "codeSystem": "http://www.cdisc.org",
-              "codeSystemVersion": "2025-09-26",
-              "decode": "Clinical Study Registry",
-              "instanceType": "Code"
-            },
-            "identifierScheme": "National Institute of Health, US Government",
-            "identifier": "ClinicalTrials.gov",
-            "legalAddress": {
-              "id": "Address_3",
-              "extensionAttributes": [],
-              "text": "National Library of Medicine, 8600 Rockville Pike, Bethesda, MD, 20894, United States of America",
-              "lines": [
-                "National Library of Medicine",
-                "8600 Rockville Pike"
-              ],
-              "city": "Bethesda",
-              "district": "",
-              "state": "MD",
-              "postalCode": "20894",
-              "country": {
-                "id": "Code_12",
-                "extensionAttributes": [],
-                "code": "USA",
-                "codeSystem": "ISO 3166 1 alpha3",
-                "codeSystemVersion": "2020-08",
-                "decode": "United States of America",
                 "instanceType": "Code"
               },
               "instanceType": "Address"
@@ -2391,7 +2270,7 @@
         "label": "Protocol Document",
         "description": "Protocol Document",
         "language": {
-          "id": "Code_15",
+          "id": "Code_10",
           "extensionAttributes": [],
           "code": "en",
           "codeSystem": "ISO 639-1",
@@ -2400,7 +2279,7 @@
           "instanceType": "Code"
         },
         "type": {
-          "id": "Code_16",
+          "id": "Code_11",
           "extensionAttributes": [],
           "code": "C70817",
           "codeSystem": "http://www.cdisc.org",
@@ -2415,7 +2294,7 @@
             "extensionAttributes": [],
             "version": "3",
             "status": {
-              "id": "Code_14",
+              "id": "Code_9",
               "extensionAttributes": [],
               "code": "C25508",
               "codeSystem": "http://www.cdisc.org",
@@ -4633,5 +4512,5 @@
   },
   "usdmVersion": "4.0.0",
   "systemName": "USDM4 FHIR Package",
-  "systemVersion": "0.7.0"
+  "systemVersion": "0.8.0"
 }

@@ -16,17 +16,9 @@ class OrganizationFactory(BaseFactory):
             address = AddressFactory(
                 errors=self._errors, address=organization.legalAddress
             )
-            self._errors.debug(
-                f"Address created: {address} from {organization.legalAddress}",
-                KlassMethodLocation(self.MODULE, "__init__"),
-            )
             name = organization.label if organization.label else organization.name
             self.item = FHIROrganization(
                 id=str(uuid4()), name=name, contact=[{"address": address.item}]
-            )
-            self._errors.debug(
-                f"Organization created: {self.item}",
-                KlassMethodLocation(self.MODULE, "__init__"),
             )
         except Exception as e:
             self.handle_exception(self.MODULE, "__init__", e)

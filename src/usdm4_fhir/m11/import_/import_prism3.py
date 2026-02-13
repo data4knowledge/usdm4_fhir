@@ -221,7 +221,7 @@ class ImportPRISM3:
             }
             self._add_regualtory_identifer(
                 self._extract_fda_ind_identifier(research_study.identifier),
-                "fda",
+                "fda-ind",
                 result,
             )
             self._add_regualtory_identifer(
@@ -229,7 +229,7 @@ class ImportPRISM3:
             )
             self._add_regualtory_identifer(
                 self._extract_nct_identifier(research_study.identifier),
-                "ct.gov",
+                "nct",
                 result,
             )
             return result

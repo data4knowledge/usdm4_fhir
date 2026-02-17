@@ -311,8 +311,8 @@ class ResearchStudyFactoryP3(BaseFactory):
                 ap = AssociatedPartyFactory(
                     errors=self._errors,
                     party={"reference": f"Practitioner/{practitioner.item.id}"},
-                    role_code='C51876', 
-                    role_display='Sponsor Medical Expert'
+                    role_code="C51876",
+                    role_display="Sponsor Medical Expert",
                 )
                 self.item.associatedParty.append(ap.item)
                 self._resources.append(practitioner)

@@ -178,7 +178,9 @@ class ImportPRISM3:
                     },
                     "other": {
                         "sponsor_signatory": "",  # <<<<<
-                        "medical_expert": self._extract_medical_expert(research_study.associatedParty, bundle),
+                        "medical_expert": self._extract_medical_expert(
+                            research_study.associatedParty, bundle
+                        ),
                         "compound_codes": "",  # <<<<<
                         "compound_names": "",  # <<<<<
                     },
@@ -367,9 +369,7 @@ class ImportPRISM3:
         )
         return None
 
-    def _extract_medical_expert(
-        self, assciated_parties: list, bundle: Bundle
-    ) -> dict:
+    def _extract_medical_expert(self, assciated_parties: list, bundle: Bundle) -> dict:
         party: ResearchStudyAssociatedParty
         for party in assciated_parties:
             if self._is_medical_expert(party.role):
@@ -380,9 +380,7 @@ class ImportPRISM3:
                     name: HumanName = practitioner.name[0]
                     self._errors.info(
                         f"Extracted medical expert details, {name}",
-                        KlassMethodLocation(
-                            self.MODULE, "_extract_medical_expert"
-                        ),
+                        KlassMethodLocation(self.MODULE, "_extract_medical_expert"),
                     )
                     return {
                         "name": name.text,
@@ -440,9 +438,7 @@ class ImportPRISM3:
 
     def _is_medical_expert(self, role: CodeableConcept) -> bool:
         found = self._is_org_role(role, "C51876")
-        self._errors.info(
-            f"Medical expert {'found' if found else 'not found'}"
-        )
+        self._errors.info(f"Medical expert {'found' if found else 'not found'}")
         return found
 
     def _is_org_role(self, role: CodeableConcept, desired_role: str) -> bool:

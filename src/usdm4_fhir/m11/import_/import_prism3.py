@@ -11,6 +11,7 @@ from fhir.resources.researchstudy import (
     ResearchStudyAssociatedParty,
 )
 from fhir.resources.organization import Organization
+from fhir.resources.practitioner import Practitioner
 from fhir.resources.extension import Extension
 from fhir.resources.identifier import Identifier
 from fhir.resources.composition import Composition, CompositionSection
@@ -175,7 +176,6 @@ class ImportPRISM3:
                         ),
                     },
                     "other": {
-                        "regulatory_agency_identifiers": "",  # <<<<<
                         "sponsor_signatory": "",  # <<<<<
                         "medical_expert": "",  # <<<<<
                         "compound_codes": "",  # <<<<<
@@ -366,6 +366,32 @@ class ImportPRISM3:
         )
         return None
 
+    def _extract_medical_expert(
+        self, assciated_parties: list, bundle: Bundle
+    ) -> dict:
+        party: ResearchStudyAssociatedParty
+        for party in assciated_parties:
+            if self._is_medical_expert(party.role):
+                practitioner: Practitioner = self._extract_from_bundle_id(
+                    bundle, "Practitioner", party.party.reference
+                )
+                if practitioner:
+                    name = practitioner.name
+                    self._errors.info(
+                        f"Extracted medical expert details, {name}",
+                        KlassMethodLocation(
+                            self.MODULE, "_extract_medical_expert"
+                        ),
+                    )
+                    return {
+                        "name": name,
+                        "reference": None,
+                    }
+        self._errors.warning(
+            "Unable to extract medical expert details from associated parties"
+        )
+        return None
+
     def _to_address(self, address: dict) -> dict | None:
         keys = [
             ("city", "city"),
@@ -408,6 +434,13 @@ class ImportPRISM3:
         found = self._is_org_role(role, "Cnnnnn")
         self._errors.info(
             f"Device manufacturer sponsor org {'found' if found else 'not found'}"
+        )
+        return found
+
+    def _is_medical_expert(self, role: CodeableConcept) -> bool:
+        found = self._is_org_role(role, "C51876")
+        self._errors.info(
+            f"Medical expert {'found' if found else 'not found'}"
         )
         return found
 

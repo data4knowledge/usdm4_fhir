@@ -19,6 +19,7 @@ from usdm4_fhir.factory.label_type_factory import LabelTypeFactory
 from usdm4_fhir.factory.organization_factory import OrganizationFactory
 from usdm4_fhir.factory.associated_party_factory import AssociatedPartyFactory
 from usdm4_fhir.factory.identifier_factory import IdentifierFactory
+from usdm4_fhir.factory.practitioner_factory import PractionerFactory
 
 
 class ResearchStudyFactoryP3(BaseFactory):
@@ -302,9 +303,18 @@ class ResearchStudyFactoryP3(BaseFactory):
             # ap = AssociatedPartyFactory(party={'value': self._title_page['sponsor_signatory']}, role_code='sponsor-signatory', role_display='sponsor signatory')
             # self.item.associatedParty.append(ap.item)
 
-            # # Medical Expert Contact
-            # ap = AssociatedPartyFactory(party={'value': self._title_page['medical_expert_contact']}, role_code='medical-expert', role_display='medical-expert')
-            # self.item.associatedParty.append(ap.item)
+            # Medical Expert Contact
+            expert = self._version.medical_expert()
+            location = self._version.medical_expert_contact_details_location()
+            if expert:
+                practitioner = PractionerFactory(self._errors, expert)
+                ap = AssociatedPartyFactory(
+                    errors=self._errors,
+                    party={"reference": f"Practitioner/{practitioner.item.id}"},
+                    role_code='C51876', 
+                    role_display='Sponsor Medical Expert'
+                )
+                self.item.associatedParty.append(ap.item)
 
         except Exception as e:
             self.handle_exception(self.MODULE, "__init__", e)

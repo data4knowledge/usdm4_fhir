@@ -305,7 +305,7 @@ class ResearchStudyFactoryP3(BaseFactory):
 
             # Medical Expert Contact
             expert = self._version.medical_expert()
-            location = self._version.medical_expert_contact_details_location()
+            # location = self._version.medical_expert_contact_details_location()
             if expert:
                 practitioner = PractionerFactory(self._errors, expert)
                 ap = AssociatedPartyFactory(

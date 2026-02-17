@@ -1,5 +1,4 @@
 from simple_error_log import Errors
-from simple_error_log.error_location import KlassMethodLocation
 from usdm4_fhir.factory.base_factory import BaseFactory
 from fhir.resources.organization import Organization as FHIROrganization
 from usdm4.api.organization import Organization as USDMOrganization

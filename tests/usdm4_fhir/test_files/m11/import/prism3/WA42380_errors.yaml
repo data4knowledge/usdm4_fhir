@@ -57,6 +57,16 @@
   type: ''
 - level: Info
   location: {}
+  message: Medical expert not found
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Warning
+  location: {}
+  message: Unable to extract medical expert details from associated parties
+  timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn
+  type: ''
+- level: Info
+  location: {}
   message: 'Scope extracted {''global'': True, ''countries'': [], ''regions'': [],
     ''sites'': [], ''unknown'': []}'
   timestamp: YYYY-MM-DD HH:MM:SS.nnnnnn

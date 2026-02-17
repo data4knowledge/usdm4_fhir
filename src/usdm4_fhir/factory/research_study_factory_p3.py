@@ -315,6 +315,7 @@ class ResearchStudyFactoryP3(BaseFactory):
                     role_display='Sponsor Medical Expert'
                 )
                 self.item.associatedParty.append(ap.item)
+                self._resources.append(practitioner)
 
         except Exception as e:
             self.handle_exception(self.MODULE, "__init__", e)

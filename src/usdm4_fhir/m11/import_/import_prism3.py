@@ -12,6 +12,7 @@ from fhir.resources.researchstudy import (
 )
 from fhir.resources.organization import Organization
 from fhir.resources.practitioner import Practitioner
+from fhir.resources.humanname import HumanName
 from fhir.resources.extension import Extension
 from fhir.resources.identifier import Identifier
 from fhir.resources.composition import Composition, CompositionSection
@@ -177,7 +178,7 @@ class ImportPRISM3:
                     },
                     "other": {
                         "sponsor_signatory": "",  # <<<<<
-                        "medical_expert": "",  # <<<<<
+                        "medical_expert": self._extract_medical_expert(research_study.associatedParty, bundle),
                         "compound_codes": "",  # <<<<<
                         "compound_names": "",  # <<<<<
                     },
@@ -376,7 +377,7 @@ class ImportPRISM3:
                     bundle, "Practitioner", party.party.reference
                 )
                 if practitioner:
-                    name = practitioner.name
+                    name: HumanName = practitioner.name[0]
                     self._errors.info(
                         f"Extracted medical expert details, {name}",
                         KlassMethodLocation(
@@ -384,7 +385,7 @@ class ImportPRISM3:
                         ),
                     )
                     return {
-                        "name": name,
+                        "name": name.text,
                         "reference": None,
                     }
         self._errors.warning(
